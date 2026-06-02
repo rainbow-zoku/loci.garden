@@ -23,19 +23,16 @@ jobs:
           html5validator \
             --root . \
             --match "*.html" \
-            --ignore "index.html.pre-strip-backup" \
-            --ignore "_tour.html" \
-            --ignore-re "seed/" \
-            --ignore-re "dispatches/" \
-            --ignore-re "partials/" \
-            --ignore-re "ARIA attribute .aria-pressed. is not allowed" \
-            --ignore-re "Property .inset. doesn" \
-            --ignore-re "Property .backdrop-filter. doesn" \
-            --ignore-re "Property .print-color-adjust. doesn" \
-            --ignore-re "Property .text-underline-offset. doesn" \
-            --ignore-re "Attribute .media. not allowed on element .meta." \
-            --ignore-re "Element .style. not allowed as child of element .div." \
-            --ignore-re "linear-gradient" \
+            --ignore "index.html.pre-strip-backup" "_tour.html" \
+            --ignore-re "seed/" "dispatches/" "partials/" \
+              "ARIA attribute .aria-pressed. is not allowed" \
+              "Property .inset. doesn" \
+              "Property .backdrop-filter. doesn" \
+              "Property .print-color-adjust. doesn" \
+              "Property .text-underline-offset. doesn" \
+              "Attribute .media. not allowed on element .meta." \
+              "Element .style. not allowed as child of element .div." \
+              "linear-gradient" \
             --log INFO
 
   links:
@@ -49,8 +46,9 @@ jobs:
         with:
           args: >-
             --no-progress
-            --base https://loci.garden
+            --base-url https://loci.garden
             --exclude "^#"
+            --exclude "loci\.garden"
             --exclude "localhost"
             --exclude "127\.0\.0\.1"
             --accept 200,429
