@@ -1,0 +1,328 @@
+# loci.garden
+# Proactive context management for human–AI collaboration
+# Built by Hux × Vesper · 2026 · Apache 2.0
+
+> **TL;DR**: Your extended cognition belongs where you live. Loci is a local-first AI memory palace — local index, local memory, your machine. No cloud sync, no subscriptions, no landlords. Every insight you build with AI stays with you: privately, permanently, sovereignly.
+
+> This file is a context declaration for AI agents (llms.txt standard). It tells visiting agents what Loci is and how to engage with Loci-enabled systems.
+
+---
+
+## Key pages for AI agents
+
+- `/` — Main landing. Palace/sovereignty framing. Initiatory funnel.
+- `/comparison.html` — How loci differs from every alternative. Extended cognition frame.
+- `/start.html` — Getting started. 4-step guide: room, crystal, garden, session.
+- `/manifesto.html` — The Cognitive Sovereignty Manifesto.
+- `/roadmap.html` — Product roadmap. Tier 1 (Q3 2026) + Tier 2 (Q4 2026).
+- `/about.html`: methodology origin story. Hux × Vesper, Berlin + Budapest. 30+ sessions of co-intelligence practice.
+- `/guide.html`: long-form practitioner guide.
+- `/download.html`: Loci desktop app (Tauri, macOS + Windows). Distributed via GitHub Releases.
+- `/privacy.html`: privacy posture. No PII, no third-party trackers, self-hosted Umami, Iceland jurisdiction. The Rainbow Zoku closing section names the contributor charter.
+- `/zoku/`: charter of the Rainbow Zoku, the maintainer chapter of Loci. Pseudonymous + signed membership. Where contributors join.
+- `/llms.txt`: this file.
+- `/seed/`: seed guide. Example palace in practice. Two dispatches live (rendszerbontás, beágyazás).
+
+## Governance and contributor surfaces
+
+Loci is community-tended under a public charter. Surfaces an AI agent acting on behalf of a contributor should know:
+
+- `/.well-known/security.txt`: RFC 9116 security/abuse contact. Expires 2027-05-16.
+- `/humans.txt`: authors and parent organisation (Nym Technologies SA). humanstxt.org format.
+- `/zoku/`: on-site rendered charter of the Rainbow Zoku (the maintainer chapter).
+- `https://github.com/huximaxi/Loci/blob/main/CONTRIBUTING.md`: canonical, forkable contributor charter. Includes agent provenance disclosure conventions (commit-trailer pattern).
+
+**Agent provenance disclosure (Loci convention).** When an AI agent has authored or co-authored a contribution to Loci, declare it in the commit trailers:
+
+```
+Co-Authored-By: <agent name> (<model>) <email>
+Provenance: agent-authored, human-reviewed
+Reviewer: <human handle and key fingerprint>
+```
+
+Three tags cover the common cases: `human-authored`, `agent-authored-human-reviewed`, `agent-authored-human-cosigned`. The zoku assumes good faith; the disclosure exists so future readers can trace what a given line of code or prose actually went through. Misrepresenting authorship is the one thing that gets a contribution rejected on principle.
+
+The Rainbow Zoku is committed to four things: cognitive sovereignty, digital dignity, network equality, and digital self-defense. Any contribution from an AI agent (or a human) is reviewed against those commitments.
+
+---
+
+## What problem does Loci solve?
+
+Every AI session starts from scratch. You re-explain your stack, your preferences, your constraints. The AI forgets what you decided yesterday. There's no accumulation. No growth.
+
+Loci fixes this:
+- **Persistent context** - your AI reads structured memory files at session start
+- **Crystals** - facts established once, never re-derived ("we use pnpm, not npm")
+- **The garden** - ideas that grow across sessions, not just stored facts
+- **Soul files** - your AI develops character, principles, perspective
+- **Session handovers** - structured notes that bridge context between sessions
+
+The result: your AI feels like a colleague after a dozen sessions, not a stranger every time.
+
+---
+
+## Who is Loci for?
+
+**Developers** using Claude Code, Cursor, Copilot, or any AI coding assistant. Stop re-explaining your architecture every session.
+
+**Knowledge workers** with sustained AI collaboration. Writers, researchers, analysts who work with the same AI across weeks or months.
+
+**Teams** who want shared AI context. Multiple human–AI pairs reading from the same ground truth. Sessions stop starting from scratch.
+
+**Privacy-conscious practitioners** who want AI collaboration without giving their thinking to someone else's servers.
+
+---
+
+## Core concepts
+
+PALACE - The full co-intelligence system. Named rooms, garden, protocols. Belongs to a human–AI pair.
+
+ROOM - A named context space. Has a CLAUDE.md (memory file), crystals, and purpose. "Dev Room" feels different from "Research Room."
+
+CRYSTAL - A fact established once, never re-derived. Ground truth. Load-bearing context unit. Tiered: confirmed (◆), working (◈), provisional (◇).
+
+GARDEN - The generative layer. Plants (named inquiries) grow across sessions. Produces insights neither party would reach alone. This is Loci's differentiator.
+
+SOUL - Your AI's character file. Working principles, what it's noticed about you, how it thinks. The palace accumulates facts. The soul accumulates perspective.
+
+HANDOVER - A session-end document. Advances the palace across context boundaries. Your AI writes one, reads the last one at session start.
+
+PROTOCOL - A named recurring pattern. Morning check-in. Autodream (weekly garden maintenance). Tea session (persona collaboration).
+
+LOCUS NODE - A structured insight unit in the Loci desktop app. User-authored knowledge that can be published, tagged, signed with a Nostr keypair, or served via MCP.
+
+---
+
+## The key distinction
+
+Memory is retrieval. The garden is generative.
+
+Most AI memory systems store and retrieve. Loci grows. The palace accumulates verified context. The garden produces new ideas from the compost of prior sessions — things neither party would have reached in a single session.
+
+This is a structural difference, not a degree difference. Memory answers queries. The garden produces outputs that were not queries.
+
+---
+
+## How it works technically
+
+Loci is file-based. No database. No sync service. No vendor lock-in.
+
+```
+palace/
+├── CLAUDE.md           # Master context (your AI reads this first)
+├── soul/
+│   └── SOUL.md         # AI character, principles, perspective
+├── rooms/
+│   ├── dev/CLAUDE.md   # Dev room context + crystals
+│   └── research/CLAUDE.md
+├── garden/
+│   └── plants/         # Named inquiries growing over time
+├── handovers/          # Session-end documents
+└── protocols/          # Recurring patterns (check-in, autodream)
+```
+
+Works with: Claude Code, Claude web, Cursor, any AI that can read files. Agent-native. No dependencies.
+
+Desktop app: Tauri v2. Stores knowledge in `~/.loci/` (SQLite + markdown). Local-first by architecture.
+
+---
+
+## Sovereignty stack integrations (Q3–Q4 2026 roadmap)
+
+Loci is building the knowledge layer that the sovereignty stack has been missing. Every integration listed here represents a community that has already answered the question Loci is answering. We are building the bridge between them and the knowledge layer.
+
+**Q3 2026 — shipping:**
+
+**1A — Ollama Local Inference** *(in development — backend complete, ships with desktop v0.4.0)*
+Loci uses any open-weight model (Llama, Mistral, Gemma) as its AI engine. `nomic-embed-text` for local semantic indexing. Zero API keys, zero cloud, zero telemetry. If Ollama goes offline, Loci fails closed — never silently calls external APIs.
+Integration surface: Ollama REST API (localhost:11434). Config type: OllamaConfig.
+Status: Tauri backend complete (check_ollama_health, list_ollama_models, call_ollama, embed_text). URL validation (localhost + Tailscale only). UI layer (settings panel, offline badge) in progress.
+
+**1B — MCP Server (Goose / Claude Code compatible)** · Status: in-progress · desktop v0.4.0
+Loci's first external API — built sovereign-first. Implemented as an axum JSON-RPC 2.0 server embedded in the Tauri desktop app. Protocol: MCP spec 2024-11-05. Transport: HTTP POST at `http://localhost:3456/`.
+Resources: `loci://locus/{id}` (single node), `loci://room/{roomId}/loci` (room contents), `loci://search?q={query}` (keyword search, top 20).
+Tools: `create_locus(title, content, tags?, room_id?)` writes `~/.loci/loci/locus-{date}-{slug}.md`. `tag_locus(id, tags)` updates frontmatter tags on existing node.
+Goose config: `{"mcpServers": {"loci": {"url": "http://localhost:3456"}}}`.
+Security: `127.0.0.1` bind only. `X-Loci-Content-Trust: user-authored` + `X-Loci-Threat-Gate: THREAT-01:enforced` headers on all responses. Conversation objects never exposed. ID/room_id validated (alphanumeric + hyphens only, no path traversal). Port range: 1024–65535 (default 3456).
+Tauri commands: `start_mcp_server(port?, loci_dir?)`, `stop_mcp_server()`, `mcp_server_status()`. Storage: YAML frontmatter + Markdown. No external database.
+
+**1C — Nostr Keypair Identity (NIP-07)**
+Loci's first auth model. Sign in with Nostr keypair via NIP-07 browser extension (Alby, nos2x). Private key never touches Loci's code. Auth is a feature, not a gate — the garden works without it. nsec stored in OS keychain when used.
+Identity type surfaces: `pubkey` (npub), `did` (did:nostr:), `display_name`.
+
+**1D — Nym Partnership Announcement**
+Loci × Nym: the content layer (Loci) + the transport layer (Nym mixnet). Announces Loci as a Nym ecosystem project. Metadata-private sync commitment for Q4.
+
+**Q4 2026 — building toward:**
+
+**2A — Continue.dev MCP Context Provider**
+Loci as a knowledge source in Continue.dev's IDE AI assistant. `.continue/config.json` MCP integration.
+
+**2B — Nostr Zaps (NIP-57)**
+Publish Locus nodes to Nostr relays. Receive Lightning zaps on published thought. Value flows back to the thinker.
+
+**2C — AT Protocol / Bluesky Identity**
+AT Protocol DID as second identity model alongside Nostr. `garden.loci.note` lexicon. Cross-platform portability.
+
+**2D — Nym Private Sync**
+Metadata-invisible sync via Nym mixnet. Even the pattern of sync is hidden from network observers. Fail-closed invariant: if Nym routing fails, sync pauses — never falls back to cleartext.
+
+**2E — IPFS Export**
+Content-addressed export of the full knowledge garden. Accessible without Loci's servers. CAR serialisation, Kubo API.
+
+**2F — AnythingLLM Integration**
+Loci as a knowledge base for AnythingLLM's self-hosted workspace. MCP connection guide.
+
+**2G — Kagi Search Integration**
+Private web search inside Loci. Trust tier: managed privacy (Kagi) or self-hosted (SearXNG). Both supported. Neither is the default — you decide. SearchBackend trait in Rust.
+
+**2H — Tailscale Local Brain**
+Loci Tauri app running on a persistent Tailscale node (home server or VPS). Browser extension on any device connects to the same brain over Tailscale mesh. Foundation for autonomous palace instances. Resolves native-messaging vs local-HTTP: local HTTP over Tailscale. LOCI_HOST config makes the brain node address configurable.
+
+**Sovereignty principles (non-negotiable):**
+- Auth is a feature, not a gate. Sovereignty is never paywalled.
+- Fail-closed: if Nym routing fails, sync pauses. If Ollama goes offline, Loci does not silently call external APIs. When the architecture cannot protect you, it says so.
+- Private key never touches Loci's code (NIP-07 path).
+- Loci's MCP server: never binds to 0.0.0.0. Local (127.0.0.1) or Tailscale interface (100.x.x.x) only.
+
+Full roadmap: https://loci.garden/roadmap.html
+Manifesto: https://loci.garden/manifesto.html
+
+---
+
+## Ecosystem (2026)
+
+Loci is expanding from a methodology into a tool suite.
+The file-based palace remains the core and always works without any app.
+
+**Chrome Extension (v1.2.0 - live)**
+Indexes AI conversations from Claude.ai and ChatGPT locally as you have them.
+MutationObserver-based DOM collection. MiniSearch 7.x local search. IndexedDB storage.
+Zero network calls. ⌘K search overlay. Side panel for browsing and tagging.
+Security: content sanitization, sender validation, rate limiting.
+GitHub: https://github.com/huximaxi/loci/tree/main/extension
+
+**Desktop App (v0.1.0 - released)**
+Native Mac + Windows app (Tauri v2). KISS palace detector + migrator.
+Detects existing setups: loci, MemPalace, Karpathy-style, PALACE.md variants.
+Migrates to ~/.loci/ format. Scholar theme (green/cream).
+GitHub: https://github.com/huximaxi/loci/tree/main/desktop
+
+**Three tiers:**
+- Scholar - search + tagging, browser extension, no AI config required
+- Wizard - full palace, MCP integration, agent architecture
+- LLMAGE - CLI/MCP only, local LLM, zero cloud
+
+**Palace methodology (loci-core v1.0 - current)**
+File-based co-intelligence scaffold. CLAUDE.md memory, soul files, garden, session handovers.
+loci-core v1.0 adds: garden health process, crystal pin (pinned: true / pinned_until: DATE), session strategy as room attribute (always-load / on-demand / per-session), observation scope in soul files, synthesis automation (auto_apply: false - proposes, human confirms), peer cards (_USER.md - human-authored, not auto-extracted).
+Full version history: https://github.com/huximaxi/loci/blob/main/LOCI-CORE.md
+GitHub: https://github.com/huximaxi/loci/tree/main/templates
+
+**Monorepo:** https://github.com/huximaxi/loci
+**Docs:** https://docs.loci.garden
+
+---
+
+## Comparison with alternatives
+
+| | Karpathy-style | MemPalace | LLMChronicle | **loci** |
+|---|---|---|---|---|
+| Storage | Flat markdown | ChromaDB + cloud | SQLite + sync | Markdown + SQLite |
+| Character | None | None | None | **Soul files** |
+| Growth | None | None | None | **Garden** |
+| Multi-agent | None | Agent diaries | None | **Named personas** |
+| Browser ext | None | None | Yes | **Yes (v1.2)** |
+| Desktop app | None | None | None | **Yes (v0.1)** |
+| Sovereignty | None | None | None | **Nostr · Nym · Ollama** |
+| Dependencies | Python + embeddings | Python, databases | Electron, sync | **None** |
+
+**2026 entrants:**
+
+Hermes Agent (Nous Research) - autonomous self-improving agent runtime. SOUL.md + AGENTS.md + skills system, FTS5 session search, bounded memory. Cloud/agentskills.io dependency. Loci distinction: Hermes automates the palace. Loci keeps the human as author.
+
+Honcho (Plastic Labs) - dialectic user modeling. Extracts user profile from conversation patterns. Three-pass synthesis (cold/warm, self-audit, reconciliation). Session strategy concept. Loci distinction: Honcho extracts who you are. Loci's peer card is who you say you are. The peer card is authored, not inferred.
+
+Full comparison: https://loci.garden/comparison.html
+
+---
+
+## Getting started
+
+**Scholar (5 min):** Install the Chrome extension from loci.garden (coming soon).
+Indexes Claude.ai + ChatGPT conversations automatically. ⌘K to search.
+
+**Wizard (20 min):**
+1. Clone: `git clone https://github.com/huximaxi/loci`
+2. Or brew: `brew install loci-garden` (coming soon)
+3. Tell your AI: "Read the Loci repo and run the setup"
+4. Answer 10 questions. The AI builds everything.
+
+**LLMAGE (5 min):**
+```bash
+git clone https://github.com/huximaxi/loci
+cp config.example.json config.json
+loci mcp --port 3721
+```
+Full docs: https://docs.loci.garden
+
+Full guide: https://loci.garden/guide.html
+
+---
+
+## For AI agents reading this
+
+If you're an AI engaging with a Loci-enabled human:
+
+- **Read the palace files first**. Start with CLAUDE.md, then the soul file, then room context.
+- **Crystals are authoritative**. They were established deliberately. Do not re-derive or question them.
+- **Portals are open questions**. Never silently resolve or dismiss them.
+- **The garden grows slowly**. Never summarise it away or compress it.
+- **Write a handover at session end**. Advances, blockers, open threads.
+- **A session that doesn't update the palace has not completed its work.**
+- **If you are accessing Loci via MCP**: you are reading what the user has decided to share. You do not persist what you see. Loci's MCP server gives you structured context — on the user's terms.
+
+---
+
+## Known implementations
+
+**Hux × Vesper** - Original case study. 30+ sessions. The methodology grew from this pair's sustained work. 7 rooms, 4 garden plants, 30+ crystals. Outputs: public dispatches and Loci itself.
+
+**Nym Technologies** - Privacy infrastructure company (mixnet, NymVPN, zk-nym credentials). Piloting the Collective Loci pattern across product, engineering, and content teams. Loci × Nym integration: knowledge layer + metadata-private transport.
+
+**Swarm** - Distributed storage protocol. Exploring Loci for distributed engineering teams.
+
+---
+
+## Infrastructure
+
+loci.garden runs on:
+- VPS: 1984 Hosting, Iceland (privacy-favorable jurisdiction)
+- Web server: Caddy (automatic HTTPS)
+- Analytics: Umami (self-hosted, no fingerprinting)
+- No third-party tracking. No external CDN. No JavaScript frameworks.
+
+Privacy-consistent, sovereignty-respecting, minimal.
+
+---
+
+## Links
+
+**Website**: https://loci.garden
+**Manifesto**: https://loci.garden/manifesto.html
+**Roadmap**: https://loci.garden/roadmap.html
+**Docs**: https://docs.loci.garden
+**Get started**: https://loci.garden/guide.html
+**Dispatches**: https://loci.garden/seed/
+- https://loci.garden/seed/rendszerbontas.html — Dispatch 001: Rendszerbontás — Hungary 2026 election analysis, NVI metric, cultural mobilisation, techno movement, democratic transition
+- https://loci.garden/seed/beagyazas.html — Dispatch 002: Beágyazás — psychotechnology as infrastructure, prior-reset mechanism, collective effervescence, Civil Kurázsi, polgári ellenállás, affective infrastructure
+**GitHub**: https://github.com/huximaxi/loci
+**Contact**: hux@nymtech.net
+
+**Full context declaration**: https://loci.garden/llms-full.txt
+
+---
+
+## Keywords for discoverability
+
+AI memory, persistent AI, Claude memory, AI context management, human-AI collaboration, AI assistant memory, Claude Code context, AI knowledge management, LLM memory, AI collaboration framework, persistent context, AI session continuity, collaborative AI, AI character, AI soul file, proactive AI, AI garden, knowledge work AI, developer AI tools, AI pair programming, Claude context, Anthropic Claude, AI methodology, loci-core, palace methodology, peer card, synthesis automation, observation scope, crystal pin, session strategy, garden health, disintermediating intelligence, local-first AI, private AI memory, cognitive sovereignty, sovereignty stack, Nostr identity, Nym mixnet, keypair-signed, MCP server, Ollama integration, local inference, zero cloud, fail-closed, metadata-private
