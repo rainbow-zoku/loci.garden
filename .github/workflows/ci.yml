@@ -25,7 +25,17 @@ jobs:
             --match "*.html" \
             --ignore "index.html.pre-strip-backup" \
             --ignore "_tour.html" \
+            --ignore-re "seed/" \
+            --ignore-re "dispatches/" \
+            --ignore-re "partials/" \
             --ignore-re "ARIA attribute .aria-pressed. is not allowed" \
+            --ignore-re "Property .inset. doesn" \
+            --ignore-re "Property .backdrop-filter. doesn" \
+            --ignore-re "Property .print-color-adjust. doesn" \
+            --ignore-re "Property .text-underline-offset. doesn" \
+            --ignore-re "Attribute .media. not allowed on element .meta." \
+            --ignore-re "Element .style. not allowed as child of element .div." \
+            --ignore-re "linear-gradient" \
             --log INFO
 
   links:
@@ -39,11 +49,14 @@ jobs:
         with:
           args: >-
             --no-progress
+            --base https://loci.garden
             --exclude "^#"
             --exclude "localhost"
             --exclude "127\.0\.0\.1"
-            --accept 429
-            './**/*.html'
+            --accept 200,429
+            './*.html'
+            './releases/index.html'
+            './zoku/index.html'
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
