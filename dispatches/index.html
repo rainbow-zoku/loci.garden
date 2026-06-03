@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="scholar" lang="en">
 <head>
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dispatches · loci.garden</title>
@@ -9,6 +12,7 @@
   <link rel="canonical" href="https://loci.garden/dispatches/">
   <meta name="robots" content="index, follow">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="AI context declaration for loci.garden">
+  <link rel="stylesheet" href="../tokens.css">
   <link rel="stylesheet" href="../loci.css">
   <script src="../skin-toggle.js" defer></script>
   <script defer src="https://analytics.195-246-230-118.sslip.io/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
