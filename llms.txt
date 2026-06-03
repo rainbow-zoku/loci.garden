@@ -11,7 +11,6 @@
 ## Key pages for AI agents
 
 - `/` — Main landing. Palace/sovereignty framing. Initiatory funnel.
-- `/comparison.html` — How loci differs from every alternative. Extended cognition frame.
 - `/start.html` — Getting started. 4-step guide: room, crystal, garden, session.
 - `/manifesto.html` — The Cognitive Sovereignty Manifesto.
 - `/roadmap.html` — Product roadmap. Tier 1 (Q3 2026) + Tier 2 (Q4 2026).
@@ -243,7 +242,6 @@ Hermes Agent (Nous Research) - autonomous self-improving agent runtime. SOUL.md 
 
 Honcho (Plastic Labs) - dialectic user modeling. Extracts user profile from conversation patterns. Three-pass synthesis (cold/warm, self-audit, reconciliation). Session strategy concept. Loci distinction: Honcho extracts who you are. Loci's peer card is who you say you are. The peer card is authored, not inferred.
 
-Full comparison: https://loci.garden/comparison.html
 
 ---
 
