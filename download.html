@@ -5,11 +5,12 @@
 (function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
 </script>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23ffcc44'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%23e8861a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23c87c2c'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%237a3a08'/%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Download loci, local-first AI memory</title>
-  <meta name="description" content="Download loci v0.2.0, the palace-migration desktop app for macOS and Windows. Detect, migrate, and inhabit your AI memory palace.">
+  <meta name="description" content="Download loci v0.6.0, the palace-migration desktop app for macOS and Windows. Detect, migrate, and inhabit your AI memory palace.">
   <meta property="og:title" content="Download loci, local-first AI memory">
-  <meta property="og:description" content="loci v0.2.0. macOS Universal and Windows. Detect and migrate your AI memory palace.">
+  <meta property="og:description" content="loci v0.6.0. macOS Universal and Windows. Detect and migrate your AI memory palace.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://loci.garden/download.html">
   <meta property="og:site_name" content="loci.garden">
@@ -58,13 +59,13 @@
     }
 
     .dl-crystal-hero svg {
-      filter: drop-shadow(0 0 18px rgba(200,124,44,0.55));
+      filter: drop-shadow(0 0 18px var(--accent-glow));
       animation: crystal-ambient 2.5s ease-in-out infinite;
     }
 
     @keyframes crystal-ambient {
-      0%, 100% { filter: drop-shadow(0 0 10px rgba(200,124,44,0.55)); }
-      50%       { filter: drop-shadow(0 0 24px rgba(200,124,44,0.85)); }
+      0%, 100% { filter: drop-shadow(0 0 10px var(--accent-glow)); }
+      50%       { filter: drop-shadow(0 0 24px var(--accent-glow)); }
     }
 
     .dl-crystal-tagline {
@@ -293,19 +294,19 @@
 
       <div class="dl-eyebrow">loci · desktop app</div>
       <div class="dl-title">Bring the palace home</div>
-      <div class="dl-version">v0.2.0 · 2026-05-06 · Apache 2.0 &nbsp;<span style="display:inline-block;font-family:var(--mono);font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(200,124,44,0.1);border:1px solid rgba(200,124,44,0.3);padding:0.1rem 0.4rem;vertical-align:middle;">public beta</span></div>
+      <div class="dl-version">v0.6.0 · Apache 2.0 &nbsp;<span style="display:inline-block;font-family:var(--mono);font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(200,124,44,0.1);border:1px solid rgba(200,124,44,0.3);padding:0.1rem 0.4rem;vertical-align:middle;">public beta</span></div>
 
       <div class="dl-crystal-hero">
         <svg viewBox="0 0 32 43" width="72" height="97" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
-          <polygon points="16,2  23,11 16,8  9,11"  fill="#ffee99"/>
-          <polygon points="9,11  16,8  16,30 3,21"  fill="#e8861a"/>
-          <polygon points="23,11 16,8  16,30 29,21" fill="#ffcc44"/>
-          <polygon points="3,21  16,30 16,38 8,28"  fill="#c87c2c"/>
-          <polygon points="29,21 16,30 16,38 24,28" fill="#e8861a"/>
-          <polygon points="8,28  16,38 24,28 16,42" fill="#7a3a08"/>
+          <polygon points="16,2  23,11 16,8  9,11"  fill="var(--accent-xlight)"/>
+          <polygon points="9,11  16,8  16,30 3,21"  fill="var(--accent)"/>
+          <polygon points="23,11 16,8  16,30 29,21" fill="var(--accent-light)"/>
+          <polygon points="3,21  16,30 16,38 8,28"  fill="var(--accent)"/>
+          <polygon points="29,21 16,30 16,38 24,28" fill="var(--accent-light)"/>
+          <polygon points="8,28  16,38 24,28 16,42" fill="var(--accent)"/>
           <polygon points="14,3  18,9  16,8"        fill="rgba(255,255,255,0.55)"/>
           <polygon points="11,13 15,10 13,20"       fill="rgba(255,255,255,0.25)"/>
-          <rect    x="15" y="15" width="2" height="4" fill="rgba(255,238,153,0.6)"/>
+          <rect    x="15" y="15" width="2" height="4" fill="rgba(255,255,255,0.6)"/>
         </svg>
         <div class="dl-crystal-tagline">Detect · Migrate · Inhabit</div>
       </div>
@@ -314,7 +315,7 @@
         <a
           href="https://github.com/rainbow-zoku/loci-garden/releases"
           class="dl-btn-card"
-          title="Download loci wizard for macOS (Universal)"
+          title="Download loci for macOS (Universal)"
         >
           <div class="dl-os">macOS</div>
           <div class="dl-format">Universal Binary</div>
@@ -324,7 +325,7 @@
         <a
           href="https://github.com/rainbow-zoku/loci-garden/releases"
           class="dl-btn-card"
-          title="Download loci wizard for Windows"
+          title="Download loci for Windows"
         >
           <div class="dl-os">Windows</div>
           <div class="dl-format">x64 Installer</div>
@@ -342,7 +343,7 @@
 
       <div class="dl-source-row">
         <a href="https://github.com/rainbow-zoku/loci-garden/releases" class="dl-source-link">All releases</a>
-        <a href="https://github.com/rainbow-zoku/loci-garden/releases" class="dl-source-link">v0.2.0 release notes</a>
+        <a href="https://github.com/rainbow-zoku/loci-garden/releases" class="dl-source-link">v0.6.0 release notes</a>
         <a href="https://github.com/rainbow-zoku/loci-garden" class="dl-source-link">Build from source</a>
         <a href="https://github.com/rainbow-zoku/loci-garden/blob/main/CHANGELOG.md" class="dl-source-link">Changelog</a>
       </div>
