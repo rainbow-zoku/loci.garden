@@ -204,11 +204,11 @@ GitHub: https://github.com/huximaxi/loci/tree/main/extension
 **Desktop App (v0.1.0 - released)**
 Native Mac + Windows app (Tauri v2). KISS palace detector + migrator.
 Detects existing setups: loci, MemPalace, Karpathy-style, PALACE.md variants.
-Migrates to ~/.loci/ format. Scholar theme (green/cream).
+Migrates to ~/.loci/ format. ELI-5 theme (green/cream).
 GitHub: https://github.com/huximaxi/loci/tree/main/desktop
 
 **Three tiers:**
-- Scholar - search + tagging, browser extension, no AI config required
+- ELI-5 - search + tagging, browser extension, no AI config required
 - Wizard - full palace, MCP integration, agent architecture
 - LLMAGE - CLI/MCP only, local LLM, zero cloud
 
@@ -247,7 +247,7 @@ Honcho (Plastic Labs) - dialectic user modeling. Extracts user profile from conv
 
 ## Getting started
 
-**Scholar (5 min):** Install the Chrome extension from loci.garden (coming soon).
+**ELI-5 (5 min):** Install the Chrome extension from loci.garden (coming soon).
 Indexes Claude.ai + ChatGPT conversations automatically. ⌘K to search.
 
 **Wizard (20 min):**
