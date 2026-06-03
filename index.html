@@ -2066,26 +2066,12 @@ footer {
   </a>
 
   <div class="nav-right">
-    <a href="#features" class="nav-link">
-      <span class="t-scholar">How it works</span>
-      <span class="t-wizard">The Palace</span>
-      <span class="t-llmage">Spec</span>
+    <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
     </a>
-    <a href="start.html" class="nav-link tb-scholar">Get started</a>
-    <a href="download.html" class="nav-link tb-wizard">Get the app</a>
-    <a href="https://github.com/huximaxi/Loci" class="nav-link tb-llmage" target="_blank" rel="noopener">Clone ↗</a>
-    <a href="manifesto.html" class="nav-link">
-      <span class="t-scholar">Manifesto</span>
-      <span class="t-wizard">The Spell</span>
-      <span class="t-llmage">Manifesto</span>
-    </a>
-    <a href="https://github.com/huximaxi/Loci" class="nav-link" target="_blank" rel="noopener">
-      <span class="t-scholar">GitHub ↗</span>
-      <span class="t-wizard">Source ↗</span>
-      <span class="t-llmage">GitHub ↗</span>
-    </a>
-
-
+    <a href="download.html" class="nav-link">download</a>
+    <a href="guide.html" class="nav-link">guide</a>
+    <a href="manifesto.html" class="nav-link">manifesto</a>
   </div>
 
   <!-- Theme Switcher -->
@@ -2279,12 +2265,12 @@ footer {
       <!-- Scholar card (current mode — highlighted) -->
       <div class="persona-card">
         <div>
-          <div class="persona-card-mode">◆ ELI-5<span class="persona-card-chip chip-early">early access</span></div>
+          <div class="persona-card-mode">◆ ELI-5</div>
           <div class="persona-card-role">Your AI finally remembers you.</div>
         </div>
         <p class="persona-card-desc">A regular user who chats with AI tools and wants their work to stick. Local index, full-text search, private. No config. No cloud. No re-explaining yourself from scratch every session.</p>
         <div class="persona-card-feel">Feels like: your AI finally knows who you are.</div>
-        <a href="#" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="eli5" onclick="openWaitlist('eli5-card'); return false;">Join early access →</a>
+        <a href="download.html" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="eli5">Build your palace in 10m →</a>
       </div>
 
       <!-- Wizard card -->
@@ -2304,7 +2290,7 @@ footer {
           <div class="persona-card-mode">◈ LLMAGE<span class="persona-card-chip chip-beta">open beta</span></div>
           <div class="persona-card-role">Clone the repo. Read the spec. Own the stack.</div>
         </div>
-        <p class="persona-card-desc">A developer or researcher who wants full control over the context layer. One-liner: <code>git clone</code> + inspect the MCP server, config, and primitives. The sovereignty stack (Nostr identity, Nym sync) lands across Q3/Q4 — see the roadmap for honest status.</p>
+        <p class="persona-card-desc">A developer or researcher who wants full control over the context layer. <code>git clone</code> + inspect the MCP server, config, and primitives. Ollama local inference (nomic-embed-text, zero API keys) and MCP plugin for Goose, Continue.dev, and Claude Code are both shipped. Nostr keypair identity in progress — see the <a href="roadmap.html" style="color:inherit;text-decoration:underline;">roadmap</a>.</p>
         <div class="persona-card-feel">Feels like: the infrastructure, finally yours.</div>
         <a href="#start" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="llmage" onclick="setTheme('llmage')">Read the spec →</a>
       </div>
@@ -2321,8 +2307,7 @@ footer {
       <p class="demiurge-body">Notion holds your notes. ChatGPT holds your context. Apple holds your memory. They're all landlords — your thinking lives in their architecture, retrievable at their pleasure, gone when you leave. The knowledge you build with AI is yours. It just doesn't live where you live. Yet.</p>
       <p class="demiurge-body">loci inverts this. The index runs in your browser. The search lives on your machine. The palace belongs to the person who builds it.</p>
       <div class="demiurge-cta">
-        <a href="#start" class="btn-primary"><span>Bring it home →</span></a>
-        <a href="comparison.html" class="btn-secondary">See how we compare</a>
+        <a href="download.html" class="btn-primary"><span>Build your palace in 10m →</span></a>
       </div>
     </div>
   </section>
@@ -2556,12 +2541,12 @@ footer {
         </div>
 
         <div class="tauri-download-row">
-          <a href="#" class="tauri-btn" data-umami-event="tauri-download-attempt" data-umami-event-platform="mac" onclick="openBetaWarning('tauri-mac'); return false;">
+          <a href="download.html" class="tauri-btn" data-umami-event="tauri-download-attempt" data-umami-event-platform="mac">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             <span class="t-wizard">Download for Mac</span>
             <span class="t-llmage">macOS (.dmg)</span>
           </a>
-          <a href="#" class="tauri-btn" data-umami-event="tauri-download-attempt" data-umami-event-platform="win" onclick="openBetaWarning('tauri-win'); return false;">
+          <a href="download.html" class="tauri-btn" data-umami-event="tauri-download-attempt" data-umami-event-platform="win">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
             <span class="t-wizard">Download for Windows</span>
             <span class="t-llmage">Windows (.exe)</span>
@@ -2581,25 +2566,23 @@ footer {
             <span class="t-scholar">Runs local. No account. No cloud.</span>
           </p>
           <div class="agent-cta-row">
-            <!-- TODO: replace href="#" with actual file path once goose-recipe.yaml is deployed to loci.garden/install/ -->
-            <a href="#" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="goose-recipe">
+            <a href="install/goose-recipe.yaml" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="goose-recipe">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span class="t-wizard">Goose Recipe ↓</span>
               <span class="t-llmage">goose-recipe.yaml</span>
               <span class="t-scholar">Goose Recipe ↓</span>
             </a>
-            <!-- TODO: replace href="#" with actual file path once ollama-spec.json is deployed to loci.garden/install/ -->
-            <a href="#" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="ollama-spec">
+            <a href="install/ollama-setup.sh" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="ollama-spec">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span class="t-wizard">Ollama Spec ↓</span>
-              <span class="t-llmage">ollama-spec.json</span>
-              <span class="t-scholar">Ollama Spec ↓</span>
+              <span class="t-wizard">Ollama Setup ↓</span>
+              <span class="t-llmage">ollama-setup.sh</span>
+              <span class="t-scholar">Ollama Setup ↓</span>
             </a>
             <span class="agent-cta-sep">or</span>
-            <a href="#download" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="tauri-anchor">
+            <a href="download.html" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="tauri-anchor">
               <span class="t-wizard">Tauri app ↓</span>
-              <span class="t-llmage">Start with the Tauri app ↓</span>
-              <span class="t-scholar">Start with the Tauri app ↓</span>
+              <span class="t-llmage">Tauri app ↓</span>
+              <span class="t-scholar">Download the app ↓</span>
             </a>
           </div>
         </div>
@@ -2842,18 +2825,18 @@ footer {
             <span class="t-llmage">clone + configure</span>
           </h4>
           <p>
-            <span class="t-scholar">Join the early-access list. loci is landing in waves — we'll send your invite when your spot opens. No account, no cloud lock-in, no re-explaining your context.</span>
+            <span class="t-scholar">Download the app. Local index, no account, no cloud. Get running in under 10 minutes.</span>
             <span class="t-wizard">Open Claude Desktop (or your MCP client). The one-liner below writes a backup-protected config entry that loci satisfies as soon as the desktop app is running.</span>
             <span class="t-llmage"><code>git clone https://github.com/huximaxi/loci && cd loci/desktop && cat .mcp.json</code></span>
           </p>
           <div class="install-pills tb-scholar">
-              <a href="#" class="install-pill" data-umami-event="install-attempt" data-umami-event-target="scholar-mac" onclick="openWaitlist('scholar-mac'); return false;">
+              <a href="download.html" class="install-pill" data-umami-event="install-attempt" data-umami-event-target="scholar-mac">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                Mac (early access)
+                Download for Mac
               </a>
-              <a href="#" class="install-pill" data-umami-event="install-attempt" data-umami-event-target="scholar-win" onclick="openWaitlist('scholar-win'); return false;">
+              <a href="download.html" class="install-pill" data-umami-event="install-attempt" data-umami-event-target="scholar-win">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-                Windows (early access)
+                Download for Windows
               </a>
           </div>
         </div>
@@ -2919,8 +2902,8 @@ footer {
 
     <!-- Final CTA -->
     <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
-      <a href="start.html" class="btn-primary tb-scholar">
-        <span class="t-scholar">Get started →</span>
+      <a href="download.html" class="btn-primary tb-scholar">
+        <span class="t-scholar">Build your palace in 10m →</span>
       </a>
       <a href="download.html" class="btn-primary tb-wizard">
         <span class="t-wizard">Get the app →</span>
@@ -2943,15 +2926,25 @@ footer {
   </span>
   <!-- Footer nav links -->
   <div class="footer-links">
-    <a href="#about" class="footer-link">
+    <a href="about.html" class="footer-link">
       <span class="t-scholar">About</span>
       <span class="t-wizard">The Origin</span>
       <span class="t-llmage">About</span>
     </a>
-    <a href="https://loci.garden/seed/" class="footer-link" target="_blank" rel="noopener">
-      <span class="t-scholar">Seed guide ↗</span>
-      <span class="t-wizard">The Seed ↗</span>
-      <span class="t-llmage">Seed ↗</span>
+    <a href="roadmap.html" class="footer-link">
+      <span class="t-scholar">Roadmap</span>
+      <span class="t-wizard">The Quest</span>
+      <span class="t-llmage">Roadmap</span>
+    </a>
+    <a href="seed/" class="footer-link">
+      <span class="t-scholar">Seed guide</span>
+      <span class="t-wizard">The Seed</span>
+      <span class="t-llmage">Seed</span>
+    </a>
+    <a href="releases/" class="footer-link">
+      <span class="t-scholar">Releases</span>
+      <span class="t-wizard">Changelog</span>
+      <span class="t-llmage">Releases</span>
     </a>
     <button class="footer-link" onclick="openContactModal()">
       <span class="t-scholar">Get in touch</span>
@@ -3006,76 +2999,7 @@ footer {
   </div>
 </div>
 
-<!-- ═══════════════════ WAITLIST MODAL ═══════════════ -->
-<div id="waitlist-modal" class="waitlist-overlay" onclick="handleWaitlistBackdrop(event)">
-  <div class="waitlist-box">
-    <button class="waitlist-close" onclick="closeWaitlist()" aria-label="Close">✕</button>
 
-    <!-- Form state -->
-    <div id="waitlist-form-state">
-      <div class="waitlist-title">
-        <span class="t-scholar">Desktop app — early access</span>
-        <span class="t-wizard">The forge is running.</span>
-        <span class="t-llmage">open beta · v0.6.0</span>
-      </div>
-      <p class="waitlist-sub">
-        <span class="t-scholar">The desktop app is coming. Join the list — we'll reach you when it's ready to download.</span>
-        <span class="t-wizard">The Tauri build is taking shape. Leave your mark — we'll summon you when the gates open.</span>
-        <span class="t-llmage">open beta · v0.6.0. Clone the repo or grab the Tauri build. Full sovereignty stack.</span>
-      </p>
-      <form class="waitlist-form" id="waitlist-form" onsubmit="submitWaitlist(event)">
-        <input type="email" class="waitlist-input" id="waitlist-email"
-               placeholder="your@email.com" required autocomplete="email"
-               aria-label="Email address" />
-        <input type="hidden" id="waitlist-source" value="direct" />
-        <button type="submit" class="waitlist-btn" id="waitlist-submit">
-          <span class="t-scholar">Bring it home →</span>
-          <span class="t-wizard">Claim your place →</span>
-          <span class="t-llmage">Request access →</span>
-        </button>
-        <p class="waitlist-privacy">
-          <span class="t-scholar">Email only. One notification when it ships. Nothing else.</span>
-          <span class="t-wizard">Email only. One signal when the palace is ready. The list stays private.</span>
-          <span class="t-llmage">Email → one notification → done. No accounts. No tracking.</span>
-        </p>
-        <p class="waitlist-error" id="waitlist-error" style="display:none;"></p>
-      </form>
-    </div>
-
-    <!-- Success state -->
-    <div id="waitlist-success-state" style="display:none;" class="waitlist-success">
-      <div class="waitlist-success-icon">✦</div>
-      <p class="waitlist-success-text">
-        <span class="t-scholar">You're on the list.</span>
-        <span class="t-wizard">Your mark is set.</span>
-        <span class="t-llmage">Registered.</span>
-      </p>
-      <p class="waitlist-success-sub">
-        <span class="t-scholar">We'll reach you when the desktop app is ready.</span>
-        <span class="t-wizard">The palace will call you when the gates open.</span>
-        <span class="t-llmage">Signal incoming on ship date.</span>
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════ OPEN-BETA WARNING MODAL ═════════ -->
-<div id="beta-warning-modal" class="beta-warning-overlay" onclick="handleBetaBackdrop(event)">
-  <div class="beta-warning-box">
-    <button class="beta-warning-close" onclick="closeBetaWarning()" aria-label="Close">✕</button>
-    <div class="beta-warning-icon">⚠</div>
-    <div class="beta-warning-title">Open beta — testing channel</div>
-    <p class="beta-warning-body">
-      The desktop palace app is in <strong>open beta</strong> — built fresh, breaks fresh.
-      It's safe to install (signed binary, sandboxed), but expect rough edges and missing pieces.
-      Stable releases land on the <strong>GitHub releases page</strong> when they're ready.
-    </p>
-    <div class="beta-warning-actions">
-      <a id="beta-warning-continue" href="#" target="_blank" rel="noopener" class="beta-warning-btn primary" data-umami-event="beta-warning-continue">Continue to the beta build →</a>
-      <a href="https://github.com/rainbow-zoku/loci-garden/releases" target="_blank" rel="noopener" class="beta-warning-btn" data-umami-event="beta-warning-opt-out">Take me to GitHub releases instead</a>
-    </div>
-  </div>
-</div>
 
 <!-- ═══════════════════ SCRIPT ════════════════════════ -->
 <script>
@@ -3131,31 +3055,8 @@ footer {
     if (e.target === document.getElementById('contact-modal')) closeContactModal();
   }
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { closeContactModal(); closeWaitlist(); closeBetaWarning(); }
+    if (e.key === 'Escape') { closeContactModal(); }
   });
-
-  // ── Open-beta warning modal ───────────────────────────
-  // GitHub releases URLs. Update once asset filenames are stable.
-  var BETA_RELEASE_URLS = {
-    'tauri-mac': 'https://github.com/huximaxi/loci/releases/latest',
-    'tauri-win': 'https://github.com/huximaxi/loci/releases/latest'
-  };
-  function openBetaWarning(source) {
-    var url = BETA_RELEASE_URLS[source] || 'https://github.com/huximaxi/loci/releases/latest';
-    var cont = document.getElementById('beta-warning-continue');
-    if (cont) cont.setAttribute('href', url);
-    document.getElementById('beta-warning-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeBetaWarning() {
-    var m = document.getElementById('beta-warning-modal');
-    if (!m) return;
-    m.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function handleBetaBackdrop(e) {
-    if (e.target === document.getElementById('beta-warning-modal')) closeBetaWarning();
-  }
 
   // ── Copy Wizard curl one-liner ────────────────────────
   function copyWizardCurl(btn) {
@@ -3180,52 +3081,6 @@ footer {
     }
   }
 
-  // ── Waitlist modal ─────────────────────────────────────
-  function openWaitlist(source) {
-    document.getElementById('waitlist-source').value = source || 'direct';
-    document.getElementById('waitlist-form-state').style.display = '';
-    document.getElementById('waitlist-success-state').style.display = 'none';
-    document.getElementById('waitlist-error').style.display = 'none';
-    document.getElementById('waitlist-email').value = '';
-    document.getElementById('waitlist-submit').disabled = false;
-    document.getElementById('waitlist-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    setTimeout(function() { document.getElementById('waitlist-email').focus(); }, 80);
-  }
-  function closeWaitlist() {
-    document.getElementById('waitlist-modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function handleWaitlistBackdrop(e) {
-    if (e.target === document.getElementById('waitlist-modal')) closeWaitlist();
-  }
-  async function submitWaitlist(e) {
-    e.preventDefault();
-    var email = document.getElementById('waitlist-email').value.trim();
-    var source = document.getElementById('waitlist-source').value;
-    var btn = document.getElementById('waitlist-submit');
-    var err = document.getElementById('waitlist-error');
-    if (!email) return;
-    btn.disabled = true;
-    err.style.display = 'none';
-    try {
-      var res = await fetch('https://loci.garden/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, source: source })
-      });
-      if (res.ok) {
-        document.getElementById('waitlist-form-state').style.display = 'none';
-        document.getElementById('waitlist-success-state').style.display = '';
-      } else {
-        throw new Error('server');
-      }
-    } catch(_) {
-      err.textContent = 'Something went wrong. Try again or email hux@nymtech.net.';
-      err.style.display = 'block';
-      btn.disabled = false;
-    }
-  }
 </script>
 
   <script defer src="https://analytics.195-246-230-118.sslip.io/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
