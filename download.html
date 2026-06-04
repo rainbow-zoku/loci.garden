@@ -254,6 +254,48 @@
       color: var(--text-dim);
       line-height: 1.45;
     }
+
+    /* ── LLMAGE CLI section ────────────────────────────── */
+    .dl-section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0 2.5rem;
+    }
+
+    .dl-install-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 0.9rem 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .dl-install-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .dl-install-cmd {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      overflow-x: auto;
+      white-space: pre;
+      background: none;
+      padding: 0;
+      border: none;
+    }
+
+    .dl-install-note {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--text-faint);
+      margin-top: 0.6rem;
+    }
   </style>
   <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -362,6 +404,54 @@
           <div class="dl-what-item">
             <div class="dl-what-verb">Inhabit</div>
             <div class="dl-what-desc">Your AI reads from <code>~/.loci/</code> on every session. The palace persists.</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="dl-section-divider">
+
+      <div class="dl-eyebrow">LLMAGE · terminal CLI</div>
+      <div class="dl-title">Your palace at the prompt</div>
+      <div class="dl-version">v0.1.0-beta.1 · Apache 2.0 &nbsp;<span style="display:inline-block;font-family:var(--mono);font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(200,124,44,0.1);border:1px solid rgba(200,124,44,0.3);padding:0.1rem 0.4rem;vertical-align:middle;">public beta</span></div>
+
+      <div class="dl-install-block">
+        <div class="dl-install-label">Install via cargo</div>
+        <pre class="dl-install-cmd">cargo install --git https://github.com/rainbow-zoku/loci --tag v0.1.0-beta.1 loci-cli</pre>
+        <div class="dl-install-note">Requires Rust. Install at rustup.rs if needed.</div>
+      </div>
+
+      <div class="dl-source-row">
+        <a href="https://github.com/rainbow-zoku/loci" class="dl-source-link">Source (rainbow-zoku/loci)</a>
+        <a href="https://github.com/rainbow-zoku/loci/releases/tag/v0.1.0-beta.1" class="dl-source-link">v0.1.0-beta.1 tag</a>
+        <a href="https://github.com/rainbow-zoku/loci/blob/main/README.md" class="dl-source-link">README</a>
+      </div>
+
+      <div class="dl-what">
+        <div class="dl-what-label">▸ Commands in v0.1</div>
+        <div class="dl-what-grid">
+          <div class="dl-what-item">
+            <div class="dl-what-verb">loci status</div>
+            <div class="dl-what-desc">Palace detection, room and crystal counts, backend preflight.</div>
+          </div>
+          <div class="dl-what-item">
+            <div class="dl-what-verb">loci -z "…"</div>
+            <div class="dl-what-desc">One-shot inference with palace context injected. Pipes cleanly.</div>
+          </div>
+          <div class="dl-what-item">
+            <div class="dl-what-verb">loci crystals</div>
+            <div class="dl-what-desc">List your full knowledge base. Filter by room. JSON output.</div>
+          </div>
+          <div class="dl-what-item">
+            <div class="dl-what-verb">loci handover</div>
+            <div class="dl-what-desc">Print the latest session handover. Your daily start ritual.</div>
+          </div>
+          <div class="dl-what-item">
+            <div class="dl-what-verb">loci read &lt;slug&gt;</div>
+            <div class="dl-what-desc">Full crystal content by slug. Disambiguate with <code>--room</code>.</div>
+          </div>
+          <div class="dl-what-item">
+            <div class="dl-what-verb">loci init</div>
+            <div class="dl-what-desc">Interactive setup: backend, palace path, verify. Safe to re-run.</div>
           </div>
         </div>
       </div>
