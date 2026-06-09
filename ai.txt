@@ -5,7 +5,7 @@
 Site: https://loci.garden
 Type: methodology-documentation
 Language: en
-Contact: daniel.nemet@nymtech.net
+Contact: themapisnory@tuta.io
 
 # Permissions
 Crawling: allowed
