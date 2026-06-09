@@ -36,4 +36,4 @@ Before deploying, copy the served `landing/` directory to a timestamped backup. 
 
 ## Contact
 
-Questions: hux@nymtech.net
+Questions: themapisnory@tuta.io
