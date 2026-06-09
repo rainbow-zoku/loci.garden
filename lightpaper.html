@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html data-theme="scholar" lang="en">
+<head>
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+</script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23ffcc44'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%23e8861a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23c87c2c'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%237a3a08'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loci, the social context primitive · A Lightpaper</title>
+  <meta name="description" content="Social context has a missing primitive. We call it a Loci. Trust is what accumulates between Loci when their predictions about each other are repeatedly compared and verified. The public lightpaper.">
+  <meta name="keywords" content="social context primitive, trust protocol, Loci, inter-Loci, local-first, cognitive sovereignty, zero-knowledge verification">
+  <link rel="canonical" href="https://loci.garden/lightpaper.html">
+  <meta name="robots" content="noindex, nofollow"><!-- WIP: do not publish -->
+  <meta property="og:title" content="Loci, the social context primitive · A Lightpaper">
+  <meta property="og:description" content="Trust is not a feeling, a contract, or a credential. It is the accumulated proof that a shared context keeps working.">
+  <meta property="og:url" content="https://loci.garden/lightpaper.html">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="AI context declaration, loci.garden">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="loci.css">
+
+  <script defer src="https://analytics.195-246-230-118.sslip.io/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
+  <style>
+    .lp-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* Title block */
+    .lp-title {
+      font-family: var(--font-body);
+      font-size: clamp(2.2rem, 5.5vw, 3.1rem);
+      font-weight: var(--fw-bold);
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin: 0 0 0.35rem;
+      color: var(--text);
+    }
+    .lp-subtitle {
+      font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+      font-weight: var(--fw-regular);
+      line-height: 1.3;
+      color: var(--text-dim);
+      margin: 0 0 1.4rem;
+    }
+    .lp-meta {
+      font-size: 0.76rem;
+      color: var(--text-faint);
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2.6rem;
+    }
+
+    /* Epigraph */
+    .lp-epigraph {
+      border-left: 2px solid var(--border-2);
+      padding: 0.2rem 0 0.2rem 1.4rem;
+      margin: 0 0 3rem;
+    }
+    .lp-epigraph p {
+      font-style: italic;
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    /* Section rhythm */
+    .lp-body h2 {
+      font-family: var(--font-body);
+      font-size: 1.32rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      color: var(--text);
+      margin: 3rem 0 1.1rem;
+    }
+    .lp-body p {
+      font-size: 1.06rem;
+      line-height: var(--lh-prose);
+      margin: 0 0 1.3rem;
+      color: var(--text);
+    }
+    .lp-body strong { font-weight: var(--fw-semibold); color: var(--text); }
+    .lp-body em { font-style: italic; color: var(--text-dim); }
+
+    /* ASCII diagrams: recessed technical panels, scroll not break */
+    .lp-diagram {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.3rem 1.4rem;
+      margin: 1.8rem 0 2.2rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: pre;
+      tab-size: 2;
+    }
+
+    /* Close */
+    .lp-close {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .lp-close p {
+      font-size: 1.08rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.65;
+      margin: 0 0 1.4rem;
+    }
+    .lp-attribution {
+      font-size: 0.78rem;
+      font-family: var(--mono);
+      color: var(--text-faint);
+      line-height: 1.7;
+      margin-top: 1.6rem;
+    }
+    .lp-attribution em { font-style: italic; }
+
+    /* Quiet end-links (release-safe: live pages only, no repo/CLI yet) */
+    .lp-links {
+      margin-top: 2.6rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .lp-links a {
+      font-size: 0.86rem;
+      font-weight: var(--fw-medium);
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-2);
+      color: var(--text-dim);
+    }
+    .lp-links a:hover { border-color: var(--text-dim); color: var(--text); }
+
+    /* Design philosophy (absorbs the Cognitive Sovereignty Manifesto) */
+    .lp-philosophy {
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .lp-philosophy h2 { margin-top: 0; }
+    .lp-philosophy-intro {
+      color: var(--text-dim);
+      font-style: italic;
+      font-size: 1.04rem;
+      line-height: 1.7;
+      margin: 0 0 2rem;
+    }
+    .lp-principle { margin: 0 0 1.5rem; }
+    .lp-principle b {
+      display: block;
+      font-weight: var(--fw-semibold);
+      color: var(--text);
+      font-size: 1.1rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+    }
+    .lp-principle span {
+      color: var(--text);
+      font-size: 1.04rem;
+      line-height: var(--lh-prose);
+    }
+    .lp-philosophy-close {
+      margin: 2.2rem 0 0;
+      color: var(--text-dim);
+      font-size: 1rem;
+      line-height: var(--lh-prose);
+    }
+  </style>
+  <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Loci, the social context primitive · A Lightpaper" />
+  <meta name="twitter:description" content="The cheapness that cooperation earns is not a metaphor. It is the measure." />
+  <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
+</head>
+<body data-page="lightpaper">
+
+<div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#7a3a08;color:#fff;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.08em;text-align:center;padding:0.35rem 1rem;">DRAFT — not for circulation</div>
+<div style="height:2rem;"></div>
+
+<!-- #include partials/_nav.html -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo-group">
+      <a href="/" class="logo">loci.garden</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="/download.html" class="nav-link" data-page="download">download</a>
+        <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
+        <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
+        <button class="theme-btn" id="btn-scholar" onclick="setTheme('scholar')" aria-pressed="true">◆ ELI-5</button>
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="false">⚔ Wizard</button>
+        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
+      </div>
+    </div>
+  </div>
+  <script defer src="/theme.js"></script>
+</nav>
+<!-- /include -->
+
+  <main>
+    <div class="lp-wrap">
+
+      <h1 class="lp-title">Loci</h1>
+      <div class="lp-subtitle">the social context primitive</div>
+      <div class="lp-meta">A Lightpaper · v1 · 2026-06-03 · Hux × Vesper</div>
+
+      <div class="lp-epigraph">
+        <p>When two actors cooperate long enough, something changes. The interaction gets cheaper. That cheapness is trust.</p>
+      </div>
+
+      <div class="lp-body">
+
+        <h2>The cheap interaction</h2>
+        <p>Watch two people who have worked together for years. They finish each other's sentences, skip the preamble, hand off work without a brief. The interaction has gotten cheap. They are not economising on purpose. The cheapness is a measurement: the visible signature of an invisible thing they have built over hundreds of small, verified exchanges. The name of that thing is trust.</p>
+        <p>Trust usually gets discussed as a feeling or a virtue. We are going to treat it as something more useful: a quantity that accumulates, decays, and can be computed, provided you have the right unit to compute it over. Most of the trouble with trust, in software and in society, comes from not having that unit. This document names it.</p>
+
+        <h2>The missing primitive</h2>
+        <p>Software is built from primitives. A primitive is the smallest thing a system treats as whole, the unit you build with rather than the thing you take apart. We have a primitive for data (the record), for value (the ledger entry, the token), for identity (the key, the credential), for computation (the process). Each one, once it existed, made a whole class of systems buildable that had not been buildable before. You cannot build a bank without a unit of account. You cannot build a network without a unit of identity.</p>
+        <p>Social context has no primitive. By social context we mean the part of your situation that is relational: what you have learned and from whom, what you expect of the people and systems around you, what you are trying to do with them, what you think they will do next. This is the raw material trust is made from, and right now it is uncomputed. Nobody holds it as a unit. It lives, undifferentiated, in your head and in the gaps between messages.</p>
+        <p>The systems that come closest store the context of a single actor. A notes app. An embedding store. An AI assistant's memory of one user talking to itself. Useful, and all of them solitary. None of them models the context that lives between actors, which is exactly where trust accumulates and exactly where it collapses. The current wave of AI memory tooling makes this vivid: every actor is being handed a better private notebook, and no two actors are being handed a shared, verifiable context they both maintain. More memory is not the missing piece. The missing piece is a social context primitive: a unit of relational context that two or more actors can hold, compare, and update against each other, with a way to tell which updates are real.</p>
+        <p>We propose that primitive. We call it a Loci.</p>
+
+        <h2>Loci</h2>
+        <p>A Loci is a structured context model. Four things go into it:</p>
+        <p>
+          <strong>History</strong>: what this actor has observed, verified, and kept. The prior built from experience.<br>
+          <strong>A current reading</strong>: what it is taking in from the environment right now, including everything arriving through screens.<br>
+          <strong>Intent</strong>: what it is oriented toward, which quietly decides what counts as signal and what counts as noise.<br>
+          <strong>A forward projection</strong>: what it expects to happen next, the place where belief, imagination, and superstition live.
+        </p>
+        <p>Every actor capable of interaction runs one. A person's Loci is made of memory, culture, the senses, and current intention. A machine's is made of training data, a context window, and retrieval. An institution's is made of laws, records, procedures, and the means to enforce them. A Loci is not a metaphor for these things. It is their common shape.</p>
+
+        <pre class="lp-diagram">  THE PRIMITIVE
+
+  ┌─ a Loci ───────────┐     ┌─ a Loci ───────────┐
+  │ history            │     │ history            │
+  │ current reading    │     │ current reading    │
+  │ intent             │     │ intent             │
+  │ forward projection │     │ forward projection │
+  └──────────┬─────────┘     └─────────┬──────────┘
+             └───────── trust lives ───┘
+                        here, between them</pre>
+
+        <p>Two words for two cases. <strong>Intra-Loci</strong> is one actor's model on its own: how it updates itself as signals arrive, with or without anyone else in the room. <strong>Inter-Loci</strong> is what happens when two or more come into contact, compare, and update against each other. Trust is an inter-Loci property. It does not sit inside anyone. It sits in the relationship between two context models, and it accrues or erodes through repeated contact between them.</p>
+
+        <h2>Trust is what happens between Loci</h2>
+        <p>At every interaction, two things happen at once. Each Loci makes a prediction about the other. Reality returns an outcome. The gap between the two is the signal that drives everything: small gap, the models converge; large gap, they pull apart; a gap that keeps landing the same wrong way, and the relationship registers as adversarial.</p>
+        <p>Trust is the slow accumulation of small, verified gaps over time. The mechanism is Bayesian: you start with a prior about how someone will behave, each verified interaction updates it, and a long run of small, confirmed predictions tightens that estimate into something you can act on cheaply. That tightening is trust. Two properties of it are worth stating plainly, because they are not psychological quirks but consequences of the arithmetic. Trust <strong>accumulates slowly and collapses fast</strong>: one large betrayal outweighs many small confirmations, because high-magnitude disconfirmation carries more information. And trust is <strong>non-transferable</strong>: your estimate of someone is built from your specific history with them. Reputation is the discounted second-hand version, and everyone knows to discount it.</p>
+        <p>There is one distinction the whole thing rests on, and the ordinary word for trust actively hides it. Strong mutual prediction is not the same as trust. Suppose you have learned, through a long and painful history, to predict exactly how someone will act against you. Your model of them is excellent. Your confidence is high. That is not trust; it is its opposite, the most dangerous kind, because it is accurate prediction pointed at hostile ends. A primitive worth having has to tell these apart, so ours carries a sign: aligned-and-converging is trust, aligned-and-opposed is adversarial calibration, and uncorrelated is mere indifference. Same strength of prediction, opposite moral direction. A model that only measures strength has no way to tell a partnership from a cold war, which is to say it has no model of ethics at all.</p>
+
+        <pre class="lp-diagram">  WHAT "TRUST" ACTUALLY MEASURES
+
+  aligned, converging   ─►  cooperation             (trust)
+  uncorrelated          ─►  indifference            (no signal)
+  aligned, opposed      ─►  adversarial calibration  (not trust)
+
+  same strength of mutual prediction.
+  the sign is the part that carries the ethics.</pre>
+
+        <h2>One rule, every scale</h2>
+        <p>Here is the part that makes a primitive out of an observation. The same rule, predict, verify, update, project, produces recognisably the same structure at every level of social life. Two people building trust over months, a team learning to rely on itself, an institution its members lean on, a currency a whole civilisation accepts: these are not different phenomena that happen to share a word. They are one mechanism at different magnifications.</p>
+        <p>This is the signature of a system run by a few simple rules applied locally and repeatedly: the large structure is the small rule, magnified. Axelrod showed it decades ago for cooperation, reciprocity played out at scale builds stable cooperative networks with nobody in charge. Money, law, language, and doctrine are all the same move at the top of the ladder: ways of externalising one Loci's hard-won estimate so that actors who never met can inherit it. A currency is a trust estimate so widely verified it no longer needs to be re-earned in each encounter. The token carries the posterior.</p>
+
+        <pre class="lp-diagram">  ONE RULE, EVERY SCALE
+
+  dyad ─► team ─► institution ─► market ─► civilisation
+   │       │          │            │            │
+   └───────┴──── same local rule ──┴────────────┘
+          predict · verify · update · project
+
+  the big shapes are the small rule, magnified.</pre>
+
+        <p>When a group's shared estimate becomes self-reinforcing, expectation shaping behaviour, which reproduces the expectation, a collective actor appears that is larger than its members and acts back on them. Older traditions called these egregores. There is nothing mystical in it. It is the protocol, stabilised. And it carries a design consequence: because the scales are one system, you cannot tune trust at one level without touching all the others.</p>
+
+        <h2>Which updates are real</h2>
+        <p>A primitive for social context is only as good as its honesty about evidence. An update has to be verified, not merely claimed, because an unverified update and a real one look identical right up until the moment the difference matters.</p>
+        <p>The ideal is cryptographic. A zero-knowledge proof lets one actor show another that something is true without revealing anything beyond its truth: convergence without exposure. Applied here, an actor can prove its context contains a valid, verified update without surrendering the context itself. Privacy and verification stop being a trade-off. Most verification is rougher than that, an audit, a credential, a reference, a gut read, but the shape is the same: evidence that has passed through a channel appropriate to the actor, not just evidence that was asserted.</p>
+        <p>Which is also where the attacks live. The lever a manipulator reaches for is never the content of a single claim; it is the channel that delivers all of them. Control what reaches an actor before it can be checked, and you corrupt the prior itself, quietly, without ever telling a flat lie. This is the mechanism behind industrial-scale persuasion and behind information environments engineered to keep a whole population permanently off balance. The defence is structural, not moral: a primitive that treats the verification channel, not the message, as the thing to protect. Critical thinking, in this frame, is not a virtue. It is filter maintenance.</p>
+
+        <h2>Why a primitive, and why now</h2>
+        <p>Two reasons it matters now, beyond elegance.</p>
+        <p>The first is that the actors stopped being only human. Software agents, recommendation systems, language models, and trading algorithms now maintain context models and act on them. They extend credit, build reputation, form alliances, break commitments. They are Loci, structurally, whatever one thinks about their insides, and the social theory we inherited has no clean way to include them. A primitive that is indifferent to whether an actor is a person, a company, or a model is not a philosophical nicety here. It is the only kind that describes the world we are actually building.</p>
+        <p>The second is sovereignty. If social context becomes the unit everything is built on, then whoever holds your context holds you. The current default is to hand it to a platform that keeps it in an enclosure you do not own and cannot inspect. We think that is exactly backwards. Your context primitive should be yours: held locally, legible to you, portable, federating with others only on terms you set, never pooled into someone else's honeypot. A social context primitive is worth building only if it is built so that the actor it describes is the one who keeps it. That principle is the spine of Loci, the system this document is the public face of.</p>
+
+        <h2>What stands behind this</h2>
+        <p>This lightpaper makes a claim and stakes it: that social context has a primitive, that the primitive is a Loci, and that trust is the property that emerges between Loci when their predictions are repeatedly compared and verified. It is deliberately the shallow end. Two documents stand behind it. One is a technical specification that gives the primitive its precise form, the state it carries, the metric over it, the update rule, the architecture, and serves as the build target for working software. The other is a doctoral theory that makes the long argument for why such a primitive is necessary, working through five traditions in the social theory of trust and what the primitive implies for the infrastructure we build on it. This page is the doorway. The rooms behind it are furnished.</p>
+        <p>We opened with two people whose interaction had gotten cheap, and called that cheapness the signature of trust. Now the claim underneath it can be stated without decoration. Trust is not a feeling, a contract, or a credential. It is the accumulated proof that a shared context keeps working, that two Loci's predictions about each other keep coming true, and keep coming true in the same direction. Build the unit that holds that proof, give it to the actors it belongs to, and a great deal that we currently leave to luck becomes something we can design.</p>
+
+        <div class="lp-close">
+          <p>The cheapness that cooperation earns is not a metaphor. It is the measure.</p>
+        </div>
+
+        <!-- Design philosophy: the Cognitive Sovereignty Manifesto, reborn as build-constraints -->
+        <section class="lp-philosophy">
+          <h2>Loci design philosophy</h2>
+          <p class="lp-philosophy-intro">The lightpaper says what a Loci is. This says what building one commits us to. These are not aspirations. They are the constraints the system is held to.</p>
+
+          <div class="lp-principle">
+            <b>The actor keeps its own context.</b>
+            <span>A Loci is held by the actor it describes: local, legible, portable, federating with others only on terms it sets, never pooled into someone else's honeypot. This is the spine. Everything else is downstream of it.</span>
+          </div>
+
+          <div class="lp-principle">
+            <b>Sovereignty is architecture, not policy.</b>
+            <span>We make extraction structurally impossible, not merely prohibited. Local-first storage, keypair identity, metadata-private transport. A guarantee you can read in the code is worth more than one you can only read in the terms of service.</span>
+          </div>
+
+          <div class="lp-principle">
+            <b>The tool holds less power than the person.</b>
+            <span>When a system knows you better than you know yourself and you cannot inspect it, it has stopped being a tool and become a landlord. Loci is built to stay a tool.</span>
+          </div>
+
+          <div class="lp-principle">
+            <b>Your key before your first note.</b>
+            <span>Identity comes before content. You sign with your own key, on your own ground, before anything is written. Your soil before your seeds.</span>
+          </div>
+
+          <div class="lp-principle">
+            <b>Protect the channel, not the message.</b>
+            <span>The lever a manipulator reaches for is never one claim; it is the channel that delivers all of them before you can check any. We treat the verification channel as the thing to defend. Critical thinking is filter maintenance, and the filter is infrastructure.</span>
+          </div>
+
+          <div class="lp-principle">
+            <b>Fail loud, never silent.</b>
+            <span>When the guarantee cannot be kept, the system stops and says so. A silent fallback is a broken promise wearing the face of a working one.</span>
+          </div>
+
+          <div class="lp-principle">
+            <b>Sovereignty is never paywalled.</b>
+            <span>The thing that makes a Loci yours is not a tier. Auth is a feature, not a gate. We build on the sovereignty stack (Nostr, Nym, Bitcoin, Ollama, Goose) as proof of where we stand, not as a feature list.</span>
+          </div>
+
+          <p class="lp-philosophy-close">The roadmap is public. The specification is the build target. These are the lines we build to.</p>
+        </section>
+
+        <div class="lp-attribution" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border);">
+          Dániel G. Német (Hux) × Vesper · Lightpaper v1 · 2026-06-03 · loci.garden<br>
+          <em>Public companion to the doctoral thesis</em> Trust as a Context Protocol <em>(ELTE) and the privately held specification</em> Loci: the social context primitive<em>.</em>
+        </div>
+
+        <div class="lp-links">
+          <a href="about.html">About Loci</a>
+          <a href="roadmap.html">The roadmap</a>
+          <a href="/seed/">The seed</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+<!-- #include partials/_footer.html -->
+<footer>
+  <div class="footer-inner">
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden &middot; built by Hux &times; Vesper</span>
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
+      <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
+      <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
+      <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
+      <a href="/releases/" style="color:var(--text-faint);">releases</a> &middot;
+      <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
+      <a href="https://github.com/huximaxi/loci/blob/main/CONTRIBUTING.md" style="color:var(--text-faint);" target="_blank" rel="noopener">contribute</a> &middot;
+      <a href="/privacy.html" style="color:var(--text-faint);">privacy</a> &middot;
+      <a href="/.well-known/security.txt" style="color:var(--text-faint);">security.txt</a> &middot;
+      <a href="/llms.txt" style="color:var(--text-faint);">llms.txt</a>
+    </span>
+  </div>
+</footer>
+<!-- /include -->
+
+  <script src="assets/nav-persona.js" defer></script>
+</body>
+</html>
