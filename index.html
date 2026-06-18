@@ -4,22 +4,22 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23ffcc44'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%23e8861a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23c87c2c'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%237a3a08'/%3E%3C/svg%3E">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>loci.garden, local-first AI memory</title>
-<meta name="description" content="Your thinking is part of you. loci keeps it where you live, local index, local memory, your palace. No cloud, no subscriptions, no landlords." />
-<meta name="keywords" content="AI memory, Claude memory, ChatGPT history, local AI, MCP, context persistence, AI conversation search" />
+<title>loci, the mindspace primitive</title>
+<meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The desktop app and CLI are demos; the substrate is yours." />
+<meta name="keywords" content="mindspace primitive, intelligence substrate, plain-text firmware, file-aware AI, local-first AI, MCP, context persistence" />
 <link rel="canonical" href="https://loci.garden/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://loci.garden/" />
-<meta property="og:title" content="loci.garden, local-first AI memory" />
-<meta property="og:description" content="Your extended cognition belongs where you live. Local AI memory, no cloud, no subscriptions, no landlords. The palace is yours." />
+<meta property="og:title" content="loci, the mindspace primitive" />
+<meta property="og:description" content="A mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no landlords because there is nothing to rent. The substrate is yours. The palace is yours." />
 <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="loci.garden, local-first AI memory" />
-<meta name="twitter:description" content="Your extended cognition belongs where you live. Local AI memory, no cloud, no subscriptions, no landlords." />
+<meta name="twitter:title" content="loci, the mindspace primitive" />
+<meta name="twitter:description" content="A mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no landlords because there is nothing to rent. The substrate is yours." />
 <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
 <meta name="theme-color" content="#3B6D11" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0d0d0e" media="(prefers-color-scheme: dark)" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"loci.garden","description":"Local-first AI conversation memory. Search, organise, and persist your AI context, private by default.","url":"https://loci.garden","applicationCategory":"ProductivityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Hux","url":"https://loci.garden"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"loci.garden","description":"A mindspace primitive: an intelligence substrate, plain-text firmware any file-aware AI can run. Local-first, private by default.","url":"https://loci.garden","applicationCategory":"ProductivityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Hux","url":"https://loci.garden"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -116,6 +116,9 @@
   <!-- ── HERO ────────────────────────────────────────── -->
   <section class="hero-section">
 
+    <!-- Fractal backdrop (generated; prominent in LLMAGE) -->
+    <div class="hero-fractal" aria-hidden="true"></div>
+
     <!-- Wizard hero background image -->
     <div class="tb-wizard wizard-hero-bg">
       <img src="/assets/wizard-hero.jpg"
@@ -172,32 +175,38 @@
       </svg>
     </div>
 
+    <!-- Wordmark -->
+    <div class="hero-wordmark">Loci</div>
+
     <!-- Tag / badge -->
     <span class="hero-tag">
-      <span class="t-scholar">Free · Open · Local-first · Keypair-signed</span>
-      <span class="t-wizard">Adventure awaits ✦</span>
-      <span class="t-llmage">v0.6.0 · local context layer · sovereignty stack</span>
+      <span class="t-scholar">v0.6.0 · mindspace primitive</span>
+      <span class="t-wizard">v0.6.0 · mindspace primitive</span>
+      <span class="t-llmage">v0.6.0 · mindspace primitive</span>
     </span>
 
     <!-- Title -->
-    <h1 class="hero-title">
-      <span class="t-scholar">What you know<br>has always been yours.</span>
-      <span class="t-wizard">Your Palace of Co&#8209;Intelligence</span>
-      <span class="t-llmage">The context<br>layer.</span>
-    </h1>
+    <h1 class="hero-title hero-claim">firmware you can <button type="button" class="claim-word" data-allele="read" aria-expanded="false" aria-controls="claim-reveal" aria-label="the word read: see it in three tiers">read</button><br><span class="claim-amp">&amp;</span> any AI can <button type="button" class="claim-word" data-allele="run" aria-expanded="false" aria-controls="claim-reveal" aria-label="the word run: see it in three tiers">run</button></h1>
+    <div id="claim-reveal" class="claim-reveal" role="group" aria-label="three readings of the claim" hidden>
+      <button type="button" class="claim-reveal-row" data-tier="scholar" aria-pressed="false"><span class="cr-glyph" aria-hidden="true">◆</span><span class="cr-tier">ELI-5</span><span class="cr-gloss"></span></button>
+      <button type="button" class="claim-reveal-row" data-tier="wizard" aria-pressed="false"><span class="cr-glyph" aria-hidden="true">⚔</span><span class="cr-tier">Wizard</span><span class="cr-gloss"></span></button>
+      <button type="button" class="claim-reveal-row" data-tier="llmage" aria-pressed="false"><span class="cr-glyph" aria-hidden="true">◈</span><span class="cr-tier">LLMAGE</span><span class="cr-gloss"></span></button>
+      <p class="claim-reveal-hint" aria-hidden="true">click a line to switch tier</p>
+    </div>
+    <div class="claim-sr" aria-live="polite"></div>
 
     <!-- Sub -->
     <p class="hero-sub">
-      <span class="t-scholar">Every session, the context resets. The decision you worked through, the thread worth following, the 2am insight, gone. Your AI starts fresh. loci doesn't. Every conversation, kept close. Locally, privately, permanently yours.</span>
-      <span class="t-wizard">A memory-mapped workspace for AI agents, MCP rooms, and local LLMs. Works in your IDE, on your desktop, with any local or remote LLM. The palace grows as you build inside it.</span>
-      <span class="t-llmage">Local-first. MCP-native. Keypair-signed. Zero cloud dependency. Sovereignty stack integration: Nostr, Nym, Ollama, Goose. Your memory, your schema, your terms.</span>
+      <span class="t-scholar">Plain text your AI reads before it answers. Local-first, no account, no cloud.</span>
+      <span class="t-wizard">Drop the blueprint in. Your AI boots up knowing your rooms and your terms.</span>
+      <span class="t-llmage">A plain-text spec any file-aware model executes. MCP-native, keypair-signed, zero cloud.</span>
     </p>
 
     <!-- CTAs -->
     <div class="hero-cta">
-      <a href="start.html" class="btn-primary tb-scholar">Build your palace in 10m →</a>
-      <a href="download.html" class="btn-primary tb-wizard">Enter the Palace →</a>
-      <a href="https://github.com/huximaxi/loci" class="btn-primary tb-llmage" target="_blank" rel="noopener">Clone →</a>
+      <a href="start.html" class="btn-primary tb-scholar">Design your mindspace →</a>
+      <a href="download.html" class="btn-primary tb-wizard">Design your mindspace →</a>
+      <a href="https://github.com/huximaxi/loci" class="btn-primary tb-llmage" target="_blank" rel="noopener">Clone the repo →</a>
       <a href="#features" class="btn-secondary">
         <span class="t-scholar">See how it works</span>
         <span class="t-wizard">Explore the Rooms</span>
@@ -285,7 +294,7 @@
 
   <!-- ── THREE-PERSONA COMPARISON (Scholar view) ─────── -->
   <section class="tb-scholar" style="padding-top: 40px; padding-bottom: 20px;">
-    <span class="section-label">Three ways to use loci</span>
+    <span class="section-label">Three ways to run it</span>
     <div class="persona-cards">
 
       <!-- Scholar card (current mode, highlighted) -->
@@ -294,9 +303,9 @@
           <div class="persona-card-mode">◆ ELI-5</div>
           <div class="persona-card-role">Your AI finally remembers you.</div>
         </div>
-        <p class="persona-card-desc">A regular user who chats with AI tools and wants their work to stick. Local index, full-text search, private. No config. No cloud. No re-explaining yourself from scratch every session.</p>
+        <p class="persona-card-desc">A regular user who wants their AI to stick. Start in plain markdown, no build: copy the kit, point your AI at it. Local, private, no account, no cloud, no re-explaining yourself every session.</p>
         <div class="persona-card-feel">Feels like: your AI finally knows who you are.</div>
-        <a href="start.html" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="eli5">Build your palace in 10m →</a>
+        <a href="start.html" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="eli5">Design your mindspace →</a>
       </div>
 
       <!-- Wizard card -->
@@ -330,10 +339,10 @@
     <hr class="section-divider" />
     <div class="demiurge-frame">
       <p class="demiurge-main">The apps you use don't store your knowledge.<br>They store it <em>for you.</em></p>
-      <p class="demiurge-body">Notion holds your notes. ChatGPT holds your context. Apple holds your memory. They're all landlords, your thinking lives in their architecture, retrievable at their pleasure, gone when you leave. The knowledge you build with AI is yours. It just doesn't live where you live. Yet.</p>
-      <p class="demiurge-body">loci inverts this. The index runs in your browser. The search lives on your machine. The palace belongs to the person who builds it.</p>
+      <p class="demiurge-body">Notion holds your notes. ChatGPT holds your context. Apple holds your memory. Your thinking lives in their architecture, retrievable at their pleasure, gone when you leave. The knowledge you build with AI is yours. It just doesn't live where you live. Yet.</p>
+      <p class="demiurge-body">loci inverts this. It is plain text on your machine, firmware any AI can run. The substrate belongs to the person who runs it.</p>
       <div class="demiurge-cta">
-        <a href="start.html" class="btn-primary"><span>Build your palace in 10m →</span></a>
+        <a href="start.html" class="btn-primary"><span>Design your mindspace →</span></a>
       </div>
     </div>
   </section>
@@ -342,7 +351,7 @@
   <hr class="section-divider" />
   <section id="features">
     <span class="section-label">
-      <span class="t-scholar">What it does</span>
+      <span class="t-scholar">What it gives you</span>
       <span class="t-wizard">The Rooms</span>
       <span class="t-llmage">CAPABILITIES</span>
     </span>
@@ -524,6 +533,102 @@
     </div> <!-- end non-wizard-grid -->
   </section>
 
+  <!-- ── WHO IT'S FOR — use-case × feature matrix ─────── -->
+  <hr class="section-divider" />
+  <section id="who" class="matrix-section">
+    <span class="section-label">
+      <span class="t-scholar">Who it's for</span>
+      <span class="t-wizard">Choose your path</span>
+      <span class="t-llmage">use_cases × capabilities</span>
+    </span>
+    <p class="matrix-intro">
+      <span class="t-scholar">One substrate, many shapes. Pick a use-case to trace which features it leans on. No two patterns are the same.</span>
+      <span class="t-wizard">One genome, many classes. Click a path to light its skill tree. The substrate is the same; the build is yours.</span>
+      <span class="t-llmage">// one substrate, N expressions. select a use_case to highlight its primary and supporting sets.</span>
+    </p>
+
+    <div class="matrix-wrap">
+      <table class="matrix-grid">
+        <thead>
+          <tr>
+            <th class="mx-rowhead" scope="col"><span class="t-scholar">use-case</span><span class="t-wizard">path</span><span class="t-llmage">use_case</span></th>
+            <th scope="col">Memory</th>
+            <th scope="col">Context</th>
+            <th scope="col">Identity</th>
+            <th scope="col">Garden</th>
+            <th scope="col">Continuity</th>
+            <th scope="col">Trust</th>
+            <th scope="col">Interop</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-uc="researcher">
+            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Researcher</button></th>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+          </tr>
+          <tr data-uc="builder">
+            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Builder</button></th>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="0"></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+          </tr>
+          <tr data-uc="companion">
+            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Companion-keeper</button></th>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+          </tr>
+          <tr data-uc="sovereign">
+            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Vault-keeper</button></th>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="0"></td>
+            <td data-l="0"></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+          </tr>
+          <tr data-uc="team">
+            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Team</button></th>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+          </tr>
+          <tr data-uc="migrator">
+            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Nomad</button></th>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="0"></td>
+            <td data-l="0"></td>
+            <td data-l="0"></td>
+            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
+            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="matrix-detail" id="matrix-detail" aria-live="polite"></div>
+      <p class="matrix-legend"><span class="mx-dot is-primary" aria-hidden="true"></span> primary &nbsp; <span class="mx-dot is-supporting" aria-hidden="true"></span> supporting &nbsp;·&nbsp; click a use-case to trace its pattern</p>
+    </div>
+  </section>
+
   <!-- ── TAURI DESKTOP APP (Wizard + LLMAGE) ──────────── -->
   <div class="tb-wizard-up">
     <hr class="section-divider" />
@@ -629,7 +734,7 @@
 
     <!-- Scholar: plain human -->
     <div class="tb-scholar">
-      <p class="about-prose">We built loci because the best AI conversations kept vanishing. A breakthrough insight at 2am, searched for a week later, gone. Re-explaining the same context to the same AI, session after session. Your thinking was happening, just nowhere permanent. loci is the fix: a local memory layer that makes your AI conversations actually yours, fully searchable, never leaving your device.</p>
+      <p class="about-prose">We built loci because the best AI work kept vanishing. A breakthrough insight at 2am, searched for a week later, gone. Re-explaining the same context to the same AI, session after session. Your thinking was happening, just nowhere permanent. loci is the fix: a plain-text substrate your AI reads before it answers, so the work you do together stays yours, local, searchable, never leaving your device.</p>
     </div>
 
     <!-- Wizard: palace origin + palace map -->
@@ -762,7 +867,7 @@
 
     <!-- LLMAGE: architecture principles -->
     <div class="tb-llmage">
-      <p class="about-prose">loci is a context persistence primitive. It solves the stateless session problem for LLM-native workflows, not by adding a cloud layer, but by treating your local machine as the canonical context store. No accounts. No sync. Architecture documented at <a href="https://docs.loci.garden" style="color:var(--text-2);">docs.loci.garden</a>.</p>
+      <p class="about-prose">loci is a mindspace primitive: an intelligence substrate any file-aware model runs. It solves the stateless session problem for LLM-native workflows, not by adding a cloud layer, but by treating your local machine as the canonical context store. No accounts. No sync. Architecture documented at <a href="https://docs.loci.garden" style="color:var(--text-2);">docs.loci.garden</a>.</p>
       <div class="llmage-principles">
         <div class="llmage-principle">Context is state. State must persist.</div>
         <div class="llmage-principle">Local is canonical. Cloud is optional.</div>
@@ -846,12 +951,12 @@
         <div class="step-num">1</div>
         <div class="step-body">
           <h4>
-            <span class="t-scholar">Add to your browser or download the installer</span>
+            <span class="t-scholar">Start in plain markdown, or grab the app</span>
             <span class="t-wizard">Claim Your First Room</span>
             <span class="t-llmage">clone + configure</span>
           </h4>
           <p>
-            <span class="t-scholar">Download the app. Local index, no account, no cloud. Get running in under 10 minutes.</span>
+            <span class="t-scholar">Fastest start is plain text: copy the kit, point any AI at it, no build. Prefer a GUI? Grab the desktop demo. Local, no account, no cloud.</span>
             <span class="t-wizard">Open Claude Desktop (or your MCP client). The one-liner below writes a backup-protected config entry that loci satisfies as soon as the desktop app is running.</span>
             <span class="t-llmage"><code>git clone https://github.com/huximaxi/loci && cd loci/desktop && cat .mcp.json</code></span>
           </p>
@@ -891,7 +996,7 @@
             <span class="t-llmage">invoke + verify</span>
           </h4>
           <p>
-            <span class="t-scholar">Press ⌘K and search. Find any conversation, any answer, any idea, instantly. Your AI memory, finally yours.</span>
+            <span class="t-scholar">Press ⌘K and search. Find any conversation, any answer, any idea, instantly. Your mindspace, finally yours.</span>
             <span class="t-wizard">Navigate your rooms, recall your loci, summon your agents. The palace grows with every session.</span>
             <span class="t-llmage"><code>@loci search "your query"</code>, verify context window is populated before your first run.</span>
           </p>
@@ -929,7 +1034,7 @@
     <!-- Final CTA -->
     <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
       <a href="start.html" class="btn-primary tb-scholar">
-        <span class="t-scholar">Build your palace in 10m →</span>
+        <span class="t-scholar">Design your mindspace →</span>
       </a>
       <a href="download.html" class="btn-primary tb-wizard">
         <span class="t-wizard">Get the app →</span>
@@ -946,7 +1051,7 @@
 <hr class="section-divider" style="margin: 0 0;" />
 <footer>
   <span class="footer-text">
-    <span class="t-scholar">loci.garden, your AI memory, finally yours.</span>
+    <span class="t-scholar">loci.garden, your mindspace, finally yours.</span>
     <span class="t-wizard">loci.garden · The palace grows with every session. ✦</span>
     <span class="t-llmage">loci.garden · v0.6.0 · MIT license</span>
   </span>
@@ -1050,6 +1155,147 @@
     try { saved = localStorage.getItem('loci-theme') || 'scholar'; } catch(e) {}
     if (!THEMES.includes(saved)) saved = 'scholar';
     setTheme(saved);
+  })();
+
+  // ── Hero claim alleles (read / run) ───────────────────
+  (function claimAlleles() {
+    const panel = document.getElementById('claim-reveal');
+    if (!panel) return;
+    const rows = Array.from(panel.querySelectorAll('.claim-reveal-row'));
+    const words = Array.from(document.querySelectorAll('.claim-word'));
+    const live = document.querySelector('.claim-sr');
+    const canHover = () => window.matchMedia('(hover: hover)').matches;
+    const DATA = {
+      read: {
+        scholar: 'You read it as plain English. No manual, no jargon.',
+        wizard:  'You read it as a palace you walk, room by room.',
+        llmage:  'You read it as a spec: plain text, forkable, exact.'
+      },
+      run: {
+        scholar: 'Your everyday AI runs it and finally remembers you.',
+        wizard:  'Your desktop AI runs it and lives in the palace.',
+        llmage:  'Any file-aware model runs it. The app and CLI are two.'
+      }
+    };
+    let activeWord = null, leaveTimer = null, hideTimer = null;
+    const theme = () => document.documentElement.getAttribute('data-theme') || 'scholar';
+
+    function fill(allele) {
+      const cur = theme();
+      rows.forEach(r => {
+        const t = r.dataset.tier;
+        r.querySelector('.cr-gloss').textContent = DATA[allele][t];
+        r.classList.toggle('is-current', t === cur);
+        r.setAttribute('aria-pressed', String(t === cur));
+      });
+    }
+    function open(word) {
+      clearTimeout(leaveTimer); clearTimeout(hideTimer);
+      fill(word.dataset.allele);
+      panel.hidden = false;
+      requestAnimationFrame(() => panel.classList.add('open'));
+      words.forEach(w => w.setAttribute('aria-expanded', String(w === word)));
+      activeWord = word;
+    }
+    function close() {
+      panel.classList.remove('open');
+      words.forEach(w => w.setAttribute('aria-expanded', 'false'));
+      activeWord = null;
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => { panel.hidden = true; }, 240);
+    }
+    function scheduleClose() { clearTimeout(leaveTimer); leaveTimer = setTimeout(close, 140); }
+
+    words.forEach(word => {
+      word.addEventListener('pointerenter', () => { if (canHover()) open(word); });
+      word.addEventListener('pointerleave', () => { if (canHover()) scheduleClose(); });
+      word.addEventListener('focus', () => open(word));
+      word.addEventListener('click', e => {
+        e.preventDefault();
+        (activeWord === word && !panel.hidden) ? close() : open(word);
+      });
+    });
+    panel.addEventListener('pointerenter', () => { clearTimeout(leaveTimer); clearTimeout(hideTimer); });
+    panel.addEventListener('pointerleave', () => { if (canHover()) scheduleClose(); });
+    rows.forEach(r => {
+      r.addEventListener('click', () => {
+        setTheme(r.dataset.tier);
+        if (activeWord) fill(activeWord.dataset.allele);
+        if (live) live.textContent = 'Switched to ' + r.querySelector('.cr-tier').textContent + ' tier. The page now reads in that voice.';
+      });
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) close(); });
+    document.addEventListener('click', e => {
+      if (!panel.hidden && !e.target.closest('.claim-reveal') && !e.target.closest('.claim-word')) close();
+    });
+    // Keep an open panel's current-tier row in sync when the theme changes by any route.
+    new MutationObserver(() => { if (!panel.hidden && activeWord) fill(activeWord.dataset.allele); })
+      .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
+
+  // ── Use-case × feature matrix ─────────────────────────
+  (function matrix() {
+    const grid = document.querySelector('.matrix-grid');
+    if (!grid) return;
+    const detail = document.getElementById('matrix-detail');
+    const rows = Array.from(grid.querySelectorAll('tbody tr'));
+    const heads = Array.from(grid.querySelectorAll('thead th')).slice(1);
+    const FEAT = ['Memory', 'Context', 'Identity', 'Garden', 'Continuity', 'Trust', 'Interop'];
+    const UC = {
+      researcher: { name: 'The Researcher', blurb: 'Long-running thinking, thesis continuity, an idea garden.' },
+      builder:    { name: 'The Builder', blurb: 'Code context across sessions, MCP and IDE-native.' },
+      companion:  { name: 'The Companion-keeper', blurb: 'A named, persistent co-intelligence.' },
+      sovereign:  { name: 'The Vault-keeper', blurb: 'Local-only, inspectable, prunable. Nothing leaves.' },
+      team:       { name: 'The Team', blurb: 'A shared substrate and shared conventions, people and their AIs.' },
+      migrator:   { name: 'The Nomad', blurb: 'Moving across Claude, Cursor, and Codex without lock-in.' }
+    };
+    rows.forEach(tr => {
+      Array.from(tr.querySelectorAll('td')).forEach((c, i) => {
+        const l = c.dataset.l;
+        c.setAttribute('aria-label', FEAT[i] + ': ' + (l === '2' ? 'primary' : l === '1' ? 'supporting' : 'not used'));
+      });
+    });
+    function select(tr) {
+      rows.forEach(r => r.classList.toggle('is-active', r === tr));
+      grid.classList.add('has-active');
+      const cells = Array.from(tr.querySelectorAll('td'));
+      const prim = [], supp = [];
+      cells.forEach((c, i) => { const l = c.dataset.l; if (l === '2') prim.push(FEAT[i]); else if (l === '1') supp.push(FEAT[i]); });
+      heads.forEach((h, i) => { const l = cells[i].dataset.l; h.classList.toggle('is-lit', l === '2' || l === '1'); });
+      const uc = UC[tr.dataset.uc];
+      detail.innerHTML = '<strong>' + uc.name + '.</strong> ' + uc.blurb +
+        '<br><span class="md-prim">primary</span> ' + prim.join(', ') +
+        ' &nbsp; <span class="md-supp">supporting</span> ' + (supp.join(', ') || 'none');
+    }
+    rows.forEach(tr => {
+      const btn = tr.querySelector('.mx-uc-btn');
+      if (btn) btn.addEventListener('click', () => select(tr));
+    });
+    if (rows.length) select(rows[0]);
+  })();
+
+  // ── Hero fractal backdrop (nested rotating squares) ───
+  (function fractal() {
+    const host = document.querySelector('.hero-fractal');
+    if (!host) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '-200 -200 400 400');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    for (let i = 0; i < 30; i++) {
+      const s = 190 * Math.pow(0.9, i);
+      const r = document.createElementNS(NS, 'rect');
+      r.setAttribute('x', -s); r.setAttribute('y', -s);
+      r.setAttribute('width', 2 * s); r.setAttribute('height', 2 * s);
+      r.setAttribute('rx', '2');
+      r.setAttribute('fill', 'none');
+      r.setAttribute('stroke', 'currentColor');
+      r.setAttribute('stroke-width', '0.6');
+      r.setAttribute('transform', 'rotate(' + (i * 11) + ')');
+      r.setAttribute('opacity', Math.max(0.05, 0.5 - i * 0.014).toFixed(3));
+      svg.appendChild(r);
+    }
+    host.appendChild(svg);
   })();
 
   // ── Resources dropdown ────────────────────────────────
