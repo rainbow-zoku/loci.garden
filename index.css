@@ -437,6 +437,262 @@ section.hero-section {
 }
 
 /* ═══════════════════════════════════════════════════════
+   HERO CLAIM ALLELES (read / run)
+   One constant sentence (the genome); each load-bearing word
+   reveals its three tier-readings (the cells). Commit = setTheme.
+═══════════════════════════════════════════════════════ */
+.claim-word {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0 1px;
+  cursor: pointer;
+  text-decoration: underline dotted var(--accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s cubic-bezier(0.4,0,0.2,1), text-decoration-color 0.2s;
+}
+.claim-word:hover,
+.claim-word:focus-visible {
+  color: var(--accent);
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+  outline: none;
+}
+.claim-amp {
+  color: var(--text-3);
+  font-weight: 400;
+  font-style: italic;
+  margin-right: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO WORDMARK + FRACTAL BACKDROP (logotype-forward hero)
+═══════════════════════════════════════════════════════ */
+.hero-section { position: relative; }
+.hero-fractal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: var(--text-3);
+  opacity: 0.12;
+  z-index: -1;
+}
+.hero-fractal svg { width: min(820px, 132%); height: auto; }
+[data-theme="wizard"] .hero-fractal { opacity: 0; }
+[data-theme="llmage"] .hero-fractal { opacity: 0.55; color: #6b6b7a; }
+
+.hero-wordmark {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 12vw, 132px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 6px 0 16px;
+}
+[data-theme="wizard"] .hero-wordmark {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #f5e8c8;
+  text-shadow: 0 0 18px rgba(255,200,80,0.25), 0 2px 0 rgba(0,0,0,0.5);
+}
+
+/* kicker → letterspaced tagline (no pill), screenshot-style */
+.hero-tag {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: var(--text-3);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: none;
+  margin-bottom: 22px;
+}
+[data-theme="wizard"] .hero-tag {
+  border: 0; background: none; padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+[data-theme="llmage"] .hero-tag {
+  border: 0; background: none; padding: 0;
+  color: var(--text-3);
+  letter-spacing: 0.24em;
+}
+.claim-reveal {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 460px;
+  margin: -8px auto 28px;
+  padding: 8px;
+  position: relative;
+  z-index: 5;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.22s cubic-bezier(0.4,0,0.2,1), opacity 0.18s, padding 0.22s;
+}
+.claim-reveal[hidden] { display: none; }
+.claim-reveal.open { max-height: 280px; opacity: 1; }
+.claim-reveal-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-3);
+  font-size: 14px;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+}
+.claim-reveal-row:hover,
+.claim-reveal-row:focus-visible {
+  background: var(--accent-soft);
+  outline: none;
+}
+.claim-reveal-row.is-current { color: var(--text); }
+.cr-glyph { color: var(--accent); font-size: 13px; }
+.cr-tier {
+  min-width: 62px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.claim-reveal-row.is-current .cr-tier { color: var(--accent); }
+.cr-gloss { flex: 1; }
+.claim-reveal-hint {
+  margin: 4px 6px 2px;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--text-3);
+  text-align: right;
+}
+.claim-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+[data-theme="wizard"] .claim-reveal { border-width: 2px; border-radius: 0; }
+[data-theme="wizard"] .cr-tier { font-family: 'Press Start 2P', monospace; font-size: 8px; }
+[data-theme="llmage"] .claim-reveal { border-radius: 0; }
+[data-theme="llmage"] .cr-tier { font-family: 'Helvetica Neue', monospace; }
+
+/* ═══════════════════════════════════════════════════════
+   WHO IT'S FOR — use-case × feature matrix
+   One substrate, many shapes. Click a row to trace its pattern.
+═══════════════════════════════════════════════════════ */
+.matrix-intro {
+  max-width: 600px;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: var(--text-2);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.matrix-wrap { max-width: 900px; margin: 0 auto; }
+.matrix-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.matrix-grid thead th {
+  padding: 0 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-3);
+  text-align: center;
+  vertical-align: bottom;
+  transition: color 0.2s;
+}
+.matrix-grid thead th.mx-rowhead { text-align: left; }
+.matrix-grid thead th.is-lit { color: var(--accent); }
+.matrix-grid tbody tr {
+  border-top: 1px solid var(--border);
+  transition: opacity 0.2s, background 0.2s;
+}
+.matrix-grid tbody td { padding: 14px 6px; text-align: center; }
+.mx-uc { text-align: left; }
+.mx-uc-btn {
+  font: inherit;
+  font-weight: 500;
+  color: var(--text);
+  background: none;
+  border: 0;
+  padding: 6px 2px;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.25;
+  transition: color 0.15s;
+}
+.mx-uc-btn:hover, .mx-uc-btn:focus-visible { color: var(--accent); outline: none; }
+.mx-dot {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.mx-dot.is-primary { background: var(--accent); }
+.mx-dot.is-supporting { background: none; border: 1.5px solid var(--text-3); box-sizing: border-box; }
+.matrix-grid.has-active tbody tr { opacity: 0.45; }
+.matrix-grid.has-active tbody tr.is-active { opacity: 1; background: var(--accent-soft); }
+.matrix-grid tbody tr.is-active .mx-uc-btn { color: var(--accent); }
+.matrix-detail {
+  max-width: 640px;
+  margin: 26px auto 0;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-2);
+  text-align: center;
+}
+.matrix-detail strong { color: var(--text); }
+.md-prim { color: var(--accent); font-weight: 500; }
+.md-supp { color: var(--text-3); font-weight: 500; }
+.matrix-legend { margin-top: 16px; text-align: center; font-size: 12px; color: var(--text-3); }
+.matrix-legend .mx-dot { margin-right: 2px; }
+[data-theme="wizard"] .matrix-grid thead th { text-transform: uppercase; letter-spacing: 0.04em; }
+[data-theme="wizard"] .mx-uc-btn { font-family: 'Georgia', 'Times New Roman', serif; }
+[data-theme="wizard"] .matrix-detail { border-width: 2px; border-radius: 0; }
+[data-theme="llmage"] .matrix-grid thead th { font-family: 'Helvetica Neue', monospace; }
+[data-theme="llmage"] .matrix-detail { border-radius: 0; }
+
+/* ═══ Reduced motion (the site had none; a11y blocker for handoff) ═══ */
+@media (prefers-reduced-motion: reduce) {
+  .claim-word, .claim-reveal, .claim-reveal-row { transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
    CTA BUTTONS
 ═══════════════════════════════════════════════════════ */
 .hero-cta {
