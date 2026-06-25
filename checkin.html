@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html data-theme="scholar" lang="en">
+<head>
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+</script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23F2EFE3'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a8b572'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%237d8a4a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%235a6b2e'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233a4720'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>loci check-in · how did your palace evolve?</title>
+  <meta name="description" content="A standing feedback channel for loci palace holders. How did your palace evolve since you set it up? Structure over content, nothing leaves your machine until you send it.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="loci.css">
+  <script defer src="https://analytics.195-246-230-118.sslip.io/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
+  <style>
+    /* ── check-in form (page-scoped under .checkin so loci.css is untouched) ── */
+    .checkin{max-width:660px;margin:0 auto;padding:var(--sp-6,32px) var(--sp-5,24px) 80px}
+    .checkin .progress-wrap{margin-bottom:var(--sp-6,32px);display:none}
+    .checkin .progress-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text-3,#5a5a6a);margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase}
+    .checkin .progress-bar{height:3px;background:var(--border,#252530);border-radius:2px;overflow:hidden}
+    .checkin .progress-fill{height:100%;width:0;background:var(--accent,#c87c2c);border-radius:2px;transition:width .4s ease}
+
+    .checkin .screen{display:none;animation:ck-rise .35s ease both}
+    .checkin .screen.active{display:block}
+    @keyframes ck-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+    .checkin .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-light,#e8974a);margin-bottom:12px}
+    .checkin h1{font-size:clamp(32px,5vw,48px);line-height:1.12;font-weight:700;margin:0 0 16px;letter-spacing:-.01em;color:var(--text)}
+    .checkin h2{font-size:28px;line-height:1.15;font-weight:600;margin:0 0 16px;color:var(--text)}
+    .checkin p{color:var(--text-2);line-height:1.78;margin:0 0 16px}
+    .checkin p strong,.checkin .prompt strong{color:var(--text);font-weight:600}
+    .checkin code{font-family:var(--mono,monospace);font-size:.92em;background:var(--accent-soft);color:var(--accent-light);padding:1px 5px;border-radius:var(--radius-sm,3px)}
+    .checkin a{color:var(--accent-light)}
+
+    .checkin .facts{list-style:none;margin:24px 0;padding:0;display:grid;gap:12px}
+    .checkin .facts li{display:flex;gap:12px;align-items:flex-start;color:var(--text-2);line-height:1.6}
+    .checkin .facts .dot{color:var(--accent);flex:0 0 auto;margin-top:.1em;font-weight:700}
+    .checkin .note{font-size:14px;color:var(--text-3);border-left:2px solid var(--border-2,#353540);padding-left:16px;margin:24px 0;line-height:1.6}
+
+    .checkin .pulse{display:grid;gap:8px;margin:24px 0}
+    .checkin .pulse label{display:flex;gap:12px;align-items:center;padding:16px;border:1px solid var(--border);border-radius:var(--radius,4px);cursor:pointer;transition:.15s;color:var(--text)}
+    .checkin .pulse label:hover{border-color:var(--border-2);background:var(--bg-2)}
+    .checkin .pulse input{accent-color:var(--accent)}
+
+    .checkin .prompt{margin:24px 0 8px;color:var(--text);line-height:1.6}
+    .checkin textarea{width:100%;min-height:84px;resize:vertical;font:inherit;font-size:14px;background:var(--bg-2);color:var(--text);border:1px solid var(--border);border-radius:var(--radius,4px);padding:16px;line-height:1.6;transition:border-color .15s}
+    .checkin textarea:focus{outline:none;border-color:var(--accent)}
+    .checkin textarea::placeholder{color:var(--text-3)}
+    .checkin details{margin:12px 0 4px;font-size:14px}
+    .checkin details summary{cursor:pointer;color:var(--accent-light)}
+    .checkin details pre{margin-top:12px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius,4px);padding:16px;overflow:auto;font-family:var(--mono,monospace);font-size:12px;color:var(--text-2);line-height:1.6;cursor:copy}
+
+    .checkin .nav{display:flex;justify-content:space-between;align-items:center;margin-top:48px;gap:12px}
+    .checkin .nav-fwd{display:flex;gap:24px;align-items:center}
+    .checkin .btn{font:inherit;font-weight:600;font-size:14px;padding:12px 32px;border-radius:var(--radius,4px);cursor:pointer;border:1px solid transparent;transition:.15s}
+    .checkin .btn-primary{background:var(--btn-bg);color:var(--btn-text)}
+    .checkin .btn-primary:hover{background:var(--btn-hover)}
+    .checkin .btn-ghost{background:none;color:var(--text-3);border-color:var(--border)}
+    .checkin .btn-ghost:hover{color:var(--text);border-color:var(--border-2)}
+    .checkin .skip{background:none;border:none;color:var(--text-3);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+    .checkin .skip:hover{color:var(--text-2)}
+
+    .checkin .checklist{list-style:none;margin:24px 0;padding:0;display:grid;gap:8px}
+    .checkin .checklist li{display:flex;gap:12px;font-size:14px;color:var(--text-2);align-items:flex-start}
+    .checkin .checklist input{accent-color:var(--accent);margin-top:.25em}
+    .checkin .idfields{margin:24px 0;display:grid;gap:12px}
+    .checkin .idfields label{display:block;font-size:13px;color:var(--text-2);margin-bottom:4px}
+    .checkin .idfields input[type=text]{width:100%;font:inherit;font-size:14px;background:var(--bg-2);color:var(--text);border:1px solid var(--border);border-radius:var(--radius,4px);padding:10px 16px}
+    .checkin .submit-actions{display:grid;gap:12px;margin:24px 0}
+    .checkin .submit-actions .btn{width:100%;text-align:center;padding:16px}
+    .checkin .submit-actions .secondary{display:flex;gap:12px}
+    .checkin .submit-actions .secondary .btn{flex:1}
+    .checkin .preview-md{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius,4px);padding:16px;font-family:var(--mono,monospace);font-size:12px;color:var(--text-2);white-space:pre-wrap;max-height:220px;overflow:auto;margin-top:16px}
+    .checkin .closing{margin-top:32px;padding-top:24px;border-top:1px solid var(--border);color:var(--text-2);font-size:14px;line-height:1.78}
+    .checkin .closing em{color:var(--accent-light);font-style:normal}
+    .checkin .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:var(--btn-text);padding:12px 24px;border-radius:var(--radius,4px);font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99}
+    .checkin .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  </style>
+</head>
+<body>
+
+<!-- #include partials/_nav.html -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo-group">
+      <a href="/" class="logo">loci.garden</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="/download.html" class="nav-link" data-page="download">download</a>
+        <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
+        <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
+        <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
+        <button class="theme-btn" id="btn-scholar" onclick="setTheme('scholar')" aria-pressed="true">◆ ELI-5</button>
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="false">⚔ Wizard</button>
+        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
+      </div>
+    </div>
+  </div>
+  <script defer src="/theme.js"></script>
+</nav>
+<!-- /include -->
+
+  <main class="checkin">
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-meta"><span id="stepLabel"></span><span id="stepCount"></span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <!-- 0 · CONSENT GATE (page chrome; mirrored in checkin/loci-user-checkin.md) -->
+    <section class="screen active" data-step="consent">
+      <div class="eyebrow">field notes · the standing channel</div>
+      <h1>How did your palace evolve?</h1>
+      <p>loci ships as a baseline. It becomes a palace only once you live in it, and living in it changes it: a room you added, a ritual you bent, a rule you rewrote because ours did not fit how you think. We cannot see that drift from here, and it is the most useful thing you could show us. This is the standing channel between the loci we ship and the loci you actually run. It does not close. Come back whenever your palace has grown into something we did not predict.</p>
+      <ul class="facts">
+        <li><span class="dot">+</span><span>We ask for <strong>structure, not content</strong>. Directory shapes, question patterns, workflow descriptions. Nothing from inside your palace needs to leave it.</span></li>
+        <li><span class="dot">+</span><span><strong>Nothing leaves your machine</strong> until you email it yourself. This page has no backend and stores nothing. Your answers live in this browser only.</span></li>
+        <li><span class="dot">+</span><span><strong>Seven parts, 15 to 30 minutes.</strong> Answers autosave locally, so you can leave and come back.</span></li>
+        <li><span class="dot">+</span><span><strong>Every question is skippable.</strong> Partial is useful. Lapsed is data too.</span></li>
+      </ul>
+      <p class="note">When you finish, you compile your answers and send them yourself to <code>themapisnory@tuta.io</code>. Plain email is not end-to-end encrypted: your own provider keeps a copy. If that matters for your threat model, send from a throwaway address, or just reply in the chat. We keep submissions only until we have read them into the next round, then delete them. Ask anytime, with your codeword, to have yours removed sooner. We will not quote you publicly without asking you first.</p>
+      <div class="nav">
+        <span></span>
+        <button class="btn btn-primary" id="beginBtn">Begin</button>
+      </div>
+    </section>
+
+    <!-- 1 · PULSE (page chrome) -->
+    <section class="screen" data-step="pulse">
+      <h2>First, the quick one.</h2>
+      <p><strong>How often does your palace actually get opened these days?</strong></p>
+      <div class="pulse">
+        <label><input type="radio" name="pulse" value="daily">Daily</label>
+        <label><input type="radio" name="pulse" value="weekly-few">A few times a week</label>
+        <label><input type="radio" name="pulse" value="weekly">Weekly</label>
+        <label><input type="radio" name="pulse" value="lapsed">It has been a while</label>
+      </div>
+      <div class="nav">
+        <button class="btn btn-ghost" data-back>Back</button>
+        <div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div>
+      </div>
+    </section>
+
+    <!-- 2-8 · the seven Parts, generated from the canonical markdown by build.py -->
+<!-- #include-md checkin/loci-user-checkin.md -->
+<section class="screen" data-step="p1">
+<div class="eyebrow">Part 1 of 7</div>
+<h2>Version snapshot</h2>
+<p>Find your local <code>Loci/</code> folder (the setup files, next to your palace). Look for <code>LOCI-CORE.md</code> or <code>PALACE-METHODOLOGY.md</code> and note the version string. If neither exists, check your README. Read-only, structure only, run from your <code>Loci/</code> folder:</p>
+<details open><summary>show the one-liner (read-only, structure only)</summary><pre>grep -rhm1 &quot;loci-core version&quot; . --include=&quot;*.md&quot; 2&gt;/dev/null
+git log --oneline -5 2&gt;/dev/null</pre></details>
+<p class="prompt">If you cloned the repo: paste your <code>git log --oneline -5</code>.</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">If you set up from templates: roughly when, and what the version string says.</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">Scan your palace and setup files. What have you modified or added that wasn&#x27;t in the original? A list is fine. Directory dump is fine.</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
+</section>
+
+<section class="screen" data-step="p2">
+<div class="eyebrow">Part 2 of 7</div>
+<h2>What&#x27;s missing</h2>
+<p class="prompt">What do you reach for that isn&#x27;t there?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">What workaround did you build that should be a core feature?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
+</section>
+
+<section class="screen" data-step="p3">
+<div class="eyebrow">Part 3 of 7</div>
+<h2>What you changed (the part we read first)</h2>
+<p class="prompt">What modifications did you make to the baseline templates or methodology?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">What drove each change? (The use case, not just the mechanism.)</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">Is there anything you invented that now feels load-bearing?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
+</section>
+
+<section class="screen" data-step="p4">
+<div class="eyebrow">Part 4 of 7</div>
+<h2>Unexpected territory</h2>
+<p class="prompt">Has loci started doing something you didn&#x27;t plan for?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">What does your palace&#x27;s rhythm look like in practice? Daily ritual, reactive capture, weekly review?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">Which crystal tier (◇/◈/◆) do you spend the most time in, and have you bent it to a different purpose?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
+</section>
+
+<section class="screen" data-step="p5">
+<div class="eyebrow">Part 5 of 7</div>
+<h2>You and the AI</h2>
+<p class="prompt">What do you run the palace with (Claude Code, Goose, local models, something else), and has that changed since you set up?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">Does your assistant carry identity across sessions (a name, a voice, working habits it remembers), or does every session start cold?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">Where do you not trust it? What does it get wrong about your palace often enough that you&#x27;ve built a habit around correcting it?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
+</section>
+
+<section class="screen" data-step="p6">
+<div class="eyebrow">Part 6 of 7</div>
+<h2>Privacy and data</h2>
+<p class="prompt">What&#x27;s your threat model for your palace? Who specifically shouldn&#x27;t be able to read it?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">What did you decide to keep out for privacy reasons?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">Have you modified anything because you didn&#x27;t trust a particular data flow (sync, MCP, cloud AI)?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
+</section>
+
+<section class="screen" data-step="p7">
+<div class="eyebrow">Part 7 of 7</div>
+<h2>The pitch</h2>
+<p class="prompt">Two sentences: how do you explain what you built to a skeptical friend?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">When did loci stop feeling like a tool and start feeling like a place? (If it hasn&#x27;t, that&#x27;s an answer too.)</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<p class="prompt">What would need to exist before you&#x27;d recommend it to someone?</p>
+<textarea rows="3" placeholder="optional"></textarea>
+<div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
+</section>
+<!-- /include-md -->
+
+    <!-- 9 · SUBMIT (page chrome) -->
+    <section class="screen" data-step="submit">
+      <div class="eyebrow">last step</div>
+      <h2>Compile and send</h2>
+      <p>Your answers are assembled into one markdown block below. Read it once, then copy it into an email to <code>themapisnory@tuta.io</code>. It never sends from this page.</p>
+
+      <p style="color:var(--text);margin-bottom:8px">Before you send, a quick scan:</p>
+      <ul class="checklist">
+        <li><input type="checkbox"><span>Pasted <code>git log</code> output? It can carry your name and email. Trim if you would rather not share them.</span></li>
+        <li><input type="checkbox"><span>Directory dump? Check it for personal or employer names in folder paths.</span></li>
+        <li><input type="checkbox"><span>Part 6 (privacy) answers: share only what you are comfortable sitting in an inbox.</span></li>
+      </ul>
+
+      <div class="idfields">
+        <div>
+          <label for="pseudo">A name to file you under (optional)</label>
+          <input type="text" id="pseudo" placeholder="a pseudonym, or leave blank">
+        </div>
+        <div>
+          <label for="codeword">Deletion codeword (optional)</label>
+          <input type="text" id="codeword" placeholder="pick a word; quote it later to have your submission deleted">
+        </div>
+        <div>
+          <label for="reach">A way to reach you back, if you want a reply (optional)</label>
+          <input type="text" id="reach" placeholder="npub / chat handle / email / leave blank">
+        </div>
+      </div>
+
+      <div class="submit-actions">
+        <button class="btn btn-primary" id="copyBtn">Copy answers as markdown</button>
+        <div class="secondary">
+          <button class="btn btn-ghost" id="downloadBtn">Download .md</button>
+          <button class="btn btn-ghost" id="mailBtn">Open email</button>
+        </div>
+      </div>
+      <div class="preview-md" id="previewMd"></div>
+
+      <div class="closing">We shipped the baseline. You grew the divergence. <em>The divergence is the roadmap.</em></div>
+      <div class="nav">
+        <button class="btn btn-ghost" data-back>Back</button>
+        <span></span>
+      </div>
+    </section>
+
+    <div class="toast" id="toast">copied to clipboard</div>
+  </main>
+
+<!-- #include partials/_footer.html -->
+<footer>
+  <div class="footer-inner">
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden &middot; built by Hux &times; Vesper</span>
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
+      <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
+      <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
+      <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
+      <a href="/releases/" style="color:var(--text-faint);">releases</a> &middot;
+      <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
+      <a href="https://github.com/huximaxi/loci/blob/main/CONTRIBUTING.md" style="color:var(--text-faint);" target="_blank" rel="noopener">contribute</a> &middot;
+      <a href="/privacy.html" style="color:var(--text-faint);">privacy</a> &middot;
+      <a href="/.well-known/security.txt" style="color:var(--text-faint);">security.txt</a> &middot;
+      <a href="/llms.txt" style="color:var(--text-faint);">llms.txt</a>
+    </span>
+  </div>
+</footer>
+<!-- /include -->
+
+<script>
+(function(){
+  var root = document.querySelector('.checkin');
+  var screens = Array.prototype.slice.call(root.querySelectorAll('.screen'));
+  var STEPS = screens.length;            // consent, pulse, 7 parts, submit
+  var cur = 0, started = false;
+  var fill = document.getElementById('progressFill');
+  var pWrap = document.getElementById('progressWrap');
+  var stepLabel = document.getElementById('stepLabel');
+  var stepCount = document.getElementById('stepCount');
+
+  function track(name, props){ try{ if(window.umami) window.umami.track(name, props||{}); }catch(e){} }
+
+  function label(i){
+    if(i===1) return 'Pulse';
+    var sec = screens[i];
+    var ey = sec.querySelector('.eyebrow'), h2 = sec.querySelector('h2');
+    return (ey?ey.textContent+' · ':'') + (h2?h2.textContent:'');
+  }
+
+  function go(i){
+    cur = Math.max(0, Math.min(STEPS-1, i));
+    screens.forEach(function(s,k){ s.classList.toggle('active', k===cur); });
+    window.scrollTo({top:0,behavior:'smooth'});
+    var isQ = cur>=1 && cur<=8;            // pulse + 7 parts
+    pWrap.style.display = isQ ? 'block' : 'none';
+    if(isQ){
+      stepLabel.textContent = label(cur);
+      stepCount.textContent = cur + ' / 8';
+      fill.style.width = (cur/8*100) + '%';
+      track('checkin-progress', { step: cur });
+    }
+    if(screens[cur].dataset.step === 'submit'){ buildPreview(); track('checkin-complete'); }
+  }
+
+  root.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click', function(){ go(cur+1); }); });
+  root.querySelectorAll('[data-back]').forEach(function(b){ b.addEventListener('click', function(){ go(cur-1); }); });
+  document.getElementById('beginBtn').addEventListener('click', function(){ track('checkin-consent'); go(1); });
+
+  // first input anywhere = start (fired once)
+  root.addEventListener('input', function(){
+    if(!started){ started = true; track('checkin-start'); }
+    saveDraft();
+  });
+
+  // click the snippet to copy it
+  root.addEventListener('click', function(e){
+    var pre = e.target.closest('details pre');
+    if(pre){ navigator.clipboard.writeText(pre.textContent).then(function(){ toast('snippet copied'); track('checkin-snippet-copy'); }); }
+  });
+
+  // ── local autosave (the consent promise; on-device only) ──
+  var KEY = 'loci-checkin-draft';
+  function fields(){ return root.querySelectorAll('textarea, input[type=text], input[type=radio], input[type=checkbox]'); }
+  function saveDraft(){
+    try{
+      var data = {};
+      fields().forEach(function(el,idx){
+        if(el.type==='radio'||el.type==='checkbox'){ if(el.checked) data['f'+idx]=el.value||true; }
+        else if(el.value) data['f'+idx]=el.value;
+      });
+      localStorage.setItem(KEY, JSON.stringify(data));
+    }catch(e){}
+  }
+  function loadDraft(){
+    try{
+      var data = JSON.parse(localStorage.getItem(KEY)||'{}');
+      fields().forEach(function(el,idx){
+        var v = data['f'+idx]; if(v===undefined) return;
+        if(el.type==='radio'||el.type==='checkbox') el.checked = true;
+        else el.value = v;
+      });
+    }catch(e){}
+  }
+  loadDraft();
+
+  // ── compile ──
+  function buildPreview(){
+    var md = '# loci check-in submission\n\n_via: web · structure over content_\n\n';
+    var pulse = root.querySelector('input[name=pulse]:checked');
+    md += '**Cadence:** ' + (pulse ? pulse.closest('label').textContent.trim() : '(skipped)') + '\n\n';
+    root.querySelectorAll('.screen[data-step^="p"]').forEach(function(sec){
+      if(sec.dataset.step === 'pulse') return;
+      var ey = sec.querySelector('.eyebrow'), h2 = sec.querySelector('h2');
+      var part = ey ? ey.textContent.replace(' of 7','') : '';
+      md += '## ' + part + ': ' + (h2 ? h2.textContent : '') + '\n';
+      sec.querySelectorAll('.prompt').forEach(function(p){
+        var ta = p.nextElementSibling;
+        var v = (ta && ta.value.trim()) || '(skipped)';
+        md += '- ' + v + '\n';
+      });
+      md += '\n';
+    });
+    var pseudo = val('pseudo'), code = val('codeword'), reach = val('reach');
+    if(pseudo || code || reach){
+      md += '## Sender\n';
+      if(pseudo) md += '- name: ' + pseudo + '\n';
+      if(code)   md += '- deletion codeword: ' + code + '\n';
+      if(reach)  md += '- reach me: ' + reach + '\n';
+    }
+    document.getElementById('previewMd').textContent = md;
+    return md;
+  }
+  function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1600); }
+
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    navigator.clipboard.writeText(buildPreview()).then(function(){ toast('copied to clipboard'); track('checkin-submit',{method:'copy'}); })
+      .catch(function(){ toast('select and copy the block below'); });
+  });
+  document.getElementById('downloadBtn').addEventListener('click', function(){
+    var b = new Blob([buildPreview()], {type:'text/markdown'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'loci-checkin.md'; a.click();
+    track('checkin-submit',{method:'download'});
+  });
+  document.getElementById('mailBtn').addEventListener('click', function(){
+    track('checkin-submit',{method:'mailto'});
+    location.href = 'mailto:themapisnory@tuta.io?subject=' + encodeURIComponent('loci check-in');
+  });
+})();
+</script>
+</body>
+</html>

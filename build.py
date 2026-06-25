@@ -25,11 +25,12 @@ Adds .nav-link.active to the matching nav anchor based on a page's
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent
 PARTIALS = ROOT / "partials"
 
 INCLUDE_RE = re.compile(
@@ -38,6 +39,104 @@ INCLUDE_RE = re.compile(
     r"<!--\s*/include\s*-->",
     re.DOTALL,
 )
+
+# #include-md generates the check-in Part screens from a markdown source. The
+# generated HTML is committed between the sentinels (same convention as #include),
+# so re-running after a markdown edit re-substitutes cleanly.
+INCLUDE_MD_RE = re.compile(
+    r"<!--\s*#include-md\s+(?P<path>[A-Za-z0-9_./-]+\.md)\s*-->"
+    r".*?"
+    r"<!--\s*/include-md\s*-->",
+    re.DOTALL,
+)
+
+PART_HEADER_RE = re.compile(r"^##\s+Part\s+(?P<n>\d+):\s*(?P<title>.+?)\s*$")
+
+
+def _inline_md(text: str) -> str:
+    """Escape, then render **bold** and `code` inline. No other markdown."""
+    s = html_lib.escape(text)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"`([^`]+?)`", r"<code>\1</code>", s)
+    return s
+
+
+def _render_part(n: int, title: str, body: list[str]) -> str:
+    """One `## Part N: Title` block -> a stepped <section>. Contract: intro
+    paragraphs, an optional fenced code block (-> read-only snippet helper),
+    and `- ` bullets (each -> one labeled textarea). Stops at a `---` rule."""
+    out = [
+        f'<section class="screen" data-step="p{n}">',
+        f'<div class="eyebrow">Part {n} of 7</div>',
+        f"<h2>{_inline_md(title)}</h2>",
+    ]
+    para: list[str] = []
+
+    def flush() -> None:
+        if para:
+            out.append(f'<p>{_inline_md(" ".join(para).strip())}</p>')
+            para.clear()
+
+    i = 0
+    while i < len(body):
+        s = body[i].strip()
+        if s == "---":
+            break
+        if s.startswith("```"):
+            flush()
+            code: list[str] = []
+            i += 1
+            while i < len(body) and not body[i].strip().startswith("```"):
+                code.append(body[i])
+                i += 1
+            i += 1  # closing fence
+            snippet = html_lib.escape("\n".join(code))
+            out.append(
+                "<details open><summary>show the one-liner "
+                "(read-only, structure only)</summary>"
+                f"<pre>{snippet}</pre></details>"
+            )
+            continue
+        if s.startswith("- "):
+            flush()
+            out.append(f'<p class="prompt">{_inline_md(s[2:].strip())}</p>')
+            out.append('<textarea rows="3" placeholder="optional"></textarea>')
+            i += 1
+            continue
+        if s == "":
+            flush()
+            i += 1
+            continue
+        para.append(s)
+        i += 1
+    flush()
+
+    out.append(
+        '<div class="nav"><button class="btn btn-ghost" data-back>Back</button>'
+        '<div class="nav-fwd"><button class="skip" data-next>skip</button>'
+        '<button class="btn btn-primary" data-next>Next</button></div></div>'
+    )
+    out.append("</section>")
+    return "\n".join(out)
+
+
+def render_checkin_parts(md_text: str) -> str:
+    """Generate all `## Part N:` sections from the check-in markdown source."""
+    parts: list[tuple[int, str, list[str]]] = []
+    n: int | None = None
+    title = ""
+    body: list[str] = []
+    for line in md_text.splitlines():
+        m = PART_HEADER_RE.match(line)
+        if m:
+            if n is not None:
+                parts.append((n, title, body))
+            n, title, body = int(m.group("n")), m.group("title"), []
+        elif n is not None:
+            body.append(line)
+    if n is not None:
+        parts.append((n, title, body))
+    return "\n\n".join(_render_part(pn, pt, pb) for pn, pt, pb in parts)
 
 BODY_DATA_PAGE_RE = re.compile(r'<body[^>]*\bdata-page="(?P<page>[^"]+)"')
 
@@ -80,12 +179,25 @@ def process(html_text: str) -> str:
             f"<!-- /include -->"
         )
 
-    return INCLUDE_RE.sub(sub, html_text)
+    def sub_md(m: re.Match) -> str:
+        md_path = m.group("path")
+        md_file = ROOT / md_path
+        if not md_file.exists():
+            raise FileNotFoundError(f"include-md source not found: {md_file}")
+        parts_html = render_checkin_parts(md_file.read_text(encoding="utf-8"))
+        return (
+            f"<!-- #include-md {md_path} -->\n"
+            f"{parts_html}\n"
+            f"<!-- /include-md -->"
+        )
+
+    html_text = INCLUDE_RE.sub(sub, html_text)
+    return INCLUDE_MD_RE.sub(sub_md, html_text)
 
 
 def iter_html(paths: list[Path]) -> list[Path]:
     out: list[Path] = []
-    for p in paths:
+    for p in (p.resolve() for p in paths):
         if p.is_dir():
             out.extend(sorted(p.rglob("*.html")))
         elif p.suffix == ".html":

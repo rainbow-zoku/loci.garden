@@ -315,8 +315,8 @@ section.hero-section {
 [data-theme="llmage"] .hero-crystal .crystal-llmage  { display: block; }
 
 @keyframes wizard-crystal-pulse {
-  0%, 100% { filter: drop-shadow(0 0 6px rgba(255,200,80,0.6)) drop-shadow(0 0 18px rgba(200,124,44,0.4)); }
-  50% { filter: drop-shadow(0 0 14px rgba(255,238,153,0.9)) drop-shadow(0 0 32px rgba(200,124,44,0.7)) drop-shadow(0 0 52px rgba(232,134,26,0.35)); }
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(162,137,220,0.6)) drop-shadow(0 0 18px rgba(123,91,203,0.4)); }
+  50% { filter: drop-shadow(0 0 14px rgba(212,197,242,0.9)) drop-shadow(0 0 32px rgba(123,91,203,0.7)) drop-shadow(0 0 52px rgba(95,64,180,0.35)); }
 }
 
 @keyframes scholar-crystal-float {
@@ -483,11 +483,66 @@ section.hero-section {
   z-index: -1;
 }
 .hero-fractal svg { width: min(820px, 132%); height: auto; }
-[data-theme="wizard"] .hero-fractal { opacity: 0; }
+/* Wizard fractal: same geometry as LLMAGE, focused. Slight scale-in reads as
+   a lens pulling on the LLMAGE register, violet stroke ties it to the
+   wizard accent, soft drop-shadow gives the focused-edge feel. */
+[data-theme="wizard"] .hero-fractal {
+  opacity: 0.28;
+  color: #a289dc;
+  filter: drop-shadow(0 0 8px rgba(123,91,203,0.28));
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+[data-theme="wizard"] .hero-fractal svg {
+  transform: scale(1.04);
+  transform-origin: center;
+}
 [data-theme="llmage"] .hero-fractal { opacity: 0.55; color: #6b6b7a; }
 
-/* wizard hero image hidden for now (asset kept in /assets/wizard-hero.jpg) */
+/* ── Wizard hero hum (v1, CSS-only) ────────────────────────────────────
+   Each ring breathes on its own seeded cycle: opacity oscillates and a
+   subtle counter-rotation pulls toward centre. Seven distinct phases keep
+   the pattern from reading as a mechanical drum. Duration is long (8-13s)
+   so the motion sits below conscious attention; the eye registers presence,
+   not movement. Honours prefers-reduced-motion via the global override at
+   line ~714. */
+@keyframes wizard-ring-hum {
+  0%, 100% { opacity: var(--ring-base, 0.3); transform: rotate(var(--ring-rot, 0deg)) scale(1); }
+  50%      { opacity: var(--ring-peak, 0.55); transform: rotate(calc(var(--ring-rot, 0deg) + var(--ring-twist, 0.4deg))) scale(0.992); }
+}
+[data-theme="wizard"] .hero-fractal svg rect {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: wizard-ring-hum var(--ring-dur, 9s) ease-in-out infinite;
+  animation-delay: var(--ring-delay, 0s);
+  will-change: opacity, transform;
+}
+
+/* wizard hero image retired 2026-06-25 (the "bricks" pixelart). Atmospheric
+   gradient takes over: a soft violet wash on the right that fades to the
+   page bg. Calmer and deeper than the old amber-stone register.
+   .wizard-hero-bg/.wizard-hero-img rules above are kept dormant for one
+   release and can be deleted on the next sweep. */
 .wizard-hero-bg { display: none !important; }
+
+.wizard-hero-atmos {
+  position: absolute;
+  top: 0; right: 0;
+  width: 56%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(55% 65% at 92% 28%, rgba(123,91,203,0.10) 0%, rgba(123,91,203,0.04) 42%, transparent 72%),
+    linear-gradient(to left, rgba(58,38,116,0.07) 0%, transparent 55%);
+}
+@media (max-width: 640px) {
+  .wizard-hero-atmos {
+    left: 0; right: 0;
+    width: 100%;
+    background:
+      radial-gradient(70% 55% at 60% 22%, rgba(123,91,203,0.09) 0%, rgba(123,91,203,0.03) 50%, transparent 78%);
+  }
+}
 
 .hero-wordmark {
   font-family: var(--font-display);
@@ -548,7 +603,7 @@ section.hero-section {
   transition: max-height 0.22s cubic-bezier(0.4,0,0.2,1), opacity 0.18s, padding 0.22s;
 }
 .claim-reveal[hidden] { display: none; }
-.claim-reveal.open { max-height: 280px; opacity: 1; }
+.claim-reveal.open { max-height: 120px; opacity: 1; }
 .claim-reveal-row {
   display: flex;
   align-items: baseline;
@@ -559,17 +614,11 @@ section.hero-section {
   border: 0;
   border-radius: var(--radius-sm);
   text-align: left;
-  cursor: pointer;
-  color: var(--text-3);
+  color: var(--text);
   font-size: 14px;
   line-height: 1.4;
-  transition: background 0.15s, color 0.15s;
 }
-.claim-reveal-row:hover,
-.claim-reveal-row:focus-visible {
-  background: var(--accent-soft);
-  outline: none;
-}
+.claim-reveal-row[hidden] { display: none; }
 .claim-reveal-row.is-current { color: var(--text); }
 .cr-glyph { color: var(--accent); font-size: 13px; }
 .cr-tier {
@@ -582,13 +631,6 @@ section.hero-section {
 }
 .claim-reveal-row.is-current .cr-tier { color: var(--accent); }
 .cr-gloss { flex: 1; }
-.claim-reveal-hint {
-  margin: 4px 6px 2px;
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  color: var(--text-3);
-  text-align: right;
-}
 .claim-sr {
   position: absolute;
   width: 1px; height: 1px;
@@ -864,16 +906,41 @@ section.hero-section {
   box-shadow: 0 4px 20px var(--accent-soft);
 }
 
+/* Wizard tile: bricks retired 2026-06-25 (Nyx). The fractal hero set the
+   family register: nested rotated squares, thin strokes, restraint. The
+   tiles now echo that geometry as a corner motif rather than a surface
+   texture. One hairline border, no fill noise; the SVG ::before draws
+   three rotated squares in the upper-right corner at the same opacity
+   ramp as the hero fractal. Hover lifts the motif, not the card. */
 [data-theme="wizard"] .feature-card {
-  border: 2px solid var(--border);
-  background: var(--surface);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Crect width='32' height='16' fill='%23252530'/%3E%3Crect x='0' y='0' width='14' height='7' fill='%232e2e3c'/%3E%3Crect x='16' y='0' width='16' height='7' fill='%23292938'/%3E%3C/svg%3E");
-  image-rendering: pixelated;
+  border: 1px solid rgba(162,137,220,0.18);
+  background: rgba(20,15,30,0.42);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
+[data-theme="wizard"] .feature-card::before {
+  content: '';
+  position: absolute;
+  top: -34px; right: -34px;
+  width: 130px; height: 130px;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cg fill='none' stroke='%23a289dc' stroke-width='0.5'%3E%3Crect x='-44' y='-44' width='88' height='88' rx='1' opacity='0.32'/%3E%3Crect x='-36' y='-36' width='72' height='72' rx='1' opacity='0.26' transform='rotate(11)'/%3E%3Crect x='-29' y='-29' width='58' height='58' rx='1' opacity='0.22' transform='rotate(22)'/%3E%3Crect x='-23' y='-23' width='46' height='46' rx='1' opacity='0.18' transform='rotate(33)'/%3E%3Crect x='-18' y='-18' width='36' height='36' rx='1' opacity='0.14' transform='rotate(44)'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.55;
+  transition: opacity 0.5s ease, transform 0.6s ease;
+  z-index: 0;
+}
+[data-theme="wizard"] .feature-card > * { position: relative; z-index: 1; }
 [data-theme="wizard"] .feature-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 16px rgba(200,124,44,0.2), inset 0 0 24px rgba(200,124,44,0.03);
+  border-color: rgba(162,137,220,0.42);
+  box-shadow: 0 0 18px rgba(123,91,203,0.10);
   transform: none;
+}
+[data-theme="wizard"] .feature-card:hover::before {
+  opacity: 0.85;
+  transform: rotate(6deg) scale(1.04);
 }
 
 [data-theme="llmage"] .feature-card {
@@ -1341,9 +1408,11 @@ footer {
 }
 .dropdown-item:hover { color: var(--text); background: var(--accent-soft); }
 [data-theme="wizard"] .nav-dropdown-menu {
-  border-radius: 0; border: 2px solid var(--border); background: var(--surface);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Crect width='32' height='16' fill='%23252530'/%3E%3Crect x='0' y='0' width='14' height='7' fill='%232e2e3c'/%3E%3Crect x='16' y='0' width='16' height='7' fill='%23292938'/%3E%3C/svg%3E");
-  image-rendering: pixelated;
+  border-radius: 0;
+  border: 1px solid rgba(162,137,220,0.28);
+  background: rgba(20,15,30,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 [data-theme="wizard"] .dropdown-item {
   font-size: 12px; padding: 10px 14px; letter-spacing: 0.02em;
@@ -1427,15 +1496,15 @@ footer {
 .card-group-divider {
   grid-column: 1 / -1;
   display: flex; align-items: center; gap: 16px;
-  margin: 8px 0 0; padding-top: 20px;
-  border-top: 2px solid var(--border);
+  margin: 12px 0 0; padding-top: 24px;
+  border-top: 1px solid rgba(162,137,220,0.16);
 }
 .card-group-label {
   font-family: 'Press Start 2P', monospace; font-size: 7px;
-  letter-spacing: 0.14em; color: var(--accent); white-space: nowrap;
-  padding: 4px 12px;
-  background: linear-gradient(to right, rgba(200,124,44,0.12), transparent);
-  border-left: 3px solid var(--accent);
+  letter-spacing: 0.18em; color: rgba(212,197,242,0.62); white-space: nowrap;
+  padding: 4px 0;
+  background: none;
+  border-left: 0;
 }
 
 @media (max-width: 700px) {
