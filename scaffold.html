@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html data-theme="scholar" lang="en">
+<head>
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Scaffold · loci.garden</title>
+<meta name="description" content="An automated loop watching the convergence of AI cognition development frameworks and tools. Open, neutral, evidence-tagged.">
+<link rel="canonical" href="https://loci.garden/scaffold.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23F2EFE3'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a8b572'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%237d8a4a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%235a6b2e'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233a4720'/%3E%3C/svg%3E">
+<meta property="og:title" content="The Scaffold · loci.garden">
+<meta property="og:description" content="An automated loop watching the convergence of AI cognition development frameworks and tools.">
+<meta property="og:url" content="https://loci.garden/scaffold.html">
+<meta property="og:image" content="https://loci.garden/assets/og-image.png">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="loci.css">
+<style>
+:root{
+  --bg:#0d0d0e;--bg2:#131315;--surface:#14141c;--border:#252530;--border2:#353540;
+  --text:#e8e4dd;--text2:#a09880;--text3:#5a5a6a;
+  --green:#7da64a;--green-d:#5a7a30;--teal:#5DCAA5;--amber:#EF9F27;--blue:#6ea8d8;--purple:#b39ddb;
+  --font:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+body[data-page="scaffold"]{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.scaffold-stage{padding:96px 28px 64px}
+.wrap{max-width:1040px;margin:0 auto}
+a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* Lead: the only big copy on the page. Tier-gated. */
+.scaffold-eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--text3);margin-bottom:14px}
+.scaffold-title{font-size:clamp(28px,3.6vw,40px);font-weight:600;letter-spacing:-0.025em;line-height:1.1;margin:0 0 14px;color:var(--text)}
+.scaffold-lead{font-size:16px;line-height:1.65;color:var(--text2);max-width:62ch;margin:0 0 36px}
+
+/* Denoised pulse: one headline number, the rest as small caption-text.
+   Crane form: the hardest meaning carried by the kindest shape. */
+.scaffold-pulse{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin:0 0 22px;align-items:end}
+.pulse-primary{padding:18px 22px;border:1px solid var(--border);border-radius:8px;background:linear-gradient(180deg,rgba(125,166,74,0.04) 0%,transparent 100%)}
+.pulse-primary .pl-lbl{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3)}
+.pulse-primary .pl-num{font-size:42px;font-weight:300;margin-top:2px;line-height:1;font-variant-numeric:tabular-nums;color:var(--text)}
+.pulse-primary .pl-sub{font-size:12px;color:var(--text2);margin-top:6px}
+.pulse-meta{font-size:12px;color:var(--text3);font-family:var(--mono);line-height:1.85}
+.pulse-meta .pm-headline{display:flex;align-items:baseline;gap:10px;padding:6px 0 10px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.pulse-meta .pm-headline .pm-num{font-size:26px;color:var(--accent);font-family:var(--mono);font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.pulse-meta .pm-headline .pm-lbl{font-size:12px;color:var(--text2)}
+.pulse-meta .pm-row{display:flex;justify-content:space-between;border-bottom:1px dotted var(--border);padding:4px 0}
+.pulse-meta .pm-row:last-child{border-bottom:none}
+.pulse-meta .pm-key{color:var(--text3)}
+.pulse-meta .pm-val{color:var(--text2);font-variant-numeric:tabular-nums}
+
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 8px}
+#q{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:6px;padding:7px 11px;font-size:13px;font-family:var(--font);width:220px}
+#q:focus{outline:none;border-color:var(--green)}
+.chip{font-size:12px;color:var(--text2);background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:4px 11px;cursor:pointer;user-select:none}
+.chip.off{opacity:.34;text-decoration:line-through}
+.count{font-size:12px;color:var(--text3);margin-left:auto}
+.refresh{color:var(--text3);font-size:11px;font-family:var(--mono);margin-top:6px}
+
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{font-size:11px;font-weight:400;color:var(--text3);text-align:left;padding:9px 8px;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;user-select:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:1px solid var(--border)}
+th.r{text-align:right}
+td{padding:10px 8px;border-top:.5px solid var(--border);vertical-align:top;font-size:13px}
+td.r{text-align:right;font-variant-numeric:tabular-nums}
+tr.row{cursor:pointer}
+tr.row:hover{background:var(--bg2)}
+tr.row.open{background:var(--bg2)}
+.chev{display:inline-block;width:10px;color:var(--text3);font-size:10px}
+.pname{color:var(--text);font-weight:500}
+.aka{font-size:11px;color:var(--text3);font-weight:400}
+.pdesc{font-size:11px;color:var(--text3);line-height:1.4;margin-top:2px}
+.badge{font-size:10px;padding:2px 7px;border-radius:4px;white-space:nowrap;text-transform:uppercase;letter-spacing:.03em}
+.b-library{background:rgba(125,166,74,.13);color:var(--green)}
+.b-saas{background:rgba(239,159,39,.13);color:var(--amber)}
+.b-framework{background:rgba(93,202,165,.13);color:var(--teal)}
+.b-mcp{background:rgba(110,168,216,.14);color:var(--blue)}
+.b-pkm{background:rgba(179,157,219,.14);color:var(--purple)}
+.b-research{background:rgba(160,152,128,.14);color:var(--text2)}
+.host-yes{color:var(--green)}.host-cloud{color:var(--text3)}.host-partial{color:var(--amber)}
+.stars{font-variant-numeric:tabular-nums;color:var(--text)}
+.lic{font-family:var(--mono);font-size:11px;color:var(--text2)}
+.price{font-size:12px;color:var(--text2)}
+td.detailcell{padding:0;border-top:none}
+.detail{background:var(--surface);border-left:2px solid var(--green-d);padding:14px 18px;margin:0 0 2px}
+.detail .dl{font-size:13px;color:var(--text2);margin-bottom:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px;margin-bottom:12px}
+.fact{font-size:12px;color:var(--text2)}
+.fl{color:var(--text3);display:inline-block;min-width:78px}
+.fv{color:var(--text)}
+.conf{font-size:10px;color:var(--text3);font-family:var(--mono)}
+.tag{font-size:9px;text-transform:uppercase;letter-spacing:.06em;padding:1px 5px;border-radius:3px;margin-right:6px;vertical-align:1px}
+.tag-fact{background:rgba(125,166,74,.14);color:var(--green)}
+.tag-claim{background:rgba(239,159,39,.14);color:var(--amber)}
+.claimrow{font-size:12px;color:var(--text2);margin-bottom:10px;line-height:1.5}
+.pending{font-size:11px;color:var(--text3);margin-bottom:10px}
+.links{font-size:12px;display:flex;gap:16px}
+.legend{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:.5px solid var(--border);font-size:12px;color:var(--text3)}
+.notes{margin-top:12px;font-size:11px;color:var(--text3);line-height:1.7;list-style:none;padding:0}
+.notes li{padding:3px 0}
+.muted{color:var(--text3)}
+
+/* Tier-gated copy (mirror of the home page convention). The three theme
+   buttons in the nav are the "3 dashboard switch designs" preserved from
+   memory-field.html: scholar/wizard/llmage re-skin the entire page. */
+.t-scholar, .t-wizard, .t-llmage { display: none; }
+[data-theme="scholar"] .t-scholar { display: inline; }
+[data-theme="wizard"]  .t-wizard  { display: inline; }
+[data-theme="llmage"]  .t-llmage  { display: inline; }
+
+@media (max-width:640px){
+  .scaffold-pulse{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body data-page="scaffold">
+<!-- #include partials/_nav.html -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo-group">
+      <a href="/" class="logo">loci.garden</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="/download.html" class="nav-link" data-page="download">download</a>
+        <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
+        <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
+        <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
+        <button class="theme-btn" id="btn-scholar" onclick="setTheme('scholar')" aria-pressed="true">◆ ELI-5</button>
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="false">⚔ Wizard</button>
+        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
+      </div>
+    </div>
+  </div>
+  <script defer src="/theme.js"></script>
+</nav>
+<!-- /include -->
+
+<main class="scaffold-stage">
+<div class="wrap">
+
+  <div class="scaffold-eyebrow">the scaffold · an automated watcher</div>
+  <h1 class="scaffold-title">
+    <span class="t-scholar">The Scaffold</span>
+    <span class="t-wizard">The Scaffold</span>
+    <span class="t-llmage">the_scaffold</span>
+  </h1>
+
+  <!-- RUNE-SCAFFOLD-LEAD landed 2026-06-25 (Crane form). -->
+  <p class="scaffold-lead">
+    <span class="t-scholar">An automated loop watching where AI cognition tooling is converging. Forty-eight products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
+    <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Forty-eight products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
+    <span class="t-llmage">// an automated watch on where AI cognition tooling converges. n=48 (young field). read where they meet, and where they don't.</span>
+  </p>
+
+  <!-- Pulse strip: two numbers carry the story, the rest stay in row-detail.
+       In the field / with a governance gate. Crane form. -->
+  <section class="scaffold-pulse" aria-label="Scaffold pulse">
+    <div class="pulse-primary">
+      <div class="pl-lbl">in the field</div>
+      <div class="pl-num" id="pulse-tracked">–</div>
+      <div class="pl-sub" id="pulse-sub">products tracked</div>
+    </div>
+    <div class="pulse-meta" id="pulse-meta"></div>
+  </section>
+  <div class="refresh" id="refresh"></div>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search…" aria-label="Search products" oninput="render()">
+    <span id="chips"></span>
+    <span class="count" id="count"></span>
+  </div>
+
+  <table>
+    <colgroup><col style="width:32%"><col style="width:10%"><col style="width:11%"><col style="width:9%"><col style="width:12%"><col style="width:9%"><col style="width:11%"></colgroup>
+    <thead><tr>
+      <th onclick="sortBy('name')">Product</th>
+      <th onclick="sortBy('category')">Category</th>
+      <th onclick="sortBy('memory_model')">Architecture</th>
+      <th onclick="sortBy('self_host')">Host</th>
+      <th onclick="sortBy('license')">License</th>
+      <th class="r" onclick="sortBy('stars')">Stars</th>
+      <th class="r" onclick="sortBy('activity_days')">Alive</th>
+    </tr></thead>
+    <tbody id="body"></tbody>
+  </table>
+
+  <div class="legend" id="legend"></div>
+  <ul class="notes" id="notes"></ul>
+</div>
+</main>
+
+<!-- ── Dataset (mirrors memory-field) ─────────────────────────────────── -->
+<script>
+const STATE={"generated_at": "2026-06-15T06:47:45.400493+00:00", "scope": "public-safe", "title": "AI Memory Field", "subtitle": "an open comparison of memory layers for LLM agents", "method": "4-slice parallel census (OSS libraries, hosted SaaS, framework-native + MCP, KG/PKM/research) + palace looking-glass recon; deduped; unverifiable entrants dropped; GitHub metrics auto-pulled at build time.", "categories": {"library": "self-hosted OSS memory library/engine", "saas": "hosted / managed memory service", "framework": "memory subsystem inside an agent framework", "mcp": "Model Context Protocol memory server", "pkm": "personal-knowledge / second-brain memory", "research": "research reference system with a public repo"}, "benchmark_claims": {"Mem0": "LoCoMo ~92.5 · LongMemEval 94.4 (self-reported, ECAI 2025; Zep disputes the run)", "Zep Cloud": "DMR 94.8 · LongMemEval +18.5% acc vs baseline (self-reported)", "Graphiti": "powers Zep Cloud; LongMemEval/DMR reported under Zep (self-reported)", "Letta": "LoCoMo 74.0 via a plain filesystem agent (self-reported; argues context-management > retrieval mechanism)", "A-MEM": "LoCoMo SOTA across 6 models (self-reported, NeurIPS 2025)", "MemoryOS": "LoCoMo +49% F1 vs baselines (self-reported, EMNLP 2025)"}, "totals": {"products": 48, "open_source": 42, "hosted": 22, "self_hostable": 44, "mcp_capable": 25, "stars_sum": 589446, "with_stars": 41}, "by_model": {"vector": 9, "graph": 10, "episodic": 1, "hybrid": 19, "other": 9}, "by_category": {"library": 19, "saas": 8, "framework": 6, "mcp": 5, "pkm": 5, "research": 5}, "signals": {"governance_gate": 3, "bi_temporal": 9, "no_governance": 32, "enriched": 48}, "products": [{"name": "MCP Memory", "aka": "official reference", "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory", "github": "modelcontextprotocol/servers", "category": "mcp", "type": "OSS", "memory_model": "graph", "self_host": "yes", "license": "MIT", "interface": "MCP", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Official knowledge-graph MCP memory server; JSON-persisted", "confidence": "high", "stars": 87206, "pushed_at": "2026-06-07T22:29:30Z", "forks": 11001, "activity_days": 7, "activity_label": "this week", "enrichment": {"export": {"v": "json", "c": "high"}, "temporal": {"v": "append-only", "c": "high"}, "governance": {"v": "none", "c": "high"}, "op": "operational"}}, {"name": "Mem0", "aka": null, "url": "https://mem0.ai", "github": "mem0ai/mem0", "category": "library", "type": "Both", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · REST · MCP · CLI", "pricing": "freemium", "pricing_note": "Free 10k mem; Starter $19; Growth $79; Pro $249", "data_location": "both", "one_liner": "Self-improving memory layer for LLM agents and assistants", "confidence": "high", "stars": 58536, "pushed_at": "2026-06-13T20:13:29Z", "forks": 6725, "activity_days": 1, "activity_label": "this week", "enrichment": {"export": {"v": "json", "c": "high", "sr": true}, "temporal": {"v": "versioned/bi-temporal", "c": "med", "sr": true}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "CrewAI Memory", "aka": null, "url": "https://docs.crewai.com/en/concepts/memory", "github": "crewAIInc/crewAI", "category": "framework", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "MIT", "interface": "SDK · library", "pricing": "free-oss", "pricing_note": null, "data_location": "both", "one_liner": "Short/long-term/entity memory; a feature of CrewAI", "confidence": "high", "stars": 53533, "pushed_at": "2026-06-14T07:19:50Z", "forks": 7492, "activity_days": 0, "activity_label": "this week", "enrichment": {"export": {"v": "sqlite", "c": "med"}, "temporal": {"v": "decay-consolidation", "c": "high"}, "governance": {"v": "provenance-tracked", "c": "high"}, "op": "operational"}}, {"name": "LlamaIndex Memory", "aka": null, "url": "https://developers.llamaindex.ai", "github": "run-llama/llama_index", "category": "framework", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "MIT", "interface": "SDK · library", "pricing": "free-oss", "pricing_note": null, "data_location": "both", "one_liner": "Short/long-term memory blocks; a feature of LlamaIndex", "confidence": "high", "stars": 50121, "pushed_at": "2026-06-12T19:29:18Z", "forks": 7559, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "sqlite", "c": "high"}, "temporal": {"v": "decay-consolidation", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "Khoj", "aka": null, "url": "https://khoj.dev", "github": "khoj-ai/khoj", "category": "pkm", "type": "Both", "memory_model": "vector", "self_host": "yes", "license": "AGPL-3.0", "interface": "REST · CLI", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "Self-hostable AI second brain over your docs and the web", "confidence": "high", "stars": 35118, "pushed_at": "2026-03-26T03:35:43Z", "forks": 2248, "activity_days": 81, "activity_label": "2mo ago", "enrichment": {"export": {"v": "api-export", "c": "med"}, "temporal": {"v": "append-only", "c": "low"}, "governance": {"v": "source-citation", "c": "low"}, "op": "operational"}}, {"name": "Semantic Kernel", "aka": null, "url": "https://learn.microsoft.com/semantic-kernel/", "github": "microsoft/semantic-kernel", "category": "framework", "type": "OSS", "memory_model": "vector", "self_host": "yes", "license": "MIT", "interface": "SDK · library", "pricing": "free-oss", "pricing_note": null, "data_location": "both", "one_liner": "Vector-store memory connectors; a feature of Semantic Kernel", "confidence": "high", "stars": 28115, "pushed_at": "2026-06-12T22:35:21Z", "forks": 4647, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "api-export", "c": "med"}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "Zep Cloud", "aka": null, "url": "https://www.getzep.com", "github": "getzep/graphiti", "category": "saas", "type": "Both", "memory_model": "graph", "self_host": "partial", "license": "Apache-2.0", "interface": "REST · SDK · MCP", "pricing": "freemium", "pricing_note": "Free 1k credits; Flex $104; Flex+ $312", "data_location": "both", "one_liner": "Temporal knowledge-graph memory API for agents", "confidence": "high", "stars": 27406, "pushed_at": "2026-06-12T22:16:03Z", "forks": 2741, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "graph-export", "c": "low", "sr": true}, "temporal": {"v": "versioned/bi-temporal", "c": "high", "sr": true}, "governance": {"v": "provenance-tracked", "c": "med", "sr": true}, "op": "operational"}}, {"name": "Graphiti", "aka": null, "url": "https://github.com/getzep/graphiti", "github": "getzep/graphiti", "category": "library", "type": "OSS", "memory_model": "graph", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · MCP · REST", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Temporal knowledge-graph engine powering Zep's memory platform", "confidence": "high", "stars": 27406, "pushed_at": "2026-06-12T22:16:03Z", "forks": 2741, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "graph-export", "c": "med"}, "temporal": {"v": "versioned/bi-temporal", "c": "high"}, "governance": {"v": "provenance-tracked", "c": "high"}, "op": "operational"}}, {"name": "Supermemory", "aka": null, "url": "https://supermemory.ai", "github": "supermemoryai/supermemory", "category": "saas", "type": "Both", "memory_model": "hybrid", "self_host": "partial", "license": "MIT", "interface": "REST · SDK · MCP", "pricing": "freemium", "pricing_note": "Pro $19; Max $100; Scale $399", "data_location": "both", "one_liner": "Universal memory API; hosted or local single binary", "confidence": "high", "stars": 26976, "pushed_at": "2026-06-14T08:09:12Z", "forks": 2344, "activity_days": 0, "activity_label": "this week", "enrichment": {"export": {"v": "none-documented", "c": "med"}, "temporal": {"v": "decay-consolidation", "c": "high", "sr": true}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "Haystack", "aka": null, "url": "https://haystack.deepset.ai", "github": "deepset-ai/haystack", "category": "framework", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · library", "pricing": "free-oss", "pricing_note": null, "data_location": "both", "one_liner": "Chat-message store and Mem0 integration; a Haystack feature", "confidence": "medium", "stars": 25563, "pushed_at": "2026-06-12T15:45:23Z", "forks": 2849, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "unknown", "c": "med"}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "Letta", "aka": "MemGPT", "url": "https://letta.com", "github": "letta-ai/letta", "category": "library", "type": "Both", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "REST · SDK · MCP · CLI", "pricing": "freemium", "pricing_note": "Pro $20; Max $200; self-host free", "data_location": "both", "one_liner": "Stateful agent runtime with self-editing memory, formerly MemGPT", "confidence": "high", "stars": 23319, "pushed_at": "2026-05-14T17:14:23Z", "forks": 2485, "activity_days": 31, "activity_label": "31d ago", "enrichment": {"export": {"v": "json", "c": "high", "sr": true}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "Generative Agents", "aka": "Stanford", "url": "https://github.com/joonspk-research/generative_agents", "github": "joonspk-research/generative_agents", "category": "research", "type": "OSS", "memory_model": "episodic", "self_host": "yes", "license": "Apache-2.0", "interface": "library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Research: memory-stream agents simulating human behavior", "confidence": "high", "stars": 21542, "pushed_at": "2024-08-05T21:38:56Z", "forks": 3020, "activity_days": 678, "activity_label": "1y ago", "enrichment": {"export": {"v": "json", "c": "high"}, "temporal": {"v": "decay-consolidation", "c": "high"}, "governance": {"v": "source-citation", "c": "med"}, "op": "operational"}}, {"name": "Cognee", "aka": null, "url": "https://www.cognee.ai", "github": "topoteretes/cognee", "category": "library", "type": "Both", "memory_model": "graph", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · REST · MCP · CLI", "pricing": "freemium", "pricing_note": "Dev $35; Team $200", "data_location": "both", "one_liner": "Knowledge-graph memory engine for AI agents and pipelines", "confidence": "high", "stars": 17824, "pushed_at": "2026-06-14T13:53:53Z", "forks": 1888, "activity_days": 0, "activity_label": "this week", "enrichment": {"export": {"v": "graph-export", "c": "low"}, "temporal": {"v": "versioned/bi-temporal", "c": "med", "sr": true}, "governance": {"v": "provenance-tracked", "c": "med", "sr": true}, "op": "operational"}}, {"name": "Memori", "aka": null, "url": "https://www.gibsonai.com/memori", "github": "GibsonAI/memori", "category": "library", "type": "Both", "memory_model": "other", "self_host": "yes", "license": "Apache-2.0", "interface": "library · MCP · REST", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "SQL-native, portable memory engine for LLM agents", "confidence": "high", "stars": 15284, "pushed_at": "2026-06-12T06:18:32Z", "forks": 2592, "activity_days": 3, "activity_label": "this week", "enrichment": {"export": {"v": "sqlite", "c": "high", "sr": true}, "temporal": {"v": "decay-consolidation", "c": "med", "sr": true}, "governance": {"v": "source-citation", "c": "med", "sr": true}, "op": "operational"}}, {"name": "MemU", "aka": null, "url": "https://memu.so", "github": "NevaMind-AI/memU", "category": "library", "type": "Both", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · REST", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "Data-to-memory engine for AI companions and agents", "confidence": "high", "stars": 13854, "pushed_at": "2026-06-14T11:40:34Z", "forks": 1036, "activity_days": 0, "activity_label": "this week", "enrichment": {"export": {"v": "sqlite", "c": "low", "sr": true}, "temporal": {"v": "unknown", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "txtai", "aka": null, "url": "https://neuml.github.io/txtai/", "github": "neuml/txtai", "category": "library", "type": "Both", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "library · REST · MCP", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "Embeddings database and AI framework, usable as agent memory", "confidence": "high", "stars": 12653, "pushed_at": "2026-06-11T16:16:36Z", "forks": 831, "activity_days": 3, "activity_label": "this week", "enrichment": {"export": {"v": "sqlite", "c": "med"}, "temporal": {"v": "append-only", "c": "low"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "MemOS", "aka": null, "url": "https://memos.openmem.net", "github": "MemTensor/MemOS", "category": "library", "type": "Both", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "REST · MCP · SDK · CLI", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "Self-evolving memory OS for LLMs with hybrid retrieval", "confidence": "high", "stars": 9858, "pushed_at": "2026-06-14T14:29:42Z", "forks": 901, "activity_days": 0, "activity_label": "this week", "enrichment": {"export": {"v": "json", "c": "med", "sr": true}, "temporal": {"v": "decay-consolidation", "c": "low", "sr": true}, "governance": {"v": "none", "c": "low"}, "op": "mixed"}}, {"name": "Reor", "aka": null, "url": "https://reorproject.org", "github": "reorproject/reor", "category": "pkm", "type": "OSS", "memory_model": "vector", "self_host": "yes", "license": "AGPL-3.0", "interface": "library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Private local AI note-app with auto-linking and semantic search", "confidence": "high", "stars": 8568, "pushed_at": "2025-05-13T21:28:59Z", "forks": 527, "activity_days": 397, "activity_label": "1y ago", "enrichment": {"export": {"v": "markdown", "c": "med"}, "temporal": {"v": "append-only", "c": "low"}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "Smart Connections", "aka": null, "url": "https://smartconnections.app", "github": "brianpetro/obsidian-smart-connections", "category": "pkm", "type": "Both", "memory_model": "vector", "self_host": "yes", "license": "other", "interface": "library", "pricing": "freemium", "pricing_note": null, "data_location": "local", "one_liner": "Obsidian plugin surfacing related notes via local embeddings", "confidence": "high", "stars": 5152, "pushed_at": "2026-06-11T17:32:24Z", "forks": 319, "activity_days": 3, "activity_label": "this week", "enrichment": {"export": {"v": "markdown", "c": "med"}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "Honcho", "aka": null, "url": "https://honcho.dev", "github": "plastic-labs/honcho", "category": "library", "type": "Both", "memory_model": "hybrid", "self_host": "yes", "license": "AGPL-3.0", "interface": "REST · SDK · MCP", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "Builds stateful agents that model people over time", "confidence": "high", "stars": 5141, "pushed_at": "2026-06-12T23:50:42Z", "forks": 619, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "api-export", "c": "med"}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "ByteRover", "aka": "Cipher", "url": "https://www.byterover.dev", "github": "campfirein/byterover-cli", "category": "library", "type": "Both", "memory_model": "other", "self_host": "yes", "license": "Elastic-2.0", "interface": "CLI · MCP · SDK", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "Local-first coding-agent memory, formerly named Cipher", "confidence": "high", "stars": 4853, "pushed_at": "2026-06-03T10:37:35Z", "forks": 453, "activity_days": 11, "activity_label": "11d ago", "enrichment": {"export": {"v": "graph-export", "c": "med", "sr": true}, "temporal": {"v": "versioned/bi-temporal", "c": "med", "sr": true}, "governance": {"v": "provenance+review-gate", "c": "high", "sr": true}, "op": "operational"}}, {"name": "AutoGen / AG2", "aka": null, "url": "https://docs.ag2.ai", "github": "ag2ai/ag2", "category": "framework", "type": "OSS", "memory_model": "vector", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Teachable-agent ChromaDB memory; a feature of AutoGen/AG2", "confidence": "medium", "stars": 4672, "pushed_at": "2026-06-14T12:59:00Z", "forks": 654, "activity_days": 0, "activity_label": "this week", "enrichment": {"export": {"v": "json", "c": "high"}, "temporal": {"v": "append-only", "c": "high"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "OpenMemory", "aka": "Cavira", "url": "https://github.com/CaviraOSS/OpenMemory", "github": "CaviraOSS/OpenMemory", "category": "library", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "library · REST · MCP · CLI", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Local-first persistent memory store for LLM applications", "confidence": "high", "stars": 4235, "pushed_at": "2026-05-29T15:54:25Z", "forks": 481, "activity_days": 16, "activity_label": "16d ago", "enrichment": {"export": {"v": "api-export", "c": "med", "sr": true}, "temporal": {"v": "versioned/bi-temporal", "c": "high", "sr": true}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "HippoRAG", "aka": null, "url": "https://github.com/OSU-NLP-Group/HippoRAG", "github": "OSU-NLP-Group/HippoRAG", "category": "research", "type": "OSS", "memory_model": "graph", "self_host": "yes", "license": "MIT", "interface": "library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Knowledge-graph RAG with personalized PageRank for multi-hop recall", "confidence": "high", "stars": 3583, "pushed_at": "2025-09-04T14:42:42Z", "forks": 374, "activity_days": 283, "activity_label": "9mo ago", "enrichment": {"export": {"v": "none-documented", "c": "med"}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "source-citation", "c": "med"}, "op": "operational"}}, {"name": "Basic Memory", "aka": null, "url": "https://basicmemory.com", "github": "basicmachines-co/basic-memory", "category": "pkm", "type": "Both", "memory_model": "graph", "self_host": "yes", "license": "AGPL-3.0", "interface": "MCP · CLI · library", "pricing": "freemium", "pricing_note": "Cloud sync ~$19/mo", "data_location": "both", "one_liner": "Local Markdown knowledge-graph memory over MCP", "confidence": "high", "stars": 3234, "pushed_at": "2026-06-13T19:53:54Z", "forks": 215, "activity_days": 1, "activity_label": "this week", "enrichment": {"export": {"v": "markdown", "c": "high"}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "source-citation", "c": "med"}, "op": "operational"}}, {"name": "ReMe", "aka": "MemoryScope", "url": "https://github.com/agentscope-ai/ReMe", "github": "agentscope-ai/ReMe", "category": "library", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Alibaba/ModelScope agent memory kit, formerly MemoryScope", "confidence": "high", "stars": 3080, "pushed_at": "2026-06-10T12:40:19Z", "forks": 259, "activity_days": 4, "activity_label": "this week", "enrichment": {"export": {"v": "markdown", "c": "high"}, "temporal": {"v": "decay-consolidation", "c": "med"}, "governance": {"v": "source-citation", "c": "med"}, "op": "operational"}}, {"name": "Memobase", "aka": null, "url": "https://www.memobase.io", "github": "memodb-io/memobase", "category": "library", "type": "Both", "memory_model": "other", "self_host": "yes", "license": "Apache-2.0", "interface": "SDK · REST · MCP", "pricing": "freemium", "pricing_note": null, "data_location": "both", "one_liner": "User-profile-based long-term memory for LLM apps", "confidence": "high", "stars": 2754, "pushed_at": "2026-01-11T03:51:40Z", "forks": 219, "activity_days": 155, "activity_label": "5mo ago", "enrichment": {"export": {"v": "json", "c": "med", "sr": true}, "temporal": {"v": "append-only", "c": "low"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "Memary", "aka": null, "url": "https://github.com/kingjulio8238/Memary", "github": "kingjulio8238/Memary", "category": "library", "type": "OSS", "memory_model": "graph", "self_host": "yes", "license": "MIT", "interface": "library · SDK", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Open-source memory layer for autonomous agents", "confidence": "high", "stars": 2623, "pushed_at": "2024-10-22T00:46:00Z", "forks": 199, "activity_days": 601, "activity_label": "1y ago", "enrichment": {"export": {"v": "json", "c": "med"}, "temporal": {"v": "append-only", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "aspirational"}}, {"name": "LangMem", "aka": null, "url": "https://langchain-ai.github.io/langmem/", "github": "langchain-ai/langmem", "category": "framework", "type": "Both", "memory_model": "hybrid", "self_host": "yes", "license": "MIT", "interface": "SDK · library", "pricing": "freemium", "pricing_note": "hosted via LangGraph Platform", "data_location": "both", "one_liner": "LangChain SDK for long-term agent memory management", "confidence": "high", "stars": 1501, "pushed_at": "2026-06-12T22:16:27Z", "forks": 170, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "api-export", "c": "med"}, "temporal": {"v": "unknown", "c": "low"}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "MemoryOS", "aka": null, "url": "https://bai-lab.github.io/MemoryOS", "github": "BAI-LAB/MemoryOS", "category": "research", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "library · MCP", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Hierarchical short/mid/long-term memory OS for agents", "confidence": "high", "stars": 1461, "pushed_at": "2026-04-28T15:52:03Z", "forks": 142, "activity_days": 47, "activity_label": "1mo ago", "enrichment": {"export": {"v": "json", "c": "high"}, "temporal": {"v": "decay-consolidation", "c": "high"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "A-MEM", "aka": null, "url": "https://github.com/agiresearch/A-mem", "github": "agiresearch/A-mem", "category": "research", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "MIT", "interface": "library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Agentic memory with self-organizing Zettelkasten-style linked notes", "confidence": "high", "stars": 1047, "pushed_at": "2025-12-12T21:15:29Z", "forks": 114, "activity_days": 184, "activity_label": "6mo ago", "enrichment": {"export": {"v": "none-documented", "c": "med"}, "temporal": {"v": "decay-consolidation", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "aspirational"}}, {"name": "Memind", "aka": null, "url": "https://github.com/openmemind/memind", "github": "openmemind/memind", "category": "library", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "library · REST · MCP · SDK", "pricing": "free-oss", "pricing_note": null, "data_location": "both", "one_liner": "Java cognitive memory engine building insight trees and graphs", "confidence": "high", "stars": 900, "pushed_at": "2026-06-14T05:08:06Z", "forks": 85, "activity_days": 1, "activity_label": "this week", "enrichment": {"export": {"v": "api-export", "c": "med", "sr": true}, "temporal": {"v": "decay-consolidation", "c": "med", "sr": true}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "mcp-knowledge-graph", "aka": null, "url": "https://github.com/shaneholloman/mcp-knowledge-graph", "github": "shaneholloman/mcp-knowledge-graph", "category": "mcp", "type": "OSS", "memory_model": "graph", "self_host": "yes", "license": "MIT", "interface": "MCP", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Local knowledge-graph MCP memory server", "confidence": "high", "stars": 865, "pushed_at": "2026-05-29T12:57:51Z", "forks": 103, "activity_days": 16, "activity_label": "16d ago", "enrichment": {"export": {"v": "json", "c": "high", "sr": true}, "temporal": {"v": "unknown", "c": "low"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "MemoryBank", "aka": "SiliconFriend", "url": "https://github.com/zhongwanjun/MemoryBank-SiliconFriend", "github": "zhongwanjun/MemoryBank-SiliconFriend", "category": "research", "type": "OSS", "memory_model": "vector", "self_host": "yes", "license": "MIT", "interface": "library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Research: long-term memory using the Ebbinghaus forgetting curve", "confidence": "high", "stars": 432, "pushed_at": "2023-05-24T03:19:27Z", "forks": 62, "activity_days": 1118, "activity_label": "3y ago", "enrichment": {"export": {"v": "json", "c": "high"}, "temporal": {"v": "decay-consolidation", "c": "high"}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "MemoryMesh", "aka": null, "url": "https://github.com/CheMiguel23/MemoryMesh", "github": "CheMiguel23/MemoryMesh", "category": "mcp", "type": "OSS", "memory_model": "graph", "self_host": "yes", "license": "MIT", "interface": "MCP", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Schema-driven knowledge-graph MCP server for narrative persistence", "confidence": "high", "stars": 345, "pushed_at": "2026-03-01T22:27:33Z", "forks": 50, "activity_days": 105, "activity_label": "3mo ago", "enrichment": {"export": {"v": "json", "c": "high", "sr": true}, "temporal": {"v": "append-only", "c": "high", "sr": true}, "governance": {"v": "none", "c": "high", "sr": true}, "op": "mixed"}}, {"name": "Redis Agent Memory Server", "aka": null, "url": "https://github.com/redis/agent-memory-server", "github": "redis/agent-memory-server", "category": "library", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "REST · MCP", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Redis-backed working and long-term memory server for agents", "confidence": "high", "stars": 280, "pushed_at": "2026-06-12T20:29:35Z", "forks": 55, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "api-export", "c": "med"}, "temporal": {"v": "decay-consolidation", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "Remembrall", "aka": null, "url": "https://remembrall.dev", "github": "raunakdoesdev/remembrall", "category": "saas", "type": "SaaS", "memory_model": "vector", "self_host": "cloud-only", "license": null, "interface": "REST", "pricing": "freemium", "pricing_note": "appears dormant", "data_location": "cloud", "one_liner": "Proxy giving OpenAI calls long-term memory via vector store", "confidence": "low", "stars": 171, "pushed_at": "2026-04-10T14:56:07Z", "forks": 20, "activity_days": 65, "activity_label": "2mo ago", "enrichment": {"export": {"v": "none-documented", "c": "med"}, "temporal": {"v": "unknown", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "aspirational"}}, {"name": "memory-mcp-server", "aka": "okooo5km", "url": "https://github.com/okooo5km/memory-mcp-server", "github": "okooo5km/memory-mcp-server", "category": "mcp", "type": "OSS", "memory_model": "graph", "self_host": "yes", "license": "MIT", "interface": "MCP", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Go reimplementation of the reference knowledge-graph MCP server", "confidence": "medium", "stars": 105, "pushed_at": "2025-04-16T01:54:28Z", "forks": 10, "activity_days": 425, "activity_label": "1y ago", "enrichment": {"export": {"v": "json", "c": "high", "sr": true}, "temporal": {"v": "append-only", "c": "high", "sr": true}, "governance": {"v": "none", "c": "high", "sr": true}, "op": "operational"}}, {"name": "remnic", "aka": null, "url": "https://github.com/joshuaswarren/remnic", "github": "joshuaswarren/remnic", "category": "library", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "MIT", "interface": "MCP · REST · CLI", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Local markdown-backed agent memory with provenance and governance", "confidence": "medium", "stars": 83, "pushed_at": "2026-06-14T01:20:01Z", "forks": 15, "activity_days": 1, "activity_label": "this week", "enrichment": {"export": {"v": "markdown", "c": "high", "sr": true}, "temporal": {"v": "versioned/bi-temporal", "c": "high", "sr": true}, "governance": {"v": "provenance+review-gate", "c": "high", "sr": true}, "op": "operational"}}, {"name": "Keel", "aka": null, "url": "https://keel-labs.github.io", "github": "Keel-Labs/keel", "category": "pkm", "type": "OSS", "memory_model": "other", "self_host": "yes", "license": "MIT", "interface": "app", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Local-first Mac AI assistant over a plain-markdown workspace", "confidence": "high", "stars": 43, "pushed_at": "2026-06-11T22:27:37Z", "forks": 6, "activity_days": 3, "activity_label": "this week", "enrichment": {"export": {"v": "markdown", "c": "med", "sr": true}, "temporal": {"v": "unknown", "c": "med"}, "governance": {"v": "none", "c": "med"}, "op": "mixed"}}, {"name": "pgmnemo", "aka": null, "url": "https://github.com/pgmnemo/pgmnemo", "github": "pgmnemo/pgmnemo", "category": "library", "type": "OSS", "memory_model": "hybrid", "self_host": "yes", "license": "Apache-2.0", "interface": "library", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "PostgreSQL extension for provenance-gated hybrid-vector memory", "confidence": "medium", "stars": 4, "pushed_at": "2026-06-14T07:23:54Z", "forks": 1, "activity_days": 0, "activity_label": "this week", "enrichment": {"export": {"v": "sqlite", "c": "high", "sr": true}, "temporal": {"v": "versioned/bi-temporal", "c": "high", "sr": true}, "governance": {"v": "provenance+review-gate", "c": "high", "sr": true}, "op": "operational"}}, {"name": "Llongterm", "aka": null, "url": "https://llongterm.com", "github": null, "category": "saas", "type": "SaaS", "memory_model": "other", "self_host": "cloud-only", "license": "proprietary", "interface": "REST · SDK", "pricing": "freemium", "pricing_note": "no public pricing", "data_location": "cloud", "one_liner": "Hosted self-evolving memory ('Minds') middleware", "confidence": "medium", "stars": null, "pushed_at": null, "forks": null, "activity_days": null, "activity_label": null, "enrichment": {"export": {"v": "unknown", "c": "low"}, "temporal": {"v": "unknown", "c": "low"}, "governance": {"v": "none", "c": "low"}, "op": "aspirational"}}, {"name": "Pieces", "aka": null, "url": "https://pieces.app", "github": null, "category": "saas", "type": "SaaS", "memory_model": "other", "self_host": "partial", "license": "proprietary", "interface": "MCP · SDK · REST", "pricing": "freemium", "pricing_note": "Pro $18.99/mo", "data_location": "both", "one_liner": "On-device long-term memory capturing cross-app activity", "confidence": "high", "stars": null, "pushed_at": null, "forks": null, "activity_days": null, "activity_label": null, "enrichment": {"export": {"v": "api-export", "c": "med", "sr": true}, "temporal": {"v": "decay-consolidation", "c": "med", "sr": true}, "governance": {"v": "none", "c": "med", "sr": true}, "op": "operational"}}, {"name": "Pinecone Assistant", "aka": null, "url": "https://www.pinecone.io/product/assistant/", "github": null, "category": "saas", "type": "SaaS", "memory_model": "vector", "self_host": "cloud-only", "license": "proprietary", "interface": "REST · SDK", "pricing": "paid", "pricing_note": "Standard $50/mo min; adjacent (RAG)", "data_location": "cloud", "one_liner": "RAG/assistant layer on Pinecone, adjacent to pure agent-memory", "confidence": "high", "stars": null, "pushed_at": null, "forks": null, "activity_days": null, "activity_label": null, "enrichment": {"export": {"v": "api-export", "c": "high", "sr": true}, "temporal": {"v": "unknown", "c": "med", "sr": true}, "governance": {"v": "source-citation", "c": "high", "sr": true}, "op": "operational"}}, {"name": "OpenAI Conversations", "aka": "Assistants threads", "url": "https://platform.openai.com", "github": null, "category": "saas", "type": "SaaS", "memory_model": "other", "self_host": "cloud-only", "license": "proprietary", "interface": "REST", "pricing": "paid", "pricing_note": "Assistants threads deprecate Aug 2026", "data_location": "cloud", "one_liner": "Server-side conversation state via the OpenAI API", "confidence": "high", "stars": null, "pushed_at": null, "forks": null, "activity_days": null, "activity_label": null, "enrichment": {"export": {"v": "api-export", "c": "high", "sr": true}, "temporal": {"v": "append-only", "c": "high", "sr": true}, "governance": {"v": "none", "c": "med"}, "op": "operational"}}, {"name": "Claude memory tool", "aka": "Anthropic", "url": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool", "github": null, "category": "saas", "type": "SaaS", "memory_model": "other", "self_host": "partial", "license": "proprietary", "interface": "REST · SDK", "pricing": "paid", "pricing_note": null, "data_location": "both", "one_liner": "Client-side file-directory memory tool for Claude", "confidence": "high", "stars": null, "pushed_at": null, "forks": null, "activity_days": null, "activity_label": null, "enrichment": {"export": {"v": "markdown", "c": "high", "sr": true}, "temporal": {"v": "append-only", "c": "high", "sr": true}, "governance": {"v": "none", "c": "high", "sr": true}, "op": "operational"}}, {"name": "mcp-memory-service", "aka": null, "url": "https://github.com/doobidoo/mcp-memory-service", "github": "doobidoo/mcp-memory-service", "category": "mcp", "type": "OSS", "memory_model": "vector", "self_host": "yes", "license": "Apache-2.0", "interface": "MCP · REST", "pricing": "free-oss", "pricing_note": null, "data_location": "both", "one_liner": "Semantic-search MCP memory server; multiple vector backends", "confidence": "high", "stars": null, "pushed_at": null, "forks": null, "activity_days": null, "activity_label": null, "enrichment": {"export": {"v": "api-export", "c": "med", "sr": true}, "temporal": {"v": "decay-consolidation", "c": "med", "sr": true}, "governance": {"v": "provenance-tracked", "c": "med", "sr": true}, "op": "operational"}}, {"name": "bourdon", "aka": null, "url": "https://github.com/getbourdon/bourdon", "github": "getbourdon/bourdon", "category": "library", "type": "OSS", "memory_model": "other", "self_host": "yes", "license": "BSL", "interface": "MCP · CLI", "pricing": "free-oss", "pricing_note": null, "data_location": "local", "one_liner": "Tiered agent-memory federation over flat-file YAML; recognition-first", "confidence": "medium", "stars": 0, "pushed_at": "2026-06-12T13:24:10Z", "forks": 0, "activity_days": 2, "activity_label": "this week", "enrichment": {"export": {"v": "json", "c": "high", "sr": true}, "temporal": {"v": "versioned/bi-temporal", "c": "high", "sr": true}, "governance": {"v": "provenance-tracked", "c": "med", "sr": true}, "op": "aspirational"}}], "notes": ["Stars and last-activity are pulled live from the GitHub API at build time; SaaS-only products without a public repo show no stars.", "Neutral resource: rows are not ranked editorially; default sort is GitHub stars (a popularity proxy, not a quality judgment).", "memory_model is a simplified primary tag; many tools are hybrid. Licenses/pricing verified at curation date and can drift.", "Framework-native entries (LangMem, LlamaIndex, CrewAI, Semantic Kernel, Haystack) and the MCP reference server show stars for the parent project/monorepo, not the memory feature in isolation.", "Cells are tagged by evidence class: FACT (verifiable from repo, license, docs) and CLAIM (vendor self-reported, caveated).", "Benchmark figures are self-reported and not cross-comparable across tools; the full-context baseline (~73% on LoCoMo) often beats memory tools and is shown as the honest control.", "FACT axes export / temporal / governance were verified per-product from docs + repos (Kata x Cipher recon, 2026-06-14); 'self-reported' marks an axis confirmable only from the vendor's own docs."]};
+const PRIVATE=false;
+const P=STATE.products;
+const BC=STATE.benchmark_claims||{};
+const CATS=Object.keys(STATE.categories);
+let sort={key:'stars',dir:-1}, off=new Set();
+const kstars=n=>n==null?'<span class="muted">–</span>':(n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':n);
+const hostCls={yes:'host-yes','cloud-only':'host-cloud',partial:'host-partial'};
+const hostTxt={yes:'self-host','cloud-only':'cloud',partial:'partial'};
+const actCls=d=>d==null?'muted':d<=7?'host-yes':d<=90?'':'muted';
+
+function renderChips(){
+  document.getElementById('chips').innerHTML=CATS.map(c=>`<span class="chip cat ${off.has(c)?'off':''}" onclick="toggle('${c}')" title="${STATE.categories[c]}">${c}</span>`).join(' ');
+}
+function toggle(c){off.has(c)?off.delete(c):off.add(c);renderChips();render();}
+function sortBy(k){sort.dir=(sort.key===k?-sort.dir:(k==='name'||k==='category'||k==='license'||k==='pricing'?1:-1));sort.key=k;render();}
+function tog(row){const d=row.nextElementSibling;const open=d.style.display==='none';d.style.display=open?'':'none';row.classList.toggle('open',open);row.querySelector('.chev').textContent=open?'▾':'▸';}
+
+/* Pulse: one headline number plus a small caption of the rest.
+   Crane form: show the one thing, name the others, do not chart them. */
+function renderPulse(){
+  const t=STATE.totals;
+  const s=STATE.signals||{};
+  document.getElementById('pulse-tracked').textContent=t.products;
+  // Two numbers carry the story: field is full, spine is thin.
+  // The other ratios sit small in the meta, no charts.
+  const gate=s.governance_gate||0;
+  document.getElementById('pulse-meta').innerHTML=
+    `<div class="pm-headline"><span class="pm-num">${gate}</span><span class="pm-lbl">with a governance gate</span></div>`+
+    `<div class="pm-row"><span class="pm-key">open-source</span><span class="pm-val">${t.open_source}</span></div>`+
+    `<div class="pm-row"><span class="pm-key">self-hostable</span><span class="pm-val">${t.self_hostable}</span></div>`+
+    `<div class="pm-row"><span class="pm-key">mcp-capable</span><span class="pm-val">${t.mcp_capable}</span></div>`;
+}
+
+function fact(label,val){return `<span class="fact"><span class="tag tag-fact">fact</span><span class="fl">${label}</span><span class="fv">${val||'–'}</span></span>`;}
+function factC(label,a){if(!a)return '';return `<span class="fact"><span class="tag tag-fact">fact</span><span class="fl">${label}</span><span class="fv">${a.v}</span> <span class="conf">${a.c}${a.sr?' · self-rep':''}</span></span>`;}
+
+function detail(p){
+  const bench=BC[p.name];
+  const claim=bench?`<div class="claimrow"><span class="tag tag-claim">claim</span>${bench} <span class="muted">· self-reported, methodology varies. Control: full-context baseline ≈73% on LoCoMo often beats memory tools.</span></div>`:'';
+  const e=p.enrichment;
+  const erows=e?`${factC('Export',e.export)}${factC('Temporal',e.temporal)}${factC('Governance',e.governance)}<span class="fact"><span class="tag tag-fact">fact</span><span class="fl">Backing</span><span class="fv">${e.op}</span></span>`:'';
+  const pendTxt=e?'':`Eval axes pending enrichment (FACT): export · temporal · governance.`;
+  const pending=pendTxt?`<div class="pending">${pendTxt}</div>`:'';
+  const links=[p.url?`<a href="${p.url}">site ↗</a>`:'',p.github?`<a href="https://github.com/${p.github}">github: ${p.github} ↗</a>`:''].filter(Boolean).join('');
+  return `<div class="detail">
+    <div class="dl">${p.one_liner}</div>
+    <div class="facts">
+      ${fact('License',p.license)}${fact('Deployment',hostTxt[p.self_host]||p.self_host)}${fact('Architecture',p.memory_model)}
+      ${fact('Data',p.data_location)}${fact('Integration',p.interface)}${fact('Pricing',p.pricing+(p.pricing_note?' · '+p.pricing_note:''))}
+      ${erows}
+    </div>
+    ${claim}${pending}
+    <div class="links">${links}</div>
+  </div>`;
+}
+
+function render(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  let rows=P.filter(p=>!off.has(p.category)).filter(p=>!q||(p.name+' '+(p.aka||'')+' '+p.one_liner).toLowerCase().includes(q));
+  rows.sort((a,b)=>{let av=a[sort.key],bv=b[sort.key];
+    if(av==null)av=(sort.key==='stars'||sort.key==='activity_days')?-1:'';
+    if(bv==null)bv=(sort.key==='stars'||sort.key==='activity_days')?-1:'';
+    return (av>bv?1:av<bv?-1:0)*sort.dir;});
+  document.getElementById('count').textContent=`${rows.length} of ${P.length}`;
+  document.getElementById('body').innerHTML=rows.map(p=>{
+    const aka=p.aka?` <span class="aka">· ${p.aka}</span>`:'';
+    return `<tr class="row" onclick="tog(this)">
+      <td><div class="pname"><span class="chev">▸</span> ${p.name}${aka}</div><div class="pdesc">${p.one_liner}</div></td>
+      <td><span class="badge b-${p.category}">${p.category}</span></td>
+      <td>${p.memory_model}</td>
+      <td class="${hostCls[p.self_host]||''}">${hostTxt[p.self_host]||p.self_host}</td>
+      <td class="lic">${p.license||'–'}</td>
+      <td class="r stars">${kstars(p.stars)}</td>
+      <td class="r ${actCls(p.activity_days)}">${p.activity_label||'<span class=&quot;muted&quot;>–</span>'}</td>
+    </tr>
+    <tr class="detailrow" style="display:none"><td class="detailcell" colspan="7">${detail(p)}</td></tr>`;
+  }).join('');
+}
+function renderRefresh(){const d=new Date(STATE.generated_at);document.getElementById('refresh').textContent=`stars live as of ${d.toISOString().slice(0,10)} · ${STATE.totals.products} entrants · facts + claims`;}
+let legend=CATS.map(c=>`<span><span class="badge b-${c}">${c}</span> ${STATE.categories[c]}</span>`).join('')+' <span style="margin-left:6px"><span class="tag tag-fact">fact</span>verifiable <span class="tag tag-claim">claim</span>vendor self-reported</span>';
+document.getElementById('legend').innerHTML=legend;
+document.getElementById('notes').innerHTML=(STATE.notes||[]).map(n=>`<li>${n}</li>`).join('');
+renderPulse();renderRefresh();renderChips();render();
+</script>
+<!-- #include partials/_footer.html -->
+<footer>
+  <div class="footer-inner">
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden &middot; built by Hux &times; Vesper</span>
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
+      <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
+      <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
+      <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
+      <a href="/releases/" style="color:var(--text-faint);">releases</a> &middot;
+      <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
+      <a href="https://github.com/huximaxi/loci/blob/main/CONTRIBUTING.md" style="color:var(--text-faint);" target="_blank" rel="noopener">contribute</a> &middot;
+      <a href="/privacy.html" style="color:var(--text-faint);">privacy</a> &middot;
+      <a href="/.well-known/security.txt" style="color:var(--text-faint);">security.txt</a> &middot;
+      <a href="/llms.txt" style="color:var(--text-faint);">llms.txt</a>
+    </span>
+  </div>
+</footer>
+<!-- /include -->
+<script src="assets/nav-persona.js" defer></script>
+<script defer src="https://analytics.195-246-230-118.sslip.io/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
+</body>
+</html>

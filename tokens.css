@@ -75,29 +75,32 @@
        The only light theme. Calm, legible, no texture. Friendliest radius.
    ─────────────────────────────────────────────────────────────────────────── */
 [data-theme="scholar"] {
-  --bg:            #F7F5F0;
-  --bg-2:          #EEEAE1;
-  --surface:       #FFFFFF;
-  --border:        rgba(59,109,17,0.15);
-  --border-2:      rgba(59,109,17,0.25);
-  --text:          #1A2A0A;
-  --text-2:        #4A6020;
-  --text-3:        #8AAA60;
-  --accent:        #3B6D11;
-  --accent-light:  #97C459;
-  --accent-xlight: #C0DD97;
-  --accent-soft:   rgba(59,109,17,0.08);
-  --accent-glow:   rgba(151,196,89,0.3);
-  --nav-bg:        rgba(247,245,240,0.92);
-  --tag-bg:        rgba(59,109,17,0.08);
-  --tag-text:      #3B6D11;
-  --btn-bg:        #3B6D11;
-  --btn-text:      #FFFFFF;
-  --btn-hover:     #2d5408;
-  --switcher-bg:       #E8E3D8;
-  --switcher-pill:     #FFFFFF;
-  --switcher-text:     #3B6D11;
-  --switcher-inactive: #8AAA60;
+  /* Olive register: stays light, less neon, more grounded. The cream paper
+     gains an olive cast; the forest-green accent retunes to dark olive.
+     Hux to fine-tune the hex on review. */
+  --bg:            #F2EFE3;
+  --bg-2:          #E8E2CF;
+  --surface:       #FBF9F0;
+  --border:        rgba(90,107,46,0.16);
+  --border-2:      rgba(90,107,46,0.26);
+  --text:          #232a14;
+  --text-2:        #545d2c;
+  --text-3:        #8a9462;
+  --accent:        #5a6b2e;
+  --accent-light:  #87964f;
+  --accent-xlight: #c2c98e;
+  --accent-soft:   rgba(90,107,46,0.10);
+  --accent-glow:   rgba(135,150,79,0.30);
+  --nav-bg:        rgba(242,239,227,0.92);
+  --tag-bg:        rgba(90,107,46,0.10);
+  --tag-text:      #5a6b2e;
+  --btn-bg:        #5a6b2e;
+  --btn-text:      #FBF9F0;
+  --btn-hover:     #44521f;
+  --switcher-bg:       #DED7C1;
+  --switcher-pill:     #FBF9F0;
+  --switcher-text:     #5a6b2e;
+  --switcher-inactive: #8a9462;
   --font-body:    'Inter', system-ui, sans-serif;
   --font-display: 'Inter', system-ui, sans-serif;
   --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
@@ -134,29 +137,32 @@
        intentional serif moment) via index.css's .hero-title override.
    ─────────────────────────────────────────────────────────────────────────── */
 [data-theme="wizard"] {
-  --bg:            #0d0d0e;
-  --bg-2:          #131315;
-  --surface:       #14141c;
-  --border:        #252530;
-  --border-2:      #353540;
-  --text:          #e8e4dd;
-  --text-2:        #a09880;
-  --text-3:        #5a5a6a;
-  --accent:        #c87c2c;
-  --accent-light:  #e8974a;
-  --accent-xlight: #ffdd88;
-  --accent-soft:   rgba(200,124,44,0.10);
-  --accent-glow:   rgba(200,124,44,0.35);
-  --nav-bg:        rgba(13,13,14,0.92);
-  --tag-bg:        rgba(200,124,44,0.12);
-  --tag-text:      #e8974a;
-  --btn-bg:        #c87c2c;
-  --btn-text:      #0d0d0e;
-  --btn-hover:     #e8974a;
-  --switcher-bg:       #252530;
-  --switcher-pill:     #353540;
-  --switcher-text:     #e8974a;
-  --switcher-inactive: #5a5a6a;
+  /* Purple register: deep mystical, dark/serious, no medieval-castle amber.
+     Bricks are gone; the palette stays grounded but the accent shifts from
+     burnt-amber to violet. Hux to fine-tune the hex on review. */
+  --bg:            #0c0a14;
+  --bg-2:          #11101c;
+  --surface:       #161423;
+  --border:        #2a2540;
+  --border-2:      #3a3358;
+  --text:          #ece6f5;
+  --text-2:        #9c92b8;
+  --text-3:        #5d5670;
+  --accent:        #7b5bcb;
+  --accent-light:  #a289dc;
+  --accent-xlight: #d4c5f2;
+  --accent-soft:   rgba(123,91,203,0.12);
+  --accent-glow:   rgba(123,91,203,0.40);
+  --nav-bg:        rgba(12,10,20,0.92);
+  --tag-bg:        rgba(123,91,203,0.14);
+  --tag-text:      #a289dc;
+  --btn-bg:        #7b5bcb;
+  --btn-text:      #0c0a14;
+  --btn-hover:     #a289dc;
+  --switcher-bg:       #2a2540;
+  --switcher-pill:     #3a3358;
+  --switcher-text:     #a289dc;
+  --switcher-inactive: #5d5670;
   --font-body:    'Inter', system-ui, sans-serif;
   --font-display: 'Press Start 2P', monospace;
   --font-mono:    'Courier New', Courier, monospace;

@@ -5,36 +5,76 @@
 (function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
 </script>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23ffcc44'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%23e8861a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23c87c2c'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%237a3a08'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23F2EFE3'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a8b572'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%237d8a4a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%235a6b2e'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233a4720'/%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loci · Substrate Roadmap</title>
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="loci.css">
   
   <style>
-    /* ── TOKENS (from loci.css) ──────────────────────────────── */
-    :root {
-      --bg:           #0d0d0e;
-      --accent:       #c87c2c;
-      --accent-light: #e8974a;
-      --text:         #e8e4dd;
-      --surface:      #131315;
-      --stone-dark:   #252530;
-      --stone-mid:    #353540;
-      --stone-light:  #4a4a58;
-      --stone-mortar: #1c1c26;
-      --stone-hi:     #5a5a6a;
-      --ivy-mid:      #2d6b35;
-      --ivy-bright:   #4a9a4f;
-      --ivy-hi:       #6bc26e;
-      --crystal-core: #ffee99;
-      --crystal-bright:#ffcc44;
-      --crystal-mid:  #e8861a;
-      --crystal-outer:#c87c2c;
-      --room-garden-teal: #1a3a5a;
-      --room-garden-glow: #4a9ab8;
-      --room-dev-glow: #4477dd;
-      --dim: rgba(232,228,221,0.45);
+    /* ── Page-specific decorative tokens ──────────────────────
+       --bg/--accent/--accent-light/--text/--surface come from tokens.css
+       per data-theme. Only the page-specific decorations live here,
+       and they re-skin per theme so the switcher actually switches. */
+
+    /* Wizard (violet-on-near-black): the original design register. */
+    [data-theme="wizard"] {
+      --stone-dark:   #1f1c2d;
+      --stone-mid:    #2a263d;
+      --stone-light:  #3a3554;
+      --stone-mortar: #14111e;
+      --stone-hi:     #4a4368;
+      --ivy-mid:      #3d4d7a;
+      --ivy-bright:   #5a6dad;
+      --ivy-hi:       #7d8fd0;
+      --crystal-core: #e0d0ff;
+      --crystal-bright:#c0a8ff;
+      --crystal-mid:  #8a6dd6;
+      --crystal-outer:#7b5bcb;
+      --room-garden-teal: #1a2c4a;
+      --room-garden-glow: #5a85b8;
+      --room-dev-glow: #6b7dc8;
+      --dim: rgba(236,230,245,0.45);
+    }
+
+    /* Scholar (olive-on-cream): light register. */
+    [data-theme="scholar"] {
+      --stone-dark:   #d8d1be;
+      --stone-mid:    #c4bda8;
+      --stone-light:  #a89e84;
+      --stone-mortar: #b8b09a;
+      --stone-hi:     #8a7f64;
+      --ivy-mid:      #5a6b2e;
+      --ivy-bright:   #7d8a4a;
+      --ivy-hi:       #a8b572;
+      --crystal-core: #d4c98e;
+      --crystal-bright:#a8b572;
+      --crystal-mid:  #7d8a4a;
+      --crystal-outer:#5a6b2e;
+      --room-garden-teal: #4a6b7d;
+      --room-garden-glow: #6a8fa4;
+      --room-dev-glow: #5a7d9a;
+      --dim: rgba(35,42,20,0.55);
+    }
+
+    /* LLMAGE (neutral grey-on-near-black): mono register. */
+    [data-theme="llmage"] {
+      --stone-dark:   #1a1a1a;
+      --stone-mid:    #232323;
+      --stone-light:  #2e2e2e;
+      --stone-mortar: #111111;
+      --stone-hi:     #3a3a3a;
+      --ivy-mid:      #3a3a3a;
+      --ivy-bright:   #5a5a5a;
+      --ivy-hi:       #8a8a8a;
+      --crystal-core: #e8e8e8;
+      --crystal-bright:#b8b8b8;
+      --crystal-mid:  #888888;
+      --crystal-outer:#5a5a5a;
+      --room-garden-teal: #2a2a2a;
+      --room-garden-glow: #6a6a6a;
+      --room-dev-glow: #888888;
+      --dim: rgba(240,240,240,0.40);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -359,6 +399,7 @@
         </a>
         <a href="/download.html" class="nav-link" data-page="download">download</a>
         <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
+        <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
         <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
       </div>
       <div class="theme-switcher" role="group" aria-label="Choose experience mode">
