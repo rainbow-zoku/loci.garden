@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="The Five Gardens compass: South (making), West (exchange), North (craft), East (brooding), Centre (return).">
+  <title>The Five Gardens, a compass</title>
+  <desc>A wizard-themed compass of the five gardens. North is the garden of craft, South is the garden of making, West is the garden of exchange, East is the garden of brooding, and the Centre is the garden of return where the four meet.</desc>
+
+  <defs>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="currentColor" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softInk" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.4"/>
+    </filter>
+  </defs>
+
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" color="currentColor">
+
+    <!-- Outer ring -->
+    <circle cx="300" cy="300" r="240" stroke-width="1" stroke-opacity="0.35"/>
+    <circle cx="300" cy="300" r="232" stroke-width="0.4" stroke-opacity="0.5"/>
+
+    <!-- Inner orientation ring -->
+    <circle cx="300" cy="300" r="120" stroke-width="0.6" stroke-opacity="0.55" stroke-dasharray="2 4"/>
+
+    <!-- Centre glow -->
+    <circle cx="300" cy="300" r="180" fill="url(#centerGlow)" stroke="none"/>
+
+    <!-- Cardinal axes -->
+    <line x1="300" y1="60"  x2="300" y2="180" stroke-width="0.7" stroke-opacity="0.55"/>
+    <line x1="300" y1="420" x2="300" y2="540" stroke-width="0.7" stroke-opacity="0.55"/>
+    <line x1="60"  y1="300" x2="180" y2="300" stroke-width="0.7" stroke-opacity="0.55"/>
+    <line x1="420" y1="300" x2="540" y2="300" stroke-width="0.7" stroke-opacity="0.55"/>
+
+    <!-- Diagonal binding lines (subtle, pentagrammatic feel without the star) -->
+    <path d="M 300 60 L 540 300 L 300 540 L 60 300 Z" stroke-width="0.5" stroke-opacity="0.28"/>
+
+    <!-- Cardinal glyph plates: open lozenges -->
+    <!-- North -->
+    <path d="M 300 30 L 326 60 L 300 90 L 274 60 Z" stroke-width="1" stroke-opacity="0.85"/>
+    <!-- South -->
+    <path d="M 300 510 L 326 540 L 300 570 L 274 540 Z" stroke-width="1" stroke-opacity="0.85"/>
+    <!-- West -->
+    <path d="M 30 300 L 60 326 L 90 300 L 60 274 Z" stroke-width="1" stroke-opacity="0.85"/>
+    <!-- East -->
+    <path d="M 510 300 L 540 326 L 570 300 L 540 274 Z" stroke-width="1" stroke-opacity="0.85"/>
+
+    <!-- Centre lozenge -->
+    <path d="M 300 270 L 330 300 L 300 330 L 270 300 Z" stroke-width="1" stroke-opacity="0.95"/>
+    <circle cx="300" cy="300" r="3" fill="currentColor" stroke="none" fill-opacity="0.9"/>
+
+    <!-- Compass corner tick marks -->
+    <g stroke-width="0.5" stroke-opacity="0.4">
+      <line x1="120" y1="120" x2="138" y2="138"/>
+      <line x1="480" y1="120" x2="462" y2="138"/>
+      <line x1="120" y1="480" x2="138" y2="462"/>
+      <line x1="480" y1="480" x2="462" y2="462"/>
+    </g>
+
+  </g>
+
+  <!-- Cardinal glyphs (alchemical letterform shapes, drawn, not text-dependent) -->
+  <g fill="currentColor" stroke="none" fill-opacity="0.9">
+    <!-- North: peaked crown (craft / mountain) -->
+    <path d="M 290 56 L 295 48 L 300 54 L 305 48 L 310 56 L 305 64 L 295 64 Z" fill-opacity="0.85"/>
+    <!-- South: sun disc with rays (making / warmth) -->
+    <circle cx="300" cy="540" r="5" fill-opacity="0.7"/>
+    <g stroke="currentColor" stroke-width="1" stroke-opacity="0.7" fill="none">
+      <line x1="300" y1="528" x2="300" y2="532"/>
+      <line x1="300" y1="548" x2="300" y2="552"/>
+      <line x1="288" y1="540" x2="292" y2="540"/>
+      <line x1="308" y1="540" x2="312" y2="540"/>
+    </g>
+    <!-- West: cup (exchange / receiving) -->
+    <path d="M 54 296 L 66 296 L 64 304 L 56 304 Z" fill-opacity="0.85"/>
+    <line x1="58" y1="304" x2="62" y2="308" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.7"/>
+    <line x1="62" y1="304" x2="60" y2="308" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.7"/>
+    <!-- East: open eye (brooding / waiting) -->
+    <path d="M 532 300 Q 540 294 548 300 Q 540 306 532 300 Z" fill-opacity="0.85"/>
+    <circle cx="540" cy="300" r="1.5" fill-opacity="0.95"/>
+  </g>
+
+  <!-- Labels (small caps, currentColor) -->
+  <g fill="currentColor" font-family="Georgia, 'EB Garamond', serif" font-size="11" letter-spacing="2" text-anchor="middle" fill-opacity="0.7">
+    <text x="300" y="110" font-style="italic">NORTH</text>
+    <text x="300" y="125" font-size="8.5" letter-spacing="1.5" fill-opacity="0.5">the garden of craft</text>
+
+    <text x="300" y="495" font-style="italic">SOUTH</text>
+    <text x="300" y="481" font-size="8.5" letter-spacing="1.5" fill-opacity="0.5">the garden of making</text>
+
+    <text x="110" y="300" font-style="italic">WEST</text>
+    <text x="110" y="314" font-size="8.5" letter-spacing="1.5" fill-opacity="0.5">exchange</text>
+
+    <text x="490" y="300" font-style="italic">EAST</text>
+    <text x="490" y="314" font-size="8.5" letter-spacing="1.5" fill-opacity="0.5">brooding</text>
+
+    <text x="300" y="350" font-style="italic" font-size="9.5" letter-spacing="2" fill-opacity="0.65">CENTRE</text>
+    <text x="300" y="362" font-size="7.5" letter-spacing="1.5" fill-opacity="0.45">the garden of return</text>
+  </g>
+
+  <!-- Latin / Hungarian inscription on the rim -->
+  <defs>
+    <path id="rimPath" d="M 300 80 A 220 220 0 1 1 299.99 80" fill="none"/>
+  </defs>
+  <text fill="currentColor" font-family="Georgia, 'EB Garamond', serif" font-size="9" letter-spacing="6" fill-opacity="0.45">
+    <textPath href="#rimPath" startOffset="0">NULLUS · LOCUS · SINE · GENIO · ◆ · AZ · ÖT · GÉNIUSZ · ◆ · HELYSZELLEM · ◆ · </textPath>
+  </text>
+</svg>
