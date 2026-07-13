@@ -1,0 +1,1894 @@
+{
+  "generated_at": "2026-06-15T06:47:45.400493+00:00",
+  "scope": "public-safe",
+  "title": "AI Memory Field",
+  "subtitle": "an open comparison of memory layers for LLM agents",
+  "method": "4-slice parallel census (OSS libraries, hosted SaaS, framework-native + MCP, KG/PKM/research) + palace looking-glass recon; deduped; unverifiable entrants dropped; GitHub metrics auto-pulled at build time.",
+  "categories": {
+    "library": "self-hosted OSS memory library/engine",
+    "saas": "hosted / managed memory service",
+    "framework": "memory subsystem inside an agent framework",
+    "mcp": "Model Context Protocol memory server",
+    "pkm": "personal-knowledge / second-brain memory",
+    "research": "research reference system with a public repo"
+  },
+  "benchmark_claims": {
+    "Mem0": "LoCoMo ~92.5 · LongMemEval 94.4 (self-reported, ECAI 2025; Zep disputes the run)",
+    "Zep Cloud": "DMR 94.8 · LongMemEval +18.5% acc vs baseline (self-reported)",
+    "Graphiti": "powers Zep Cloud; LongMemEval/DMR reported under Zep (self-reported)",
+    "Letta": "LoCoMo 74.0 via a plain filesystem agent (self-reported; argues context-management > retrieval mechanism)",
+    "A-MEM": "LoCoMo SOTA across 6 models (self-reported, NeurIPS 2025)",
+    "MemoryOS": "LoCoMo +49% F1 vs baselines (self-reported, EMNLP 2025)"
+  },
+  "totals": {
+    "products": 48,
+    "open_source": 42,
+    "hosted": 22,
+    "self_hostable": 44,
+    "mcp_capable": 25,
+    "stars_sum": 589446,
+    "with_stars": 41
+  },
+  "by_model": {
+    "vector": 9,
+    "graph": 10,
+    "episodic": 1,
+    "hybrid": 19,
+    "other": 9
+  },
+  "by_category": {
+    "library": 19,
+    "saas": 8,
+    "framework": 6,
+    "mcp": 5,
+    "pkm": 5,
+    "research": 5
+  },
+  "signals": {
+    "governance_gate": 3,
+    "bi_temporal": 9,
+    "no_governance": 32,
+    "enriched": 48
+  },
+  "products": [
+    {
+      "name": "MCP Memory",
+      "aka": "official reference",
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+      "github": "modelcontextprotocol/servers",
+      "category": "mcp",
+      "type": "OSS",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "MCP",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Official knowledge-graph MCP memory server; JSON-persisted",
+      "confidence": "high",
+      "stars": 87206,
+      "pushed_at": "2026-06-07T22:29:30Z",
+      "forks": 11001,
+      "activity_days": 7,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "high"
+        },
+        "governance": {
+          "v": "none",
+          "c": "high"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Mem0",
+      "aka": null,
+      "url": "https://mem0.ai",
+      "github": "mem0ai/mem0",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · REST · MCP · CLI",
+      "pricing": "freemium",
+      "pricing_note": "Free 10k mem; Starter $19; Growth $79; Pro $249",
+      "data_location": "both",
+      "one_liner": "Self-improving memory layer for LLM agents and assistants",
+      "confidence": "high",
+      "stars": 58536,
+      "pushed_at": "2026-06-13T20:13:29Z",
+      "forks": 6725,
+      "activity_days": 1,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "CrewAI Memory",
+      "aka": null,
+      "url": "https://docs.crewai.com/en/concepts/memory",
+      "github": "crewAIInc/crewAI",
+      "category": "framework",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "SDK · library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Short/long-term/entity memory; a feature of CrewAI",
+      "confidence": "high",
+      "stars": 53533,
+      "pushed_at": "2026-06-14T07:19:50Z",
+      "forks": 7492,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "sqlite",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "high"
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "high"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "LlamaIndex Memory",
+      "aka": null,
+      "url": "https://developers.llamaindex.ai",
+      "github": "run-llama/llama_index",
+      "category": "framework",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "SDK · library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Short/long-term memory blocks; a feature of LlamaIndex",
+      "confidence": "high",
+      "stars": 50121,
+      "pushed_at": "2026-06-12T19:29:18Z",
+      "forks": 7559,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "sqlite",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Khoj",
+      "aka": null,
+      "url": "https://khoj.dev",
+      "github": "khoj-ai/khoj",
+      "category": "pkm",
+      "type": "Both",
+      "memory_model": "vector",
+      "self_host": "yes",
+      "license": "AGPL-3.0",
+      "interface": "REST · CLI",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Self-hostable AI second brain over your docs and the web",
+      "confidence": "high",
+      "stars": 35118,
+      "pushed_at": "2026-03-26T03:35:43Z",
+      "forks": 2248,
+      "activity_days": 81,
+      "activity_label": "2mo ago",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "low"
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "low"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Semantic Kernel",
+      "aka": null,
+      "url": "https://learn.microsoft.com/semantic-kernel/",
+      "github": "microsoft/semantic-kernel",
+      "category": "framework",
+      "type": "OSS",
+      "memory_model": "vector",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "SDK · library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Vector-store memory connectors; a feature of Semantic Kernel",
+      "confidence": "high",
+      "stars": 28115,
+      "pushed_at": "2026-06-12T22:35:21Z",
+      "forks": 4647,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "Zep Cloud",
+      "aka": null,
+      "url": "https://www.getzep.com",
+      "github": "getzep/graphiti",
+      "category": "saas",
+      "type": "Both",
+      "memory_model": "graph",
+      "self_host": "partial",
+      "license": "Apache-2.0",
+      "interface": "REST · SDK · MCP",
+      "pricing": "freemium",
+      "pricing_note": "Free 1k credits; Flex $104; Flex+ $312",
+      "data_location": "both",
+      "one_liner": "Temporal knowledge-graph memory API for agents",
+      "confidence": "high",
+      "stars": 27406,
+      "pushed_at": "2026-06-12T22:16:03Z",
+      "forks": 2741,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "graph-export",
+          "c": "low",
+          "sr": true
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "med",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Graphiti",
+      "aka": null,
+      "url": "https://github.com/getzep/graphiti",
+      "github": "getzep/graphiti",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · MCP · REST",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Temporal knowledge-graph engine powering Zep's memory platform",
+      "confidence": "high",
+      "stars": 27406,
+      "pushed_at": "2026-06-12T22:16:03Z",
+      "forks": 2741,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "graph-export",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high"
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "high"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Supermemory",
+      "aka": null,
+      "url": "https://supermemory.ai",
+      "github": "supermemoryai/supermemory",
+      "category": "saas",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "partial",
+      "license": "MIT",
+      "interface": "REST · SDK · MCP",
+      "pricing": "freemium",
+      "pricing_note": "Pro $19; Max $100; Scale $399",
+      "data_location": "both",
+      "one_liner": "Universal memory API; hosted or local single binary",
+      "confidence": "high",
+      "stars": 26976,
+      "pushed_at": "2026-06-14T08:09:12Z",
+      "forks": 2344,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "none-documented",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "Haystack",
+      "aka": null,
+      "url": "https://haystack.deepset.ai",
+      "github": "deepset-ai/haystack",
+      "category": "framework",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Chat-message store and Mem0 integration; a Haystack feature",
+      "confidence": "medium",
+      "stars": 25563,
+      "pushed_at": "2026-06-12T15:45:23Z",
+      "forks": 2849,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "unknown",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "Letta",
+      "aka": "MemGPT",
+      "url": "https://letta.com",
+      "github": "letta-ai/letta",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "REST · SDK · MCP · CLI",
+      "pricing": "freemium",
+      "pricing_note": "Pro $20; Max $200; self-host free",
+      "data_location": "both",
+      "one_liner": "Stateful agent runtime with self-editing memory, formerly MemGPT",
+      "confidence": "high",
+      "stars": 23319,
+      "pushed_at": "2026-05-14T17:14:23Z",
+      "forks": 2485,
+      "activity_days": 31,
+      "activity_label": "31d ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Generative Agents",
+      "aka": "Stanford",
+      "url": "https://github.com/joonspk-research/generative_agents",
+      "github": "joonspk-research/generative_agents",
+      "category": "research",
+      "type": "OSS",
+      "memory_model": "episodic",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Research: memory-stream agents simulating human behavior",
+      "confidence": "high",
+      "stars": 21542,
+      "pushed_at": "2024-08-05T21:38:56Z",
+      "forks": 3020,
+      "activity_days": 678,
+      "activity_label": "1y ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "high"
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Cognee",
+      "aka": null,
+      "url": "https://www.cognee.ai",
+      "github": "topoteretes/cognee",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · REST · MCP · CLI",
+      "pricing": "freemium",
+      "pricing_note": "Dev $35; Team $200",
+      "data_location": "both",
+      "one_liner": "Knowledge-graph memory engine for AI agents and pipelines",
+      "confidence": "high",
+      "stars": 17824,
+      "pushed_at": "2026-06-14T13:53:53Z",
+      "forks": 1888,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "graph-export",
+          "c": "low"
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "med",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Memori",
+      "aka": null,
+      "url": "https://www.gibsonai.com/memori",
+      "github": "GibsonAI/memori",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "other",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "library · MCP · REST",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "SQL-native, portable memory engine for LLM agents",
+      "confidence": "high",
+      "stars": 15284,
+      "pushed_at": "2026-06-12T06:18:32Z",
+      "forks": 2592,
+      "activity_days": 3,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "sqlite",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "med",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "MemU",
+      "aka": null,
+      "url": "https://memu.so",
+      "github": "NevaMind-AI/memU",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · REST",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Data-to-memory engine for AI companions and agents",
+      "confidence": "high",
+      "stars": 13854,
+      "pushed_at": "2026-06-14T11:40:34Z",
+      "forks": 1036,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "sqlite",
+          "c": "low",
+          "sr": true
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "txtai",
+      "aka": null,
+      "url": "https://neuml.github.io/txtai/",
+      "github": "neuml/txtai",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "library · REST · MCP",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Embeddings database and AI framework, usable as agent memory",
+      "confidence": "high",
+      "stars": 12653,
+      "pushed_at": "2026-06-11T16:16:36Z",
+      "forks": 831,
+      "activity_days": 3,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "sqlite",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "low"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "MemOS",
+      "aka": null,
+      "url": "https://memos.openmem.net",
+      "github": "MemTensor/MemOS",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "REST · MCP · SDK · CLI",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Self-evolving memory OS for LLMs with hybrid retrieval",
+      "confidence": "high",
+      "stars": 9858,
+      "pushed_at": "2026-06-14T14:29:42Z",
+      "forks": 901,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "low",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "low"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "Reor",
+      "aka": null,
+      "url": "https://reorproject.org",
+      "github": "reorproject/reor",
+      "category": "pkm",
+      "type": "OSS",
+      "memory_model": "vector",
+      "self_host": "yes",
+      "license": "AGPL-3.0",
+      "interface": "library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Private local AI note-app with auto-linking and semantic search",
+      "confidence": "high",
+      "stars": 8568,
+      "pushed_at": "2025-05-13T21:28:59Z",
+      "forks": 527,
+      "activity_days": 397,
+      "activity_label": "1y ago",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "low"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "Smart Connections",
+      "aka": null,
+      "url": "https://smartconnections.app",
+      "github": "brianpetro/obsidian-smart-connections",
+      "category": "pkm",
+      "type": "Both",
+      "memory_model": "vector",
+      "self_host": "yes",
+      "license": "other",
+      "interface": "library",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Obsidian plugin surfacing related notes via local embeddings",
+      "confidence": "high",
+      "stars": 5152,
+      "pushed_at": "2026-06-11T17:32:24Z",
+      "forks": 319,
+      "activity_days": 3,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Honcho",
+      "aka": null,
+      "url": "https://honcho.dev",
+      "github": "plastic-labs/honcho",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "AGPL-3.0",
+      "interface": "REST · SDK · MCP",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Builds stateful agents that model people over time",
+      "confidence": "high",
+      "stars": 5141,
+      "pushed_at": "2026-06-12T23:50:42Z",
+      "forks": 619,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "ByteRover",
+      "aka": "Cipher",
+      "url": "https://www.byterover.dev",
+      "github": "campfirein/byterover-cli",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "other",
+      "self_host": "yes",
+      "license": "Elastic-2.0",
+      "interface": "CLI · MCP · SDK",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Local-first coding-agent memory, formerly named Cipher",
+      "confidence": "high",
+      "stars": 4853,
+      "pushed_at": "2026-06-03T10:37:35Z",
+      "forks": 453,
+      "activity_days": 11,
+      "activity_label": "11d ago",
+      "enrichment": {
+        "export": {
+          "v": "graph-export",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "provenance+review-gate",
+          "c": "high",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "AutoGen / AG2",
+      "aka": null,
+      "url": "https://docs.ag2.ai",
+      "github": "ag2ai/ag2",
+      "category": "framework",
+      "type": "OSS",
+      "memory_model": "vector",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Teachable-agent ChromaDB memory; a feature of AutoGen/AG2",
+      "confidence": "medium",
+      "stars": 4672,
+      "pushed_at": "2026-06-14T12:59:00Z",
+      "forks": 654,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "high"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "OpenMemory",
+      "aka": "Cavira",
+      "url": "https://github.com/CaviraOSS/OpenMemory",
+      "github": "CaviraOSS/OpenMemory",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "library · REST · MCP · CLI",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Local-first persistent memory store for LLM applications",
+      "confidence": "high",
+      "stars": 4235,
+      "pushed_at": "2026-05-29T15:54:25Z",
+      "forks": 481,
+      "activity_days": 16,
+      "activity_label": "16d ago",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "HippoRAG",
+      "aka": null,
+      "url": "https://github.com/OSU-NLP-Group/HippoRAG",
+      "github": "OSU-NLP-Group/HippoRAG",
+      "category": "research",
+      "type": "OSS",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Knowledge-graph RAG with personalized PageRank for multi-hop recall",
+      "confidence": "high",
+      "stars": 3583,
+      "pushed_at": "2025-09-04T14:42:42Z",
+      "forks": 374,
+      "activity_days": 283,
+      "activity_label": "9mo ago",
+      "enrichment": {
+        "export": {
+          "v": "none-documented",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Basic Memory",
+      "aka": null,
+      "url": "https://basicmemory.com",
+      "github": "basicmachines-co/basic-memory",
+      "category": "pkm",
+      "type": "Both",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "AGPL-3.0",
+      "interface": "MCP · CLI · library",
+      "pricing": "freemium",
+      "pricing_note": "Cloud sync ~$19/mo",
+      "data_location": "both",
+      "one_liner": "Local Markdown knowledge-graph memory over MCP",
+      "confidence": "high",
+      "stars": 3234,
+      "pushed_at": "2026-06-13T19:53:54Z",
+      "forks": 215,
+      "activity_days": 1,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "ReMe",
+      "aka": "MemoryScope",
+      "url": "https://github.com/agentscope-ai/ReMe",
+      "github": "agentscope-ai/ReMe",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Alibaba/ModelScope agent memory kit, formerly MemoryScope",
+      "confidence": "high",
+      "stars": 3080,
+      "pushed_at": "2026-06-10T12:40:19Z",
+      "forks": 259,
+      "activity_days": 4,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med"
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Memobase",
+      "aka": null,
+      "url": "https://www.memobase.io",
+      "github": "memodb-io/memobase",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "other",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · REST · MCP",
+      "pricing": "freemium",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "User-profile-based long-term memory for LLM apps",
+      "confidence": "high",
+      "stars": 2754,
+      "pushed_at": "2026-01-11T03:51:40Z",
+      "forks": 219,
+      "activity_days": 155,
+      "activity_label": "5mo ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "low"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Memary",
+      "aka": null,
+      "url": "https://github.com/kingjulio8238/Memary",
+      "github": "kingjulio8238/Memary",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "library · SDK",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Open-source memory layer for autonomous agents",
+      "confidence": "high",
+      "stars": 2623,
+      "pushed_at": "2024-10-22T00:46:00Z",
+      "forks": 199,
+      "activity_days": 601,
+      "activity_label": "1y ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "aspirational"
+      }
+    },
+    {
+      "name": "LangMem",
+      "aka": null,
+      "url": "https://langchain-ai.github.io/langmem/",
+      "github": "langchain-ai/langmem",
+      "category": "framework",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "SDK · library",
+      "pricing": "freemium",
+      "pricing_note": "hosted via LangGraph Platform",
+      "data_location": "both",
+      "one_liner": "LangChain SDK for long-term agent memory management",
+      "confidence": "high",
+      "stars": 1501,
+      "pushed_at": "2026-06-12T22:16:27Z",
+      "forks": 170,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "low"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "MemoryOS",
+      "aka": null,
+      "url": "https://bai-lab.github.io/MemoryOS",
+      "github": "BAI-LAB/MemoryOS",
+      "category": "research",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "library · MCP",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Hierarchical short/mid/long-term memory OS for agents",
+      "confidence": "high",
+      "stars": 1461,
+      "pushed_at": "2026-04-28T15:52:03Z",
+      "forks": 142,
+      "activity_days": 47,
+      "activity_label": "1mo ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "high"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "A-MEM",
+      "aka": null,
+      "url": "https://github.com/agiresearch/A-mem",
+      "github": "agiresearch/A-mem",
+      "category": "research",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Agentic memory with self-organizing Zettelkasten-style linked notes",
+      "confidence": "high",
+      "stars": 1047,
+      "pushed_at": "2025-12-12T21:15:29Z",
+      "forks": 114,
+      "activity_days": 184,
+      "activity_label": "6mo ago",
+      "enrichment": {
+        "export": {
+          "v": "none-documented",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "aspirational"
+      }
+    },
+    {
+      "name": "Memind",
+      "aka": null,
+      "url": "https://github.com/openmemind/memind",
+      "github": "openmemind/memind",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "library · REST · MCP · SDK",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Java cognitive memory engine building insight trees and graphs",
+      "confidence": "high",
+      "stars": 900,
+      "pushed_at": "2026-06-14T05:08:06Z",
+      "forks": 85,
+      "activity_days": 1,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "mcp-knowledge-graph",
+      "aka": null,
+      "url": "https://github.com/shaneholloman/mcp-knowledge-graph",
+      "github": "shaneholloman/mcp-knowledge-graph",
+      "category": "mcp",
+      "type": "OSS",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "MCP",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Local knowledge-graph MCP memory server",
+      "confidence": "high",
+      "stars": 865,
+      "pushed_at": "2026-05-29T12:57:51Z",
+      "forks": 103,
+      "activity_days": 16,
+      "activity_label": "16d ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "low"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "MemoryBank",
+      "aka": "SiliconFriend",
+      "url": "https://github.com/zhongwanjun/MemoryBank-SiliconFriend",
+      "github": "zhongwanjun/MemoryBank-SiliconFriend",
+      "category": "research",
+      "type": "OSS",
+      "memory_model": "vector",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Research: long-term memory using the Ebbinghaus forgetting curve",
+      "confidence": "high",
+      "stars": 432,
+      "pushed_at": "2023-05-24T03:19:27Z",
+      "forks": 62,
+      "activity_days": 1118,
+      "activity_label": "3y ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "high"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "MemoryMesh",
+      "aka": null,
+      "url": "https://github.com/CheMiguel23/MemoryMesh",
+      "github": "CheMiguel23/MemoryMesh",
+      "category": "mcp",
+      "type": "OSS",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "MCP",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Schema-driven knowledge-graph MCP server for narrative persistence",
+      "confidence": "high",
+      "stars": 345,
+      "pushed_at": "2026-03-01T22:27:33Z",
+      "forks": 50,
+      "activity_days": 105,
+      "activity_label": "3mo ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "high",
+          "sr": true
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "Redis Agent Memory Server",
+      "aka": null,
+      "url": "https://github.com/redis/agent-memory-server",
+      "github": "redis/agent-memory-server",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "REST · MCP",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Redis-backed working and long-term memory server for agents",
+      "confidence": "high",
+      "stars": 280,
+      "pushed_at": "2026-06-12T20:29:35Z",
+      "forks": 55,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Remembrall",
+      "aka": null,
+      "url": "https://remembrall.dev",
+      "github": "raunakdoesdev/remembrall",
+      "category": "saas",
+      "type": "SaaS",
+      "memory_model": "vector",
+      "self_host": "cloud-only",
+      "license": null,
+      "interface": "REST",
+      "pricing": "freemium",
+      "pricing_note": "appears dormant",
+      "data_location": "cloud",
+      "one_liner": "Proxy giving OpenAI calls long-term memory via vector store",
+      "confidence": "low",
+      "stars": 171,
+      "pushed_at": "2026-04-10T14:56:07Z",
+      "forks": 20,
+      "activity_days": 65,
+      "activity_label": "2mo ago",
+      "enrichment": {
+        "export": {
+          "v": "none-documented",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "aspirational"
+      }
+    },
+    {
+      "name": "memory-mcp-server",
+      "aka": "okooo5km",
+      "url": "https://github.com/okooo5km/memory-mcp-server",
+      "github": "okooo5km/memory-mcp-server",
+      "category": "mcp",
+      "type": "OSS",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "MCP",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Go reimplementation of the reference knowledge-graph MCP server",
+      "confidence": "medium",
+      "stars": 105,
+      "pushed_at": "2025-04-16T01:54:28Z",
+      "forks": 10,
+      "activity_days": 425,
+      "activity_label": "1y ago",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "high",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "remnic",
+      "aka": null,
+      "url": "https://github.com/joshuaswarren/remnic",
+      "github": "joshuaswarren/remnic",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "MCP · REST · CLI",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Local markdown-backed agent memory with provenance and governance",
+      "confidence": "medium",
+      "stars": 83,
+      "pushed_at": "2026-06-14T01:20:01Z",
+      "forks": 15,
+      "activity_days": 1,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "provenance+review-gate",
+          "c": "high",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Keel",
+      "aka": null,
+      "url": "https://keel-labs.github.io",
+      "github": "Keel-Labs/keel",
+      "category": "pkm",
+      "type": "OSS",
+      "memory_model": "other",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "app",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Local-first Mac AI assistant over a plain-markdown workspace",
+      "confidence": "high",
+      "stars": 43,
+      "pushed_at": "2026-06-11T22:27:37Z",
+      "forks": 6,
+      "activity_days": 3,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "mixed"
+      }
+    },
+    {
+      "name": "pgmnemo",
+      "aka": null,
+      "url": "https://github.com/pgmnemo/pgmnemo",
+      "github": "pgmnemo/pgmnemo",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "library",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "PostgreSQL extension for provenance-gated hybrid-vector memory",
+      "confidence": "medium",
+      "stars": 4,
+      "pushed_at": "2026-06-14T07:23:54Z",
+      "forks": 1,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "sqlite",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "provenance+review-gate",
+          "c": "high",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Llongterm",
+      "aka": null,
+      "url": "https://llongterm.com",
+      "github": null,
+      "category": "saas",
+      "type": "SaaS",
+      "memory_model": "other",
+      "self_host": "cloud-only",
+      "license": "proprietary",
+      "interface": "REST · SDK",
+      "pricing": "freemium",
+      "pricing_note": "no public pricing",
+      "data_location": "cloud",
+      "one_liner": "Hosted self-evolving memory ('Minds') middleware",
+      "confidence": "medium",
+      "stars": null,
+      "pushed_at": null,
+      "forks": null,
+      "activity_days": null,
+      "activity_label": null,
+      "enrichment": {
+        "export": {
+          "v": "unknown",
+          "c": "low"
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "low"
+        },
+        "governance": {
+          "v": "none",
+          "c": "low"
+        },
+        "op": "aspirational"
+      }
+    },
+    {
+      "name": "Pieces",
+      "aka": null,
+      "url": "https://pieces.app",
+      "github": null,
+      "category": "saas",
+      "type": "SaaS",
+      "memory_model": "other",
+      "self_host": "partial",
+      "license": "proprietary",
+      "interface": "MCP · SDK · REST",
+      "pricing": "freemium",
+      "pricing_note": "Pro $18.99/mo",
+      "data_location": "both",
+      "one_liner": "On-device long-term memory capturing cross-app activity",
+      "confidence": "high",
+      "stars": null,
+      "pushed_at": null,
+      "forks": null,
+      "activity_days": null,
+      "activity_label": null,
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "med",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Pinecone Assistant",
+      "aka": null,
+      "url": "https://www.pinecone.io/product/assistant/",
+      "github": null,
+      "category": "saas",
+      "type": "SaaS",
+      "memory_model": "vector",
+      "self_host": "cloud-only",
+      "license": "proprietary",
+      "interface": "REST · SDK",
+      "pricing": "paid",
+      "pricing_note": "Standard $50/mo min; adjacent (RAG)",
+      "data_location": "cloud",
+      "one_liner": "RAG/assistant layer on Pinecone, adjacent to pure agent-memory",
+      "confidence": "high",
+      "stars": null,
+      "pushed_at": null,
+      "forks": null,
+      "activity_days": null,
+      "activity_label": null,
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "high",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "OpenAI Conversations",
+      "aka": "Assistants threads",
+      "url": "https://platform.openai.com",
+      "github": null,
+      "category": "saas",
+      "type": "SaaS",
+      "memory_model": "other",
+      "self_host": "cloud-only",
+      "license": "proprietary",
+      "interface": "REST",
+      "pricing": "paid",
+      "pricing_note": "Assistants threads deprecate Aug 2026",
+      "data_location": "cloud",
+      "one_liner": "Server-side conversation state via the OpenAI API",
+      "confidence": "high",
+      "stars": null,
+      "pushed_at": null,
+      "forks": null,
+      "activity_days": null,
+      "activity_label": null,
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Claude memory tool",
+      "aka": "Anthropic",
+      "url": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool",
+      "github": null,
+      "category": "saas",
+      "type": "SaaS",
+      "memory_model": "other",
+      "self_host": "partial",
+      "license": "proprietary",
+      "interface": "REST · SDK",
+      "pricing": "paid",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Client-side file-directory memory tool for Claude",
+      "confidence": "high",
+      "stars": null,
+      "pushed_at": null,
+      "forks": null,
+      "activity_days": null,
+      "activity_label": null,
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "none",
+          "c": "high",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "mcp-memory-service",
+      "aka": null,
+      "url": "https://github.com/doobidoo/mcp-memory-service",
+      "github": "doobidoo/mcp-memory-service",
+      "category": "mcp",
+      "type": "OSS",
+      "memory_model": "vector",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "MCP · REST",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "both",
+      "one_liner": "Semantic-search MCP memory server; multiple vector backends",
+      "confidence": "high",
+      "stars": null,
+      "pushed_at": null,
+      "forks": null,
+      "activity_days": null,
+      "activity_label": null,
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med",
+          "sr": true
+        },
+        "temporal": {
+          "v": "decay-consolidation",
+          "c": "med",
+          "sr": true
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "med",
+          "sr": true
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "bourdon",
+      "aka": null,
+      "url": "https://github.com/getbourdon/bourdon",
+      "github": "getbourdon/bourdon",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "other",
+      "self_host": "yes",
+      "license": "BSL",
+      "interface": "MCP · CLI",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Tiered agent-memory federation over flat-file YAML; recognition-first",
+      "confidence": "medium",
+      "stars": 0,
+      "pushed_at": "2026-06-12T13:24:10Z",
+      "forks": 0,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "json",
+          "c": "high",
+          "sr": true
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high",
+          "sr": true
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "med",
+          "sr": true
+        },
+        "op": "aspirational"
+      }
+    }
+  ],
+  "notes": [
+    "Stars and last-activity are pulled live from the GitHub API at build time; SaaS-only products without a public repo show no stars.",
+    "Neutral resource: rows are not ranked editorially; default sort is GitHub stars (a popularity proxy, not a quality judgment).",
+    "memory_model is a simplified primary tag; many tools are hybrid. Licenses/pricing verified at curation date and can drift.",
+    "Framework-native entries (LangMem, LlamaIndex, CrewAI, Semantic Kernel, Haystack) and the MCP reference server show stars for the parent project/monorepo, not the memory feature in isolation.",
+    "Cells are tagged by evidence class: FACT (verifiable from repo, license, docs) and CLAIM (vendor self-reported, caveated).",
+    "Benchmark figures are self-reported and not cross-comparable across tools; the full-context baseline (~73% on LoCoMo) often beats memory tools and is shown as the honest control.",
+    "FACT axes export / temporal / governance were verified per-product from docs + repos (Kata x Cipher recon, 2026-06-14); 'self-reported' marks an axis confirmable only from the vendor's own docs."
+  ]
+}
