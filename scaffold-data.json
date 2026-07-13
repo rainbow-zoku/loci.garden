@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T06:47:45.400493+00:00",
+  "generated_at": "2026-07-13T00:00:00+00:00",
   "scope": "public-safe",
   "title": "AI Memory Field",
   "subtitle": "an open comparison of memory layers for LLM agents",
@@ -21,34 +21,34 @@
     "MemoryOS": "LoCoMo +49% F1 vs baselines (self-reported, EMNLP 2025)"
   },
   "totals": {
-    "products": 48,
-    "open_source": 42,
-    "hosted": 22,
-    "self_hostable": 44,
-    "mcp_capable": 25,
-    "stars_sum": 589446,
-    "with_stars": 41
+    "products": 50,
+    "open_source": 44,
+    "hosted": 24,
+    "self_hostable": 46,
+    "mcp_capable": 27,
+    "stars_sum": 591611,
+    "with_stars": 43
   },
   "by_model": {
-    "vector": 9,
-    "graph": 10,
-    "episodic": 1,
+    "graph": 12,
     "hybrid": 19,
+    "vector": 9,
+    "episodic": 1,
     "other": 9
   },
   "by_category": {
-    "library": 19,
-    "saas": 8,
-    "framework": 6,
     "mcp": 5,
+    "library": 20,
+    "framework": 7,
     "pkm": 5,
+    "saas": 8,
     "research": 5
   },
   "signals": {
     "governance_gate": 3,
-    "bi_temporal": 9,
-    "no_governance": 32,
-    "enriched": 48
+    "bi_temporal": 10,
+    "no_governance": 33,
+    "enriched": 50
   },
   "products": [
     {
@@ -1879,6 +1879,80 @@
           "sr": true
         },
         "op": "aspirational"
+      }
+    },
+    {
+      "name": "egregore",
+      "aka": null,
+      "url": "https://egregore.xyz",
+      "github": "egregore-labs/egregore",
+      "category": "framework",
+      "type": "Both",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "CLI · MCP · hooks",
+      "pricing": "freemium",
+      "pricing_note": "OSS local free; hosted 'connected mode' via egregore API",
+      "data_location": "both",
+      "one_liner": "Multi-agent shared-cognition layer for Claude Code / Codex; graph memory + session hooks",
+      "confidence": "high",
+      "stars": 268,
+      "pushed_at": "2026-07-12T20:47:32Z",
+      "forks": 11,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "high"
+        },
+        "temporal": {
+          "v": "append-only",
+          "c": "med"
+        },
+        "governance": {
+          "v": "none",
+          "c": "high"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "CORE",
+      "aka": "heysol / RedPlanetHQ",
+      "url": "https://heysol.ai",
+      "github": "RedPlanetHQ/core",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "graph",
+      "self_host": "yes",
+      "license": "other",
+      "interface": "REST · SDK · MCP",
+      "pricing": "freemium",
+      "pricing_note": "OSS self-host free; hosted cloud",
+      "data_location": "both",
+      "one_liner": "Portable memory graph ('Personal AI OS') shareable across AI apps",
+      "confidence": "med",
+      "stars": 1897,
+      "pushed_at": "2026-07-10T10:03:25Z",
+      "forks": 181,
+      "activity_days": 2,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "graph-export",
+          "c": "low"
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "low"
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "low"
+        },
+        "op": "operational"
       }
     }
   ],
