@@ -18,10 +18,22 @@
 <link rel="stylesheet" href="loci.css">
 <style>
 :root{
-  --bg:#0d0d0e;--bg2:#131315;--surface:#14141c;--border:#252530;--border2:#353540;
-  --text:#e8e4dd;--text2:#a09880;--text3:#5a5a6a;
-  --green:#7da64a;--green-d:#5a7a30;--teal:#5DCAA5;--amber:#EF9F27;--blue:#6ea8d8;--purple:#b39ddb;
-  --font:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;
+  /* Re-skin fix (#23): the scaffold used to hardcode its own dark palette here,
+     which overrode tokens.css and pinned the page dark in every mode. Instead,
+     alias the scaffold's local var names onto the canonical per-theme tokens so
+     scholar/wizard/llmage actually re-skin this page like the rest of the site.
+     --bg/--surface/--border/--text inherit the themed tokens directly (names
+     match tokens.css); the mismatched names are aliased below. */
+  --bg2:     var(--bg-2);
+  --border2: var(--border-2);
+  --text2:   var(--text-2);
+  --text3:   var(--text-3);
+  --green:   var(--accent);
+  --green-d: var(--accent-light);
+  --font:    var(--font-body);
+  --mono:    var(--font-mono);
+  /* category badge accents: semantic hues, kept theme-agnostic */
+  --teal:#5DCAA5;--amber:#EF9F27;--blue:#6ea8d8;--purple:#b39ddb;
 }
 *{box-sizing:border-box}
 body[data-page="scaffold"]{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -154,9 +166,9 @@ td.detailcell{padding:0;border-top:none}
 
   <!-- RUNE-SCAFFOLD-LEAD landed 2026-06-25 (Crane form). -->
   <p class="scaffold-lead">
-    <span class="t-scholar">An automated loop watching where AI cognition tooling is converging. Forty-eight products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
-    <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Forty-eight products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
-    <span class="t-llmage">// an automated watch on where AI cognition tooling converges. n=48 (young field). read where they meet, and where they don't.</span>
+    <span class="t-scholar">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
+    <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
+    <span class="t-llmage">// an automated watch on where AI cognition tooling converges. n=<span class="lead-n"></span> (young field). read where they meet, and where they don't.</span>
   </p>
 
   <!-- Pulse strip: two numbers carry the story, the rest stay in row-detail.
@@ -274,7 +286,7 @@ function render(){
     <tr class="detailrow" style="display:none"><td class="detailcell" colspan="7">${detail(p)}</td></tr>`;
   }).join('');
 }
-function renderRefresh(){const d=new Date(STATE.generated_at);document.getElementById('refresh').textContent=`stars live as of ${d.toISOString().slice(0,10)} · ${STATE.totals.products} entrants · facts + claims`;}
+function renderRefresh(){const d=new Date(STATE.generated_at);document.getElementById('refresh').textContent=`stars live as of ${d.toISOString().slice(0,10)} · ${STATE.totals.products} entrants · facts + claims`;document.querySelectorAll('.lead-n').forEach(e=>e.textContent=STATE.totals.products);}
 async function boot(){
   try{ STATE=await (await fetch('scaffold-data.json',{cache:'no-cache'})).json(); }
   catch(e){ document.getElementById('count').textContent='failed to load field data'; throw e; }
