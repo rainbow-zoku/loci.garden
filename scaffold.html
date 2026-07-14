@@ -166,9 +166,9 @@ td.detailcell{padding:0;border-top:none}
 
   <!-- RUNE-SCAFFOLD-LEAD landed 2026-06-25 (Crane form). -->
   <p class="scaffold-lead">
-    <span class="t-scholar">An automated loop watching where AI cognition tooling is converging. Forty-eight products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
-    <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Forty-eight products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
-    <span class="t-llmage">// an automated watch on where AI cognition tooling converges. n=48 (young field). read where they meet, and where they don't.</span>
+    <span class="t-scholar">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
+    <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
+    <span class="t-llmage">// an automated watch on where AI cognition tooling converges. n=<span class="lead-n"></span> (young field). read where they meet, and where they don't.</span>
   </p>
 
   <!-- Pulse strip: two numbers carry the story, the rest stay in row-detail.
@@ -286,7 +286,7 @@ function render(){
     <tr class="detailrow" style="display:none"><td class="detailcell" colspan="7">${detail(p)}</td></tr>`;
   }).join('');
 }
-function renderRefresh(){const d=new Date(STATE.generated_at);document.getElementById('refresh').textContent=`stars live as of ${d.toISOString().slice(0,10)} · ${STATE.totals.products} entrants · facts + claims`;}
+function renderRefresh(){const d=new Date(STATE.generated_at);document.getElementById('refresh').textContent=`stars live as of ${d.toISOString().slice(0,10)} · ${STATE.totals.products} entrants · facts + claims`;document.querySelectorAll('.lead-n').forEach(e=>e.textContent=STATE.totals.products);}
 async function boot(){
   try{ STATE=await (await fetch('scaffold-data.json',{cache:'no-cache'})).json(); }
   catch(e){ document.getElementById('count').textContent='failed to load field data'; throw e; }
