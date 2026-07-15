@@ -24,7 +24,7 @@ Focus: Privacy infrastructure (mixnet, NymVPN, zk-nym credentials)
 /* SITE */
 
 Source: https://github.com/huximaxi/Loci
-License: Apache 2.0 (code) · CC BY 4.0 (writing)
+License: MIT (code) · CC BY 4.0 (writing)
 Stack: Static HTML, Caddy, Umami (self-hosted analytics)
 Host: 1984 Hosting, Iceland (AS44684)
 Last update: 2026-05-16

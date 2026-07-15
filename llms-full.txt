@@ -1,6 +1,6 @@
 # loci.garden - full context declaration
 # Proactive context management for human-AI collaboration
-# Built by Hux x Vesper · 2026 · Apache 2.0
+# Built by Hux x Vesper · 2026 · MIT
 
 > This is the full context declaration. For the concise version, see: https://loci.garden/llms.txt
 
@@ -98,7 +98,7 @@ Standalone browser extension for search + tagging (ELI-5 tier).
 
 ## License
 
-Apache 2.0 · Built by Hux × Vesper · loci.garden · 2026
+MIT · Built by Hux × Vesper · loci.garden · 2026
 
 
 ---
