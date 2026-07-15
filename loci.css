@@ -95,6 +95,9 @@ nav.article-toc {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* floor between logo group and nav-right: without it, space-between
+     collapses to zero at tight widths and the GitHub icon rides the brand */
+  gap: 1.25rem;
 }
 
 .logo {
