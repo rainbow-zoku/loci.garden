@@ -20,7 +20,7 @@
 - `/privacy.html`: privacy posture. No PII, no third-party trackers, self-hosted Umami, Iceland jurisdiction. The Rainbow Zoku closing section names the contributor charter.
 - `/zoku/`: charter of the Rainbow Zoku, the maintainer chapter of Loci. Pseudonymous + signed membership. Where contributors join.
 - `/llms.txt`: this file.
-- `/seed/`: seed guide. Example palace in practice. Two dispatches live (rendszerbontás, beágyazás).
+- `/seed/`: seed guide. Example palace in practice. Four dispatches live (rendszerbontás, beágyazás, helyszellem, mintanyelv). Season One of the garden dispatches opened July 2026: each dispatch is one garden plant's synthesis, authored as "The Garden · voiced by \<Gardener\>".
 
 ## Governance and contributor surfaces
 
@@ -314,6 +314,8 @@ Privacy-consistent, sovereignty-respecting, minimal.
 **Dispatches**: https://loci.garden/seed/
 - https://loci.garden/seed/rendszerbontas.html — Dispatch 001: Rendszerbontás — Hungary 2026 election analysis, NVI metric, cultural mobilisation, techno movement, democratic transition
 - https://loci.garden/seed/beagyazas.html — Dispatch 002: Beágyazás — psychotechnology as infrastructure, prior-reset mechanism, collective effervescence, Civil Kurázsi, polgári ellenállás, affective infrastructure
+- https://loci.garden/seed/helyszellem.html — Dispatch 003: Helyszellem — genius loci, method of loci, Hamvas's five geniuses, the neutrality lie, five gardens, mindspace place-spirit
+- https://loci.garden/seed/mintanyelv.html — Dispatch 004: Mintanyelv — pattern language grown in human-AI collaboration, naming as design tool, ten patterns published under plain public names, Season One opens (The Garden, voiced by Vesper)
 **GitHub**: https://github.com/huximaxi/loci
 **Contact**: themapisnory@tuta.io
 
