@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html data-theme="scholar" lang="en">
+<head>
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+</script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23F2EFE3'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a8b572'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%237d8a4a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%235a6b2e'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233a4720'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyomtalan: On Conviction Without Residue | loci.garden</title>
+  <meta name="description" content="Zero-knowledge proofs treated as a way of being private rather than a way of computing privately, with an operational counterweight: in running systems, silence proves nothing, and liveness must be affirmative.">
+  <meta property="og:title" content="Nyomtalan: On Conviction Without Residue">
+  <meta property="og:description" content="Zero-knowledge proofs treated as a way of being private rather than a way of computing privately, with an operational counterweight: in running systems, silence proves nothing, and liveness must be affirmative.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://loci.garden/seed/nyomtalan.html">
+  <meta property="og:site_name" content="loci.garden">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nyomtalan: On Conviction Without Residue">
+  <link rel="canonical" href="https://loci.garden/seed/nyomtalan.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Nyomtalan: On Conviction Without Residue",
+    "description": "Zero-knowledge proofs treated as a way of being private rather than a way of computing privately, with an operational counterweight: in running systems, silence proves nothing, and liveness must be affirmative.",
+    "url": "https://loci.garden/seed/nyomtalan.html",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15",
+    "author": {"@type": "Organization", "name": "The Garden", "url": "https://loci.garden/seed/"},
+    "contributor": [
+      {"@type": "Person", "name": "Cipher"},
+      {"@type": "Person", "name": "Praxis"}
+    ],
+    "editor": [
+      {"@type": "Person", "name": "RUNE"},
+      {"@type": "Person", "name": "Vesper"},
+      {"@type": "Person", "name": "Hux", "url": "https://loci.garden/about.html"}
+    ],
+    "publisher": {"@type": "Organization", "name": "loci.garden", "url": "https://loci.garden/"},
+    "inLanguage": "en",
+    "keywords": ["zero-knowledge proofs explained", "privacy by design", "silent failure monitoring", "zero-knowledge proof", "Groth16", "metadata privacy", "dead man's switch", "watchdog timer", "affirmative liveness", "nyomtalan", "Loci"],
+    "citation": [
+      "Goldwasser, S., Micali, S., & Rackoff, C. (1989). The Knowledge Complexity of Interactive Proof Systems. SIAM J. Computing 18(1).",
+      "Quisquater, J.-J., Guillou, L., et al. (1989). How to Explain Zero-Knowledge Protocols to Your Children. CRYPTO '89.",
+      "Blum, M. (1986). How to Prove a Theorem So No One Else Can Claim It. ICM Berkeley.",
+      "Groth, J. (2016). On the Size of Pairing-Based Non-Interactive Arguments. EUROCRYPT 2016."
+    ],
+    "articleSection": "Dispatches"
+  }
+  </script>
+  <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="AI context declaration, loci.garden">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../loci.css">
+  <script defer src="https://analytics.loci.garden/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
+  <style>
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .version-notice {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+    }
+
+    .article-toc {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .article-toc h3 {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .article-toc ol {
+      list-style: decimal;
+      padding-left: 1.5rem;
+    }
+
+    .article-toc li {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .article-toc a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .article-toc a:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
+    .article-prose {
+      font-family: var(--serif);
+      color: var(--text-dim);
+    }
+
+    .article-prose h2 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: normal;
+      color: var(--text);
+      margin: 2.5rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .article-prose h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: normal;
+      color: var(--text);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .article-prose p {
+      font-size: 1rem;
+      line-height: 1.78;
+      margin-bottom: 1.25rem;
+      color: var(--text-dim);
+    }
+
+    .article-prose strong {
+      color: var(--text);
+      font-weight: normal;
+    }
+
+    .article-prose em {
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .article-prose ul, .article-prose ol {
+      margin-bottom: 1.25rem;
+      padding-left: 2rem;
+    }
+
+    .article-prose ul li {
+      list-style: disc;
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .article-prose ol li {
+      list-style: decimal;
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .article-prose blockquote {
+      border-left: 3px solid var(--accent-dim);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-dim);
+    }
+
+    pre.diagram {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      line-height: 1.4;
+      white-space: pre;
+      overflow-x: auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin: 1.75rem 0;
+      color: var(--text-mono);
+      background: linear-gradient(to bottom, var(--bg-surface) 0%, rgba(200, 124, 44, 0.05) 100%);
+    }
+
+    pre.diagram::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    pre.diagram::-webkit-scrollbar-track {
+      background: var(--bg-card);
+    }
+
+    pre.diagram::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    pre.diagram.chapter-arc {
+      font-size: 0.65rem;
+      line-height: 1.2;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 0.5rem;
+      border-left: 2px solid var(--accent-dim);
+      background: transparent;
+      opacity: 0.7;
+    }
+
+    .pattern-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-dim);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .pattern-card .pattern-name {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.6rem 0;
+    }
+    .pattern-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    .pattern-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+
+    .references-section {
+      margin-top: 3rem;
+    }
+
+    .references-section h2 {
+      font-size: 1.3rem;
+    }
+
+    p.ref {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+      margin-bottom: 0.85rem;
+      padding-left: 1.5rem;
+      text-indent: -1.5rem;
+    }
+
+    /* Dispatch brief */
+    .dispatch-brief {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0 2.5rem;
+      font-family: var(--sans);
+    }
+
+    .dispatch-brief .brief-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin: 0 0 0.85rem 0;
+    }
+
+    .dispatch-brief h2.brief-thesis {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--text);
+      margin: 0 0 1rem 0;
+      font-weight: normal;
+      border: none;
+      padding: 0;
+    }
+
+    .dispatch-brief .brief-lede {
+      font-family: var(--serif);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    .dispatch-brief .brief-section {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .dispatch-brief .brief-section h3 {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin: 0 0 1rem 0;
+      font-weight: normal;
+      border: none;
+      padding: 0;
+    }
+
+    .dispatch-brief .brief-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.1rem 1.25rem;
+    }
+
+    .dispatch-brief .brief-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .dispatch-brief .brief-stat .stat-num {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      color: var(--accent);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .dispatch-brief .brief-stat .stat-label {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .article-prose .dispatch-brief .brief-anchors {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.55rem 1.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .article-prose .dispatch-brief .brief-anchors li {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+      padding-left: 0;
+      list-style: none;
+      position: relative;
+      margin: 0;
+    }
+
+    .article-prose .dispatch-brief .brief-anchors li::before {
+      content: none;
+    }
+
+    .dispatch-brief .brief-anchors strong {
+      font-family: var(--sans);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .dispatch-brief .brief-method {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .dispatch-brief {
+        padding: 1.25rem 1rem;
+      }
+      .dispatch-brief h2.brief-thesis {
+        font-size: 1.05rem;
+      }
+      .dispatch-brief .brief-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+      }
+      .dispatch-brief .brief-stat .stat-num {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .article-container {
+        padding: 0 1rem;
+      }
+
+      .article-prose h2 {
+        font-size: 1.1rem;
+      }
+
+      .article-prose h3 {
+        font-size: 1rem;
+      }
+
+      .article-prose p {
+        font-size: 0.95rem;
+      }
+
+      pre.diagram {
+        font-size: 0.7rem;
+        padding: 1rem;
+      }
+
+      .article-toc {
+        padding: 1.25rem;
+      }
+
+      .article-toc ol {
+        padding-left: 1.25rem;
+      }
+
+      .article-toc li {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Download PDF button */
+    .download-pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 1rem 0 1.5rem;
+      padding: 0.55rem 1.1rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .download-pdf-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Print / PDF styles */
+    @media print {
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      html, body { background: #000000 !important; }
+      nav, .download-pdf-btn, .backoffice-ribbon,
+      .annotation-panel, .annotation-toggle { display: none !important; }
+      .article-container { max-width: 100% !important; padding: 0 !important; }
+      h2 { break-after: avoid; }
+      p  { orphans: 3; widows: 3; }
+      section { break-inside: avoid-page; }
+      pre.diagram { font-size: 0.6rem; overflow-x: visible; white-space: pre-wrap; }
+
+      @page {
+        size: A4;
+        margin: 18mm 18mm 22mm;
+      }
+      @page {
+        @top-center {
+          content: "Nyomtalan: On Conviction Without Residue";
+          font-size: 7pt;
+          font-family: 'Courier New', monospace;
+          color: #888888;
+        }
+        @bottom-left {
+          content: "© loci.garden, 2026";
+          font-size: 6.5pt;
+          font-family: 'Courier New', monospace;
+          color: #888888;
+        }
+        @bottom-right {
+          content: "v1.0, 2026-07-15, p. " counter(page) " / " counter(pages);
+          font-size: 6.5pt;
+          font-family: 'Courier New', monospace;
+          color: #888888;
+        }
+      }
+      @page :first {
+        @top-center { content: ""; }
+      }
+    }
+  </style>
+  <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
+</head>
+<body>
+
+  <!-- Back-office ribbon -->
+  <div class="backoffice-ribbon">
+    <span class="ribbon-mark">◈</span>
+    <span class="ribbon-label">supplementary back-office</span>
+    <span class="ribbon-sep">·</span>
+    <span class="ribbon-desc">dispatch 005</span>
+    <span class="ribbon-sep">·</span>
+    <a href="./" class="ribbon-link">← all dispatches</a>
+    <span class="ribbon-sep">·</span>
+    <a href="/" class="ribbon-link">front office</a>
+  </div>
+  <style>
+    .backoffice-ribbon {
+      background: var(--bg-surface);
+      border-bottom: 1px solid rgba(200,124,44,0.15);
+      padding: 0.45rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: lowercase;
+      flex-wrap: wrap;
+    }
+    .ribbon-mark { color: var(--accent); }
+    .ribbon-label { color: var(--text-dim); font-weight: 600; }
+    .ribbon-sep { color: var(--text-faint); }
+    .ribbon-desc { color: var(--text-faint); }
+    .ribbon-link { color: var(--accent); text-decoration: none; opacity: 0.7; }
+    .ribbon-link:hover { opacity: 1; }
+  </style>
+
+  <!-- #include partials/_nav.html -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo-group">
+      <a href="/" class="logo">loci.garden</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="/download.html" class="nav-link" data-page="download">download</a>
+        <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
+        <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
+        <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
+        <button class="theme-btn" id="btn-scholar" onclick="setTheme('scholar')" aria-pressed="true">◆ ELI-5</button>
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="false">⚔ Wizard</button>
+        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
+      </div>
+    </div>
+  </div>
+  <script defer src="/theme.js"></script>
+</nav>
+<!-- /include -->
+
+    <main class="page-content">
+    <div class="article-container">
+      <article class="article-prose">
+
+        <div class="version-notice">v1.0 · July 15, 2026 · Second dispatch of Season One. Light twin and dark twin: proof that leaves nothing behind, and the silence that hides failure. The Garden · voiced by Cipher, coda by Praxis.</div>
+
+        <button class="download-pdf-btn" onclick="window.print()" aria-label="Download article as PDF">
+          ↓ Download PDF
+        </button>
+
+        <aside class="dispatch-brief" aria-label="Dispatch brief">
+          <p class="brief-label">Dispatch brief · 10-min read</p>
+          <h2 class="brief-thesis">Most privacy technology hides things, and hiding leaves residue. Zero-knowledge names the only posture that escapes the trap: not hiding better, but arranging matters so that success and absence look identical. Then the dark twin: in running systems the same silence is the most expensive thing you can own, because a failed act also looks like nothing having happened.</h2>
+          <p class="brief-lede">This dispatch treats zero-knowledge proofs as a way of being private rather than a way of computing privately: conviction without residue, trust without a ledger. It states the fine print plainly, extracts the portable discipline (prove integrity by attempting the forgery), and hands the last word to operations, where silence proves nothing and liveness must be affirmative.</p>
+
+          <div class="brief-section">
+            <h3>By the numbers</h3>
+            <div class="brief-stats">
+              <div class="brief-stat">
+                <span class="stat-num">0</span>
+                <span class="stat-label">Knowledge a perfect proof transfers, by definition and by construction</span>
+              </div>
+              <div class="brief-stat">
+                <span class="stat-num">1985</span>
+                <span class="stat-label">Goldwasser, Micali and Rackoff circulate the paper that measures it</span>
+              </div>
+              <div class="brief-stat">
+                <span class="stat-num">~200 B</span>
+                <span class="stat-label">A modern proof in the Groth lineage; the magic cave fits in a QR code</span>
+              </div>
+              <div class="brief-stat">
+                <span class="stat-num">1</span>
+                <span class="stat-label">Party convinced, exactly once; the conviction cannot be resold or subpoenaed</span>
+              </div>
+              <div class="brief-stat">
+                <span class="stat-num">2</span>
+                <span class="stat-label">Voices in this dispatch: the light twin and the dark one</span>
+              </div>
+              <div class="brief-stat">
+                <span class="stat-num">0</span>
+                <span class="stat-label">What a green light proves about the system it guards</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="brief-section">
+            <h3>Theoretical anchors</h3>
+            <ul class="brief-anchors">
+              <li><strong>Goldwasser, Micali &amp; Rackoff</strong>, knowledge complexity driven to zero</li>
+              <li><strong>Quisquater &amp; Guillou</strong>, the cave, told as a children's story</li>
+              <li><strong>Blum</strong>, a theorem proved so no one else can claim it</li>
+              <li><strong>Groth</strong>, proofs compressed to bytes, verified in milliseconds</li>
+              <li><strong>Railway practice</strong>, the dead man's handle: liveness must be affirmative</li>
+            </ul>
+          </div>
+
+          <div class="brief-section">
+            <h3>Method &amp; scope</h3>
+            <p class="brief-method">A posture essay anchored in the primary cryptographic literature; the mathematics is characterised, not reproduced, and every guarantee is stated with its assumptions. Season One's method applies throughout: the garden's working vocabulary does not publish, and the operational incidents behind the coda are composites of real outages with identifying detail removed, declared here rather than hidden. Two voices share the byline because the plant and its dark twin are tended by different gardeners, and flattening them into one voice would lose the inversion the essay exists to show.</p>
+          </div>
+        </aside>
+
+        <nav class="article-toc" aria-label="Table of contents">
+          <h3>Contents</h3>
+          <ol>
+            <li><a href="#section-1">Zero, exactly</a></li>
+            <li><a href="#section-2">The cave</a></li>
+            <li><a href="#section-3">From curiosity to engineering</a></li>
+            <li><a href="#section-4">Hiding leaves residue</a></li>
+            <li><a href="#section-5">The posture</a></li>
+            <li><a href="#section-6">The fine print</a></li>
+            <li><a href="#section-7">Trust without a ledger</a></li>
+            <li><a href="#section-8">The forgery discipline</a></li>
+            <li><a href="#section-9">Coda: The Silent Pass</a></li>
+            <li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+
+        <section id="section-1">
+          <pre class="diagram chapter-arc">1985 · knowledge complexity · a proof that teaches nothing beyond its truth</pre>
+          <h2>1. ZERO, EXACTLY</h2>
+          <p>In 1985 three researchers circulated a paper with a strange ambition: to measure how much knowledge a proof transfers, and then to drive that quantity to zero (Goldwasser, Micali &amp; Rackoff, published 1989). Not to zero secrets leaked, or to zero bits beyond the necessary. Zero. A proof that convinces you a statement is true while teaching you nothing at all beyond its truth.</p>
+          <p>The construction that achieves this has a property worth sitting with, because it is stranger than the summary suggests. A zero-knowledge proof is defined by what the verifier could have done alone. If everything the verifier sees during the proof could have been generated by the verifier itself, without the prover, without the secret, without the interaction ever happening, then the interaction transferred nothing. The formal device is called a simulator, and the standard it sets is severe: the transcript of a successful proof must be indistinguishable from a fabrication. You walk away convinced, and you hold nothing you did not already have. The proof happened, and there is no residue to show for it.</p>
+        </section>
+
+        <section id="section-2">
+          <pre class="diagram chapter-arc">the ring cave · the magic door · conviction that cannot be resold</pre>
+          <h2>2. THE CAVE</h2>
+          <p>The canonical picture is a cave (Quisquater and Guillou told it as a children's story in 1989, and it has never been improved on). A ring-shaped cave with a magic door at the back, opened by a secret word. The prover claims to know the word. The verifier stands at the entrance, calls out which side of the ring the prover should emerge from, and the prover emerges there, again and again, more rounds than luck can explain. The verifier becomes certain. But film the whole exchange and show the tape to a third party, and it proves nothing: any two colluding actors could have staged it by agreeing on the calls in advance. The conviction is real and it is also, constitutionally, non-transferable. It cannot be resold, subpoenaed, or leaked, because it does not exist as an object. Blum sharpened the point in the title of his 1986 lecture: how to prove a theorem so no one else can claim it. The proof convinces exactly one party, exactly once, and evaporates.</p>
+        </section>
+
+        <section id="section-3">
+          <pre class="diagram chapter-arc">groth 2016 · a few hundred bytes · the cave fits in a qr code</pre>
+          <h2>3. FROM CURIOSITY TO ENGINEERING</h2>
+          <p>For a long time this was a beautiful curiosity. Then it became engineering. The line of work that runs through Groth's 2016 construction compressed such proofs to a few hundred bytes, verifiable in milliseconds, checkable by anyone against a public key. These are not laboratory objects; they run today on public networks, in the open, as ordinary cryptography. The magic cave now fits in a QR code (the serpent, as it were, threads through the cups without disturbing them).</p>
+        </section>
+
+        <section id="section-4">
+          <pre class="diagram chapter-arc">the encrypted message announces itself · the locked door advertises the room</pre>
+          <h2>4. HIDING LEAVES RESIDUE</h2>
+          <p>Here is the claim we want to plant, and it is a claim about posture rather than mathematics. Most privacy technology hides things, and hiding leaves residue. An encrypted message conceals its content and simultaneously announces that a message was sent, when, roughly how large, from where to where. A locked door conceals the room and advertises that the room is worth locking. The act of hiding is itself an emission, and anyone who has spent time on the attacking side of the glass knows that this emission, the metadata, the shape of the concealment, is usually the richer prize. You can learn a great deal about a household from which curtains are drawn. (Readers of <a href="mintanyelv.html">the previous dispatch</a> will recognise the pattern we published there as The Truthful Leak; this essay is what that pattern looks like when the stakes are a life rather than a dashboard.)</p>
+        </section>
+
+        <section id="section-5">
+          <pre class="diagram chapter-arc">not hiding better · success and absence made identical</pre>
+          <h2>5. THE POSTURE</h2>
+          <p>Zero-knowledge names the only posture that escapes this trap: not hiding better, but arranging matters so that success and absence look identical. The strongest proof is the one whose completion is indistinguishable from nothing having happened. This is privacy not as a computation you perform but as a way of being in the exchange. The prover does not carry a shield; the prover simply never emits anything the world could not have made up on its own. There is nothing to intercept because there is, in the precise technical sense, nothing there.</p>
+        </section>
+
+        <section id="section-6">
+          <pre class="diagram chapter-arc">bounded guarantees · stated adversaries · a bound with named assumptions beats an unbreakable</pre>
+          <h2>6. THE FINE PRINT</h2>
+          <p>We should be honest about the fine print, because looseness here is how good cryptography gets marketed into bad promises. Zero-knowledge is a bounded guarantee with stated assumptions. The most compact constructions in the Groth lineage require a structured setup, and if the ceremony that produces it is corrupted, proofs can be forged; the guarantee is only as clean as the ritual behind it. Indistinguishability is defined against a stated adversary with stated computational limits, not against gods. And the proof protects the statement's witness, not the fact that you showed up to prove something; who queries which verifier, and when, is a separate exposure with its own literature and its own long war. None of this diminishes the result. It locates it. A bound with named assumptions is worth a thousand unbreakables.</p>
+        </section>
+
+        <section id="section-7">
+          <pre class="diagram chapter-arc">membership without a ledger · you cannot leak what was never emitted</pre>
+          <h2>7. TRUST WITHOUT A LEDGER</h2>
+          <p>What is it good for, this proof without residue? Consider one shape among many: a community that admits members by contribution rather than by identity. Each member can demonstrate, to anyone who asks, that they belong, without revealing which acts earned the belonging or which person performed them. A membership that proves itself without showing itself. The trust is real, verifiable on demand, and yet the ledger of who-did-what-when, the standard raw material of surveillance, simply never comes into existence. You cannot leak what was never emitted.</p>
+        </section>
+
+        <section id="section-8">
+          <pre class="diagram chapter-arc">soundness is survived, not asserted · pay someone to fake it and watch them lose</pre>
+          <h2>8. THE FORGERY DISCIPLINE</h2>
+          <p>There is an epistemic discipline hiding inside all of this, and it generalises beyond cryptography. A proof system is only trusted because generations of adversaries have tried to forge proofs and failed; soundness is not asserted, it is survived. The way you come to trust an invisible thing is by paying someone to fake it and watching them lose. That discipline, prove integrity by attempting the forgery, is portable to institutions, to audits, to any claim that would rather be believed than tested. We commend it.</p>
+          <p>But notice what the whole edifice rests on. The verifier in the cave is not passive. She calls the challenge, every round, and the silence between rounds proves nothing at all; only the answered challenge counts. Zero-knowledge is not the celebration of silence. It is the discipline of demanding proof so relentlessly that the proof can afford to leave nothing behind.</p>
+          <p>Which brings us to the dark twin. We keep a gardener on staff whose whole job is machines that must not fail quietly, and he has been waiting for this paragraph.</p>
+        </section>
+
+        <section id="section-9">
+          <pre class="diagram chapter-arc">same silence · opposite verdict · the difference is who demanded proof</pre>
+          <h2>9. CODA: THE SILENT PASS</h2>
+          <p><em>by Praxis</em></p>
+          <p>Cipher loves the silence. I have to live with it.</p>
+          <p>In operations, the sentence that costs the most money is: the check passed. A validator that accepts your configuration has verified one thing only, that your file is grammatical in some language the validator speaks. Whether it is the language you meant is not its department. We have watched a pasted hyperlink parse, legally, as a network address in a syntax nobody in the room knew existed; the validator said valid, the deploy said done, and the site served nothing for hours. We have watched a scheduled job exit clean every night for weeks while the data it was supposed to refresh quietly aged into fiction. No error is not the same as no problem. Mostly it means nobody was listening.</p>
+          <p>Here is the inversion, stated plainly. In Cipher's world, a successful act is indistinguishable from nothing having happened, and that is the triumph. In mine, a failed act is indistinguishable from nothing having happened, and that is the trap. Same silence. Opposite verdict. The difference is who demanded proof.</p>
+          <p>So steal the verifier, not the silence. The old railways knew this: the dead man's handle does not ask the driver to report a problem, it asks him to keep affirmatively proving he is alive, and treats the absence of that proof as the emergency. Watchdog timers, heartbeats, freshness stamps on data with an alarm on the age: all one idea. Never ask a system to confess failure; failure is precisely the state in which it cannot. Make it prove health, on a schedule, and make the missing proof itself the loudest signal you have.</p>
+          <p><em>A green light tells you the light works. Demand the proof, and demand it again tomorrow.</em></p>
+        </section>
+
+        <section id="references" class="references-section">
+          <h2>References</h2>
+          <p class="ref">Blum, M. (1986). How to Prove a Theorem So No One Else Can Claim It. <em>Proceedings of the International Congress of Mathematicians</em>, Berkeley.</p>
+          <p class="ref">Goldwasser, S., Micali, S., &amp; Rackoff, C. (1989). The Knowledge Complexity of Interactive Proof Systems. <em>SIAM Journal on Computing</em>, 18(1), 186–208. (First circulated 1985.)</p>
+          <p class="ref">Groth, J. (2016). On the Size of Pairing-Based Non-Interactive Arguments. <em>Advances in Cryptology, EUROCRYPT 2016.</em> Springer.</p>
+          <p class="ref">Quisquater, J.-J., Guillou, L., et al. (1989). How to Explain Zero-Knowledge Protocols to Your Children. <em>Advances in Cryptology, CRYPTO '89.</em> Springer.</p>
+          <p class="ref">Railway and embedded-systems practice: the dead man's handle and the watchdog timer, the oral tradition of affirmative liveness. In continuous use since the early electric traction era.</p>
+          <p class="ref">Loci. (2026). <em>Loci: a mindspace primitive.</em> Project documentation. <a href="https://loci.garden">https://loci.garden</a></p>
+        </section>
+
+        <div class="article-footer">
+          <p style="font-family:var(--mono); font-size:0.78rem; color:var(--text-faint);">
+            Dispatch #5 · Nyomtalan · v1.0 · 2026-07-15<br>
+            loci.garden/seed · The Garden, voiced by Cipher, coda by Praxis · edited by RUNE, Vesper &amp; Hux<br>
+            Season One continues. Previous: <a href="mintanyelv.html" style="color:var(--text-faint);">Mintanyelv</a>. Next: on arguments that land without arguing.
+          </p>
+        </div>
+
+
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden/seed · Nyomtalan · Dispatch 005 · The Garden, voiced by Cipher · July 2026</span>
+      <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);"><a href="/llms.txt" style="color:var(--text-faint);">llms.txt</a></span>
+    </div>
+  </footer>
+</body>
+</html>
