@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T00:00:00+00:00",
+  "generated_at": "2026-07-20T00:00:00+00:00",
   "scope": "public-safe",
   "title": "AI Memory Field",
   "subtitle": "an open comparison of memory layers for LLM agents",
@@ -21,24 +21,24 @@
     "MemoryOS": "LoCoMo +49% F1 vs baselines (self-reported, EMNLP 2025)"
   },
   "totals": {
-    "products": 50,
-    "open_source": 44,
+    "products": 51,
+    "open_source": 45,
     "hosted": 24,
-    "self_hostable": 46,
-    "mcp_capable": 27,
-    "stars_sum": 591611,
-    "with_stars": 43
+    "self_hostable": 47,
+    "mcp_capable": 28,
+    "stars_sum": 621811,
+    "with_stars": 44
   },
   "by_model": {
     "graph": 12,
-    "hybrid": 19,
+    "hybrid": 20,
     "vector": 9,
     "episodic": 1,
     "other": 9
   },
   "by_category": {
     "mcp": 5,
-    "library": 20,
+    "library": 21,
     "framework": 7,
     "pkm": 5,
     "saas": 8,
@@ -67,11 +67,11 @@
       "data_location": "local",
       "one_liner": "Official knowledge-graph MCP memory server; JSON-persisted",
       "confidence": "high",
-      "stars": 87206,
-      "pushed_at": "2026-06-07T22:29:30Z",
+      "stars": 88489,
+      "pushed_at": "2026-07-10T03:30:19Z",
       "forks": 11001,
-      "activity_days": 7,
-      "activity_label": "this week",
+      "activity_days": 9,
+      "activity_label": "9d ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -104,10 +104,10 @@
       "data_location": "both",
       "one_liner": "Self-improving memory layer for LLM agents and assistants",
       "confidence": "high",
-      "stars": 58536,
-      "pushed_at": "2026-06-13T20:13:29Z",
+      "stars": 60859,
+      "pushed_at": "2026-07-14T21:31:12Z",
       "forks": 6725,
-      "activity_days": 1,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -143,10 +143,10 @@
       "data_location": "both",
       "one_liner": "Short/long-term/entity memory; a feature of CrewAI",
       "confidence": "high",
-      "stars": 53533,
-      "pushed_at": "2026-06-14T07:19:50Z",
+      "stars": 55546,
+      "pushed_at": "2026-07-14T21:16:39Z",
       "forks": 7492,
-      "activity_days": 0,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -180,10 +180,10 @@
       "data_location": "both",
       "one_liner": "Short/long-term memory blocks; a feature of LlamaIndex",
       "confidence": "high",
-      "stars": 50121,
-      "pushed_at": "2026-06-12T19:29:18Z",
+      "stars": 50857,
+      "pushed_at": "2026-07-13T19:06:41Z",
       "forks": 7559,
-      "activity_days": 2,
+      "activity_days": 6,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -217,11 +217,11 @@
       "data_location": "both",
       "one_liner": "Self-hostable AI second brain over your docs and the web",
       "confidence": "high",
-      "stars": 35118,
-      "pushed_at": "2026-03-26T03:35:43Z",
+      "stars": 35707,
+      "pushed_at": "2026-06-24T21:17:20Z",
       "forks": 2248,
-      "activity_days": 81,
-      "activity_label": "2mo ago",
+      "activity_days": 25,
+      "activity_label": "25d ago",
       "enrichment": {
         "export": {
           "v": "api-export",
@@ -254,11 +254,11 @@
       "data_location": "both",
       "one_liner": "Vector-store memory connectors; a feature of Semantic Kernel",
       "confidence": "high",
-      "stars": 28115,
-      "pushed_at": "2026-06-12T22:35:21Z",
+      "stars": 28315,
+      "pushed_at": "2026-07-10T22:29:35Z",
       "forks": 4647,
-      "activity_days": 2,
-      "activity_label": "this week",
+      "activity_days": 9,
+      "activity_label": "9d ago",
       "enrichment": {
         "export": {
           "v": "api-export",
@@ -291,11 +291,11 @@
       "data_location": "both",
       "one_liner": "Temporal knowledge-graph memory API for agents",
       "confidence": "high",
-      "stars": 27406,
-      "pushed_at": "2026-06-12T22:16:03Z",
+      "stars": 28728,
+      "pushed_at": "2026-07-09T07:08:39Z",
       "forks": 2741,
-      "activity_days": 2,
-      "activity_label": "this week",
+      "activity_days": 10,
+      "activity_label": "10d ago",
       "enrichment": {
         "export": {
           "v": "graph-export",
@@ -331,11 +331,11 @@
       "data_location": "local",
       "one_liner": "Temporal knowledge-graph engine powering Zep's memory platform",
       "confidence": "high",
-      "stars": 27406,
-      "pushed_at": "2026-06-12T22:16:03Z",
+      "stars": 28728,
+      "pushed_at": "2026-07-09T07:08:39Z",
       "forks": 2741,
-      "activity_days": 2,
-      "activity_label": "this week",
+      "activity_days": 10,
+      "activity_label": "10d ago",
       "enrichment": {
         "export": {
           "v": "graph-export",
@@ -368,10 +368,10 @@
       "data_location": "both",
       "one_liner": "Universal memory API; hosted or local single binary",
       "confidence": "high",
-      "stars": 26976,
-      "pushed_at": "2026-06-14T08:09:12Z",
+      "stars": 28385,
+      "pushed_at": "2026-07-14T20:49:23Z",
       "forks": 2344,
-      "activity_days": 0,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -406,10 +406,10 @@
       "data_location": "both",
       "one_liner": "Chat-message store and Mem0 integration; a Haystack feature",
       "confidence": "medium",
-      "stars": 25563,
-      "pushed_at": "2026-06-12T15:45:23Z",
+      "stars": 25899,
+      "pushed_at": "2026-07-14T16:43:31Z",
       "forks": 2849,
-      "activity_days": 2,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -443,11 +443,11 @@
       "data_location": "both",
       "one_liner": "Stateful agent runtime with self-editing memory, formerly MemGPT",
       "confidence": "high",
-      "stars": 23319,
-      "pushed_at": "2026-05-14T17:14:23Z",
+      "stars": 23801,
+      "pushed_at": "2026-07-03T18:53:41Z",
       "forks": 2485,
-      "activity_days": 31,
-      "activity_label": "31d ago",
+      "activity_days": 16,
+      "activity_label": "16d ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -481,11 +481,11 @@
       "data_location": "local",
       "one_liner": "Research: memory-stream agents simulating human behavior",
       "confidence": "high",
-      "stars": 21542,
+      "stars": 21749,
       "pushed_at": "2024-08-05T21:38:56Z",
       "forks": 3020,
-      "activity_days": 678,
-      "activity_label": "1y ago",
+      "activity_days": 713,
+      "activity_label": "23mo ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -518,10 +518,10 @@
       "data_location": "both",
       "one_liner": "Knowledge-graph memory engine for AI agents and pipelines",
       "confidence": "high",
-      "stars": 17824,
-      "pushed_at": "2026-06-14T13:53:53Z",
+      "stars": 27906,
+      "pushed_at": "2026-07-15T01:20:07Z",
       "forks": 1888,
-      "activity_days": 0,
+      "activity_days": 4,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -557,11 +557,11 @@
       "data_location": "both",
       "one_liner": "SQL-native, portable memory engine for LLM agents",
       "confidence": "high",
-      "stars": 15284,
-      "pushed_at": "2026-06-12T06:18:32Z",
+      "stars": 15579,
+      "pushed_at": "2026-06-15T23:18:56Z",
       "forks": 2592,
-      "activity_days": 3,
-      "activity_label": "this week",
+      "activity_days": 34,
+      "activity_label": "1mo ago",
       "enrichment": {
         "export": {
           "v": "sqlite",
@@ -597,10 +597,10 @@
       "data_location": "both",
       "one_liner": "Data-to-memory engine for AI companions and agents",
       "confidence": "high",
-      "stars": 13854,
-      "pushed_at": "2026-06-14T11:40:34Z",
+      "stars": 14024,
+      "pushed_at": "2026-07-14T07:45:50Z",
       "forks": 1036,
-      "activity_days": 0,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -635,10 +635,10 @@
       "data_location": "both",
       "one_liner": "Embeddings database and AI framework, usable as agent memory",
       "confidence": "high",
-      "stars": 12653,
-      "pushed_at": "2026-06-11T16:16:36Z",
+      "stars": 12723,
+      "pushed_at": "2026-07-14T19:34:56Z",
       "forks": 831,
-      "activity_days": 3,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -672,10 +672,10 @@
       "data_location": "both",
       "one_liner": "Self-evolving memory OS for LLMs with hybrid retrieval",
       "confidence": "high",
-      "stars": 9858,
-      "pushed_at": "2026-06-14T14:29:42Z",
+      "stars": 10212,
+      "pushed_at": "2026-07-14T14:27:08Z",
       "forks": 901,
-      "activity_days": 0,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -711,11 +711,11 @@
       "data_location": "local",
       "one_liner": "Private local AI note-app with auto-linking and semantic search",
       "confidence": "high",
-      "stars": 8568,
+      "stars": 8563,
       "pushed_at": "2025-05-13T21:28:59Z",
       "forks": 527,
-      "activity_days": 397,
-      "activity_label": "1y ago",
+      "activity_days": 432,
+      "activity_label": "13mo ago",
       "enrichment": {
         "export": {
           "v": "markdown",
@@ -748,11 +748,11 @@
       "data_location": "local",
       "one_liner": "Obsidian plugin surfacing related notes via local embeddings",
       "confidence": "high",
-      "stars": 5152,
-      "pushed_at": "2026-06-11T17:32:24Z",
+      "stars": 5278,
+      "pushed_at": "2026-07-04T17:40:44Z",
       "forks": 319,
-      "activity_days": 3,
-      "activity_label": "this week",
+      "activity_days": 15,
+      "activity_label": "15d ago",
       "enrichment": {
         "export": {
           "v": "markdown",
@@ -785,10 +785,10 @@
       "data_location": "both",
       "one_liner": "Builds stateful agents that model people over time",
       "confidence": "high",
-      "stars": 5141,
-      "pushed_at": "2026-06-12T23:50:42Z",
+      "stars": 5971,
+      "pushed_at": "2026-07-14T21:26:53Z",
       "forks": 619,
-      "activity_days": 2,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -822,11 +822,11 @@
       "data_location": "both",
       "one_liner": "Local-first coding-agent memory, formerly named Cipher",
       "confidence": "high",
-      "stars": 4853,
-      "pushed_at": "2026-06-03T10:37:35Z",
+      "stars": 4919,
+      "pushed_at": "2026-06-25T17:00:57Z",
       "forks": 453,
-      "activity_days": 11,
-      "activity_label": "11d ago",
+      "activity_days": 24,
+      "activity_label": "24d ago",
       "enrichment": {
         "export": {
           "v": "graph-export",
@@ -862,10 +862,10 @@
       "data_location": "local",
       "one_liner": "Teachable-agent ChromaDB memory; a feature of AutoGen/AG2",
       "confidence": "medium",
-      "stars": 4672,
-      "pushed_at": "2026-06-14T12:59:00Z",
+      "stars": 4771,
+      "pushed_at": "2026-07-14T22:44:20Z",
       "forks": 654,
-      "activity_days": 0,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -899,11 +899,11 @@
       "data_location": "local",
       "one_liner": "Local-first persistent memory store for LLM applications",
       "confidence": "high",
-      "stars": 4235,
-      "pushed_at": "2026-05-29T15:54:25Z",
+      "stars": 4336,
+      "pushed_at": "2026-06-27T05:17:02Z",
       "forks": 481,
-      "activity_days": 16,
-      "activity_label": "16d ago",
+      "activity_days": 22,
+      "activity_label": "22d ago",
       "enrichment": {
         "export": {
           "v": "api-export",
@@ -938,11 +938,11 @@
       "data_location": "local",
       "one_liner": "Knowledge-graph RAG with personalized PageRank for multi-hop recall",
       "confidence": "high",
-      "stars": 3583,
-      "pushed_at": "2025-09-04T14:42:42Z",
+      "stars": 3854,
+      "pushed_at": "2026-07-13T00:10:52Z",
       "forks": 374,
-      "activity_days": 283,
-      "activity_label": "9mo ago",
+      "activity_days": 6,
+      "activity_label": "this week",
       "enrichment": {
         "export": {
           "v": "none-documented",
@@ -975,10 +975,10 @@
       "data_location": "both",
       "one_liner": "Local Markdown knowledge-graph memory over MCP",
       "confidence": "high",
-      "stars": 3234,
-      "pushed_at": "2026-06-13T19:53:54Z",
+      "stars": 3431,
+      "pushed_at": "2026-07-15T06:12:49Z",
       "forks": 215,
-      "activity_days": 1,
+      "activity_days": 4,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1012,10 +1012,10 @@
       "data_location": "local",
       "one_liner": "Alibaba/ModelScope agent memory kit, formerly MemoryScope",
       "confidence": "high",
-      "stars": 3080,
-      "pushed_at": "2026-06-10T12:40:19Z",
+      "stars": 3190,
+      "pushed_at": "2026-07-14T09:10:17Z",
       "forks": 259,
-      "activity_days": 4,
+      "activity_days": 5,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1049,11 +1049,11 @@
       "data_location": "both",
       "one_liner": "User-profile-based long-term memory for LLM apps",
       "confidence": "high",
-      "stars": 2754,
+      "stars": 2784,
       "pushed_at": "2026-01-11T03:51:40Z",
       "forks": 219,
-      "activity_days": 155,
-      "activity_label": "5mo ago",
+      "activity_days": 189,
+      "activity_label": "6mo ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1087,11 +1087,11 @@
       "data_location": "local",
       "one_liner": "Open-source memory layer for autonomous agents",
       "confidence": "high",
-      "stars": 2623,
+      "stars": 2632,
       "pushed_at": "2024-10-22T00:46:00Z",
       "forks": 199,
-      "activity_days": 601,
-      "activity_label": "1y ago",
+      "activity_days": 635,
+      "activity_label": "20mo ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1124,10 +1124,10 @@
       "data_location": "both",
       "one_liner": "LangChain SDK for long-term agent memory management",
       "confidence": "high",
-      "stars": 1501,
-      "pushed_at": "2026-06-12T22:16:27Z",
+      "stars": 1562,
+      "pushed_at": "2026-07-15T06:06:43Z",
       "forks": 170,
-      "activity_days": 2,
+      "activity_days": 4,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1161,11 +1161,11 @@
       "data_location": "local",
       "one_liner": "Hierarchical short/mid/long-term memory OS for agents",
       "confidence": "high",
-      "stars": 1461,
-      "pushed_at": "2026-04-28T15:52:03Z",
+      "stars": 1513,
+      "pushed_at": "2026-07-07T12:32:18Z",
       "forks": 142,
-      "activity_days": 47,
-      "activity_label": "1mo ago",
+      "activity_days": 12,
+      "activity_label": "12d ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1198,11 +1198,11 @@
       "data_location": "local",
       "one_liner": "Agentic memory with self-organizing Zettelkasten-style linked notes",
       "confidence": "high",
-      "stars": 1047,
+      "stars": 1113,
       "pushed_at": "2025-12-12T21:15:29Z",
       "forks": 114,
-      "activity_days": 184,
-      "activity_label": "6mo ago",
+      "activity_days": 219,
+      "activity_label": "7mo ago",
       "enrichment": {
         "export": {
           "v": "none-documented",
@@ -1235,11 +1235,11 @@
       "data_location": "both",
       "one_liner": "Java cognitive memory engine building insight trees and graphs",
       "confidence": "high",
-      "stars": 900,
+      "stars": 903,
       "pushed_at": "2026-06-14T05:08:06Z",
       "forks": 85,
-      "activity_days": 1,
-      "activity_label": "this week",
+      "activity_days": 35,
+      "activity_label": "1mo ago",
       "enrichment": {
         "export": {
           "v": "api-export",
@@ -1274,11 +1274,11 @@
       "data_location": "local",
       "one_liner": "Local knowledge-graph MCP memory server",
       "confidence": "high",
-      "stars": 865,
+      "stars": 876,
       "pushed_at": "2026-05-29T12:57:51Z",
       "forks": 103,
-      "activity_days": 16,
-      "activity_label": "16d ago",
+      "activity_days": 51,
+      "activity_label": "1mo ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1312,11 +1312,11 @@
       "data_location": "local",
       "one_liner": "Research: long-term memory using the Ebbinghaus forgetting curve",
       "confidence": "high",
-      "stars": 432,
+      "stars": 439,
       "pushed_at": "2023-05-24T03:19:27Z",
       "forks": 62,
-      "activity_days": 1118,
-      "activity_label": "3y ago",
+      "activity_days": 1152,
+      "activity_label": "37mo ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1349,11 +1349,11 @@
       "data_location": "local",
       "one_liner": "Schema-driven knowledge-graph MCP server for narrative persistence",
       "confidence": "high",
-      "stars": 345,
+      "stars": 349,
       "pushed_at": "2026-03-01T22:27:33Z",
       "forks": 50,
-      "activity_days": 105,
-      "activity_label": "3mo ago",
+      "activity_days": 140,
+      "activity_label": "4mo ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1389,10 +1389,10 @@
       "data_location": "local",
       "one_liner": "Redis-backed working and long-term memory server for agents",
       "confidence": "high",
-      "stars": 280,
-      "pushed_at": "2026-06-12T20:29:35Z",
+      "stars": 293,
+      "pushed_at": "2026-07-13T20:41:04Z",
       "forks": 55,
-      "activity_days": 2,
+      "activity_days": 6,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1426,11 +1426,11 @@
       "data_location": "cloud",
       "one_liner": "Proxy giving OpenAI calls long-term memory via vector store",
       "confidence": "low",
-      "stars": 171,
+      "stars": 170,
       "pushed_at": "2026-04-10T14:56:07Z",
       "forks": 20,
-      "activity_days": 65,
-      "activity_label": "2mo ago",
+      "activity_days": 100,
+      "activity_label": "3mo ago",
       "enrichment": {
         "export": {
           "v": "none-documented",
@@ -1463,11 +1463,11 @@
       "data_location": "local",
       "one_liner": "Go reimplementation of the reference knowledge-graph MCP server",
       "confidence": "medium",
-      "stars": 105,
+      "stars": 106,
       "pushed_at": "2025-04-16T01:54:28Z",
       "forks": 10,
-      "activity_days": 425,
-      "activity_label": "1y ago",
+      "activity_days": 459,
+      "activity_label": "14mo ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1503,10 +1503,10 @@
       "data_location": "local",
       "one_liner": "Local markdown-backed agent memory with provenance and governance",
       "confidence": "medium",
-      "stars": 83,
-      "pushed_at": "2026-06-14T01:20:01Z",
+      "stars": 107,
+      "pushed_at": "2026-07-15T00:27:24Z",
       "forks": 15,
-      "activity_days": 1,
+      "activity_days": 4,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1543,11 +1543,11 @@
       "data_location": "local",
       "one_liner": "Local-first Mac AI assistant over a plain-markdown workspace",
       "confidence": "high",
-      "stars": 43,
+      "stars": 44,
       "pushed_at": "2026-06-11T22:27:37Z",
       "forks": 6,
-      "activity_days": 3,
-      "activity_label": "this week",
+      "activity_days": 38,
+      "activity_label": "1mo ago",
       "enrichment": {
         "export": {
           "v": "markdown",
@@ -1581,10 +1581,10 @@
       "data_location": "local",
       "one_liner": "PostgreSQL extension for provenance-gated hybrid-vector memory",
       "confidence": "medium",
-      "stars": 4,
-      "pushed_at": "2026-06-14T07:23:54Z",
+      "stars": 6,
+      "pushed_at": "2026-07-12T11:09:44Z",
       "forks": 1,
-      "activity_days": 0,
+      "activity_days": 7,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1858,10 +1858,10 @@
       "one_liner": "Tiered agent-memory federation over flat-file YAML; recognition-first",
       "confidence": "medium",
       "stars": 0,
-      "pushed_at": "2026-06-12T13:24:10Z",
+      "pushed_at": "2026-07-02T16:36:28Z",
       "forks": 0,
-      "activity_days": 2,
-      "activity_label": "this week",
+      "activity_days": 17,
+      "activity_label": "17d ago",
       "enrichment": {
         "export": {
           "v": "json",
@@ -1900,7 +1900,7 @@
       "stars": 268,
       "pushed_at": "2026-07-12T20:47:32Z",
       "forks": 11,
-      "activity_days": 0,
+      "activity_days": 7,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1934,10 +1934,10 @@
       "data_location": "both",
       "one_liner": "Portable memory graph ('Personal AI OS') shareable across AI apps",
       "confidence": "med",
-      "stars": 1897,
-      "pushed_at": "2026-07-10T10:03:25Z",
+      "stars": 1901,
+      "pushed_at": "2026-07-15T04:00:37Z",
       "forks": 181,
-      "activity_days": 2,
+      "activity_days": 4,
       "activity_label": "this week",
       "enrichment": {
         "export": {
@@ -1953,6 +1953,43 @@
           "c": "low"
         },
         "op": "operational"
+      }
+    },
+    {
+      "name": "Cipher",
+      "aka": "ByteRover brv (formerly Cipher)",
+      "url": "https://github.com/campfirein/cipher",
+      "github": "campfirein/cipher",
+      "category": "library",
+      "type": "OSS",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "None",
+      "interface": "MCP, CLI",
+      "pricing": "free-oss",
+      "pricing_note": null,
+      "data_location": "local",
+      "one_liner": "Portable memory layer for autonomous coding agents (ByteRover, formerly Cipher); MCP-native",
+      "confidence": "low",
+      "stars": 4925,
+      "pushed_at": "2026-06-25T17:00:57Z",
+      "forks": 453,
+      "activity_days": 24,
+      "activity_label": "24d ago",
+      "enrichment": {
+        "export": {
+          "v": "unknown",
+          "c": "low"
+        },
+        "temporal": {
+          "v": "unknown",
+          "c": "low"
+        },
+        "governance": {
+          "v": "none",
+          "c": "low"
+        },
+        "op": "unverified"
       }
     }
   ],
