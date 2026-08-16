@@ -164,7 +164,7 @@ td.detailcell{padding:0;border-top:none}
     <span class="t-llmage">the_scaffold</span>
   </h1>
 
-  <!-- RUNE-SCAFFOLD-LEAD landed 2026-06-25 (Crane form). -->
+  <!-- lead copy landed 2026-06-25 -->
   <p class="scaffold-lead">
     <span class="t-scholar">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
     <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
@@ -293,7 +293,7 @@ async function boot(){
   P=STATE.products; BC=STATE.benchmark_claims||{}; CATS=Object.keys(STATE.categories);
   const legend=CATS.map(c=>`<span><span class="badge b-${c}">${c}</span> ${STATE.categories[c]}</span>`).join('')+' <span style="margin-left:6px"><span class="tag tag-fact">fact</span>verifiable <span class="tag tag-claim">claim</span>vendor self-reported</span>';
   document.getElementById('legend').innerHTML=legend;
-  document.getElementById('notes').innerHTML=(STATE.notes||[]).map(n=>`<li>${n}</li>`).join('');
+  document.getElementById('notes').innerHTML=(STATE.method?`<li>method: ${STATE.method}</li>`:'')+(STATE.notes||[]).map(n=>`<li>${n}</li>`).join('');
   renderPulse();renderRefresh();renderChips();render();
 }
 boot();
