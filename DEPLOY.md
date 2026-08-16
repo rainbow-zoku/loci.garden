@@ -10,7 +10,9 @@
 
 ## Deploy after PR merge
 
-After merging a PR, update the VPS checkout to the new `main`:
+Deploys are manual by design: CI validates (HTML, links) on every PR and push
+but never touches the VPS. After merging a PR, update the VPS checkout to the
+new `main`:
 
 ```bash
 # On the VPS, inside the site checkout:
