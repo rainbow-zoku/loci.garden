@@ -8,10 +8,10 @@
 #   4. Merges a `loci` entry into `mcpServers` (idempotent)
 #   5. Tells you what to do next
 #
-# Open beta — for testing. The `loci` MCP server is provided by the Loci
-# Desktop app (https://github.com/huximaxi/loci/releases). The config this
-# script writes is ready for when the app is running; nothing is required
-# right now if you just want to inspect the change.
+# Open beta — for testing. The `loci` MCP server ships from the loci repo
+# (https://github.com/huximaxi/loci). The config this script writes is ready
+# for when that server is running; nothing is required right now if you just
+# want to inspect the change.
 #
 # Re-run safely: idempotent merge, never duplicates the `loci` entry.
 # Dry run: set DRY_RUN=1 to print intended actions without writing.
@@ -133,8 +133,8 @@ say ""
 say "${C_BOLD}Next steps:${C_RESET}"
 say "  1. Restart Claude Desktop."
 say "  2. Open a new chat — loci tools appear in the MCP toolbox."
-say "  3. ${C_DIM}If you don't see them, the Loci Desktop app needs to be running.${C_RESET}"
-say "     ${C_DIM}Grab the beta build from: https://github.com/huximaxi/loci/releases${C_RESET}"
+say "  3. ${C_DIM}If you don't see them, the loci MCP server needs to be running.${C_RESET}"
+say "     ${C_DIM}Build it from source: https://github.com/huximaxi/loci${C_RESET}"
 say ""
 say "${C_DIM}Report issues at https://github.com/huximaxi/loci/issues${C_RESET}"
 say "${C_DIM}Re-run anytime — this script is idempotent.${C_RESET}"

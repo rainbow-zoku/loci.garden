@@ -28,7 +28,6 @@
         <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <a href="/download.html" class="nav-link" data-page="download">download</a>
         <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
         <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
         <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
@@ -51,13 +50,13 @@
       <div class="version-stamp">
         <span class="vs-label">RELEASES</span>
         <span class="vs-divider">·</span>
-        <span class="vs-current">desktop/v0.5.0</span>
+        <span class="vs-current">loci.core</span>
         <span class="vs-divider">·</span>
         <span class="vs-date">2026-05-19</span>
       </div>
       <h1>What we have shipped.<br>What has been proven.<br>What is next.</h1>
       <p class="releases-intro">
-        Two threads. <strong>loci.core</strong> is the substrate, what every loci client builds on. <strong>apps</strong> is what you install. <strong>SHIPPED</strong> is what runs today. <strong>PROVEN</strong> is what has been verified in the field. <strong>NEXT</strong> is the honest gap, with the work that closes it.
+        <strong>loci.core</strong> is the substrate, what every loci client builds on. <strong>SHIPPED</strong> is what runs today. <strong>PROVEN</strong> is what has been verified in the field. <strong>NEXT</strong> is the honest gap, with the work that closes it.
       </p>
     </header>
 
@@ -126,67 +125,6 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         apps
-    ═══════════════════════════════════════════════════════ -->
-    <section class="component">
-      <h2 class="component-title">
-        <span class="component-num">02</span>
-        <span class="component-name">apps</span>
-        <span class="component-meta">desktop · extension · what you install</span>
-      </h2>
-
-      <div class="release-grid">
-
-        <div class="col col-shipped">
-          <h3 class="col-title">Shipped</h3>
-          <ul class="release-list">
-            <li>
-              <div class="rl-tag">desktop · v0.5.0 · 2026-05-12</div>
-              <div class="rl-body">Welcome screen with three-view routing. Design tokens unified across boot, palace, and dialogue views. Tauri v2 capabilities scoped to the smallest set the app needs. Signed DMG (aarch64).</div>
-            </li>
-            <li>
-              <div class="rl-tag">desktop · v0.4.x</div>
-              <div class="rl-body">First runnable build of the wizard. Local Ollama backend wired. Welcome flow stubbed.</div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col col-proven">
-          <h3 class="col-title">Proven</h3>
-          <ul class="release-list">
-            <li>
-              <div class="rl-tag">signed releases</div>
-              <div class="rl-body">All v0.5.x desktop builds signed and notarised. Pipeline reproducible from the commit hash.</div>
-            </li>
-            <li>
-              <div class="rl-tag">local model through the shell</div>
-              <div class="rl-body">Local model integration verified end-to-end through the desktop app. The path that the user clicks holds.</div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col col-next">
-          <h3 class="col-title">Next</h3>
-          <ul class="release-list">
-            <li>
-              <div class="rl-tag">desktop · v0.6.0</div>
-              <div class="rl-body">Setup wizard for first run (create new vault or load existing). Live dashboard. File-watcher driven live updates as your conversation archive grows.</div>
-            </li>
-            <li>
-              <div class="rl-tag">extension polish</div>
-              <div class="rl-body">Browser extension capture path hardened for the long tail of web-based AI clients.</div>
-            </li>
-            <li>
-              <div class="rl-tag">mobile</div>
-              <div class="rl-body">Native iOS and Android clients. Read-first, capture-second. Local index over a local model.</div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
     <!-- Closing -->
     <section class="releases-close">
       <p class="close-line">Built in the open. Tended in the quiet.</p>
@@ -207,6 +145,7 @@
     <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
       <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
       <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
+      <a href="/keep-your-memory-yours.html" style="color:var(--text-faint);">keep your memory yours</a> &middot;
       <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
       <a href="/releases/" style="color:var(--text-faint);">releases</a> &middot;
       <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
