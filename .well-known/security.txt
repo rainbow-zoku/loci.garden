@@ -9,6 +9,6 @@ Preferred-Languages: en, hu
 Canonical: https://loci.garden/.well-known/security.txt
 Policy: https://loci.garden/privacy.html
 
-# Scope: loci.garden static site, palace migration desktop app
+# Scope: loci.garden static site and the loci command-line tool
 # (github.com/huximaxi/Loci). For Nym Technologies infrastructure
 # unrelated to loci.garden, see https://nymtech.net/security.
