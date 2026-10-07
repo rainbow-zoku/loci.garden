@@ -2,3 +2,10 @@
 __pycache__/
 *.pyc
 .claude/
+
+# Working files never get committed: drafts, audits, backups.
+/_*
+*.bak
+*.bak-*
+*-backup
+*.pre-strip-backup

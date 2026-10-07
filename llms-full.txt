@@ -1936,7 +1936,7 @@ Before declaring done:
 
 ```bash
 # After merging PR:
-cd ~/Dev/loci
+cd path/to/loci
 git checkout main && git pull
 cd landing
 ./deploy.sh "feat: [short description]"
@@ -3829,9 +3829,9 @@ notify: "Synthesis ready: [palace-root]/synthesis/[DATE]-synthesis.md"
 
 **`auto_apply: false` is non-negotiable.** Synthesis automation produces proposals. A human reads them. A human confirms. Then the palace updates. Automating the proposal is fine. Automating the write is not.
 
-### Local Setup (for Hux's palace)
+### Local Setup
 
-Add to `Dev/CLAUDE.md` or `Dev/nym-stone/vesper/VESPER.md`:
+Add to your palace's `CLAUDE.md`:
 
 ```markdown
 ## Synthesis Schedule
