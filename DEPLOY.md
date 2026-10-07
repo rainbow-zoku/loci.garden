@@ -20,7 +20,7 @@ git fetch origin
 git reset --hard origin/main
 ```
 
-`reset --hard` rather than `pull`, so the checkout always matches `main` exactly. No restart is needed for a content change. Operator specifics (host, paths, credentials) live in private ops notes, not in this public repo.
+`reset --hard` rather than `pull`, so the checkout always matches `main` exactly. No restart is needed for a content change. Operator specifics stay out of this repo.
 
 ## Branch strategy
 
