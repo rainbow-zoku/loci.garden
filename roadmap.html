@@ -483,11 +483,11 @@
       <div>Browser extension v0.1 · Q3 2026.</div>
 
       <div class="persona-cell">⚔ Wizard</div>
-      <div><code>curl -fsSL loci.garden/install/wizard.sh | bash</code> wires Loci into any file-aware AI over MCP.</div>
-      <div>onboarding wizard · guided MCP setup.</div>
+      <div><code>git clone</code> the kit, open <code>FIRST-SESSION.md</code>, and your AI walks the ritual with you.</div>
+      <div>onboarding wizard · guided first session.</div>
 
       <div class="persona-cell">◈ LLMAGE</div>
-      <div><code>git clone</code> the repo · inspect MCP server + <code>.mcp.json</code> · read the spec.</div>
+      <div><code>git clone</code> the repo · read the templates and the CLI source · read the spec.</div>
       <div>Nostr keypair identity (1C) · Nym private sync (1D) · IPFS export (2C).</div>
     </div>
     <div class="today-dispatches">
@@ -524,21 +524,21 @@
       <div class="feature-status-label">Shipped</div>
     </div>
 
-    <div class="feature-card" data-status="shipped" data-id="1B">
+    <div class="feature-card" data-status="not-started" data-id="1B">
       <div class="feature-id-col">
         <span class="feature-id">1B</span>
         <span class="status-dot"></span>
       </div>
       <div class="feature-body">
         <div class="feature-title">MCP Plugin, Goose &amp; Beyond</div>
-        <div class="feature-desc">Loci publishes an open-source MCP server, so any MCP-compatible agent (Goose, Continue.dev, Claude Code) reads the substrate as context. Locus nodes and Rooms are exposed as MCP resources. This is Loci's first external interop surface, built sovereign-first.</div>
+        <div class="feature-desc">Loci's MCP server shipped inside the desktop app and is archived with it. The palace is plain text, so file-aware agents (Goose, Continue.dev, Claude Code) read it directly. A standalone server may return, behind a threat model.</div>
         <div class="feature-meta">
           <span class="tag persona">Cipher</span>
           <span class="tag">MCP · Goose · Apache 2.0</span>
           <span class="tag security">THREAT-01 gate</span>
         </div>
       </div>
-      <div class="feature-status-label">Shipped</div>
+      <div class="feature-status-label">Archived</div>
     </div>
 
     <div class="feature-card" data-status="in-progress" data-id="1C">
@@ -749,7 +749,7 @@
     <div class="stack-row"><span class="stack-layer">Inference</span><span class="stack-value">Ollama<span class="stack-note">: Llama 3, Mistral, Gemma</span></span></div>
     <div class="stack-row"><span class="stack-layer">Embeddings</span><span class="stack-value">nomic-embed-text<span class="stack-note">: local semantic search</span></span></div>
     <div class="stack-row"><span class="stack-layer">Vector DB</span><span class="stack-value">Chroma<span class="stack-note">: Apache 2.0, local</span></span></div>
-    <div class="stack-row"><span class="stack-layer">Agent</span><span class="stack-value">Goose / MCP<span class="stack-note">: reads + writes to your garden</span></span></div>
+    <div class="stack-row"><span class="stack-layer">Agent</span><span class="stack-value">Goose / any file-aware agent<span class="stack-note">: reads + writes to your garden</span></span></div>
     <div class="stack-row"><span class="stack-layer">Search</span><span class="stack-value">SearXNG or Kagi<span class="stack-note">: self-hosted or managed privacy</span></span></div>
     <div class="stack-row"><span class="stack-layer">Identity</span><span class="stack-value">Nostr keypair<span class="stack-note">: NIP-07, secp256k1</span></span></div>
     <div class="stack-row"><span class="stack-layer">Transport</span><span class="stack-value">Nym mixnet<span class="stack-note">: metadata-private sync</span></span></div>

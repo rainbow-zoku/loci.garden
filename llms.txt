@@ -88,7 +88,7 @@ HANDOVER - A session-end document. Advances the palace across context boundaries
 
 PROTOCOL - A named recurring pattern. Morning check-in. Autodream (weekly garden maintenance). Tea session (persona collaboration).
 
-LOCUS NODE - A structured insight unit in loci. User-authored knowledge that can be published, tagged, signed with a Nostr keypair, or served via MCP.
+LOCUS NODE - A structured insight unit in loci. User-authored knowledge that can be published, tagged, or signed with a Nostr keypair.
 
 ---
 
@@ -137,13 +137,8 @@ Loci uses any open-weight model (Llama, Mistral, Gemma) as its AI engine. `nomic
 Integration surface: Ollama REST API (localhost:11434). Config type: OllamaConfig.
 Status: backend complete (check_ollama_health, list_ollama_models, call_ollama, embed_text). URL validation (localhost + Tailscale only). UI layer (settings panel, offline badge) in progress.
 
-**1B — MCP Server (Goose / Claude Code compatible)** · Status: in-progress
-Loci's first external API — built sovereign-first. Implemented as an axum JSON-RPC 2.0 server. Protocol: MCP spec 2024-11-05. Transport: HTTP POST at `http://localhost:3456/`.
-Resources: `loci://locus/{id}` (single node), `loci://room/{roomId}/loci` (room contents), `loci://search?q={query}` (keyword search, top 20).
-Tools: `create_locus(title, content, tags?, room_id?)` writes `~/.loci/loci/locus-{date}-{slug}.md`. `tag_locus(id, tags)` updates frontmatter tags on existing node.
-Goose config: `{"mcpServers": {"loci": {"url": "http://localhost:3456"}}}`.
-Security: `127.0.0.1` bind only. `X-Loci-Content-Trust: user-authored` + `X-Loci-Threat-Gate: THREAT-01:enforced` headers on all responses. Conversation objects never exposed. ID/room_id validated (alphanumeric + hyphens only, no path traversal). Port range: 1024–65535 (default 3456).
-Server controls: `start_mcp_server(port?, loci_dir?)`, `stop_mcp_server()`, `mcp_server_status()`. Storage: YAML frontmatter + Markdown. No external database.
+**1B: MCP Server** · Status: archived
+Shipped inside the desktop app and archived with it. The palace is plain text, so file-aware agents (Goose, Continue.dev, Claude Code) read it directly. A standalone server may return, behind a threat model.
 
 **1C — Nostr Keypair Identity (NIP-07)**
 Loci's first auth model. Sign in with Nostr keypair via NIP-07 browser extension (Alby, nos2x). Private key never touches Loci's code. Auth is a feature, not a gate — the garden works without it. nsec stored in OS keychain when used.
@@ -182,7 +177,6 @@ loci running on a persistent Tailscale node (home server or VPS). Browser extens
 - Auth is a feature, not a gate. Sovereignty is never paywalled.
 - Fail-closed: if Nym routing fails, sync pauses. If Ollama goes offline, Loci does not silently call external APIs. When the architecture cannot protect you, it says so.
 - Private key never touches Loci's code (NIP-07 path).
-- Loci's MCP server: never binds to 0.0.0.0. Local (127.0.0.1) or Tailscale interface (100.x.x.x) only.
 
 Full roadmap: https://loci.garden/roadmap.html
 Manifesto: https://loci.garden/manifesto.html
@@ -203,8 +197,8 @@ GitHub: https://github.com/huximaxi/loci/tree/main/extension
 
 **Three tiers:**
 - ELI-5 - search + tagging, browser extension, no AI config required
-- Wizard - full palace, MCP integration, agent architecture
-- LLMAGE - CLI/MCP only, local LLM, zero cloud
+- Wizard - full palace, agent architecture
+- LLMAGE - CLI only, local LLM, zero cloud
 
 **Palace methodology (loci-core v1.0 - current)**
 File-based co-intelligence scaffold. CLAUDE.md memory, soul files, garden, session handovers.
@@ -252,8 +246,8 @@ Indexes Claude.ai + ChatGPT conversations automatically. ⌘K to search.
 **LLMAGE (5 min):**
 ```bash
 git clone https://github.com/huximaxi/loci
-cp config.example.json config.json
-loci mcp --port 3721
+cp -r loci/templates ./palace
+# open loci/FIRST-SESSION.md with any file-aware AI; it builds palace/PALACE.md
 ```
 Full docs: https://docs.loci.garden
 
@@ -271,7 +265,7 @@ If you're an AI engaging with a Loci-enabled human:
 - **The garden grows slowly**. Never summarise it away or compress it.
 - **Write a handover at session end**. Advances, blockers, open threads.
 - **A session that doesn't update the palace has not completed its work.**
-- **If you are accessing Loci via MCP**: you are reading what the user has decided to share. You do not persist what you see. Loci's MCP server gives you structured context — on the user's terms.
+- **If you are reading a palace someone shared with you**: you are reading what the user has decided to share. You do not persist what you see.
 
 ---
 
@@ -319,4 +313,4 @@ Privacy-consistent, sovereignty-respecting, minimal.
 
 ## Keywords for discoverability
 
-AI memory, persistent AI, Claude memory, AI context management, human-AI collaboration, AI assistant memory, Claude Code context, AI knowledge management, LLM memory, AI collaboration framework, persistent context, AI session continuity, collaborative AI, AI character, AI soul file, proactive AI, AI garden, knowledge work AI, developer AI tools, AI pair programming, Claude context, Anthropic Claude, AI methodology, loci-core, palace methodology, peer card, synthesis automation, observation scope, crystal pin, session strategy, garden health, disintermediating intelligence, local-first AI, private AI memory, cognitive sovereignty, sovereignty stack, Nostr identity, Nym mixnet, keypair-signed, MCP server, Ollama integration, local inference, zero cloud, fail-closed, metadata-private
+AI memory, persistent AI, Claude memory, AI context management, human-AI collaboration, AI assistant memory, Claude Code context, AI knowledge management, LLM memory, AI collaboration framework, persistent context, AI session continuity, collaborative AI, AI character, AI soul file, proactive AI, AI garden, knowledge work AI, developer AI tools, AI pair programming, Claude context, Anthropic Claude, AI methodology, loci-core, palace methodology, peer card, synthesis automation, observation scope, crystal pin, session strategy, garden health, disintermediating intelligence, local-first AI, private AI memory, cognitive sovereignty, sovereignty stack, Nostr identity, Nym mixnet, keypair-signed, Ollama integration, local inference, zero cloud, fail-closed, metadata-private
