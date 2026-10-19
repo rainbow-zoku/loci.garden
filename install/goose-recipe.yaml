@@ -3,7 +3,7 @@
 # your local palace (rooms, crystals, session logs) as context.
 #
 # Usage: load this recipe in Goose Desktop or pass to `goose session --recipe`
-# Requires: loci desktop app running (https://loci.garden/download.html)
+# Requires: the loci MCP server (loci-mcp) running — see https://github.com/huximaxi/loci
 #
 # Source: https://github.com/huximaxi/loci
 # License: Apache 2.0
@@ -24,5 +24,5 @@ extensions:
       - ~/.loci/config.json
     description: >
       Local palace MCP server. Exposes rooms and crystals as MCP resources.
-      The loci desktop app must be running to satisfy this endpoint.
+      The loci MCP server (loci-mcp) must be running to satisfy this endpoint.
       See: https://loci.garden/roadmap.html (feature 1B — shipped)

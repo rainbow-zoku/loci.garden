@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html data-theme="scholar" lang="en">
+<head>
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+</script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23F2EFE3'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a8b572'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%237d8a4a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%235a6b2e'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233a4720'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keep your memory yours, loci.garden</title>
+  <meta name="description" content="A practical flow for cognitive sovereignty: make the substrate the only memory of you, tier what you expose, keep the outward gate, own the deletion. Tool-agnostic, with the concrete Claude settings in their own section.">
+  <meta name="keywords" content="cognitive sovereignty, AI memory, private AI, local-first, data controls, telemetry, local model, loci">
+  <link rel="canonical" href="https://loci.garden/keep-your-memory-yours.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://loci.garden/keep-your-memory-yours.html" />
+  <meta property="og:title" content="Keep your memory yours" />
+  <meta property="og:description" content="Make the substrate the only memory of you. Tier what you expose. Keep the outward gate. Own the deletion." />
+  <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Keep your memory yours" />
+  <meta name="twitter:description" content="Make the substrate the only memory of you. Tier what you expose. Keep the outward gate. Own the deletion." />
+  <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="AI context declaration, loci.garden">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="loci.css">
+
+  <script defer src="https://analytics.loci.garden/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
+  <style>
+    .guide-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem 6rem;
+    }
+
+    .guide-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.8rem;
+    }
+
+    .guide-title {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .guide-lead {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      max-width: 620px;
+    }
+
+    .guide-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .guide-section h2 {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .guide-section h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      margin-top: 1.8rem;
+    }
+
+    .guide-section p {
+      color: var(--text-dim);
+      line-height: 1.75;
+      margin-bottom: 0.9rem;
+    }
+
+    .guide-section p:last-child { margin-bottom: 0; }
+
+    .guide-section ul {
+      color: var(--text-dim);
+      line-height: 1.75;
+      margin: 0.4rem 0 0.9rem;
+      padding-left: 1.1rem;
+    }
+
+    .guide-section li { margin-bottom: 0.55rem; }
+
+    .uses-block {
+      background: var(--bg-surface);
+      border-left: 2px solid var(--border);
+      padding: 0.8rem 1.2rem;
+      margin: 0 0 2.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-faint);
+      line-height: 1.6;
+    }
+
+    .claude-fence {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.6rem;
+      margin: 1.5rem 0;
+    }
+
+    .claude-fence h2 {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .claude-fence p { color: var(--text-dim); line-height: 1.75; margin-bottom: 0.9rem; }
+
+    .claude-fence ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+    }
+
+    .claude-fence li {
+      color: var(--text-dim);
+      line-height: 1.7;
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--border-soft, var(--border));
+    }
+
+    .claude-fence li:first-child { border-top: none; }
+
+    .claude-fence strong { color: var(--text); }
+
+    .floor-block {
+      background: var(--bg-surface);
+      border-left: 2px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.6rem 0 0;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    .floor-block .floor-label {
+      color: var(--accent);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .guide-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.82em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+    }
+
+    .toc {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 3rem;
+      border-radius: var(--radius);
+    }
+
+    .toc-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.6rem;
+    }
+
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: toc-counter;
+    }
+
+    .toc li {
+      counter-increment: toc-counter;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      padding: 0.2rem 0;
+    }
+
+    .toc li::before {
+      content: counter(toc-counter, decimal-leading-zero) " · ";
+      color: var(--text-faint);
+    }
+
+    .toc a { color: var(--text-dim); }
+    .toc a:hover { color: var(--accent); }
+
+    .kicker {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body data-page="sovereignty">
+
+<!-- #include partials/_nav.html -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo-group">
+      <a href="/" class="logo">loci.garden</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
+        <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
+        <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
+        <button class="theme-btn" id="btn-scholar" onclick="setTheme('scholar')" aria-pressed="true">◆ ELI-5</button>
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="false">⚔ Wizard</button>
+        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
+      </div>
+    </div>
+  </div>
+  <script defer src="/theme.js"></script>
+</nav>
+<!-- /include -->
+
+  <main>
+    <div class="guide-wrap">
+
+      <div class="guide-eyebrow">Cognitive sovereignty · a practical flow</div>
+      <h1 class="guide-title">Keep your memory yours.</h1>
+      <p class="guide-lead">loci gives you a memory you own: plain text you can read, move, and delete. The risk is the tool you point at it keeping its own memory of you, server-side, learned across chats, that you cannot see or erase. This flow closes that gap, so the substrate stays the only memory of record. Two memories of you is one too many, and only one is yours.</p>
+
+      <div class="uses-block">
+        Leans on: <code>templates/CLAUDE-master.md</code> (the gate and the memory rules) and <code>templates/.lociignore</code>.
+      </div>
+
+      <div class="toc">
+        <div class="toc-label">The four moves</div>
+        <ol>
+          <li><a href="#substrate-only">Make the substrate the only memory</a></li>
+          <li><a href="#tier">Tier what you expose</a></li>
+          <li><a href="#gate">Keep the outward gate</a></li>
+          <li><a href="#deletion">Own the deletion</a></li>
+        </ol>
+      </div>
+
+      <!-- 01 -->
+      <section class="guide-section" id="substrate-only">
+        <h2>01 · Make the substrate the only memory</h2>
+        <p>If your tool offers its own memory that learns you across sessions, turn it off. The substrate already remembers, on your terms. Nothing about you should accumulate in a place you cannot open. One memory of record, and it is the plain text on your disk.</p>
+      </section>
+
+      <hr class="guide-rule">
+
+      <!-- 02 -->
+      <section class="guide-section" id="tier">
+        <h2>02 · Tier what you expose</h2>
+        <p>Everything in an always-loaded file is sent every session. Keep the sensitive facts out of the always-on map and into rooms that load only when that work is open. Load-on-demand is a privacy setting, not only a token one: the context you never load is context that never leaves.</p>
+      </section>
+
+      <hr class="guide-rule">
+
+      <!-- 03 -->
+      <section class="guide-section" id="gate">
+        <h2>03 · Keep the outward gate</h2>
+        <p>The gate you set for shipping code is the same gate for what your companion transmits about you: no names, no secrets, no private shape of your thinking leaves without your yes. Scrub before anything reaches a vendor endpoint or a public surface. The gate is one habit doing two jobs.</p>
+      </section>
+
+      <hr class="guide-rule">
+
+      <!-- 04 -->
+      <section class="guide-section" id="deletion">
+        <h2>04 · Own the deletion</h2>
+        <p>Because the substrate is your backup, the tool's copy is disposable: wipe it whenever you like and lose nothing that matters. One caution. Some vendor resets are irreversible, so glance at the store first and port anything that lived only there before you clear it.</p>
+      </section>
+
+      <div class="claude-fence">
+        <h2>If your companion is Claude</h2>
+        <p>loci federates to no one and works across every tool. When the tool is Claude, four concrete settings hold the line:</p>
+        <ul>
+          <li><strong>Memory</strong> (claude.ai, Settings, Memory): turn off <em>Generate memory from chats</em> and <em>Search and reference chats</em>. The substrate is your memory now.</li>
+          <li><strong>Training and retention</strong> (claude.ai, data controls): turn off <em>Improve Claude for everyone</em>. This keeps you on the short retention window and out of the training set.</li>
+          <li><strong>Quiet the client</strong> (Claude Code, <code>~/.claude/settings.json</code> under <code>env</code>): <code>DISABLE_TELEMETRY</code>, <code>DISABLE_ERROR_REPORTING</code>, <code>DISABLE_FEEDBACK_COMMAND</code>. These are presence-based, so a value of <code>"0"</code> still enables the disable. Unset the variable to reverse it. Prefer these named flags over the umbrella <code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code>, which also switches off automatic security updates.</li>
+          <li><strong>Sensitive one-offs</strong>: use a temporary chat, which is not saved and not learned from.</li>
+        </ul>
+      </div>
+
+      <div class="floor-block">
+        <span class="floor-label">The floor</span>
+        If a tier of your thinking must never leave at all, point a local model at the same plain-text substrate. Same blueprint, no wire.
+      </div>
+
+      <hr class="guide-rule">
+
+      <section class="guide-section" id="done">
+        <h2>You are done when</h2>
+        <p>The tool you work through holds no memory of you that you cannot see, move, or delete, and the only durable record of your mind is the plain text you own.</p>
+        <p class="kicker">The vendor forgets; the substrate remembers.</p>
+      </section>
+
+      <hr class="guide-rule">
+
+      <div style="font-family:var(--mono);font-size:0.72rem;color:var(--text-faint);padding:0.5rem 0 2rem;">
+        <p>Next: <a href="/guide.html" style="color:var(--text-dim);">the practitioner guide</a> · <a href="/manifesto.html" style="color:var(--text-dim);">the manifesto</a> · <a href="/privacy.html" style="color:var(--text-dim);">privacy posture</a></p>
+      </div>
+
+    </div>
+  </main>
+
+<!-- #include partials/_footer.html -->
+<footer>
+  <div class="footer-inner">
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden &middot; built by Hux &times; Vesper</span>
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
+      <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
+      <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
+      <a href="/keep-your-memory-yours.html" style="color:var(--text-faint);">keep your memory yours</a> &middot;
+      <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
+      <a href="/releases/" style="color:var(--text-faint);">releases</a> &middot;
+      <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
+      <a href="https://github.com/huximaxi/loci/blob/main/CONTRIBUTING.md" style="color:var(--text-faint);" target="_blank" rel="noopener">contribute</a> &middot;
+      <a href="/privacy.html" style="color:var(--text-faint);">privacy</a> &middot;
+      <a href="/.well-known/security.txt" style="color:var(--text-faint);">security.txt</a> &middot;
+      <a href="/llms.txt" style="color:var(--text-faint);">llms.txt</a>
+    </span>
+  </div>
+</footer>
+<!-- /include -->
+
+  <script src="assets/nav-persona.js" defer></script>
+</body>
+</html>

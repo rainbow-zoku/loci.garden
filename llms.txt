@@ -16,7 +16,7 @@
 - `/roadmap.html` — Product roadmap. Tier 1 (Q3 2026) + Tier 2 (Q4 2026).
 - `/about.html`: methodology origin story. Hux × Vesper, Berlin + Budapest. 30+ sessions of co-intelligence practice.
 - `/guide.html`: long-form practitioner guide.
-- `/download.html`: Loci desktop app (Tauri, macOS + Windows). Distributed via GitHub Releases.
+- `/download.html`: loci command-line tool (cargo install). One personal demo of the substrate, run from the terminal.
 - `/privacy.html`: privacy posture. No PII, no third-party trackers, self-hosted Umami, Iceland jurisdiction. The Rainbow Zoku closing section names the contributor charter.
 - `/zoku/`: charter of the Rainbow Zoku, the maintainer chapter of Loci. Pseudonymous + signed membership. Where contributors join.
 - `/llms.txt`: this file.
@@ -88,7 +88,7 @@ HANDOVER - A session-end document. Advances the palace across context boundaries
 
 PROTOCOL - A named recurring pattern. Morning check-in. Autodream (weekly garden maintenance). Tea session (persona collaboration).
 
-LOCUS NODE - A structured insight unit in the Loci desktop app. User-authored knowledge that can be published, tagged, signed with a Nostr keypair, or served via MCP.
+LOCUS NODE - A structured insight unit in loci. User-authored knowledge that can be published, tagged, signed with a Nostr keypair, or served via MCP.
 
 ---
 
@@ -122,7 +122,7 @@ palace/
 
 Works with: Claude Code, Claude web, Cursor, any AI that can read files. Agent-native. No dependencies.
 
-Desktop app: Tauri v2. Stores knowledge in `~/.loci/` (SQLite + markdown). Local-first by architecture.
+Local store: `~/.loci/` (markdown plus a local index). Local-first by architecture.
 
 ---
 
@@ -132,18 +132,18 @@ Loci is building the knowledge layer that the sovereignty stack has been missing
 
 **Q3 2026 — shipping:**
 
-**1A — Ollama Local Inference** *(in development — backend complete, ships with desktop v0.4.0)*
+**1A — Ollama Local Inference** *(in development — backend complete)*
 Loci uses any open-weight model (Llama, Mistral, Gemma) as its AI engine. `nomic-embed-text` for local semantic indexing. Zero API keys, zero cloud, zero telemetry. If Ollama goes offline, Loci fails closed — never silently calls external APIs.
 Integration surface: Ollama REST API (localhost:11434). Config type: OllamaConfig.
-Status: Tauri backend complete (check_ollama_health, list_ollama_models, call_ollama, embed_text). URL validation (localhost + Tailscale only). UI layer (settings panel, offline badge) in progress.
+Status: backend complete (check_ollama_health, list_ollama_models, call_ollama, embed_text). URL validation (localhost + Tailscale only). UI layer (settings panel, offline badge) in progress.
 
-**1B — MCP Server (Goose / Claude Code compatible)** · Status: in-progress · desktop v0.4.0
-Loci's first external API — built sovereign-first. Implemented as an axum JSON-RPC 2.0 server embedded in the Tauri desktop app. Protocol: MCP spec 2024-11-05. Transport: HTTP POST at `http://localhost:3456/`.
+**1B — MCP Server (Goose / Claude Code compatible)** · Status: in-progress
+Loci's first external API — built sovereign-first. Implemented as an axum JSON-RPC 2.0 server. Protocol: MCP spec 2024-11-05. Transport: HTTP POST at `http://localhost:3456/`.
 Resources: `loci://locus/{id}` (single node), `loci://room/{roomId}/loci` (room contents), `loci://search?q={query}` (keyword search, top 20).
 Tools: `create_locus(title, content, tags?, room_id?)` writes `~/.loci/loci/locus-{date}-{slug}.md`. `tag_locus(id, tags)` updates frontmatter tags on existing node.
 Goose config: `{"mcpServers": {"loci": {"url": "http://localhost:3456"}}}`.
 Security: `127.0.0.1` bind only. `X-Loci-Content-Trust: user-authored` + `X-Loci-Threat-Gate: THREAT-01:enforced` headers on all responses. Conversation objects never exposed. ID/room_id validated (alphanumeric + hyphens only, no path traversal). Port range: 1024–65535 (default 3456).
-Tauri commands: `start_mcp_server(port?, loci_dir?)`, `stop_mcp_server()`, `mcp_server_status()`. Storage: YAML frontmatter + Markdown. No external database.
+Server controls: `start_mcp_server(port?, loci_dir?)`, `stop_mcp_server()`, `mcp_server_status()`. Storage: YAML frontmatter + Markdown. No external database.
 
 **1C — Nostr Keypair Identity (NIP-07)**
 Loci's first auth model. Sign in with Nostr keypair via NIP-07 browser extension (Alby, nos2x). Private key never touches Loci's code. Auth is a feature, not a gate — the garden works without it. nsec stored in OS keychain when used.
@@ -176,7 +176,7 @@ Loci as a knowledge base for AnythingLLM's self-hosted workspace. MCP connection
 Private web search inside Loci. Trust tier: managed privacy (Kagi) or self-hosted (SearXNG). Both supported. Neither is the default — you decide. SearchBackend trait in Rust.
 
 **2H — Tailscale Local Brain**
-Loci Tauri app running on a persistent Tailscale node (home server or VPS). Browser extension on any device connects to the same brain over Tailscale mesh. Foundation for autonomous palace instances. Resolves native-messaging vs local-HTTP: local HTTP over Tailscale. LOCI_HOST config makes the brain node address configurable.
+loci running on a persistent Tailscale node (home server or VPS). Browser extension on any device connects to the same brain over Tailscale mesh. Foundation for autonomous palace instances. Resolves native-messaging vs local-HTTP: local HTTP over Tailscale. LOCI_HOST config makes the brain node address configurable.
 
 **Sovereignty principles (non-negotiable):**
 - Auth is a feature, not a gate. Sovereignty is never paywalled.
@@ -200,12 +200,6 @@ MutationObserver-based DOM collection. MiniSearch 7.x local search. IndexedDB st
 Zero network calls. ⌘K search overlay. Side panel for browsing and tagging.
 Security: content sanitization, sender validation, rate limiting.
 GitHub: https://github.com/huximaxi/loci/tree/main/extension
-
-**Desktop App (v0.1.0 - released)**
-Native Mac + Windows app (Tauri v2). KISS palace detector + migrator.
-Detects existing setups: loci, MemPalace, Karpathy-style, PALACE.md variants.
-Migrates to ~/.loci/ format. ELI-5 theme (green/cream).
-GitHub: https://github.com/huximaxi/loci/tree/main/desktop
 
 **Three tiers:**
 - ELI-5 - search + tagging, browser extension, no AI config required
@@ -232,7 +226,6 @@ GitHub: https://github.com/huximaxi/loci/tree/main/templates
 | Growth | None | None | None | **Garden** |
 | Multi-agent | None | Agent diaries | None | **Named personas** |
 | Browser ext | None | None | Yes | **Yes (v1.2)** |
-| Desktop app | None | None | None | **Yes (v0.1)** |
 | Sovereignty | None | None | None | **Nostr · Nym · Ollama** |
 | Dependencies | Python + embeddings | Python, databases | Electron, sync | **None** |
 
