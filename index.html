@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="wizard">
+<html lang="en" data-theme="wizard" data-dose="1">
 <head>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
 <meta charset="UTF-8" />
@@ -89,6 +89,10 @@
   <div class="theme-switcher" role="group" aria-label="Choose experience mode">
     <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="true">⚔ Wizard</button>
     <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
+  </div>
+  <!-- Dose: a volume knob for the hero ornament, never a vocabulary. 0 still … 5 threshold; text never moves. -->
+  <div class="theme-switcher dose-switcher" role="group" aria-label="Ornament dose">
+    <button class="theme-btn dose-btn" id="btn-dose" type="button" aria-label="Dose 1 of 5, calm" title="Dose 1: calm. Click for more, shift-click for less.">◎ dose 1</button>
   </div>
 
   </div><!-- /.nav-inner -->
@@ -407,6 +411,32 @@
     setTheme(saved);
   })();
 
+  // Dose: how much the hero ornament moves. Same ladder as the canon's dose switch:
+  // 0 still · 1 calm (default) · 2 deep hues · 3 the wheel · 4 echo · 5 threshold.
+  // Only the ornament changes; text never moves; reduced motion keeps the colour, drops the movement.
+  const DOSES = ['still', 'calm', 'deep hues', 'the wheel', 'echo', 'threshold'];
+  function setDose(n) {
+    n = ((n % 6) + 6) % 6;
+    document.documentElement.setAttribute('data-dose', String(n));
+    const btn = document.getElementById('btn-dose');
+    if (btn) {
+      btn.textContent = '◎ dose ' + n;
+      btn.setAttribute('aria-label', 'Dose ' + n + ' of 5, ' + DOSES[n]);
+      btn.title = 'Dose ' + n + ': ' + DOSES[n] + '. Click for more, shift-click for less.';
+    }
+    try { localStorage.setItem('loci-dose', String(n)); } catch(e) {}
+  }
+  (function initDose() {
+    const btn = document.getElementById('btn-dose');
+    if (btn) btn.addEventListener('click', e => {
+      const cur = parseInt(document.documentElement.getAttribute('data-dose') || '1', 10);
+      setDose(cur + (e.shiftKey ? -1 : 1));
+    });
+    let saved = null;
+    try { saved = localStorage.getItem('loci-dose'); } catch(e) {}
+    setDose(/^[0-5]$/.test(saved || '') ? parseInt(saved, 10) : 1);
+  })();
+
   // Claim-alleles IIFE retired 2026-06-25 (Nyx). The tier-row reveal was
   // removed from the hero; the claim now reads as plain text in all three
   // tiers, tier-context delivered by the nav switcher + tb-* gates below.
@@ -459,9 +489,15 @@
       r.style.setProperty('--ring-dur', dur);
       r.style.setProperty('--ring-delay', delay);
       r.style.setProperty('--ring-twist', twist);
+      r.setAttribute('data-depth', String(Math.min(3, Math.floor(i / 7.5))));  // hue-by-depth step for dose 2+
       svg.appendChild(r);
     }
+    svg.classList.add('fractal-main');
     host.appendChild(svg);
+    const echo = svg.cloneNode(true);  // mirrored, counter-rotating twin; shown from dose 4
+    echo.setAttribute('class', 'fractal-echo');
+    echo.setAttribute('aria-hidden', 'true');
+    host.appendChild(echo);
   })();
 
   // ── Contact modal ──────────────────────────────────────

@@ -504,6 +504,43 @@ section.hero-section {
   will-change: opacity, transform;
 }
 
+/* ── Dose: a volume knob for the hero ornament (canon 1.2.0) ─────────────
+   0 still · 1 calm (default: the hum above) · 2 deep hues (the depth walk
+   widens, the hum quickens) · 3 the wheel (the whole spiral turns, 90s)
+   · 4 echo (a mirrored twin counter-rotates; the overlap is the moire)
+   · 5 threshold (the crystal glows). Only the ornament moves; text never
+   does. Reduced motion keeps the colour and drops the movement (global
+   override). The landing is the only threshold, so the knob lives there. */
+.hero-fractal .fractal-echo { display: none; }
+html[data-dose="0"] .hero-fractal svg rect { animation: none; }
+html[data-theme="llmage"]:not([data-dose="0"]) .hero-fractal svg rect {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: wizard-ring-hum var(--ring-dur, 9s) ease-in-out infinite;
+  animation-delay: var(--ring-delay, 0s);
+}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .hero-fractal svg rect { animation-duration: 8s; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .hero-fractal rect[data-depth="0"] { stroke: #a289dc; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .hero-fractal rect[data-depth="1"] { stroke: #7a84e0; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .hero-fractal rect[data-depth="2"] { stroke: #3784d0; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .hero-fractal rect[data-depth="3"] { stroke: #21828c; }
+@keyframes loci-dose-turn { to { transform: rotate(360deg); } }
+@keyframes loci-dose-echo { from { transform: scaleX(-1) rotate(0deg); } to { transform: scaleX(-1) rotate(-360deg); } }
+html:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .hero-fractal .fractal-main { animation: loci-dose-turn 90s linear infinite; }
+html:is([data-dose="4"],[data-dose="5"]) .hero-fractal .fractal-echo {
+  display: block;
+  position: absolute;
+  width: min(820px, 132%);
+  height: auto;
+  opacity: 0.35;
+  animation: loci-dose-echo 130s linear infinite;
+}
+html[data-dose="5"] .hero-crystal { filter: drop-shadow(0 0 28px rgba(123,91,203,0.40)) drop-shadow(0 0 64px rgba(123,91,203,0.30)); }
+html[data-theme="wizard"][data-dose="5"] .hero-fractal { opacity: 0.4; }
+html[data-theme="llmage"][data-dose="5"] .hero-crystal { filter: drop-shadow(0 0 22px rgba(255,255,255,0.18)); }
+.dose-switcher { margin-left: 8px; }
+.dose-btn { font-variant-numeric: tabular-nums; min-width: 7.5ch; }
+
 /* wizard hero image retired 2026-06-25 (the "bricks" pixelart). Atmospheric
    gradient takes over: a soft violet wash on the right that fades to the
    page bg. Calmer and deeper than the old amber-stone register.
