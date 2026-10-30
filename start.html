@@ -144,7 +144,7 @@
     <!-- ── COGNITIVE HOMECOMING (Stage 5, Revelation) ── -->
     <div class="homecoming">
       <h1 class="homecoming-phrase">Make space for what you know.</h1>
-      <p class="homecoming-body">In about ten minutes you'll be running the mindspace primitive: plain-text firmware any file-aware AI reads, kept on your machine, growing quietly between sessions. What you figure out today, your AI picks up tomorrow.</p>
+      <p class="homecoming-body">In about ten minutes you'll have a palace: plain text any file-aware AI can read, in a folder you choose. What you figure out today, your AI picks up tomorrow.</p>
       <span class="homecoming-anchor">Start here ↓</span>
     </div>
 
@@ -169,8 +169,8 @@
         <div class="step-num">01</div>
         <div class="step-body">
           <h3>Create one room</h3>
-          <p>A room is a named context space. Create a folder. Give it a purpose. Put a plain-text memory file inside it (<code>CLAUDE.md</code> is one example; the firmware is plain text any file-aware AI reads). This is the thing your AI reads at the start of every session in that room.</p>
-          <p>The file can be two sentences. It just needs to answer: what is this room for, and what should never be forgotten here?</p>
+          <p>A room is a named context: a folder with one plain-text memory file (<code>CLAUDE.md</code> works). Your AI reads it at the start of every session there.</p>
+          <p>Two sentences will do: what is this room for, and what must never be forgotten here?</p>
           <pre><span class="accent"># Dev Room</span>
 This room holds the main product context.
 Stack: Next.js 14 / PostgreSQL / Railway.
@@ -186,8 +186,8 @@ Stack: Next.js 14 / PostgreSQL / Railway.
         <div class="step-num">02</div>
         <div class="step-body">
           <h3>Plant one crystal</h3>
-          <p>A crystal is a fact established once, never re-derived. The thing you keep having to explain to your AI at the start of every session. Write it down in your room's memory file. That's it, it's now a crystal.</p>
-          <p>Good crystals are atomic, specific, and stable. "We use pnpm, not npm" is a crystal. "The project is complex" is not.</p>
+          <p>A crystal is a fact established once and never re-derived: the thing you keep explaining at the start of every session. Write it in the room's file.</p>
+          <p>Good crystals are small, specific and stable. "We use pnpm, not npm" is a crystal. "The project is complex" is not.</p>
           <pre><span class="accent">## Crystals</span>
 - Auth token lives in .env.local, not committed
 - Component library: shadcn/ui, do not use MUI
@@ -200,18 +200,16 @@ Stack: Next.js 14 / PostgreSQL / Railway.
         <div class="step-num">03</div>
         <div class="step-body">
           <h3>Seed one garden plant</h3>
-          <p>The garden is where ideas grow across sessions. A garden plant is a question you're growing toward, not a task, not a feature, but a genuine open inquiry that deepens over time.</p>
-          <p>Create a <code>garden/</code> folder alongside your rooms. Add a file for the plant. Name it.</p>
+          <p>A garden plant is an open question you grow toward across sessions, not a task.</p>
+          <p>Keep one file per plant in a <code>garden/</code> folder next to your rooms.</p>
           <pre><span class="accent"># Plant: The Right Abstraction</span>
 **Planted:** 2026-04-28
-**Question:** At what point does an abstraction
-become the wrong one? Is it when it starts leaking,
-or when you stop being able to see through it?
+**Question:** When does an abstraction
+become the wrong one?
 
 ## Notes
-- Session 1: leaky abstractions are honest,
-  they tell you where the model breaks
-- Session 3: the real cost is when the leak
+- Session 1: leaky abstractions are honest
+- Session 3: the cost comes when the leak
   becomes load-bearing</pre>
         </div>
       </div>
@@ -219,8 +217,8 @@ or when you stop being able to see through it?
       <!-- Soul callout -->
       <div class="soul-note">
         <h3>The soul layer</h3>
-        <p>The onboarding script asks you ten questions, your work, your values, a garden seed, how you like to think. Partway through, the AI pauses and offers you five or six names for itself. Not generic ones. Names shaped by what it just heard: the texture of your work, a value you named, the question you're growing toward. You pick one. It immediately becomes that.</p>
-        <p><code>soul/SOUL.md</code> is written in that same session: character, working principles, what the AI has already learned about you. The palace accumulates facts. The soul accumulates perspective. Both start on day one.</p>
+        <p>Setup asks a few questions about your work and what you're curious about, then your AI offers names for itself, shaped by your answers. Pick one; that is who it becomes.</p>
+        <p><code>soul/SOUL.md</code> holds its character and what it has learned about you. The palace keeps facts. The soul keeps perspective.</p>
       </div>
 
       <!-- Step 4 -->
@@ -228,9 +226,9 @@ or when you stop being able to see through it?
         <div class="step-num">04</div>
         <div class="step-body">
           <h3>Run your first session</h3>
-          <p>Open a new conversation with your AI. Load the context. The trigger phrase can be anything, the point is that your AI reads the palace files before it speaks.</p>
-          <p>In Claude: start a session in the folder that contains your palace. The <code>CLAUDE.md</code> is read automatically. In other systems: paste the room context at the top of the conversation.</p>
-          <p>At the end of every session: update the room. Add crystals. Water the garden. The palace only works if it grows.</p>
+          <p>Open a new conversation. Your AI should read the palace files before it speaks.</p>
+          <p>Start Claude Code in your palace folder and it reads <code>CLAUDE.md</code> on its own. Elsewhere, paste the room file at the top of the conversation.</p>
+          <p>Close every session the same way. The palace only works if it grows.</p>
           <pre><span class="accent">## Session close ritual</span>
 1. Did anything become ground truth today? → Crystal
 2. Did any question deepen? → Water the plant
@@ -250,7 +248,7 @@ or when you stop being able to see through it?
       </div>
 
       <p style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint); margin-top:1.5rem;">
-        The GitHub repo has room templates, protocol files, and the full methodology. This page is the minimum, the repo is the depth.
+        This page is the minimum; the repo has the rest.
       </p>
 
     </div>
