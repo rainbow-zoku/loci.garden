@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>loci, the mindspace primitive</title>
 <meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The CLI is a demo; the substrate is yours." />
-<meta name="keywords" content="mindspace primitive, intelligence substrate, plain-text firmware, file-aware AI, local-first AI, MCP, context persistence" />
+<meta name="keywords" content="mindspace primitive, intelligence substrate, plain-text firmware, file-aware AI, local-first AI, context persistence" />
 <link rel="canonical" href="https://loci.garden/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://loci.garden/" />
@@ -215,790 +215,121 @@
     </div>
   </section>
 
-  <!-- ── SCHOLAR ILLUSTRATION ─────────────────────────── -->
-  <div class="tb-scholar scholar-illustration" aria-hidden="true">
-    <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
-      <!-- BUBBLE 1: warm orange (Claude-adjacent) -->
-      <rect x="16" y="22" width="108" height="46" rx="14" fill="rgba(232,144,106,0.06)" stroke="#e8906a" stroke-width="1.2"/>
-      <line x1="32" y1="36" x2="94" y2="36" stroke="#e8906a" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
-      <line x1="32" y1="47" x2="108" y2="47" stroke="#e8906a" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
-      <line x1="32" y1="57" x2="70" y2="57" stroke="#e8906a" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
-      <!-- BUBBLE 2: teal (ChatGPT-adjacent) -->
-      <rect x="160" y="64" width="116" height="44" rx="14" fill="rgba(74,170,136,0.06)" stroke="#4aaa88" stroke-width="1.2"/>
-      <line x1="176" y1="78" x2="250" y2="78" stroke="#4aaa88" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
-      <line x1="176" y1="89" x2="265" y2="89" stroke="#4aaa88" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
-      <line x1="176" y1="100" x2="220" y2="100" stroke="#4aaa88" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
-      <!-- BUBBLE 3: blue (Gemini-adjacent) -->
-      <rect x="8" y="122" width="104" height="44" rx="14" fill="rgba(88,144,216,0.06)" stroke="#5890d8" stroke-width="1.2"/>
-      <line x1="24" y1="136" x2="90" y2="136" stroke="#5890d8" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
-      <line x1="24" y1="147" x2="100" y2="147" stroke="#5890d8" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
-      <line x1="24" y1="157" x2="62" y2="157" stroke="#5890d8" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
-      <!-- BUBBLE 4: purple (generic) -->
-      <rect x="154" y="166" width="112" height="42" rx="14" fill="rgba(152,128,208,0.06)" stroke="#9880d0" stroke-width="1.2"/>
-      <line x1="170" y1="180" x2="246" y2="180" stroke="#9880d0" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
-      <line x1="170" y1="191" x2="256" y2="191" stroke="#9880d0" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
-      <line x1="170" y1="201" x2="208" y2="201" stroke="#9880d0" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
-      <!-- TANGLED → CONVERGING PATHS -->
-      <path d="M 124,45 C 152,45 148,72 172,76 C 198,80 212,105 248,110 C 274,113 305,113 330,115" fill="none" stroke="#e8906a" stroke-width="0.85" opacity="0.38" stroke-dasharray="5 3.5"/>
-      <path d="M 160,86 C 146,86 136,98 142,108 C 148,116 192,114 228,115 C 268,116 300,115 330,115" fill="none" stroke="#4aaa88" stroke-width="0.85" opacity="0.38"/>
-      <path d="M 112,144 C 148,144 155,126 182,122 C 210,118 258,116 290,115 C 310,115 322,115 330,115" fill="none" stroke="#5890d8" stroke-width="0.85" opacity="0.38" stroke-dasharray="5 3.5"/>
-      <path d="M 154,187 C 136,187 128,168 140,152 C 152,136 200,124 240,120 C 278,116 308,115 330,115" fill="none" stroke="#9880d0" stroke-width="0.85" opacity="0.38"/>
-      <!-- Convergence node -->
-      <circle cx="342" cy="115" r="5" fill="rgba(164,176,107,0.18)" stroke="#a4b06b" stroke-width="1.1"/>
-      <circle cx="342" cy="115" r="2.5" fill="#a4b06b" opacity="0.72"/>
-      <!-- Bridge to crystal -->
-      <path d="M 347,115 L 372,115" fill="none" stroke="#7a8642" stroke-width="1.3" opacity="0.82"/>
-      <!-- THE CRYSTAL: top(420,48) left(372,116) bottom(420,184) right(468,116) -->
-      <polygon points="420,48 372,116 420,116" fill="rgba(194,201,142,0.28)"/>
-      <polygon points="420,48 468,116 420,116" fill="rgba(164,176,107,0.36)"/>
-      <polygon points="372,116 420,184 420,116" fill="rgba(122,134,66,0.22)"/>
-      <polygon points="468,116 420,184 420,116" fill="rgba(90,107,46,0.32)"/>
-      <polygon points="420,48 372,116 420,184 468,116" fill="none" stroke="#a4b06b" stroke-width="1.1"/>
-      <line x1="420" y1="48" x2="420" y2="184" stroke="rgba(122,134,66,0.28)" stroke-width="0.7"/>
-      <line x1="372" y1="116" x2="468" y2="116" stroke="rgba(122,134,66,0.28)" stroke-width="0.7"/>
-      <circle cx="420" cy="48" r="4.5" fill="#c2c98e"/>
-      <circle cx="420" cy="48" r="9" fill="none" stroke="#a4b06b" stroke-width="0.9" stroke-dasharray="2.5 2" opacity="0.75"/>
-      <!-- BOTANICAL: upper branch -->
-      <path d="M 468,116 C 492,103 520,92 550,84" fill="none" stroke="#5a6b2e" stroke-width="1.5" stroke-linecap="round"/>
-      <!-- Lower branch -->
-      <path d="M 468,116 C 492,129 520,140 550,148" fill="none" stroke="#5a6b2e" stroke-width="1.5" stroke-linecap="round"/>
-      <!-- Secondary upper -->
-      <path d="M 550,84 C 574,76 600,70 628,66" fill="none" stroke="#7a8642" stroke-width="1.2" stroke-linecap="round"/>
-      <!-- Secondary lower -->
-      <path d="M 550,148 C 574,156 600,160 628,162" fill="none" stroke="#7a8642" stroke-width="1.2" stroke-linecap="round"/>
-      <!-- Leaf A: upper mid -->
-      <path d="M 512,90 C 518,80 530,80 530,89 C 530,98 518,98 512,90" fill="rgba(194,201,142,0.4)" stroke="#a4b06b" stroke-width="1"/>
-      <line x1="512" y1="90" x2="526" y2="89" stroke="#a4b06b" stroke-width="0.6" opacity="0.55"/>
-      <!-- Leaf B: lower mid -->
-      <path d="M 514,142 C 520,152 532,150 530,142 C 528,133 516,133 514,142" fill="rgba(164,176,107,0.35)" stroke="#7a8642" stroke-width="1"/>
-      <line x1="514" y1="142" x2="527" y2="142" stroke="#7a8642" stroke-width="0.6" opacity="0.55"/>
-      <!-- Leaf C: upper far -->
-      <path d="M 590,70 C 596,61 608,62 607,71 C 606,79 593,80 590,70" fill="rgba(194,201,142,0.32)" stroke="#a4b06b" stroke-width="0.9"/>
-      <line x1="590" y1="70" x2="604" y2="70" stroke="#a4b06b" stroke-width="0.5" opacity="0.5"/>
-      <!-- Leaf D: lower far -->
-      <path d="M 590,158 C 596,167 608,165 606,157 C 605,148 592,148 590,158" fill="rgba(122,134,66,0.28)" stroke="#7a8642" stroke-width="0.9"/>
-      <line x1="590" y1="158" x2="604" y2="158" stroke="#7a8642" stroke-width="0.5" opacity="0.5"/>
-      <!-- Terminal tips upper -->
-      <path d="M 628,66 C 648,60 668,57 686,56" fill="none" stroke="#a4b06b" stroke-width="1" stroke-linecap="round"/>
-      <path d="M 660,57 C 666,50 676,51 675,58 C 674,65 663,66 660,57" fill="rgba(194,201,142,0.28)" stroke="#a4b06b" stroke-width="0.8"/>
-      <!-- Terminal tips lower -->
-      <path d="M 628,162 C 648,166 668,167 686,166" fill="none" stroke="#a4b06b" stroke-width="1" stroke-linecap="round"/>
-      <path d="M 660,165 C 666,172 676,170 675,163 C 674,156 663,156 660,165" fill="rgba(164,176,107,0.24)" stroke="#7a8642" stroke-width="0.8"/>
-      <!-- Upward tendril from crystal apex -->
-      <path d="M 420,48 C 419,36 418,24 417,16" fill="none" stroke="#a4b06b" stroke-width="0.9" stroke-linecap="round" opacity="0.52"/>
-      <path d="M 417,16 C 415,10 411,9 410,13 C 409,17 413,20 417,16" fill="none" stroke="#a4b06b" stroke-width="0.7" opacity="0.42"/>
-      <!-- Small lateral leaf on tendril -->
-      <path d="M 420,40 C 428,33 436,34 434,41 C 432,48 423,47 420,40" fill="rgba(194,201,142,0.18)" stroke="#a4b06b" stroke-width="0.7" opacity="0.58"/>
-    </svg>
-  </div>
-
-  <!-- ── THREE-PERSONA COMPARISON (Scholar view) ─────── -->
-  <section class="tb-scholar" style="padding-top: 40px; padding-bottom: 20px;">
-    <span class="section-label">Three ways to run it</span>
+  <!-- ── THREE WAYS IN ───────────────────────────────── -->
+  <section id="paths" style="padding-top: 40px; padding-bottom: 20px;">
+    <span class="section-label">Three ways in</span>
     <div class="persona-cards">
-
-      <!-- Scholar card (current mode, highlighted) -->
       <div class="persona-card">
         <div>
-          <div class="persona-card-mode">◆ ELI-5</div>
+          <div class="persona-card-mode">◆ Plain text</div>
           <div class="persona-card-role">Your AI finally remembers you.</div>
         </div>
-        <p class="persona-card-desc">A regular user who wants their AI to stick. Start in plain markdown, no build: copy the kit, point your AI at it. Local, private, no account, no cloud, no re-explaining yourself every session.</p>
-        <div class="persona-card-feel">Feels like: your AI finally knows who you are.</div>
-        <a href="start.html" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="eli5">Design your mindspace →</a>
+        <p class="persona-card-desc">Copy the kit and point the AI you already use at it. No build, no account, no cloud.</p>
+        <a href="start.html" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="eli5">Start in ten minutes →</a>
       </div>
-
-      <!-- Wizard card -->
       <div class="persona-card wizard-accent">
         <div>
           <div class="persona-card-mode">⚔ Wizard<span class="persona-card-chip chip-beta">open beta</span></div>
-          <div class="persona-card-role">Open your AI client, point it at one file.</div>
+          <div class="persona-card-role">Point your AI client at one file.</div>
         </div>
-        <p class="persona-card-desc">A technically curious builder, gamer, or power user. Clone the kit, open the first-session file, and your AI walks the ritual with you. Works with local or remote LLMs.</p>
-        <div class="persona-card-feel">Feels like: building a dungeon your AI lives in.</div>
-        <a href="#start" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="wizard" onclick="setTheme('wizard')">See the ritual →</a>
+        <p class="persona-card-desc">Clone the kit, open <code>FIRST-SESSION.md</code>, and your AI walks the ritual with you. Local or remote models.</p>
+        <a href="#start" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="wizard">See the ritual →</a>
       </div>
-
-      <!-- LLMAGE card -->
       <div class="persona-card llmage-accent">
         <div>
           <div class="persona-card-mode">◈ LLMAGE<span class="persona-card-chip chip-beta">open beta</span></div>
-          <div class="persona-card-role">Clone the repo. Read the spec. Own the stack.</div>
+          <div class="persona-card-role">Read the spec. Own the stack.</div>
         </div>
-        <p class="persona-card-desc">A developer or researcher who wants full control over the context layer. <code>git clone</code> + read the templates, the primitives, and the CLI source. Nostr keypair identity in progress, see the <a href="roadmap.html" style="color:inherit;text-decoration:underline;">roadmap</a>.</p>
-        <div class="persona-card-feel">Feels like: the infrastructure, finally yours.</div>
-        <a href="https://docs.loci.garden" class="persona-card-cta" target="_blank" rel="noopener" data-umami-event="persona-cta" data-umami-event-persona="llmage">Read the spec →</a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ── STAGE 3: DEMIURGE FRAME (Scholar) ─────────────── -->
-  <section class="tb-scholar" style="padding: 52px 0 16px;">
-    <hr class="section-divider" />
-    <div class="demiurge-frame">
-      <p class="demiurge-main">The apps you use don't store your knowledge.<br>They store it <em>for you.</em></p>
-      <p class="demiurge-body">Notion holds your notes. ChatGPT holds your context. Apple holds your memory. Your thinking lives in their architecture, retrievable at their pleasure, gone when you leave. The knowledge you build with AI is yours. It just doesn't live where you live. Yet.</p>
-      <p class="demiurge-body">loci inverts this. It is plain text on your machine, firmware any AI can run. The substrate belongs to the person who runs it.</p>
-      <div class="demiurge-cta">
-        <a href="start.html" class="btn-primary"><span>Design your mindspace →</span></a>
+        <p class="persona-card-desc">Templates, primitives and CLI source: plain text you can audit line by line.</p>
+        <a href="https://docs.loci.garden" class="persona-card-cta" target="_blank" rel="noopener" data-umami-event="persona-cta" data-umami-event-persona="llmage">Read the docs →</a>
       </div>
     </div>
   </section>
 
-  <!-- ── FEATURES ─────────────────────────────────────── -->
+  <!-- ── THE PALACE ─────────────────────────────────── -->
   <hr class="section-divider" />
   <section id="features">
-    <span class="section-label">
-      <span class="t-scholar">What it gives you</span>
-      <span class="t-wizard">The Rooms</span>
-      <span class="t-llmage">CAPABILITIES</span>
-    </span>
-
-    <!-- ── WIZARD 9-CARD GRID (RPG tone, 3 groups + dividers) ── -->
-    <div class="wizard-features-grid">
-
-      <!-- Group 1: THE COMPANION -->
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 1 0 5 5A5 5 0 0 0 12 2zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-14 0v1"/></svg>
-        <div class="feature-title">Your Hero AI Companion</div>
-        <p class="feature-desc">The palace gives a file-aware AI somewhere to come back to. Reads your rooms. Knows your crystals. Sessions start with the context the last one left, less re-explaining, less rebuilding. Your AI doesn't grow wiser; it stops starting over.</p>
-      </div>
-
+    <span class="section-label">The palace</span>
+    <p class="palace-intro">Your AI doesn't grow wiser. It stops starting over: every session opens with what the last one left.</p>
+    <div class="wizard-features-grid palace-grid">
       <div class="feature-card">
         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         <div class="feature-title">Rooms</div>
-        <p class="feature-desc">A room is a named context space, Dev, Design, Research. Each has a soul file your AI reads before it speaks. The room holds what happened here before: the decisions, the patterns, the things that should never need explaining again.</p>
+        <p class="feature-desc">A named context space: Dev, Design, Research. Each room holds what happened there before.</p>
       </div>
-
       <div class="feature-card">
         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
-        <div class="feature-title">The Soul Layer</div>
-        <p class="feature-desc">Every room has a CLAUDE.md, the briefing file your AI reads at the start of every session. Two sentences or twenty. It answers: what is this room for, and what must never be forgotten here? Write it once. Let it grow.</p>
+        <div class="feature-title">The soul file</div>
+        <p class="feature-desc">One file per room that your AI reads before it speaks: what the room is for, and what must never be forgotten there.</p>
       </div>
-
-      <!-- Divider: THE KNOWLEDGE -->
-      <div class="card-group-divider">
-        <span class="card-group-label">THE KNOWLEDGE</span>
-      </div>
-
-      <!-- Group 2: THE KNOWLEDGE -->
       <div class="feature-card">
         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
         <div class="feature-title">Crystals</div>
-        <p class="feature-desc">A crystal is a fact established once, never re-derived. The decision you keep explaining from scratch every session. Write it in the room's soul file, it becomes part of the palace. Your AI never asks again.</p>
+        <p class="feature-desc">A fact established once and never re-derived. Write it down and your AI stops asking.</p>
       </div>
-
       <div class="feature-card">
         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12m0 0C12 7 7 4 3 6m9 6c0-5 5-8 9-6"/></svg>
-        <div class="feature-title">The Garden</div>
-        <p class="feature-desc">The garden holds open questions growing across sessions. Not tasks, not features, genuine inquiries you're moving toward slowly, across many sessions. A garden plant is something you tend. The garden remembers.</p>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg>
-        <div class="feature-title">The Hatchery</div>
-        <p class="feature-desc">New projects are fragile. The hatchery is the palace's incubator, a room without pressure, for ideas that aren't ready to be named. Prototype. Explore. Fail fast in the dark. When something matures, graduate it to the palace proper.</p>
-      </div>
-
-      <!-- Divider: THE ARCHITECTURE -->
-      <div class="card-group-divider">
-        <span class="card-group-label">THE ARCHITECTURE</span>
-      </div>
-
-      <!-- Group 3: THE ARCHITECTURE -->
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        <div class="feature-title">Agent Architecture</div>
-        <p class="feature-desc">Local LLMs, plain-text rooms, remote agents. Every room is a folder any file-aware agent reads as live context. The palace serves every conjuration.</p>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <div class="feature-title">Team Palace</div>
-        <p class="feature-desc">Shared rooms. Shared crystals. When a teammate opens the Design room they inherit the same accumulated context, not just your notes, but the living memory of every session held there. Co-intelligence that travels between minds.</p>
-      </div>
-
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        <div class="feature-title">The Chronicle</div>
-        <p class="feature-desc">Every session logged. Every decision preserved. The chronicle is the palace's long memory, not just what you know now, but how you came to know it. Navigate back through your thinking. The palace remembers what you forget.</p>
-      </div>
-
-    </div>
-
-    <!-- ── SHARED FEATURES GRID (scholar + llmage only) ── -->
-    <div class="features-grid non-wizard-grid">
-
-      <!-- Feature 1 -->
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-        <div class="feature-title">
-          <span class="t-scholar">Search everything</span>
-          <span class="t-wizard">Memory Loci</span>
-          <span class="t-llmage">context_persistence</span>
-        </div>
-        <p class="feature-desc">
-          <span class="t-scholar">Search across the rooms and crystals you've written down. The notes you keep are the notes you find.</span>
-          <span class="t-wizard">Every room a persistent location; every locus a file you laid down. Walk the palace from the CLI or your editor.</span>
-          <span class="t-llmage">Persistent context across sessions for the files in the palace. Search via loci-cli. Semantic indexing optional.</span>
-        </p>
-      </div>
-
-      <!-- Feature 2 -->
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-        </svg>
-        <div class="feature-title">
-          <span class="t-scholar">Organize by topic</span>
-          <span class="t-wizard">Rooms as Workspaces</span>
-          <span class="t-llmage">room_namespaces</span>
-        </div>
-        <p class="feature-desc">
-          <span class="t-scholar">Automatically group conversations by topic, project, or date. Your ideas stay connected, even across different AI tools.</span>
-          <span class="t-wizard">Each room is its own workspace. Dev room, Design room, Research room, each with its own soul file, memory, and agent context.</span>
-          <span class="t-llmage">Rooms are plain directories, one CLAUDE.md each. Compose them as namespaced contexts. Expose or isolate per agent.</span>
-        </p>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-        </svg>
-        <div class="feature-title">
-          <span class="t-scholar">Works with any AI</span>
-          <span class="t-wizard">Agent Architecture</span>
-          <span class="t-llmage">zero_vendor_lock</span>
-        </div>
-        <p class="feature-desc">
-          <span class="t-scholar">Any AI that can read a folder of plain text can read the palace. File-aware ones (Claude Code, Cursor, Goose, Continue, Zed) read it directly. Switch tools without losing what you wrote down.</span>
-          <span class="t-wizard">Plain text the file-aware models read directly. Local LLM via Ollama, remote agents via your own key.</span>
-          <span class="t-llmage">Plain-text substrate; any file-aware client reads it. Local-first, cloud-optional.</span>
-        </p>
-      </div>
-
-      <!-- Feature 4 -->
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M3 12h18M3 6h18M3 18h18"/><path d="M8 6V4m0 16v-2M16 6V4m0 16v-2"/>
-        </svg>
-        <div class="feature-title">
-          <span class="t-scholar">Never re-explain yourself</span>
-          <span class="t-wizard">The Garden</span>
-          <span class="t-llmage">namespace_isolation</span>
-        </div>
-        <p class="feature-desc">
-          <span class="t-scholar">loci remembers what you already figured out. Link back to past insights instead of rebuilding context from scratch every session.</span>
-          <span class="t-wizard">A living room for growing ideas. Seeds become concepts, concepts become loci. The garden grows quietly between sessions, return to find it richer than you left it.</span>
-          <span class="t-llmage">Rooms are namespaced scopes. Dev context stays in Dev. Research stays in Research. Explicit boundary control per session.</span>
-        </p>
-      </div>
-
-      <!-- Feature 5 -->
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <div class="feature-title">
-          <span class="t-scholar">Private by default</span>
-          <span class="t-wizard">The Hatchery</span>
-          <span class="t-llmage">snapshot_export</span>
-        </div>
-        <p class="feature-desc">
-          <span class="t-scholar">Everything runs on your machine. Plain text in a folder you own. No account, no telemetry, no cloud sync from the palace itself. The third-party AI you point at it keeps its own policies; that part is yours to choose.</span>
-          <span class="t-wizard">Where new projects incubate. Prototype, experiment, fail fast in an isolated room. When an idea matures, promote it to the palace proper.</span>
-          <span class="t-llmage">Plain-text on disk; git-friendly. Diff-able across time. Export is the filesystem.</span>
-        </p>
-      </div>
-
-      <!-- Feature 6: Wizard only -->
-      <div class="feature-card card-wizard-only">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-        <div class="feature-title">
-          <span class="t-wizard">Crystal Extraction</span>
-        </div>
-        <p class="feature-desc">
-          <span class="t-wizard">The palace distils your best thinking into crystals, reusable, quotable, linkable knowledge nodes. Extract once, reference everywhere.</span>
-        </p>
-      </div>
-
-    </div> <!-- end non-wizard-grid -->
-  </section>
-
-  <!-- ── WHO IT'S FOR — use-case × feature matrix ─────── -->
-  <hr class="section-divider" />
-  <section id="who" class="matrix-section">
-    <span class="section-label">
-      <span class="t-scholar">Who it's for</span>
-      <span class="t-wizard">Choose your path</span>
-      <span class="t-llmage">use_cases × capabilities</span>
-    </span>
-    <p class="matrix-intro">
-      <span class="t-scholar">One substrate, many shapes. Pick a use-case to trace which features it leans on. No two patterns are the same.</span>
-      <span class="t-wizard">One genome, many classes. Click a path to light its skill tree. The substrate is the same; the build is yours.</span>
-      <span class="t-llmage">// one substrate, N expressions. select a use_case to highlight its primary and supporting sets.</span>
-    </p>
-
-    <div class="matrix-wrap">
-      <table class="matrix-grid">
-        <thead>
-          <tr>
-            <th class="mx-rowhead" scope="col"><span class="t-scholar">use-case</span><span class="t-wizard">path</span><span class="t-llmage">use_case</span></th>
-            <th scope="col">Memory</th>
-            <th scope="col">Context</th>
-            <th scope="col">Identity</th>
-            <th scope="col">Garden</th>
-            <th scope="col">Continuity</th>
-            <th scope="col">Trust</th>
-            <th scope="col">Interop</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr data-uc="researcher">
-            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Researcher</button></th>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-          </tr>
-          <tr data-uc="builder">
-            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Builder</button></th>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="0"></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-          </tr>
-          <tr data-uc="companion">
-            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Companion-keeper</button></th>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-          </tr>
-          <tr data-uc="sovereign">
-            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Vault-keeper</button></th>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="0"></td>
-            <td data-l="0"></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-          </tr>
-          <tr data-uc="team">
-            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Team</button></th>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-          </tr>
-          <tr data-uc="migrator">
-            <th scope="row" class="mx-uc"><button type="button" class="mx-uc-btn">The Nomad</button></th>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="0"></td>
-            <td data-l="0"></td>
-            <td data-l="0"></td>
-            <td data-l="1"><span class="mx-dot is-supporting" aria-hidden="true"></span></td>
-            <td data-l="2"><span class="mx-dot is-primary" aria-hidden="true"></span></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="matrix-detail" id="matrix-detail" aria-live="polite"></div>
-      <p class="matrix-legend"><span class="mx-dot is-primary" aria-hidden="true"></span> primary &nbsp; <span class="mx-dot is-supporting" aria-hidden="true"></span> supporting &nbsp;·&nbsp; click a use-case to trace its pattern</p>
-    </div>
-  </section>
-
-  <!-- ── RUN IT LOCALLY (Wizard + LLMAGE) ──────────────── -->
-  <div class="tb-wizard-up">
-    <hr class="section-divider" />
-    <section id="download">
-      <span class="section-label">
-        <span class="t-wizard">Run It Locally</span>
-        <span class="t-llmage">LOCAL INSTALL</span>
-      </span>
-
-      <div class="tauri-section">
-        <div class="tauri-section-title">
-          <span class="t-wizard">Build your palace.<br>Keep it close.</span>
-          <span class="t-llmage">loci · local-first · plain-text</span>
-        </div>
-
-        <p class="tauri-section-body">
-          <span class="t-wizard">Your palace lives on your machine, in your ~/.loci/ directory: rooms configured, crystals loaded, agents connected. Point your AI client at it and it reads your rooms before it answers. Not a browser tab. Not a cloud sync. A local memory the substrate owns, that runs while you work.</span>
-          <span class="t-llmage">Plain-text substrate under ~/.loci/, bootstrapped on first run. Any file-aware client reads rooms and crystals straight from disk. Clone the kit, or build the CLI from source.</span>
-        </p>
-
-        <!-- Quest mechanic, Wizard only -->
-        <div class="tauri-quest-block">
-          <p><strong>The onboarding runs like a dungeon.</strong> Each step is a room. Enter the Palace, configure your rooms, summon your first LLM, write your first handover. Complete the setup and your palace is live. The quest doesn't end, it continues with every session. Every room you add is a new wing. Every crystal you extract is loot.</p>
-        </div>
-
-        <!-- LLMAGE: file structure -->
-        <div class="tb-llmage llmage-filetree">
-<span class="ft-dir">~/.loci/</span>
-├── <span class="ft-file">config.json</span>         <span class="ft-comment"># tier, providers, sync settings</span>
-├── <span class="ft-dir">index/</span>
-│   ├── <span class="ft-file">search.json</span>       <span class="ft-comment"># MiniSearch index (serialised)</span>
-│   └── <span class="ft-file">metadata.db</span>       <span class="ft-comment"># SQLite: metadata + tags</span>
-├── <span class="ft-dir">rooms/</span>
-│   ├── <span class="ft-dir">dev/</span>
-│   │   └── <span class="ft-file">CLAUDE.md</span>      <span class="ft-comment"># room soul file</span>
-│   ├── <span class="ft-dir">design/</span>
-│   └── <span class="ft-dir">research/</span>
-├── <span class="ft-dir">loci/</span>                  <span class="ft-comment"># crystallised .locus nodes</span>
-└── <span class="ft-dir">logs/</span>
-    └── <span class="ft-file">session.log</span>
-        </div>
-
-        <p class="tauri-meta">
-          <span class="t-wizard">loci · v0.6.0 · open beta · point your AI at the kit, or build the CLI from source: github.com/huximaxi/loci</span>
-          <span class="t-llmage">loci CLI + templates kit · arm64 + x86_64 · build from source: github.com/huximaxi/loci</span>
-        </p>
-
-        <!-- ── LOCAL-FIRST AGENT CTAs ──────────────────── -->
-        <!-- Ollama spec: for users who run local AI agents -->
-        <div class="agent-cta-block">
-          <p class="agent-cta-intro">
-            <span class="t-wizard">Runs local. No account. No cloud.</span>
-            <span class="t-llmage">Runs local. No account. No cloud.</span>
-            <span class="t-scholar">Runs local. No account. No cloud.</span>
-          </p>
-          <div class="agent-cta-row">
-            <a href="install/ollama-setup.sh" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="ollama-spec">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span class="t-wizard">Ollama Setup ↓</span>
-              <span class="t-llmage">ollama-setup.sh</span>
-              <span class="t-scholar">Ollama Setup ↓</span>
-            </a>
-            <span class="agent-cta-sep">or</span>
-            <a href="download.html" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="cli-anchor">
-              <span class="t-wizard">loci CLI ↓</span>
-              <span class="t-llmage">loci CLI ↓</span>
-              <span class="t-scholar">loci CLI ↓</span>
-            </a>
-          </div>
-        </div>
-        <!-- ── / LOCAL-FIRST AGENT CTAs ───────────────── -->
-
-      </div>
-    </section>
-  </div>
-
-  <!-- ── ABOUT / SEED ──────────────────────────────────── -->
-  <hr class="section-divider" />
-  <section id="about">
-    <span class="section-label">
-      <span class="t-scholar">Why we built this</span>
-      <span class="t-wizard">The Origin · The Seed</span>
-      <span class="t-llmage">ABOUT</span>
-    </span>
-
-    <!-- Scholar: plain human -->
-    <div class="tb-scholar">
-      <p class="about-prose">We built loci because the best AI work kept vanishing. A breakthrough insight at 2am, searched for a week later, gone. Re-explaining the same context to the same AI, session after session. Your thinking was happening, just nowhere permanent. loci is the fix: a plain-text substrate your AI reads before it answers, so the work you do together stays yours, local, searchable, never leaving your device.</p>
-    </div>
-
-    <!-- Wizard: palace origin + palace map -->
-    <div class="tb-wizard">
-      <p class="about-prose">The memory palace is one of the oldest techniques for thought: a place for everything, everything in its place. loci applies this to co-intelligence. A room is a persistent workspace, Dev, Design, Research, not a single conversation. Conversations happen inside rooms, accumulating context over time. What crystallises from that work becomes a locus: a fixed point in the palace, a node your memory navigates back to. The palace grows as you build inside it. Your thinking becomes architecture.</p>
-      <div class="palace-map-wrap">
-        <!-- Using the real palace map illustration from loci.garden -->
-        <img src="/assets/palace-map-v2.png"
-             alt="Palace map, rooms of the co-intelligence system"
-             style="width:100%;height:auto;display:block;border-radius:var(--radius);border:2px solid var(--border);image-rendering:pixelated;"
-             loading="lazy" />
-        <!-- SVG fallback (hidden, kept for offline/local reference) -->
-        <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" style="display:none;image-rendering:pixelated;">
-          <rect width="700" height="360" fill="#0a0a0c"/>
-          <defs>
-            <pattern id="pstone" width="32" height="16" patternUnits="userSpaceOnUse">
-              <rect width="32" height="16" fill="#252530"/>
-              <rect x="0" y="0" width="13" height="7" fill="#2a2a38"/>
-              <rect x="15" y="0" width="17" height="7" fill="#262634"/>
-              <rect x="0" y="9" width="8" height="7" fill="#28283a"/>
-              <rect x="10" y="9" width="22" height="7" fill="#2e2e44"/>
-              <rect x="8" y="8" width="2" height="8" fill="#1c1c26"/>
-              <rect x="0" y="7" width="32" height="2" fill="#1c1c26"/>
-              <rect x="14" y="0" width="2" height="8" fill="#1c1c26"/>
-            </pattern>
-          </defs>
-          <!-- Stone wall backdrop -->
-          <rect width="700" height="360" fill="url(#pstone)" opacity="0.55"/>
-          <!-- ── CASTLE OUTER WALL ── -->
-          <rect x="8" y="8" width="684" height="344" fill="none" stroke="#353540" stroke-width="6"/>
-          <rect x="12" y="12" width="676" height="336" fill="none" stroke="#1c1c26" stroke-width="2" stroke-dasharray="6 5" opacity="0.4"/>
-          <!-- Corner towers -->
-          <rect x="8" y="8" width="16" height="16" fill="#353540"/><rect x="676" y="8" width="16" height="16" fill="#353540"/>
-          <rect x="8" y="336" width="16" height="16" fill="#353540"/><rect x="676" y="336" width="16" height="16" fill="#353540"/>
-          <!-- ── ROOMS ROW 1 ── -->
-          <!-- GARDEN (teal, top-left) -->
-          <rect x="18" y="18" width="170" height="148" fill="#04080f" stroke="#1a3a5a" stroke-width="3"/>
-          <rect x="22" y="22" width="162" height="140" fill="rgba(26,58,90,0.55)"/>
-          <rect x="25" y="25" width="156" height="134" fill="none" stroke="#4a9ab8" stroke-width="1.2" opacity="0.5"/>
-          <!-- Window glow -->
-          <rect x="68" y="52" width="22" height="22" fill="rgba(74,154,184,0.15)" stroke="#4a9ab8" stroke-width="1"/>
-          <rect x="70" y="54" width="8" height="18" fill="rgba(170,221,255,0.2)"/>
-          <text x="103" y="104" font-family="'Press Start 2P',monospace" font-size="7" fill="#4a9ab8" text-anchor="middle" opacity="0.9">THE</text>
-          <text x="103" y="117" font-family="'Press Start 2P',monospace" font-size="7" fill="#4a9ab8" text-anchor="middle" opacity="0.9">GARDEN</text>
-          <text x="103" y="136" font-family="'Press Start 2P',monospace" font-size="5.5" fill="#1a3a5a" text-anchor="middle" opacity="0.7">growing ideas</text>
-          <!-- Doorway east -->
-          <rect x="188" y="75" width="14" height="40" fill="#0a0a0c"/>
-
-          <!-- GREAT HALL (amber, top-center, taller) -->
-          <rect x="210" y="18" width="280" height="168" fill="#100804" stroke="#5a3010" stroke-width="3"/>
-          <rect x="214" y="22" width="272" height="160" fill="rgba(50,24,4,0.65)"/>
-          <rect x="218" y="26" width="264" height="152" fill="none" stroke="#c87c2c" stroke-width="1.5" opacity="0.55"/>
-          <!-- Central lantern -->
-          <rect x="322" y="68" width="56" height="46" fill="none" stroke="#c87c2c" stroke-width="1" opacity="0.4"/>
-          <rect x="332" y="78" width="36" height="26" fill="rgba(200,124,44,0.12)"/>
-          <rect x="346" y="86" width="8" height="8" fill="#ffcc44" opacity="0.75"/>
-          <rect x="342" y="82" width="16" height="16" fill="none" stroke="rgba(255,200,80,0.35)" stroke-width="1"/>
-          <text x="350" y="142" font-family="'Press Start 2P',monospace" font-size="9" fill="#e8974a" text-anchor="middle" opacity="0.95">GREAT HALL</text>
-          <text x="350" y="160" font-family="'Press Start 2P',monospace" font-size="5.5" fill="#c87c2c" text-anchor="middle" opacity="0.55">✦ THE PALACE ✦</text>
-          <!-- Doorways: west, east, south -->
-          <rect x="202" y="75" width="14" height="40" fill="#0a0a0c"/>
-          <rect x="486" y="75" width="14" height="40" fill="#0a0a0c"/>
-          <rect x="322" y="186" width="56" height="14" fill="#0a0a0c"/>
-
-          <!-- DEV ROOM (blue, top-right) -->
-          <rect x="512" y="18" width="170" height="148" fill="#040810" stroke="#1e3a7a" stroke-width="3"/>
-          <rect x="516" y="22" width="162" height="140" fill="rgba(6,11,26,0.6)"/>
-          <rect x="519" y="25" width="156" height="134" fill="none" stroke="#4477dd" stroke-width="1.2" opacity="0.5"/>
-          <!-- Monitor -->
-          <rect x="566" y="54" width="28" height="20" fill="none" stroke="#4477dd" stroke-width="1.2"/>
-          <rect x="568" y="56" width="24" height="16" fill="rgba(68,119,221,0.18)"/>
-          <rect x="570" y="58" width="12" height="1.5" fill="#5588ff" opacity="0.7"/>
-          <rect x="570" y="61" width="16" height="1.5" fill="#5588ff" opacity="0.5"/>
-          <rect x="570" y="64" width="8" height="1.5" fill="#5588ff" opacity="0.4"/>
-          <text x="597" y="104" font-family="'Press Start 2P',monospace" font-size="7" fill="#4477dd" text-anchor="middle" opacity="0.9">DEV</text>
-          <text x="597" y="117" font-family="'Press Start 2P',monospace" font-size="7" fill="#4477dd" text-anchor="middle" opacity="0.9">ROOM</text>
-          <text x="597" y="136" font-family="'Press Start 2P',monospace" font-size="5.5" fill="#1e3a7a" text-anchor="middle" opacity="0.7">forge &amp; build</text>
-          <!-- Doorway west -->
-          <rect x="498" y="75" width="14" height="40" fill="#0a0a0c"/>
-
-          <!-- ── ROOMS ROW 2 ── -->
-          <!-- DESIGN ROOM (warm amber, bottom-left) -->
-          <rect x="18" y="200" width="170" height="148" fill="#0e0804" stroke="#5a3a18" stroke-width="3"/>
-          <rect x="22" y="204" width="162" height="140" fill="rgba(40,18,4,0.6)"/>
-          <rect x="25" y="207" width="156" height="134" fill="none" stroke="#e8a84a" stroke-width="1.2" opacity="0.5"/>
-          <!-- Candle -->
-          <rect x="96" y="238" width="8" height="22" fill="rgba(200,124,44,0.25)" stroke="#e8a84a" stroke-width="1"/>
-          <rect x="98" y="234" width="4" height="8" fill="#ffcc66" opacity="0.8"/>
-          <rect x="96" y="234" width="8" height="2" fill="rgba(255,200,80,0.3)"/>
-          <text x="103" y="284" font-family="'Press Start 2P',monospace" font-size="7" fill="#e8a84a" text-anchor="middle" opacity="0.9">DESIGN</text>
-          <text x="103" y="297" font-family="'Press Start 2P',monospace" font-size="7" fill="#e8a84a" text-anchor="middle" opacity="0.9">ROOM</text>
-          <text x="103" y="316" font-family="'Press Start 2P',monospace" font-size="5.5" fill="#5a3a18" text-anchor="middle" opacity="0.7">vision &amp; craft</text>
-          <!-- Doorway east -->
-          <rect x="188" y="258" width="14" height="40" fill="#0a0a0c"/>
-
-          <!-- RESEARCH (forest green, bottom-center) -->
-          <rect x="210" y="200" width="280" height="148" fill="#040b04" stroke="#1a3d1f" stroke-width="3"/>
-          <rect x="214" y="204" width="272" height="140" fill="rgba(4,16,4,0.55)"/>
-          <rect x="218" y="208" width="264" height="132" fill="none" stroke="#4a9a4f" stroke-width="1.5" opacity="0.5"/>
-          <!-- Book stack -->
-          <rect x="322" y="236" width="56" height="38" fill="none" stroke="#4a9a4f" stroke-width="1" opacity="0.5"/>
-          <rect x="326" y="240" width="48" height="6" fill="rgba(74,154,79,0.2)"/>
-          <rect x="326" y="248" width="48" height="6" fill="rgba(74,154,79,0.15)"/>
-          <rect x="326" y="256" width="48" height="6" fill="rgba(74,154,79,0.12)"/>
-          <text x="350" y="298" font-family="'Press Start 2P',monospace" font-size="7" fill="#4a9a4f" text-anchor="middle" opacity="0.9">RESEARCH</text>
-          <text x="350" y="316" font-family="'Press Start 2P',monospace" font-size="5.5" fill="#1a3d1f" text-anchor="middle" opacity="0.7">archive &amp; recall</text>
-          <!-- Doorways: west, east, north -->
-          <rect x="202" y="258" width="14" height="40" fill="#0a0a0c"/>
-          <rect x="486" y="258" width="14" height="40" fill="#0a0a0c"/>
-          <rect x="322" y="192" width="56" height="14" fill="#0a0a0c"/>
-
-          <!-- HATCHERY (earthy, bottom-right) -->
-          <rect x="512" y="200" width="170" height="148" fill="#0a0804" stroke="#3a2810" stroke-width="3"/>
-          <rect x="516" y="204" width="162" height="140" fill="rgba(28,16,4,0.6)"/>
-          <rect x="519" y="207" width="156" height="134" fill="none" stroke="#c8943a" stroke-width="1.2" opacity="0.5"/>
-          <!-- Egg -->
-          <ellipse cx="596" cy="252" rx="16" ry="18" fill="none" stroke="#c8943a" stroke-width="1.5"/>
-          <ellipse cx="596" cy="252" rx="10" ry="12" fill="rgba(200,148,58,0.12)"/>
-          <text x="597" y="284" font-family="'Press Start 2P',monospace" font-size="7" fill="#c8943a" text-anchor="middle" opacity="0.9">THE</text>
-          <text x="597" y="297" font-family="'Press Start 2P',monospace" font-size="7" fill="#c8943a" text-anchor="middle" opacity="0.9">HATCHERY</text>
-          <text x="597" y="316" font-family="'Press Start 2P',monospace" font-size="5.5" fill="#3a2810" text-anchor="middle" opacity="0.7">seeds incubate</text>
-          <!-- Doorway west -->
-          <rect x="498" y="258" width="14" height="40" fill="#0a0a0c"/>
-
-          <!-- Map footer label -->
-          <text x="350" y="352" font-family="'Press Start 2P',monospace" font-size="5.5" fill="#353540" text-anchor="middle" letter-spacing="0.08em">LOCI.GARDEN · PALACE FLOOR PLAN · v0.6.0</text>
-        </svg><!-- end fallback SVG -->
-      </div>
-    </div>
-
-    <!-- LLMAGE: architecture principles -->
-    <div class="tb-llmage">
-      <p class="about-prose">loci is a mindspace primitive: an intelligence substrate any file-aware model runs. It solves the stateless session problem for LLM-native workflows, not by adding a cloud layer, but by treating your local machine as the canonical context store. No accounts. No sync. Architecture documented at <a href="https://docs.loci.garden" style="color:var(--text-2);">docs.loci.garden</a>.</p>
-      <div class="llmage-principles">
-        <div class="llmage-principle">Context is state. State must persist.</div>
-        <div class="llmage-principle">Local is canonical. Cloud is optional.</div>
-        <div class="llmage-principle">Rooms are namespaces. Namespaces are tools.</div>
-        <div class="llmage-principle">The index lives with you. Always has.</div>
-      </div>
-      <!-- Full config block -->
-      <div class="code-block" style="margin-top:28px;">
-        <span class="comment"># config.json, full Wizard/LLMAGE tier</span><br>
-        {<br>
-        &nbsp;&nbsp;<span class="string">"version"</span>: <span class="string">"0.6.0"</span>,<br>
-        &nbsp;&nbsp;<span class="string">"tier"</span>: <span class="string">"wizard"</span>, <span class="comment">// "eli5" | "wizard" | "llmage"</span><br>
-        &nbsp;&nbsp;<span class="string">"index"</span>: {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"auto_sync"</span>: <span class="keyword">true</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"sync_interval"</span>: <span class="string">"5m"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"full_text"</span>: <span class="keyword">true</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"semantic"</span>: <span class="keyword">false</span><br>
-        &nbsp;&nbsp;},<br>
-        &nbsp;&nbsp;<span class="string">"llm"</span>: {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"provider"</span>: <span class="string">"local"</span>, <span class="comment">// "local" | "claude" | "openai"</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"endpoint"</span>: <span class="string">"http://localhost:11434"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"model"</span>: <span class="string">"llama3"</span><br>
-        &nbsp;&nbsp;}<br>
-        }
+        <div class="feature-title">The garden</div>
+        <p class="feature-desc">Open questions you tend across sessions. Not tasks: inquiries that grow slowly.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── GETTING STARTED ──────────────────────────────── -->
+  <!-- ── RUN IT LOCALLY ─────────────────────────────── -->
   <hr class="section-divider" />
   <section id="start">
-    <span class="section-label">
-      <span class="t-scholar">Get started in minutes</span>
-      <span class="t-wizard">The Ritual of Entry</span>
-      <span class="t-llmage">INSTALLATION</span>
-    </span>
-
-    <!-- Requirements block -->
-    <div class="req-block">
-      <div class="req-title">
-        <span class="t-scholar">What you need</span>
-        <span class="t-wizard">Prerequisites</span>
-        <span class="t-llmage">REQUIREMENTS</span>
-      </div>
-      <ul class="req-list">
-        <li>
-          <span class="t-scholar">Any AI tool you already use (Claude, ChatGPT, etc.)</span>
-          <span class="t-wizard">A working LLM endpoint, local or remote</span>
-          <span class="t-llmage">node >= 18 or python >= 3.10</span>
-        </li>
-        <li>
-          <span class="t-scholar">About 20 minutes to set things up</span>
-          <span class="t-wizard">20 minutes + the step-by-step guide</span>
-          <span class="t-llmage">file-aware client (Claude Code, Zed, Cursor)</span>
-        </li>
-        <li>
-          <span class="t-scholar">A browser (that's it!)</span>
-          <span class="t-wizard">A local LLM or Claude API key (for full palace mode)</span>
-          <span class="t-llmage">git + config.json (provided)</span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Steps -->
-    <ul class="steps-list" style="margin-top: 32px;">
+    <span class="section-label">Run it locally</span>
+    <ul class="steps-list">
       <li class="step-item">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h4>
-            <span class="t-scholar">Start in plain markdown</span>
-            <span class="t-wizard">Claim Your First Room</span>
-            <span class="t-llmage">clone + configure</span>
-          </h4>
-          <p>
-            <span class="t-scholar">Fastest start is plain text: copy the kit, point any AI at it, no build. Local, no account, no cloud.</span>
-            <span class="t-wizard">Open a terminal. The one-liner below fetches the kit; copy <code>templates/</code> into a folder of your own.</span>
-            <span class="t-llmage"><code>git clone https://github.com/huximaxi/loci && cp -r loci/templates ./palace</code></span>
-          </p>
+          <h4>Get the kit</h4>
+          <p>Clone the repo and copy <code>templates/</code> into a folder of your own.</p>
         </div>
       </li>
       <li class="step-item">
         <div class="step-num">2</div>
         <div class="step-body">
-          <h4>
-            <span class="t-scholar">Connect your AI chats</span>
-            <span class="t-wizard">Point Your AI at the Palace</span>
-            <span class="t-llmage">point client</span>
-          </h4>
-          <p>
-            <span class="t-scholar">Point your AI at the palace folder. Claude Code, Cursor, and any file-aware client read the files directly. Nothing leaves your device that you don't send.</span>
-            <span class="t-wizard">Point loci at your local LLM or API key. Your palace connects to the conjuration engine of your choice.</span>
-            <span class="t-llmage">Open the palace folder in your client and run <code>FIRST-SESSION.md</code>; it builds <code>PALACE.md</code>, the entry point. No server, no port.</span>
-          </p>
+          <h4>Point your AI at it</h4>
+          <p>Open the folder in any file-aware client (Claude Code, Cursor, Zed, a local model) and run <code>FIRST-SESSION.md</code>. It builds <code>PALACE.md</code>, the entry point.</p>
         </div>
       </li>
       <li class="step-item">
         <div class="step-num">3</div>
         <div class="step-body">
-          <h4>
-            <span class="t-scholar">Search anything you've said</span>
-            <span class="t-wizard">Walk the Palace</span>
-            <span class="t-llmage">invoke + verify</span>
-          </h4>
-          <p>
-            <span class="t-scholar">Open your AI, search the palace, find the room and the crystal. The work compounds because you wrote it down.</span>
-            <span class="t-wizard">Navigate your rooms, recall your loci, summon your agents. The palace grows the way you tend it.</span>
-            <span class="t-llmage"><code>loci read &lt;room&gt;</code> from the CLI, or ask your client to read the room. Verify the context is populated before the first agent run.</span>
-          </p>
+          <h4>Walk the palace</h4>
+          <p>Your AI reads the room before it answers. The palace grows the way you tend it.</p>
         </div>
       </li>
     </ul>
-
-    <!-- Wizard autoinstaller block -->
-    <div class="wizard-install-block tb-wizard">
-      <div class="wi-comment">// 1. run one line in your terminal:</div>
+    <div class="wizard-install-block">
+      <div class="wi-comment">// one line in your terminal:</div>
       <br>
       <span class="wi-cmd" id="wizard-curl-cmd">git clone https://github.com/huximaxi/loci</span>
       <button class="wi-copy-btn" data-umami-event="wizard-curl-copy" onclick="copyWizardCurl(this)" aria-label="Copy command">copy</button>
       <br><br>
-      <div class="wi-comment">// 2. copy templates/ into a folder of your own</div>
-      <div class="wi-comment">// 3. open FIRST-SESSION.md with your AI; it walks the ritual with you</div>
       <div class="wi-comment">// plain text · no build · nothing leaves your machine</div>
     </div>
-    <p class="tb-wizard" style="margin-top:12px;font-size:12px;color:var(--text-3);">
-      Want to read it first? Everything is plain text in the repo:
-      <a href="https://github.com/huximaxi/loci" style="color:var(--accent-light);">github.com/huximaxi/loci</a>.
-    </p>
-
-    <!-- LLMAGE code block -->
-    <div class="code-block">
-      <span class="comment"># config.json, minimal setup</span><br>
-      {<br>
-      &nbsp;&nbsp;<span class="string">"loci_dir"</span>: <span class="string">"~/.loci"</span>,<br>
-      &nbsp;&nbsp;<span class="string">"llm"</span>: { <span class="string">"provider"</span>: <span class="string">"local"</span>, <span class="string">"endpoint"</span>: <span class="string">"http://localhost:11434"</span> },<br>
-      &nbsp;&nbsp;<span class="string">"index"</span>: { <span class="string">"semantic"</span>: <span class="keyword">false</span>, <span class="string">"sync_interval"</span>: <span class="string">"5m"</span> }<br>
-      }
+    <div class="agent-cta-block">
+      <p class="agent-cta-intro">Runs local. No account. No cloud.</p>
+      <div class="agent-cta-row">
+        <a href="install/ollama-setup.sh" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="ollama-spec">Ollama setup ↓</a>
+        <span class="agent-cta-sep">or</span>
+        <a href="download.html" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="cli-anchor">loci CLI ↓</a>
+      </div>
     </div>
+  </section>
 
-    <!-- Final CTA -->
-    <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
-      <a href="start.html" class="btn-primary tb-scholar">
-        <span class="t-scholar">Design your mindspace →</span>
-      </a>
-      <a href="start.html" class="btn-primary tb-wizard">
-        <span class="t-wizard">Build your palace →</span>
-      </a>
-      <a href="https://docs.loci.garden" class="btn-primary tb-llmage" target="_blank" rel="noopener">
-        <span class="t-llmage">Full documentation →</span>
-      </a>
+  <!-- ── THE ORIGIN ─────────────────────────────────── -->
+  <hr class="section-divider" />
+  <section id="about">
+    <span class="section-label">The origin</span>
+    <p class="about-prose">The memory palace is one of the oldest techniques for thought: a place for everything, everything in its place. loci applies it to working with AI. <a href="about.html" style="color:var(--accent-light);">Where it grew from →</a></p>
+    <div class="palace-map-wrap">
+      <img src="/assets/palace-map-v2.png"
+             alt="Palace map, rooms of the co-intelligence system"
+             style="width:100%;height:auto;display:block;border-radius:var(--radius);border:2px solid var(--border);image-rendering:pixelated;"
+             loading="lazy" />
     </div>
   </section>
 
@@ -1123,46 +454,6 @@
   // removed from the hero; the claim now reads as plain text in all three
   // tiers, tier-context delivered by the nav switcher + tb-* gates below.
 
-  // ── Use-case × feature matrix ─────────────────────────
-  (function matrix() {
-    const grid = document.querySelector('.matrix-grid');
-    if (!grid) return;
-    const detail = document.getElementById('matrix-detail');
-    const rows = Array.from(grid.querySelectorAll('tbody tr'));
-    const heads = Array.from(grid.querySelectorAll('thead th')).slice(1);
-    const FEAT = ['Memory', 'Context', 'Identity', 'Garden', 'Continuity', 'Trust', 'Interop'];
-    const UC = {
-      researcher: { name: 'The Researcher', blurb: 'Long-running thinking, thesis continuity, an idea garden.' },
-      builder:    { name: 'The Builder', blurb: 'Code context across sessions, MCP and IDE-native.' },
-      companion:  { name: 'The Companion-keeper', blurb: 'A named, persistent co-intelligence.' },
-      sovereign:  { name: 'The Vault-keeper', blurb: 'Local-only, inspectable, prunable. Nothing leaves.' },
-      team:       { name: 'The Team', blurb: 'A shared substrate and shared conventions, people and their AIs.' },
-      migrator:   { name: 'The Nomad', blurb: 'Moving across Claude, Cursor, and Codex without lock-in.' }
-    };
-    rows.forEach(tr => {
-      Array.from(tr.querySelectorAll('td')).forEach((c, i) => {
-        const l = c.dataset.l;
-        c.setAttribute('aria-label', FEAT[i] + ': ' + (l === '2' ? 'primary' : l === '1' ? 'supporting' : 'not used'));
-      });
-    });
-    function select(tr) {
-      rows.forEach(r => r.classList.toggle('is-active', r === tr));
-      grid.classList.add('has-active');
-      const cells = Array.from(tr.querySelectorAll('td'));
-      const prim = [], supp = [];
-      cells.forEach((c, i) => { const l = c.dataset.l; if (l === '2') prim.push(FEAT[i]); else if (l === '1') supp.push(FEAT[i]); });
-      heads.forEach((h, i) => { const l = cells[i].dataset.l; h.classList.toggle('is-lit', l === '2' || l === '1'); });
-      const uc = UC[tr.dataset.uc];
-      detail.innerHTML = '<strong>' + uc.name + '.</strong> ' + uc.blurb +
-        '<br><span class="md-prim">primary</span> ' + prim.join(', ') +
-        ' &nbsp; <span class="md-supp">supporting</span> ' + (supp.join(', ') || 'none');
-    }
-    rows.forEach(tr => {
-      const btn = tr.querySelector('.mx-uc-btn');
-      if (btn) btn.addEventListener('click', () => select(tr));
-    });
-    if (rows.length) select(rows[0]);
-  })();
 
   // ── Hero fractal backdrop (nested rotating squares + wizard hum) ─────
   // Each ring carries seeded CSS vars driving the wizard-ring-hum keyframe.
