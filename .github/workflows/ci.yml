@@ -23,7 +23,6 @@ jobs:
           html5validator \
             --root . \
             --match "*.html" \
-            --ignore "index.html.pre-strip-backup" "_tour.html" \
             --ignore-re "seed/" "dispatches/" "partials/" \
               "ARIA attribute .aria-pressed. is not allowed" \
               "Property .inset. doesn" \
