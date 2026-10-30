@@ -18,8 +18,8 @@
 
   function markActive() {
     var current;
-    try { current = localStorage.getItem('loci-theme') || 'scholar'; }
-    catch (_) { current = 'scholar'; }
+    try { current = localStorage.getItem('loci-theme') || 'wizard'; }
+    catch (_) { current = 'wizard'; }
     var match = document.querySelector('.persona-mini-btn[data-theme="' + current + '"]');
     if (match) match.classList.add('active');
   }

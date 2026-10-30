@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html data-theme="scholar" lang="en">
+<html data-theme="wizard" lang="en">
 <head>
 <script>
-(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+(function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
 </script>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23F2EFE3'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a8b572'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%237d8a4a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%235a6b2e'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233a4720'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loci · Substrate Roadmap</title>
   <link rel="stylesheet" href="tokens.css">
@@ -37,25 +37,6 @@
       --dim: rgba(236,230,245,0.45);
     }
 
-    /* Scholar (olive-on-cream): light register. */
-    [data-theme="scholar"] {
-      --stone-dark:   #d8d1be;
-      --stone-mid:    #c4bda8;
-      --stone-light:  #a89e84;
-      --stone-mortar: #b8b09a;
-      --stone-hi:     #8a7f64;
-      --ivy-mid:      #5a6b2e;
-      --ivy-bright:   #7d8a4a;
-      --ivy-hi:       #a8b572;
-      --crystal-core: #d4c98e;
-      --crystal-bright:#a8b572;
-      --crystal-mid:  #7d8a4a;
-      --crystal-outer:#5a6b2e;
-      --room-garden-teal: #4a6b7d;
-      --room-garden-glow: #6a8fa4;
-      --room-dev-glow: #5a7d9a;
-      --dim: rgba(35,42,20,0.55);
-    }
 
     /* LLMAGE (neutral grey-on-near-black): mono register. */
     [data-theme="llmage"] {
@@ -402,8 +383,7 @@
         <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
       </div>
       <div class="theme-switcher" role="group" aria-label="Choose experience mode">
-        <button class="theme-btn" id="btn-scholar" onclick="setTheme('scholar')" aria-pressed="true">◆ ELI-5</button>
-        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="false">⚔ Wizard</button>
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="true">⚔ Wizard</button>
         <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
       </div>
     </div>
@@ -478,7 +458,7 @@
       <div class="th">Today</div>
       <div class="th">Coming</div>
 
-      <div class="persona-cell">◆ ELI-5</div>
+      <div class="persona-cell">◆ Plain text</div>
       <div>Start in plain markdown today, no build and no waitlist. The substrate is a templates kit any file-aware AI can run. Read the manifesto, dispatches, and roadmap freely.</div>
       <div>Browser extension v0.1 · Q3 2026.</div>
 

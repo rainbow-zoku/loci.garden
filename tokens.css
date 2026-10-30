@@ -5,7 +5,7 @@
    Structure:
      1. :root  — theme-INVARIANT spine (space, type scale, line-heights,
                  weights, layout widths, nav height). Themes never touch these.
-     2. [data-theme="scholar"|"wizard"|"llmage"] — pure skins: colour + font +
+     2. [data-theme="wizard"|"llmage"] — pure skins: colour + font +
                  radius only. Each block also bridges the legacy loci.css token
                  names (--bg-card, --text-dim, --serif, …) → canonical, so the
                  existing component CSS in index.css + loci.css renders themed
@@ -15,7 +15,7 @@
    Phase 2 renames component references to canonical names and deletes the
    aliases. Until then, this is what lets one switcher theme the whole site.
 
-   Themes are a depth ramp: scholar/ELI-5 (light) → wizard (charcoal) →
+   Themes are a depth ramp: wizard (charcoal) →
    llmage (near-black). Spacing tightens and ground darkens down the ramp.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -68,67 +68,6 @@
   --font-body:    'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-}
-
-/* ───────────────────────────────────────────────────────────────────────────
-   2a. ELI-5  ◆  [data-theme="scholar"]  — LIGHT  (cream paper, forest green)
-       The only light theme. Calm, legible, no texture. Friendliest radius.
-   ─────────────────────────────────────────────────────────────────────────── */
-[data-theme="scholar"] {
-  /* Olive register: stays light, less neon, more grounded. The cream paper
-     gains an olive cast; the forest-green accent retunes to dark olive.
-     Hux to fine-tune the hex on review. */
-  --bg:            #F2EFE3;
-  --bg-2:          #E8E2CF;
-  --surface:       #FBF9F0;
-  --border:        rgba(90,107,46,0.16);
-  --border-2:      rgba(90,107,46,0.26);
-  --text:          #232a14;
-  --text-2:        #545d2c;
-  --text-3:        #8a9462;
-  --accent:        #5a6b2e;
-  --accent-light:  #87964f;
-  --accent-xlight: #c2c98e;
-  --accent-soft:   rgba(90,107,46,0.10);
-  --accent-glow:   rgba(135,150,79,0.30);
-  --nav-bg:        rgba(242,239,227,0.92);
-  --tag-bg:        rgba(90,107,46,0.10);
-  --tag-text:      #5a6b2e;
-  --btn-bg:        #5a6b2e;
-  --btn-text:      #FBF9F0;
-  --btn-hover:     #44521f;
-  --switcher-bg:       #DED7C1;
-  --switcher-pill:     #FBF9F0;
-  --switcher-text:     #5a6b2e;
-  --switcher-inactive: #8a9462;
-  --font-body:    'Inter', system-ui, sans-serif;
-  --font-display: 'Inter', system-ui, sans-serif;
-  --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  --radius:       12px;
-  --radius-sm:    8px;
-  --logo-filter:  none;
-
-  /* ⟶ legacy bridge */
-  --font-main:        var(--font-body);
-  --card-bg:          var(--surface);
-  --bg-surface:       var(--bg-2);
-  --bg-card:          var(--surface);
-  --border-soft:      var(--border);
-  --accent-dim:       var(--accent-soft);
-  --text-dim:         var(--text-2);
-  --text-faint:       var(--text-3);
-  --text-mono:        var(--text-2);
-  --serif:            var(--font-body);   /* serif body retired → sans */
-  --mono:             var(--font-mono);
-  --sans:             var(--font-body);
-  --radius-lg:        var(--radius);
-  --nav-height:       var(--nav-h);
-  --accent-vine:      var(--accent);
-  --accent-vine-light:var(--accent-light);
-  --accent-vine-hi:   var(--accent-light);
-  --accent-vine-soft: var(--accent-soft);
-  --accent-indigo:    var(--bg-2);
-  --accent-indigo-soft:var(--bg-2);
 }
 
 /* ───────────────────────────────────────────────────────────────────────────
