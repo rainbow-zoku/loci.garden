@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>loci, the mindspace primitive</title>
-<meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The desktop app and CLI are demos; the substrate is yours." />
+<meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The CLI is a demo; the substrate is yours." />
 <meta name="keywords" content="mindspace primitive, intelligence substrate, plain-text firmware, file-aware AI, local-first AI, MCP, context persistence" />
 <link rel="canonical" href="https://loci.garden/" />
 <meta property="og:type" content="website" />
@@ -95,7 +95,6 @@
     <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
     </a>
-    <a href="download.html" class="nav-link">download</a>
     <a href="guide.html" class="nav-link">guide</a>
     <a href="scaffold.html" class="nav-link">scaffold</a>
     <a href="manifesto.html" class="nav-link">manifesto</a>
@@ -191,17 +190,22 @@
          run are now plain text, the tier-row gloss lived on too long.) -->
     <h1 class="hero-title hero-claim">firmware you can read<br><span class="claim-amp">&amp;</span> any AI can run</h1>
 
+    <!-- SOVEREIGNTY SECONDARY HEADLINE — COPY DECISION, human may swap or restyle. -->
+    <p class="hero-sovereignty" style="font-size:clamp(15px,2vw,19px);font-weight:500;color:var(--accent);max-width:560px;margin:-4px auto 26px;line-height:1.5;letter-spacing:0.01em;">
+      <a href="/keep-your-memory-yours.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(200,124,44,0.4);">The vendor forgets; the substrate remembers.</a>
+    </p>
+
     <!-- Sub -->
     <p class="hero-sub">
       <span class="t-scholar">Plain text your AI reads before it answers. Local-first, no account, no cloud.</span>
       <span class="t-wizard">Drop the blueprint in. Your AI boots up knowing your rooms and your terms.</span>
-      <span class="t-llmage">A plain-text spec any file-aware model executes. MCP-native, keypair-signed, zero cloud.</span>
+      <span class="t-llmage">A plain-text spec any file-aware model executes. File-native, keypair-signed, zero cloud.</span>
     </p>
 
     <!-- CTAs -->
     <div class="hero-cta">
       <a href="start.html" class="btn-primary tb-scholar">Design your mindspace →</a>
-      <a href="download.html" class="btn-primary tb-wizard">Design your mindspace →</a>
+      <a href="start.html" class="btn-primary tb-wizard">Design your mindspace →</a>
       <a href="https://github.com/huximaxi/loci" class="btn-primary tb-llmage" target="_blank" rel="noopener">Clone the repo →</a>
       <a href="#features" class="btn-secondary">
         <span class="t-scholar">See how it works</span>
@@ -308,11 +312,11 @@
       <div class="persona-card wizard-accent">
         <div>
           <div class="persona-card-mode">⚔ Wizard<span class="persona-card-chip chip-beta">open beta</span></div>
-          <div class="persona-card-role">Open your AI desktop app, paste one line.</div>
+          <div class="persona-card-role">Open your AI client, point it at one file.</div>
         </div>
-        <p class="persona-card-desc">A technically curious builder, gamer, or power user. Run a single curl one-liner to wire loci into Claude Desktop (or your favourite MCP-aware client). Optional Tauri palace app for the full RPG view. Works with local or remote LLMs.</p>
+        <p class="persona-card-desc">A technically curious builder, gamer, or power user. Clone the kit, open the first-session file, and your AI walks the ritual with you. Works with local or remote LLMs.</p>
         <div class="persona-card-feel">Feels like: building a dungeon your AI lives in.</div>
-        <a href="#start" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="wizard" onclick="setTheme('wizard')">See the one-liner →</a>
+        <a href="#start" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="wizard" onclick="setTheme('wizard')">See the ritual →</a>
       </div>
 
       <!-- LLMAGE card -->
@@ -321,7 +325,7 @@
           <div class="persona-card-mode">◈ LLMAGE<span class="persona-card-chip chip-beta">open beta</span></div>
           <div class="persona-card-role">Clone the repo. Read the spec. Own the stack.</div>
         </div>
-        <p class="persona-card-desc">A developer or researcher who wants full control over the context layer. <code>git clone</code> + inspect the MCP server, config, and primitives. Ollama local inference (nomic-embed-text, zero API keys) and MCP plugin for Goose, Continue.dev, and Claude Code are both shipped. Nostr keypair identity in progress, see the <a href="roadmap.html" style="color:inherit;text-decoration:underline;">roadmap</a>.</p>
+        <p class="persona-card-desc">A developer or researcher who wants full control over the context layer. <code>git clone</code> + read the templates, the primitives, and the CLI source. Nostr keypair identity in progress, see the <a href="roadmap.html" style="color:inherit;text-decoration:underline;">roadmap</a>.</p>
         <div class="persona-card-feel">Feels like: the infrastructure, finally yours.</div>
         <a href="https://docs.loci.garden" class="persona-card-cta" target="_blank" rel="noopener" data-umami-event="persona-cta" data-umami-event-persona="llmage">Read the spec →</a>
       </div>
@@ -407,7 +411,7 @@
       <div class="feature-card">
         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         <div class="feature-title">Agent Architecture</div>
-        <p class="feature-desc">Local LLMs, MCP-native rooms, remote agents. The palace exposes your rooms as tools your IDE can call. Every room becomes a live context source for any agent in your stack. The palace serves every conjuration.</p>
+        <p class="feature-desc">Local LLMs, plain-text rooms, remote agents. Every room is a folder any file-aware agent reads as live context. The palace serves every conjuration.</p>
       </div>
 
       <div class="feature-card">
@@ -452,13 +456,13 @@
         </svg>
         <div class="feature-title">
           <span class="t-scholar">Organize by topic</span>
-          <span class="t-wizard">MCP-Native Rooms</span>
-          <span class="t-llmage">mcp_integration</span>
+          <span class="t-wizard">Rooms as Workspaces</span>
+          <span class="t-llmage">room_namespaces</span>
         </div>
         <p class="feature-desc">
           <span class="t-scholar">Automatically group conversations by topic, project, or date. Your ideas stay connected, even across different AI tools.</span>
-          <span class="t-wizard">Each room is a fully configured MCP workspace. Dev room, Design room, Research room, each with its own tools, memory, and agent context.</span>
-          <span class="t-llmage">First-class MCP server support. Compose rooms as namespaced tool collections. Expose or isolate contexts as needed.</span>
+          <span class="t-wizard">Each room is its own workspace. Dev room, Design room, Research room, each with its own soul file, memory, and agent context.</span>
+          <span class="t-llmage">Rooms are plain directories, one CLAUDE.md each. Compose them as namespaced contexts. Expose or isolate per agent.</span>
         </p>
       </div>
 
@@ -473,9 +477,9 @@
           <span class="t-llmage">zero_vendor_lock</span>
         </div>
         <p class="feature-desc">
-          <span class="t-scholar">Any AI that can read a folder of plain text can read the palace. File-aware ones (Claude Code, Cursor, Goose, Continue, Zed) read it directly; MCP-aware ones wire in through the server. Switch tools without losing what you wrote down.</span>
-          <span class="t-wizard">Plain text the file-aware models read directly; MCP for the rest. Local LLM via Ollama, remote agents via your own key.</span>
-          <span class="t-llmage">Plain-text substrate; any file-aware client reads it. MCP server exposes rooms as resources. Local-first, cloud-optional.</span>
+          <span class="t-scholar">Any AI that can read a folder of plain text can read the palace. File-aware ones (Claude Code, Cursor, Goose, Continue, Zed) read it directly. Switch tools without losing what you wrote down.</span>
+          <span class="t-wizard">Plain text the file-aware models read directly. Local LLM via Ollama, remote agents via your own key.</span>
+          <span class="t-llmage">Plain-text substrate; any file-aware client reads it. Local-first, cloud-optional.</span>
         </p>
       </div>
 
@@ -625,29 +629,29 @@
     </div>
   </section>
 
-  <!-- ── TAURI DESKTOP APP (Wizard + LLMAGE) ──────────── -->
+  <!-- ── RUN IT LOCALLY (Wizard + LLMAGE) ──────────────── -->
   <div class="tb-wizard-up">
     <hr class="section-divider" />
     <section id="download">
       <span class="section-label">
-        <span class="t-wizard">The Desktop App</span>
-        <span class="t-llmage">DESKTOP INSTALL</span>
+        <span class="t-wizard">Run It Locally</span>
+        <span class="t-llmage">LOCAL INSTALL</span>
       </span>
 
       <div class="tauri-section">
         <div class="tauri-section-title">
           <span class="t-wizard">Build your palace.<br>Keep it close.</span>
-          <span class="t-llmage">loci desktop · Tauri v2</span>
+          <span class="t-llmage">loci · local-first · plain-text</span>
         </div>
 
         <p class="tauri-section-body">
-          <span class="t-wizard">loci for Desktop is your palace on your machine. The Tauri app boots into your ~/.loci/ directory, rooms configured, crystals loaded, agents connected. It lives in your system tray. When you open your IDE, loci is already there. Not a browser tab. Not a cloud sync. A local memory hub that runs while you work.</span>
-          <span class="t-llmage">Native Tauri v2 shell wrapping the loci WebView frontend. Gives the renderer OS-level file system access. Manages ~/.loci/ bootstrap on first run. Exposes MCP server via local HTTP. System tray entry point for ⌘K search overlay.</span>
+          <span class="t-wizard">Your palace lives on your machine, in your ~/.loci/ directory: rooms configured, crystals loaded, agents connected. Point your AI client at it and it reads your rooms before it answers. Not a browser tab. Not a cloud sync. A local memory the substrate owns, that runs while you work.</span>
+          <span class="t-llmage">Plain-text substrate under ~/.loci/, bootstrapped on first run. Any file-aware client reads rooms and crystals straight from disk. Clone the kit, or build the CLI from source.</span>
         </p>
 
         <!-- Quest mechanic, Wizard only -->
         <div class="tauri-quest-block">
-          <p><strong>The onboarding runs like a dungeon.</strong> Each step is a room. Enter the Palace, configure your rooms, summon your first LLM, expose the MCP server. Complete the setup and your palace is live. The quest doesn't end, it continues with every session. Every room you add is a new wing. Every crystal you extract is loot.</p>
+          <p><strong>The onboarding runs like a dungeon.</strong> Each step is a room. Enter the Palace, configure your rooms, summon your first LLM, write your first handover. Complete the setup and your palace is live. The quest doesn't end, it continues with every session. Every room you add is a new wing. Every crystal you extract is loot.</p>
         </div>
 
         <!-- LLMAGE: file structure -->
@@ -667,25 +671,13 @@
     └── <span class="ft-file">session.log</span>
         </div>
 
-        <div class="tauri-download-row">
-          <a href="download.html" class="tauri-btn" data-umami-event="tauri-download-attempt" data-umami-event-platform="mac">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            <span class="t-wizard">Download for Mac</span>
-            <span class="t-llmage">macOS (.dmg)</span>
-          </a>
-          <a href="download.html" class="tauri-btn" data-umami-event="tauri-download-attempt" data-umami-event-platform="win">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-            <span class="t-wizard">Download for Windows</span>
-            <span class="t-llmage">Windows (.exe)</span>
-          </a>
-        </div>
         <p class="tauri-meta">
-          <span class="t-wizard">Wizard palace · v0.6.0 · Tauri v2 · open beta, for testing, not production</span>
-          <span class="t-llmage">Tauri v2 · Rust backend · arm64 + x86_64 · Build from source: github.com/huximaxi/loci</span>
+          <span class="t-wizard">loci · v0.6.0 · open beta · point your AI at the kit, or build the CLI from source: github.com/huximaxi/loci</span>
+          <span class="t-llmage">loci CLI + templates kit · arm64 + x86_64 · build from source: github.com/huximaxi/loci</span>
         </p>
 
         <!-- ── LOCAL-FIRST AGENT CTAs ──────────────────── -->
-        <!-- Goose recipe + Ollama spec: for users who run local AI agents -->
+        <!-- Ollama spec: for users who run local AI agents -->
         <div class="agent-cta-block">
           <p class="agent-cta-intro">
             <span class="t-wizard">Runs local. No account. No cloud.</span>
@@ -693,12 +685,6 @@
             <span class="t-scholar">Runs local. No account. No cloud.</span>
           </p>
           <div class="agent-cta-row">
-            <a href="install/goose-recipe.yaml" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="goose-recipe">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span class="t-wizard">Goose Recipe ↓</span>
-              <span class="t-llmage">goose-recipe.yaml</span>
-              <span class="t-scholar">Goose Recipe ↓</span>
-            </a>
             <a href="install/ollama-setup.sh" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="ollama-spec">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span class="t-wizard">Ollama Setup ↓</span>
@@ -706,10 +692,10 @@
               <span class="t-scholar">Ollama Setup ↓</span>
             </a>
             <span class="agent-cta-sep">or</span>
-            <a href="download.html" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="tauri-anchor">
-              <span class="t-wizard">Tauri app ↓</span>
-              <span class="t-llmage">Tauri app ↓</span>
-              <span class="t-scholar">Download the app ↓</span>
+            <a href="download.html" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="cli-anchor">
+              <span class="t-wizard">loci CLI ↓</span>
+              <span class="t-llmage">loci CLI ↓</span>
+              <span class="t-scholar">loci CLI ↓</span>
             </a>
           </div>
         </div>
@@ -886,20 +872,6 @@
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"provider"</span>: <span class="string">"local"</span>, <span class="comment">// "local" | "claude" | "openai"</span><br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"endpoint"</span>: <span class="string">"http://localhost:11434"</span>,<br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"model"</span>: <span class="string">"llama3"</span><br>
-        &nbsp;&nbsp;},<br>
-        &nbsp;&nbsp;<span class="string">"mcp"</span>: {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"expose_rooms"</span>: [<span class="string">"dev"</span>, <span class="string">"research"</span>, <span class="string">"design"</span>],<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"port"</span>: <span class="keyword">3721</span><br>
-        &nbsp;&nbsp;}<br>
-        }
-      </div>
-      <!-- MCP wiring snippet -->
-      <div class="code-block" style="margin-top:12px;">
-        <span class="comment"># Claude Code / Cursor, add to mcp_servers</span><br>
-        {<br>
-        &nbsp;&nbsp;<span class="string">"loci"</span>: {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"url"</span>: <span class="string">"http://localhost:3721"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"transport"</span>: <span class="string">"http"</span><br>
         &nbsp;&nbsp;}<br>
         }
       </div>
@@ -931,7 +903,7 @@
         <li>
           <span class="t-scholar">About 20 minutes to set things up</span>
           <span class="t-wizard">20 minutes + the step-by-step guide</span>
-          <span class="t-llmage">MCP-compatible client (Claude Code, Zed, Cursor)</span>
+          <span class="t-llmage">file-aware client (Claude Code, Zed, Cursor)</span>
         </li>
         <li>
           <span class="t-scholar">A browser (that's it!)</span>
@@ -947,25 +919,15 @@
         <div class="step-num">1</div>
         <div class="step-body">
           <h4>
-            <span class="t-scholar">Start in plain markdown, or grab the app</span>
+            <span class="t-scholar">Start in plain markdown</span>
             <span class="t-wizard">Claim Your First Room</span>
             <span class="t-llmage">clone + configure</span>
           </h4>
           <p>
-            <span class="t-scholar">Fastest start is plain text: copy the kit, point any AI at it, no build. Prefer a GUI? Grab the desktop demo. Local, no account, no cloud.</span>
-            <span class="t-wizard">Open Claude Desktop (or your MCP client). The one-liner below writes a backup-protected config entry that loci satisfies as soon as the desktop app is running.</span>
-            <span class="t-llmage"><code>git clone https://github.com/huximaxi/loci && cd loci/desktop && cat .mcp.json</code></span>
+            <span class="t-scholar">Fastest start is plain text: copy the kit, point any AI at it, no build. Local, no account, no cloud.</span>
+            <span class="t-wizard">Open a terminal. The one-liner below fetches the kit; copy <code>templates/</code> into a folder of your own.</span>
+            <span class="t-llmage"><code>git clone https://github.com/huximaxi/loci && cp -r loci/templates ./palace</code></span>
           </p>
-          <div class="install-pills tb-scholar">
-              <a href="download.html" class="install-pill" data-umami-event="install-attempt" data-umami-event-target="scholar-mac">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                Download for Mac
-              </a>
-              <a href="download.html" class="install-pill" data-umami-event="install-attempt" data-umami-event-target="scholar-win">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-                Download for Windows
-              </a>
-          </div>
         </div>
       </li>
       <li class="step-item">
@@ -973,13 +935,13 @@
         <div class="step-body">
           <h4>
             <span class="t-scholar">Connect your AI chats</span>
-            <span class="t-wizard">Configure Your MCP Endpoint</span>
-            <span class="t-llmage">wire MCP server</span>
+            <span class="t-wizard">Point Your AI at the Palace</span>
+            <span class="t-llmage">point client</span>
           </h4>
           <p>
-            <span class="t-scholar">Point your AI at the palace folder. Claude Code and Cursor read the files directly; MCP-aware clients wire in through the server. Nothing leaves your device that you don't send.</span>
+            <span class="t-scholar">Point your AI at the palace folder. Claude Code, Cursor, and any file-aware client read the files directly. Nothing leaves your device that you don't send.</span>
             <span class="t-wizard">Point loci at your local LLM or API key. Your palace connects to the conjuration engine of your choice.</span>
-            <span class="t-llmage">Add loci to your <code>mcp_servers</code> config. Restart your IDE client.</span>
+            <span class="t-llmage">Open the palace folder in your client and run <code>FIRST-SESSION.md</code>; it builds <code>PALACE.md</code>, the entry point. No server, no port.</span>
           </p>
         </div>
       </li>
@@ -992,9 +954,9 @@
             <span class="t-llmage">invoke + verify</span>
           </h4>
           <p>
-            <span class="t-scholar">Open the desktop app (or your AI), search the palace, find the room and the crystal. The work compounds because you wrote it down.</span>
+            <span class="t-scholar">Open your AI, search the palace, find the room and the crystal. The work compounds because you wrote it down.</span>
             <span class="t-wizard">Navigate your rooms, recall your loci, summon your agents. The palace grows the way you tend it.</span>
-            <span class="t-llmage"><code>loci-cli read &lt;room&gt;</code> from the CLI, or query rooms over MCP. Verify the context is populated before the first agent run.</span>
+            <span class="t-llmage"><code>loci read &lt;room&gt;</code> from the CLI, or ask your client to read the room. Verify the context is populated before the first agent run.</span>
           </p>
         </div>
       </li>
@@ -1002,17 +964,17 @@
 
     <!-- Wizard autoinstaller block -->
     <div class="wizard-install-block tb-wizard">
-      <div class="wi-comment">// 1. open Claude Desktop (or your favourite MCP-aware client)</div>
-      <div class="wi-comment">// 2. run one line in your terminal:</div>
+      <div class="wi-comment">// 1. run one line in your terminal:</div>
       <br>
-      <span class="wi-cmd" id="wizard-curl-cmd">curl -fsSL https://loci.garden/install/wizard.sh | bash</span>
+      <span class="wi-cmd" id="wizard-curl-cmd">git clone https://github.com/huximaxi/loci</span>
       <button class="wi-copy-btn" data-umami-event="wizard-curl-copy" onclick="copyWizardCurl(this)" aria-label="Copy command">copy</button>
       <br><br>
-      <div class="wi-comment">// 3. restart Claude Desktop, loci tools appear in your toolbox</div>
-      <div class="wi-comment">// open beta · macOS · backs up your config before any write</div>
+      <div class="wi-comment">// 2. copy templates/ into a folder of your own</div>
+      <div class="wi-comment">// 3. open FIRST-SESSION.md with your AI; it walks the ritual with you</div>
+      <div class="wi-comment">// plain text · no build · nothing leaves your machine</div>
     </div>
     <p class="tb-wizard" style="margin-top:12px;font-size:12px;color:var(--text-3);">
-      Prefer the GUI? Grab the Tauri palace app below (open beta) or build from source:
+      Want to read it first? Everything is plain text in the repo:
       <a href="https://github.com/huximaxi/loci" style="color:var(--accent-light);">github.com/huximaxi/loci</a>.
     </p>
 
@@ -1022,7 +984,6 @@
       {<br>
       &nbsp;&nbsp;<span class="string">"loci_dir"</span>: <span class="string">"~/.loci"</span>,<br>
       &nbsp;&nbsp;<span class="string">"llm"</span>: { <span class="string">"provider"</span>: <span class="string">"local"</span>, <span class="string">"endpoint"</span>: <span class="string">"http://localhost:11434"</span> },<br>
-      &nbsp;&nbsp;<span class="string">"mcp"</span>: { <span class="string">"expose_rooms"</span>: [<span class="string">"dev"</span>, <span class="string">"research"</span>] },<br>
       &nbsp;&nbsp;<span class="string">"index"</span>: { <span class="string">"semantic"</span>: <span class="keyword">false</span>, <span class="string">"sync_interval"</span>: <span class="string">"5m"</span> }<br>
       }
     </div>
@@ -1032,8 +993,8 @@
       <a href="start.html" class="btn-primary tb-scholar">
         <span class="t-scholar">Design your mindspace →</span>
       </a>
-      <a href="download.html" class="btn-primary tb-wizard">
-        <span class="t-wizard">Get the app →</span>
+      <a href="start.html" class="btn-primary tb-wizard">
+        <span class="t-wizard">Build your palace →</span>
       </a>
       <a href="https://docs.loci.garden" class="btn-primary tb-llmage" target="_blank" rel="noopener">
         <span class="t-llmage">Full documentation →</span>
@@ -1062,6 +1023,11 @@
       <span class="t-scholar">Roadmap</span>
       <span class="t-wizard">The Quest</span>
       <span class="t-llmage">Roadmap</span>
+    </a>
+    <a href="/keep-your-memory-yours.html" class="footer-link">
+      <span class="t-scholar">Keep your memory yours</span>
+      <span class="t-wizard">Keep your memory yours</span>
+      <span class="t-llmage">Keep your memory yours</span>
     </a>
     <a href="/seed/" class="footer-link">
       <span class="t-scholar">Seed guide</span>
