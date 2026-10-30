@@ -504,7 +504,7 @@ section.hero-section {
   will-change: opacity, transform;
 }
 
-/* ── Dose: a volume knob for the hero ornament (canon 1.2.0) ─────────────
+/* ── Dose: a volume knob for the hero ornament ───────────────────────────────────────
    0 still · 1 calm (default: the hum above) · 2 deep hues (the depth walk
    widens, the hum quickens) · 3 the wheel (the whole spiral turns, 90s)
    · 4 echo (a mirrored twin counter-rotates; the overlap is the moire)
