@@ -256,7 +256,7 @@
 
       <div class="guide-eyebrow">How to use loci</div>
       <h1 class="guide-title">Build the relational model.</h1>
-      <p class="guide-lead">A palace without a relational model is just a folder. This guide is about the structure underneath, how rooms connect, what crystals actually do, how the garden compounds over time, and the patterns that make the difference between a palace that grows and one that stalls.</p>
+      <p class="guide-lead">A palace without a relational model is just a folder. This is the structure underneath.</p>
 
       <div class="toc" role="navigation" aria-label="Contents">
         <div class="toc-label">Contents</div>
@@ -275,7 +275,7 @@
       <!-- Section 1 -->
       <section class="guide-section" id="three-primitives">
         <h2>01 · The three primitives</h2>
-        <p>Every palace is built from three things: <strong>rooms</strong>, <strong>crystals</strong>, and a <strong>garden</strong>. Understanding how they interact is more important than having many of them.</p>
+        <p>Every palace is built from three things: <strong>rooms</strong>, <strong>crystals</strong> and a <strong>garden</strong>. How they interact matters more than how many you have.</p>
 
         <figure class="diagram-wrap">
           <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px;display:block;margin:0 auto;">
@@ -315,9 +315,7 @@
           <figcaption>The loci feedback loop · rooms → crystals → garden → rooms</figcaption>
         </figure>
 
-        <p>A <strong>room</strong> is any bounded context you return to repeatedly: a project, a person, a domain, a question. A room needs a <code>CLAUDE.md</code> that answers two things: what is this room for, and what should never be forgotten here.</p>
-        <p>A <strong>crystal</strong> is a fact that has been established once and never re-derived. It saves the cost of re-explaining. The moment you catch yourself typing the same context twice, that context belongs in a crystal.</p>
-        <p>The <strong>garden</strong> is where ideas live across sessions. Plants are long-running threads that don't fit inside a single room, they cross rooms, they compost slowly, they produce insights that session-level work cannot.</p>
+        <p>A <strong>room</strong> is any context you return to: a project, a person, a domain, a question. Its <code>CLAUDE.md</code> answers two things: what is this room for, and what should never be forgotten here.</p>
 
         <div class="guide-pagination">
           <span></span>
@@ -330,8 +328,7 @@
       <!-- Section 2 -->
       <section class="guide-section" id="relational-model">
         <h2>02 · The relational model</h2>
-        <p>The relational model is the thing most people skip and later wish they hadn't. It is the map of how your rooms connect, corridors, dependencies, shared crystals.</p>
-        <p>A palace without corridors is a collection of silos. Ideas stay inside rooms, can't be cross-referenced, and don't compound. A palace with corridors is a network: insights from the design room feed the dev room, research plants water product decisions.</p>
+        <p>The relational model maps how your rooms connect. Without corridors, rooms are silos; with them, design insights feed the dev room and research waters product decisions.</p>
 
         <figure class="diagram-wrap">
           <svg viewBox="0 0 580 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:580px;display:block;margin:0 auto;">
@@ -377,10 +374,10 @@
 
         <div class="tip-block">
           <span class="tip-label">Tip · Build corridors early</span>
-          When you create a new room, immediately ask: which existing rooms does this connect to? Write those connections in the <code>CLAUDE.md</code> before your first session. A corridor written at room-creation time is worth three written after the fact.
+          When you create a room, write which rooms it connects to in its <code>CLAUDE.md</code>. One corridor written now is worth three written later.
         </div>
 
-        <p>Corridors are not hyperlinks. They are explicit statements about what flows between rooms: "design decisions from Room A affect implementation in Room B" or "research plants in Room C should inform copywriting in Room D." The more precise the corridor, the more useful it is.</p>
+        <p>Corridors are not hyperlinks. Each says what flows and which way: "design decisions in Room A shape implementation in Room B." Without a direction, a corridor is decoration.</p>
 
         <div class="guide-pagination">
           <a href="#three-primitives" class="pg-link pg-prev">← 01 · The three primitives</a>
@@ -393,7 +390,7 @@
       <!-- Section 3 -->
       <section class="guide-section" id="session-protocol">
         <h2>03 · Session protocol</h2>
-        <p>The session protocol is the ritual that makes context compound across sessions. It has two moments: opening and closing.</p>
+        <p>Two moments make context compound: opening and closing.</p>
 
         <figure class="diagram-wrap">
           <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;display:block;margin:0 auto;">
@@ -435,11 +432,11 @@
           <figcaption>Session flow · the handover (04) is what makes the next session possible</figcaption>
         </figure>
 
-        <p>The handover is the session's most important output. It doesn't need to be long, two sentences of state + the exact first move for next session is enough. A handover that says "we were working on X, next step is Y" opens the next session in motion rather than in reconstruction.</p>
+        <p>The handover is the session's most important output: two sentences of state plus the exact first move. Keep three bullets as you work and it writes itself. Skip it, and the next session starts from zero.</p>
 
         <div class="tip-block">
           <span class="tip-label">Tip · Name the room at session open</span>
-          Start every session by saying which room you're in: <code>remember: Vesper! Dev Room, auth refactor.</code> This single line loads the right context and avoids the first 5–10 minutes of re-orientation that happens without it.
+          Open by naming the room: <code>Wake up, [name]. Dev Room, auth refactor.</code> One line loads the right context.
         </div>
 
         <div class="guide-pagination">
@@ -453,23 +450,22 @@
       <!-- Section 4 -->
       <section class="guide-section" id="crystals">
         <h2>04 · Planting crystals that last</h2>
-        <p>A crystal is established once, used many times, never re-derived. The discipline is in knowing what deserves to be a crystal.</p>
 
         <h3>What makes a good crystal</h3>
-        <p>A crystal should be: <strong>stable</strong> (won't change often), <strong>load-bearing</strong> (other reasoning depends on it), and <strong>non-obvious</strong> (not something the AI would infer correctly anyway).</p>
-        <p>"We use React" is not a crystal, it will be inferred from the codebase. "Our product decision rule: default to the cautious-reader persona when in doubt" is a crystal, it requires specific knowledge the AI won't have.</p>
+        <p>A good crystal is <strong>stable</strong> (rarely changes), <strong>load-bearing</strong> (other reasoning depends on it) and <strong>non-obvious</strong> (the AI wouldn't infer it).</p>
+        <p>"We use React" is not a crystal; the codebase says so. "When in doubt, write for the cautious reader" is.</p>
 
         <div class="tip-block">
           <span class="tip-label">Tip · The two-repetition rule</span>
-          The moment you type the same context twice in two different sessions, move it to a crystal. If you've explained it twice, you'll explain it twenty times. The crystal prevents that.
+          If you type the same context in two sessions, make it a crystal. Explained twice means explained twenty times.
         </div>
 
         <h3>Crystal hygiene</h3>
-        <p>Crystals can go stale. Add an expiry or review date to any crystal that might change: <code>valid_until: 2026-Q3</code>. Stale crystals are worse than no crystals, they actively misdirect.</p>
+        <p>Crystals go stale, and a stale one misdirects. Date any that might change (<code>valid_until: 2026-Q3</code>) and name each for what it holds: "Decision: Stripe, not custom billing (March 2026)." If you keep re-explaining one, the AI isn't reading or trusting it: audit it.</p>
 
         <div class="pitfall-block">
           <span class="pitfall-label">Pitfall · Over-crystalising</span>
-          Not everything should be a crystal. If a fact is specific to one session or one task, it belongs in the handover, not the crystal file. Over-crystalising bloats the CLAUDE.md and slows the AI down reading context it doesn't need.
+          One-session facts go in the handover. Too many crystals bloat the <code>CLAUDE.md</code>.
         </div>
 
         <div class="guide-pagination">
@@ -483,7 +479,7 @@
       <!-- Section 5 -->
       <section class="guide-section" id="garden">
         <h2>05 · Growing the garden</h2>
-        <p>The garden is where ideas live across months, not just sessions. A plant is a question or theme that doesn't resolve, it compounds. The garden is what makes a palace more than a task tracker.</p>
+        <p>Plants don't resolve; they compound over months.</p>
 
         <figure class="diagram-wrap">
           <svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;display:block;margin:0 auto;">
@@ -518,11 +514,11 @@
           <figcaption>Plant lifecycle · from seed (◇) to active (◆) across sessions</figcaption>
         </figure>
 
-        <p>A plant that never gets watered isn't a problem, it's just dormant. But a plant that gets watered every session without producing anything might not be a plant yet. It might still be a question, not a theme.</p>
+        <p>Expect nothing for the first three sessions. A plant nobody waters is dormant; one watered every session that never yields may still be a question, not a theme.</p>
 
         <div class="tip-block">
           <span class="tip-label">Tip · Compost before adding</span>
-          Before planting something new, ask: does this belong in an existing plant, or does it need its own? Most apparent new ideas are a branch of something already growing. Fewer, deeper plants outperform many shallow ones.
+          Most new ideas are branches of something already growing. Fewer, deeper plants beat many shallow ones.
         </div>
 
         <div class="guide-pagination">
@@ -536,16 +532,11 @@
       <!-- Section 6 -->
       <section class="guide-section" id="multi-room">
         <h2>06 · Multi-room thinking</h2>
-        <p>When the palace has multiple rooms, the most interesting work happens at their intersections. The tea session pattern, gathering several rooms' worth of context and asking a cross-cutting question, is how you get insights no single room can produce.</p>
+        <p>The interesting work happens where rooms meet. Gather a few rooms' context and ask one question across them.</p>
 
         <div class="tip-block">
           <span class="tip-label">Tip · The corridor question</span>
-          At the end of a session, ask: "Did anything in this session produce an insight that should update a different room?" This is the corridor check. It takes 30 seconds and is the main mechanism by which rooms fertilise each other.
-        </div>
-
-        <div class="pitfall-block">
-          <span class="pitfall-label">Pitfall · Corridors without direction</span>
-          "These two rooms are related" is not a corridor. A corridor should state a directional flow: "insights from Room A should inform Room B, specifically about X." Without direction, corridors are decorative.
+          At session close, ask: "Does anything here belong in another room?" Thirty seconds, and rooms start feeding each other.
         </div>
 
         <div class="guide-pagination">
@@ -559,13 +550,13 @@
       <!-- Section 7 -->
       <section class="guide-section" id="morning">
         <h2>07 · The morning rhythm</h2>
-        <p>The palace pays dividends when opened regularly. A scheduled morning check-in, even a short one, does something a responsive-only session cannot: it gives the AI time to compost between sessions, surface connections that emerge from the combination of recent context, and orient you before the day fragments your attention.</p>
+        <p>A short scheduled check-in each morning orients you before the day fragments your attention.</p>
 
-        <p>A well-written morning check-in brief does three things: it tells you where you left off, it surfaces the first move ready to take, and it proposes something new, an idea that emerged from combining what's been happening across rooms. The new idea is what the garden is for.</p>
+        <p>A good brief gives three things: where you left off, the first move, and one new idea from across the rooms.</p>
 
         <div class="tip-block">
           <span class="tip-label">Tip · The scheduled task</span>
-          loci supports scheduled morning tasks. Configure it to read your handovers, scan recent git activity, pull from any sources you connect, and produce a 5-minute brief. The discipline is keeping the brief short, it is an orientation, not a report.
+          The kit's scheduled-task template does this: it reads your soul file, palace and last handover, then proposes priorities and an idea. Keep it an orientation, not a report.
         </div>
 
         <div class="guide-pagination">
@@ -584,39 +575,14 @@
 
         <div class="tip-block">
           <span class="tip-label">Tip · One room at a time</span>
-          Don't try to maintain 8 rooms in one session. Open one room, do the work, close it. Rooms that are opened-but-not-completed produce fragmented context that is harder to recover than no context at all.
-        </div>
-
-        <div class="tip-block">
-          <span class="tip-label">Tip · Name things precisely</span>
-          Crystals with vague names like "important context" are useless. Name them for what they contain: "Decision: we use Stripe for payments, not custom billing (March 2026)." The date and the reasoning distinguish a living crystal from a stale one.
-        </div>
-
-        <div class="tip-block">
-          <span class="tip-label">Tip · The handover starts during the session</span>
-          Don't write the handover at the very end when your attention is already moving on. Keep a running "handover scratchpad" during the session, three bullets of what happened and what's next. The formal handover is just expanding those bullets.
+          Open one room, do the work, close it. A half-closed room leaves fragments that are harder to recover than nothing.
         </div>
 
         <h3>What doesn't work</h3>
 
         <div class="pitfall-block">
           <span class="pitfall-label">Pitfall · The everything room</span>
-          A palace with one enormous room and a very long CLAUDE.md is not a palace, it's a document. Rooms should be focused enough that their CLAUDE.md can be read in under 90 seconds. If yours is longer, split the room.
-        </div>
-
-        <div class="pitfall-block">
-          <span class="pitfall-label">Pitfall · Crystals without trust</span>
-          A crystal only works if the AI treats it as ground truth. If you keep re-explaining something that's already in a crystal, the crystal is either in the wrong place (the AI isn't reading it) or wrong in some way that causes the AI to doubt it. Audit crystals that get ignored.
-        </div>
-
-        <div class="pitfall-block">
-          <span class="pitfall-label">Pitfall · Garden without patience</span>
-          The garden produces nothing in the first three sessions. Plants compost slowly. If you expect the garden to pay out in week one, you'll abandon it before it starts working. The compounding is real but it requires time and regular watering.
-        </div>
-
-        <div class="pitfall-block">
-          <span class="pitfall-label">Pitfall · Skipping the session close</span>
-          "I'll write the handover next time" means the next session starts from zero. The five minutes it takes to write a handover saves twenty minutes of reconstruction. No exceptions.
+          One huge room with a long <code>CLAUDE.md</code> is a document. If a room's file takes over 90 seconds to read, split it.
         </div>
 
         <div class="guide-pagination">
