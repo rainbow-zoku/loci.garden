@@ -6,7 +6,7 @@
  * re-affirms it and lights the correct button. */
 (function () {
   'use strict';
-  var THEMES = ['scholar', 'wizard', 'llmage'];
+  var THEMES = ['wizard', 'llmage'];
 
   function setTheme(theme) {
     if (THEMES.indexOf(theme) === -1) return;
@@ -24,9 +24,9 @@
   window.setTheme = setTheme;
 
   function init() {
-    var saved = 'scholar';
-    try { saved = localStorage.getItem('loci-theme') || 'scholar'; } catch (e) {}
-    if (THEMES.indexOf(saved) === -1) saved = 'scholar';
+    var saved = 'wizard';
+    try { saved = localStorage.getItem('loci-theme') || 'wizard'; } catch (e) {}
+    if (THEMES.indexOf(saved) === -1) saved = 'wizard'; // a stored 'scholar' lands here
     setTheme(saved);
   }
 

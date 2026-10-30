@@ -299,18 +299,12 @@ section.hero-section {
   transition: all 0.4s;
 }
 
-/* Scholar: green crystal */
-[data-theme="scholar"] .hero-crystal .crystal-scholar { display: block; }
-[data-theme="scholar"] .hero-crystal .crystal-wizard  { display: none; }
-[data-theme="scholar"] .hero-crystal .crystal-llmage  { display: none; }
 
 /* Wizard: glowing amber crystal */
-[data-theme="wizard"] .hero-crystal .crystal-scholar { display: none; }
 [data-theme="wizard"] .hero-crystal .crystal-wizard  { display: block; }
 [data-theme="wizard"] .hero-crystal .crystal-llmage  { display: none; }
 
 /* LLMAGE: mono node crystal */
-[data-theme="llmage"] .hero-crystal .crystal-scholar { display: none; }
 [data-theme="llmage"] .hero-crystal .crystal-wizard  { display: none; }
 [data-theme="llmage"] .hero-crystal .crystal-llmage  { display: block; }
 
@@ -319,10 +313,6 @@ section.hero-section {
   50% { filter: drop-shadow(0 0 14px rgba(212,197,242,0.9)) drop-shadow(0 0 32px rgba(123,91,203,0.7)) drop-shadow(0 0 52px rgba(95,64,180,0.35)); }
 }
 
-@keyframes scholar-crystal-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
-}
 
 @keyframes llmage-crystal-rotate {
   0%, 100% { opacity: 0.85; }
@@ -333,9 +323,6 @@ section.hero-section {
   animation: wizard-crystal-pulse 2.4s ease-in-out infinite;
 }
 
-[data-theme="scholar"] .crystal-scholar {
-  animation: scholar-crystal-float 3.5s ease-in-out infinite;
-}
 
 [data-theme="llmage"] .crystal-llmage {
   animation: llmage-crystal-rotate 4s ease-in-out infinite;
@@ -1064,16 +1051,14 @@ footer {
 
 /* ═══════════════════════════════════════════════════════
    CONTENT SWITCHING
-   .t-scholar, .t-wizard, .t-llmage — show only in theme
+   .t-wizard, .t-llmage — show only in theme
 ═══════════════════════════════════════════════════════ */
-.t-scholar, .t-wizard, .t-llmage { display: none; }
-[data-theme="scholar"] .t-scholar { display: inline; }
+.t-wizard, .t-llmage { display: none; }
 [data-theme="wizard"]  .t-wizard  { display: inline; }
 [data-theme="llmage"]  .t-llmage  { display: inline; }
 
 /* For block-level content switching */
-.tb-scholar, .tb-wizard, .tb-llmage { display: none; }
-[data-theme="scholar"] .tb-scholar { display: block; }
+.tb-wizard, .tb-llmage { display: none; }
 [data-theme="wizard"]  .tb-wizard  { display: block; }
 [data-theme="llmage"]  .tb-llmage  { display: block; }
 
@@ -1294,7 +1279,6 @@ footer {
 .non-wizard-grid { display: grid; } /* shown by default, hidden in wizard mode below */
 [data-theme="wizard"] .non-wizard-grid { display: none; }
 [data-theme="wizard"] .wizard-features-grid { display: grid; }
-[data-theme="scholar"] .wizard-features-grid,
 [data-theme="llmage"]  .wizard-features-grid { display: none; }
 .wizard-features-grid.palace-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
 .palace-intro { font-size: 16px; line-height: 1.6; color: var(--text-2); max-width: 560px; margin: 0 0 28px; }
@@ -1450,8 +1434,7 @@ footer {
 /* ═══════════════════════════════════════════════════════
    NAV: THEME-SPECIFIC ITEM VISIBILITY
 ═══════════════════════════════════════════════════════ */
-.tn-scholar, .tn-wizard, .tn-llmage, .tn-wizard-up { display: none; }
-[data-theme="scholar"] .tn-scholar  { display: inline-flex; align-items: center; }
+.tn-wizard, .tn-llmage, .tn-wizard-up { display: none; }
 [data-theme="wizard"]  .tn-wizard   { display: inline-flex; align-items: center; }
 [data-theme="llmage"]  .tn-llmage   { display: inline-flex; align-items: center; }
 [data-theme="wizard"]  .tn-wizard-up { display: inline-flex; align-items: center; }

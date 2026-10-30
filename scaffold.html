@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html data-theme="scholar" lang="en">
+<html data-theme="wizard" lang="en">
 <head>
 <script>
-(function(){try{var t=localStorage.getItem("loci-theme");if(["scholar","wizard","llmage"].indexOf(t)===-1)t="scholar";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","scholar");}})();
+(function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Scaffold · loci.garden</title>
 <meta name="description" content="An automated loop watching the convergence of AI cognition development frameworks and tools. Open, neutral, evidence-tagged.">
 <link rel="canonical" href="https://loci.garden/scaffold.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23F2EFE3'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a8b572'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%237d8a4a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%235a6b2e'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233a4720'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
 <meta property="og:title" content="The Scaffold · loci.garden">
 <meta property="og:description" content="An automated loop watching the convergence of AI cognition development frameworks and tools.">
 <meta property="og:url" content="https://loci.garden/scaffold.html">
@@ -21,7 +21,7 @@
   /* Re-skin fix (#23): the scaffold used to hardcode its own dark palette here,
      which overrode tokens.css and pinned the page dark in every mode. Instead,
      alias the scaffold's local var names onto the canonical per-theme tokens so
-     scholar/wizard/llmage actually re-skin this page like the rest of the site.
+     wizard/llmage actually re-skin this page like the rest of the site.
      --bg/--surface/--border/--text inherit the themed tokens directly (names
      match tokens.css); the mismatched names are aliased below. */
   --bg2:     var(--bg-2);
@@ -115,9 +115,8 @@ td.detailcell{padding:0;border-top:none}
 
 /* Tier-gated copy (mirror of the home page convention). The three theme
    buttons in the nav are the "3 dashboard switch designs" preserved from
-   memory-field.html: scholar/wizard/llmage re-skin the entire page. */
-.t-scholar, .t-wizard, .t-llmage { display: none; }
-[data-theme="scholar"] .t-scholar { display: inline; }
+   memory-field.html: wizard/llmage re-skin the entire page. */
+.t-wizard, .t-llmage { display: none; }
 [data-theme="wizard"]  .t-wizard  { display: inline; }
 [data-theme="llmage"]  .t-llmage  { display: inline; }
 
@@ -143,8 +142,7 @@ td.detailcell{padding:0;border-top:none}
         <a href="/manifesto.html" class="nav-link" data-page="manifesto">manifesto</a>
       </div>
       <div class="theme-switcher" role="group" aria-label="Choose experience mode">
-        <button class="theme-btn" id="btn-scholar" onclick="setTheme('scholar')" aria-pressed="true">◆ ELI-5</button>
-        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="false">⚔ Wizard</button>
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="true">⚔ Wizard</button>
         <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
       </div>
     </div>
@@ -158,14 +156,12 @@ td.detailcell{padding:0;border-top:none}
 
   <div class="scaffold-eyebrow">the scaffold · an automated watcher</div>
   <h1 class="scaffold-title">
-    <span class="t-scholar">The Scaffold</span>
     <span class="t-wizard">The Scaffold</span>
     <span class="t-llmage">the_scaffold</span>
   </h1>
 
   <!-- lead copy landed 2026-06-25 -->
   <p class="scaffold-lead">
-    <span class="t-scholar">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
     <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't.</span>
     <span class="t-llmage">// an automated watch on where AI cognition tooling converges. n=<span class="lead-n"></span> (young field). read where they meet, and where they don't.</span>
   </p>
