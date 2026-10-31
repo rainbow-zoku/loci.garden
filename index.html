@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="wizard" data-dose="1">
 <head>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
 <meta charset="UTF-8" />
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
+(function(){try{var d=localStorage.getItem("loci-dose");if(/^[0-5]$/.test(d||""))document.documentElement.setAttribute("data-dose",d);}catch(e){}})();
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>loci, the mindspace primitive</title>
 <meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The CLI is a demo; the substrate is yours." />
@@ -24,366 +28,535 @@
 
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="index.css">
+<!-- Without scripts the three rings read as one plain page, top to bottom. -->
+<noscript><style>
+.disk{height:auto}.stage{position:static;height:auto;overflow:visible}.here,.outline,.scenery,.stop,.r0 .hole,.save,.copy{display:none}.plate *{animation:none!important}
+.ring{position:static;transform:none;opacity:1;pointer-events:auto;width:auto;max-width:1040px;height:auto;margin:0 auto;padding:48px 16px;container-type:normal;display:flex;flex-direction:column;align-items:center;gap:24px}
+.hole{width:min(100%,560px);aspect-ratio:752/544}.r2 .hole{aspect-ratio:3/4}
+@media (max-width:800px){.r1 .hole{width:min(100%,280px);aspect-ratio:320/888}}
+</style></noscript>
 </head>
 
 <body>
 
 <!-- ═══════════════════ NAV ═══════════════════════════ -->
-<nav class="nav">
+<header class="nav">
   <div class="nav-inner">
-
-  <!-- Logo -->
-  <a href="/" class="nav-logo" aria-label="loci.garden home">
-    <!-- Wizard: violet crystal logotype -->
-    <span class="t-wizard">
-      <svg width="140" height="42" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="68,12 32,60 68,60" fill="#a995e0"/>
-        <polygon points="68,12 104,60 68,60" fill="#8a6dd6"/>
-        <polygon points="32,60 68,108 68,60" fill="#7b5bcb"/>
-        <polygon points="104,60 68,108 68,60" fill="#4a338a"/>
-        <polygon points="68,12 32,60 68,108 104,60" fill="none" stroke="rgba(200,180,240,0.4)" stroke-width="0.8"/>
-        <line x1="68" y1="12" x2="68" y2="108" stroke="rgba(200,180,240,0.2)" stroke-width="0.5"/>
-        <line x1="32" y1="60" x2="104" y2="60" stroke="rgba(200,180,240,0.2)" stroke-width="0.5"/>
-        <text x="122" y="72" font-family="'Helvetica Neue','Arial',sans-serif" font-size="34" letter-spacing="-0.5">
-          <tspan font-weight="600" fill="#a995e0">loci</tspan><tspan font-weight="300" fill="#7b5bcb">.garden</tspan>
-        </text>
+    <a class="logo" href="/" aria-label="loci.garden home">
+      <svg width="22" height="22" viewBox="0 0 100 100" aria-hidden="true">
+        <g class="t-wizard"><polygon points="50,5 20,50 50,50" fill="#a995e0"/><polygon points="50,5 80,50 50,50" fill="#8a6dd6"/><polygon points="20,50 50,95 50,50" fill="#7b5bcb"/><polygon points="80,50 50,95 50,50" fill="#4a338a"/></g>
+        <g class="t-llmage"><polygon points="50,5 20,50 50,50" fill="#cacaca"/><polygon points="50,5 80,50 50,50" fill="#9a9a9a"/><polygon points="20,50 50,95 50,50" fill="#686868"/><polygon points="80,50 50,95 50,50" fill="#3c3c3c"/></g>
       </svg>
-    </span>
-    <!-- LLMAGE: mono node crystal -->
-    <span class="t-llmage">
-      <svg width="130" height="42" viewBox="0 0 375 116" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="68,13 28,57 68,57" fill="#CACACA"/>
-        <polygon points="68,13 108,57 68,57" fill="#9A9A9A"/>
-        <polygon points="28,57 68,101 68,57" fill="#686868"/>
-        <polygon points="108,57 68,101 68,57" fill="#3C3C3C"/>
-        <polygon points="68,13 28,57 68,101 108,57" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
-        <line x1="68" y1="13" x2="68" y2="101" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-        <line x1="28" y1="57" x2="108" y2="57" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-        <circle cx="68" cy="13" r="3.5" fill="#EBEBEB"/>
-        <circle cx="68" cy="13" r="7" fill="none" stroke="#777777" stroke-width="0.8" stroke-dasharray="2.2 1.8"/>
-        <circle cx="28" cy="57" r="3.5" fill="#EBEBEB"/>
-        <circle cx="28" cy="57" r="7" fill="none" stroke="#777777" stroke-width="0.8" stroke-dasharray="2.2 1.8"/>
-        <circle cx="68" cy="101" r="3.5" fill="#EBEBEB"/>
-        <circle cx="68" cy="101" r="7" fill="none" stroke="#777777" stroke-width="0.8" stroke-dasharray="2.2 1.8"/>
-        <circle cx="108" cy="57" r="3.5" fill="#EBEBEB"/>
-        <circle cx="108" cy="57" r="7" fill="none" stroke="#777777" stroke-width="0.8" stroke-dasharray="2.2 1.8"/>
-        <text x="130" y="71" font-family="'Helvetica Neue',Arial,sans-serif" font-size="40" letter-spacing="-0.5">
-          <tspan font-weight="600" fill="#F0F0F0">loci</tspan><tspan font-weight="300" fill="#9C9C9C">.garden</tspan>
-        </text>
-      </svg>
-    </span>
-  </a>
-
-  <div class="nav-right">
-    <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      <span>loci<span class="dot">.garden</span></span>
     </a>
-    <a href="guide.html" class="nav-link">guide</a>
-    <a href="scaffold.html" class="nav-link">scaffold</a>
-    <a href="manifesto.html" class="nav-link">manifesto</a>
-  </div>
-
-  <!-- Theme Switcher -->
-  <div class="theme-switcher" role="group" aria-label="Choose experience mode">
-    <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="true">⚔ Wizard</button>
-    <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false">◈ LLMAGE</button>
-  </div>
-  <!-- Dose: a volume knob for the hero ornament, never a vocabulary. 0 still … 5 threshold; text never moves. -->
-  <div class="theme-switcher dose-switcher" role="group" aria-label="Ornament dose">
-    <button class="theme-btn dose-btn" id="btn-dose" type="button" aria-label="Dose 1 of 5, calm" title="Dose 1: calm. Click for more, shift-click for less.">◎ dose 1</button>
-  </div>
-
-  </div><!-- /.nav-inner -->
-</nav>
-
-<!-- ═══════════════════ MAIN ══════════════════════════ -->
-<main>
-
-  <!-- ── HERO ────────────────────────────────────────── -->
-  <section class="hero-section">
-
-    <!-- Fractal backdrop (generated; prominent in LLMAGE) -->
-    <div class="hero-fractal" aria-hidden="true"></div>
-
-    <!-- Wizard hero atmospheric layer (purple register; bricks retired
-         2026-06-25). Pure CSS gradient + the fractal backdrop carry the
-         mood now; no pixelart image. The .wizard-hero-bg/.wizard-hero-img
-         CSS rules in index.css remain harmless and can be removed in a
-         follow-up sweep. -->
-    <div class="tb-wizard wizard-hero-atmos" aria-hidden="true"></div>
-
-    <!-- Hero crystal -->
-    <div class="hero-crystal">
-      <!-- Wizard crystal (violet glowing) -->
-      <svg class="crystal-wizard" width="80" height="80" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="violetGrad" cx="50%" cy="35%" r="60%">
-            <stop offset="0%" stop-color="#d4c5f2"/>
-            <stop offset="50%" stop-color="#a289dc"/>
-            <stop offset="100%" stop-color="#7b5bcb"/>
-          </radialGradient>
-        </defs>
-        <polygon points="150,30 60,150 150,150" fill="#d4c5f2"/>
-        <polygon points="150,30 240,150 150,150" fill="url(#violetGrad)"/>
-        <polygon points="60,150 150,270 150,150" fill="#7b5bcb"/>
-        <polygon points="240,150 150,270 150,150" fill="#3a2674"/>
-        <polygon points="150,30 60,150 150,270 240,150" fill="none" stroke="rgba(212,197,242,0.5)" stroke-width="1.5"/>
-        <line x1="150" y1="30" x2="150" y2="270" stroke="rgba(212,197,242,0.3)" stroke-width="1"/>
-        <line x1="60" y1="150" x2="240" y2="150" stroke="rgba(212,197,242,0.3)" stroke-width="1"/>
-        <circle cx="150" cy="30" r="5" fill="#d4c5f2" opacity="0.9"/>
-      </svg>
-      <!-- LLMAGE crystal (mono node) -->
-      <svg class="crystal-llmage" width="96" height="96" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="150,48 72,150 150,150" fill="#CACACA"/>
-        <polygon points="150,48 228,150 150,150" fill="#9A9A9A"/>
-        <polygon points="72,150 150,252 150,150" fill="#686868"/>
-        <polygon points="228,150 150,252 150,150" fill="#3C3C3C"/>
-        <polygon points="150,48 72,150 150,252 228,150" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
-        <line x1="150" y1="48" x2="150" y2="252" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
-        <line x1="72" y1="150" x2="228" y2="150" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
-        <circle cx="150" cy="48" r="8" fill="#EBEBEB"/>
-        <circle cx="150" cy="48" r="16" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="5 4"/>
-        <circle cx="72" cy="150" r="8" fill="#EBEBEB"/>
-        <circle cx="72" cy="150" r="16" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="5 4"/>
-        <circle cx="150" cy="252" r="8" fill="#EBEBEB"/>
-        <circle cx="150" cy="252" r="16" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="5 4"/>
-        <circle cx="228" cy="150" r="8" fill="#EBEBEB"/>
-        <circle cx="228" cy="150" r="16" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="5 4"/>
-      </svg>
-    </div>
-
-    <!-- Wordmark -->
-    <div class="hero-wordmark">Loci</div>
-
-    <!-- Tag / badge -->
-    <span class="hero-tag">
-      <span class="t-wizard">v0.6.0 · mindspace primitive</span>
-      <span class="t-llmage">v0.6.0 · mindspace primitive</span>
-    </span>
-
-    <!-- Title (claim-reveal box retired 2026-06-25 per Hux; the words read &
-         run are now plain text, the tier-row gloss lived on too long.) -->
-    <h1 class="hero-title hero-claim">firmware you can read<br><span class="claim-amp">&amp;</span> any AI can run</h1>
-
-    <!-- SOVEREIGNTY SECONDARY HEADLINE — COPY DECISION, human may swap or restyle. -->
-    <p class="hero-sovereignty" style="font-size:clamp(15px,2vw,19px);font-weight:500;color:var(--accent);max-width:560px;margin:-4px auto 26px;line-height:1.5;letter-spacing:0.01em;">
-      <a href="/keep-your-memory-yours.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(200,124,44,0.4);">The vendor forgets; the substrate remembers.</a>
-    </p>
-
-    <!-- Sub -->
-    <p class="hero-sub">
-      <span class="t-wizard">Drop the blueprint in. Your AI boots up knowing your rooms and your terms.</span>
-      <span class="t-llmage">A plain-text spec any file-aware model executes. File-native, keypair-signed, zero cloud.</span>
-    </p>
-
-    <!-- CTAs -->
-    <div class="hero-cta">
-      <a href="start.html" class="btn-primary tb-wizard">Design your mindspace →</a>
-      <a href="https://github.com/huximaxi/loci" class="btn-primary tb-llmage" target="_blank" rel="noopener">Clone the repo →</a>
-      <a href="#features" class="btn-secondary">
-        <span class="t-wizard">Explore the Rooms</span>
-        <span class="t-llmage">Read the spec</span>
+    <nav class="nav-links" aria-label="Site">
+      <a href="https://github.com/huximaxi/loci" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
+      <a href="guide.html">guide</a>
+      <a href="scaffold.html">scaffold</a>
+      <a href="manifesto.html">manifesto</a>
+    </nav>
+    <div class="theme-switcher" role="group" aria-label="Choose experience mode">
+      <button class="theme-btn" id="btn-wizard" type="button" onclick="setTheme('wizard')" aria-pressed="true" data-umami-event="persona-cta" data-umami-event-persona="wizard">⚔ Wizard</button>
+      <button class="theme-btn" id="btn-llmage" type="button" onclick="setTheme('llmage')" aria-pressed="false" data-umami-event="persona-cta" data-umami-event-persona="llmage">◈ LLMAGE</button>
     </div>
-  </section>
+    <!-- Dose: a volume knob for the ornament, never a vocabulary. 0 still … 5 threshold; text never moves. -->
+    <div class="theme-switcher" role="group" aria-label="Ornament dose">
+      <button class="theme-btn dose-btn" id="btn-dose" type="button" aria-label="Dose 1 of 5, calm" title="Dose 1: calm. Click for more, shift-click for less.">◎ dose 1</button>
+    </div>
+  </div>
+</header>
 
-  <!-- ── THREE WAYS IN ───────────────────────────────── -->
-  <section id="paths" style="padding-top: 40px; padding-bottom: 20px;">
-    <span class="section-label">Three ways in</span>
-    <div class="persona-cards">
-      <div class="persona-card">
-        <div>
-          <div class="persona-card-mode">◆ Plain text</div>
-          <div class="persona-card-role">Your AI finally remembers you.</div>
-        </div>
-        <p class="persona-card-desc">Copy the kit and point the AI you already use at it. No build, no account, no cloud.</p>
-        <a href="start.html" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="eli5">Start in ten minutes →</a>
-      </div>
-      <div class="persona-card wizard-accent">
-        <div>
-          <div class="persona-card-mode">⚔ Wizard<span class="persona-card-chip chip-beta">open beta</span></div>
-          <div class="persona-card-role">Point your AI client at one file.</div>
-        </div>
-        <p class="persona-card-desc">Clone the kit, open <code>FIRST-SESSION.md</code>, and your AI walks the ritual with you. Local or remote models.</p>
-        <a href="#start" class="persona-card-cta" data-umami-event="persona-cta" data-umami-event-persona="wizard">See the ritual →</a>
-      </div>
-      <div class="persona-card llmage-accent">
-        <div>
-          <div class="persona-card-mode">◈ LLMAGE<span class="persona-card-chip chip-beta">open beta</span></div>
-          <div class="persona-card-role">Read the spec. Own the stack.</div>
-        </div>
-        <p class="persona-card-desc">Templates, primitives and CLI source: plain text you can audit line by line.</p>
-        <a href="https://docs.loci.garden" class="persona-card-cta" target="_blank" rel="noopener" data-umami-event="persona-cta" data-umami-event-persona="llmage">Read the docs →</a>
-      </div>
-    </div>
-  </section>
+<!-- ═══════════════════ THE DISK ══════════════════════ -->
+<main class="disk" id="disk">
+  <span class="stop" data-k="0" id="claim"></span>
+  <span class="stop" data-k="1" id="palace"></span>
+  <span class="stop" data-k="2" id="keep"></span>
 
-  <!-- ── THE PALACE ─────────────────────────────────── -->
-  <hr class="section-divider" />
-  <section id="features">
-    <span class="section-label">The palace</span>
-    <p class="palace-intro">Your AI doesn't grow wiser. It stops starting over: every session opens with what the last one left.</p>
-    <div class="wizard-features-grid palace-grid">
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        <div class="feature-title">Rooms</div>
-        <p class="feature-desc">A named context space: Dev, Design, Research. Each room holds what happened there before.</p>
-      </div>
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
-        <div class="feature-title">The soul file</div>
-        <p class="feature-desc">One file per room that your AI reads before it speaks: what the room is for, and what must never be forgotten there.</p>
-      </div>
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-        <div class="feature-title">Crystals</div>
-        <p class="feature-desc">A fact established once and never re-derived. Write it down and your AI stops asking.</p>
-      </div>
-      <div class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12m0 0C12 7 7 4 3 6m9 6c0-5 5-8 9-6"/></svg>
-        <div class="feature-title">The garden</div>
-        <p class="feature-desc">Open questions you tend across sessions. Not tasks: inquiries that grow slowly.</p>
-      </div>
-    </div>
-  </section>
+  <div class="stage">
+    <nav class="here" aria-label="Depth">
+      <svg class="mini" viewBox="-10 -10 20 20" aria-hidden="true">
+        <rect class="on" x="-9" y="-9" width="18" height="18" data-k="0"/>
+        <rect x="-4.30" y="-4.30" width="8.61" height="8.61" transform="rotate(77)" data-k="1"/>
+        <rect x="-2.06" y="-2.06" width="4.12" height="4.12" transform="rotate(154)" data-k="2"/>
+      </svg>
+      <ol>
+        <li><a href="#claim" data-k="0" aria-current="location">the claim</a></li>
+        <li><a href="#palace" data-k="1">the palace</a></li>
+        <li><a href="#keep" data-k="2">keep it</a></li>
+      </ol>
+    </nav>
 
-  <!-- ── RUN IT LOCALLY ─────────────────────────────── -->
-  <hr class="section-divider" />
-  <section id="start">
-    <span class="section-label">Run it locally</span>
-    <ul class="steps-list">
-      <li class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <h4>Get the kit</h4>
-          <p>Clone the repo and copy <code>templates/</code> into a folder of your own.</p>
-        </div>
-      </li>
-      <li class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h4>Point your AI at it</h4>
-          <p>Open the folder in any file-aware client (Claude Code, Cursor, Zed, a local model) and run <code>FIRST-SESSION.md</code>. It builds <code>PALACE.md</code>, the entry point.</p>
-        </div>
-      </li>
-      <li class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <h4>Walk the palace</h4>
-          <p>Your AI reads the room before it answers. The palace grows the way you tend it.</p>
-        </div>
-      </li>
-    </ul>
-    <p class="palace-intro">Everything runs on your machine: plain text in a folder you own, with no account, no telemetry and no cloud sync. The AI you point at it keeps its own policies; that part is yours to choose. <a href="keep-your-memory-yours.html" style="color:var(--accent-light);">Keep your memory yours →</a></p>
-    <div class="wizard-install-block">
-      <div class="wi-comment">// one line in your terminal:</div>
-      <br>
-      <span class="wi-cmd" id="wizard-curl-cmd">git clone https://github.com/huximaxi/loci</span>
-      <button class="wi-copy-btn" data-umami-event="wizard-curl-copy" onclick="copyWizardCurl(this)" aria-label="Copy command">copy</button>
-      <br><br>
-      <div class="wi-comment">// plain text · no build · nothing leaves your machine</div>
-    </div>
-    <div class="agent-cta-block">
-      <p class="agent-cta-intro">Runs local. No account. No cloud.</p>
-      <div class="agent-cta-row">
-        <a href="install/ollama-setup.sh" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="ollama-spec">Ollama setup ↓</a>
-        <span class="agent-cta-sep">or</span>
-        <a href="download.html" class="agent-cta-btn" data-umami-event="agent-cta-click" data-umami-event-target="cli-anchor">loci CLI ↓</a>
-      </div>
-    </div>
-  </section>
+    <div class="field" id="field">
+      <svg class="scenery" id="vortex" viewBox="-200 -200 400 400" aria-hidden="true">
+        <g id="descent"><g class="spin" id="vortex-rings"></g><g class="echo" transform="scale(-1 1)"><g class="echo-spin" id="vortex-echo"></g></g></g>
+      </svg>
 
-  <!-- ── THE ORIGIN ─────────────────────────────────── -->
-  <hr class="section-divider" />
-  <section id="about">
-    <span class="section-label">The origin</span>
-    <p class="about-prose">The memory palace is one of the oldest techniques for thought: a place for everything, everything in its place. loci applies it to working with AI. <a href="about.html" style="color:var(--accent-light);">Where it grew from →</a></p>
-    <div class="palace-map-wrap">
-      <img src="/assets/palace-map-v2.png"
-             alt="Palace map, rooms of the co-intelligence system"
-             style="width:100%;height:auto;display:block;border-radius:var(--radius);border:2px solid var(--border);image-rendering:pixelated;"
-             loading="lazy" />
-    </div>
-  </section>
+      <div class="outline o0" data-k="0" aria-hidden="true"></div>
+      <div class="outline o1" data-k="1" aria-hidden="true"></div>
+      <div class="outline o2" data-k="2" aria-hidden="true"></div>
 
+      <!-- ring 0: the claim -->
+      <section class="ring r0" data-k="0" aria-labelledby="h-claim" tabindex="-1">
+        <div class="band top">
+          <svg class="crystal t-wizard" viewBox="0 0 300 300" aria-hidden="true">
+            <defs><radialGradient id="violetGrad" cx="50%" cy="35%" r="60%"><stop offset="0%" stop-color="#d4c5f2"/><stop offset="50%" stop-color="#a289dc"/><stop offset="100%" stop-color="#7b5bcb"/></radialGradient></defs>
+            <polygon points="150,30 60,150 150,150" fill="#d4c5f2"/><polygon points="150,30 240,150 150,150" fill="url(#violetGrad)"/>
+            <polygon points="60,150 150,270 150,150" fill="#7b5bcb"/><polygon points="240,150 150,270 150,150" fill="#3a2674"/>
+            <polygon points="150,30 60,150 150,270 240,150" fill="none" stroke="rgba(212,197,242,0.5)" stroke-width="1.5"/>
+            <circle cx="150" cy="30" r="5" fill="#d4c5f2" opacity="0.9"/>
+          </svg>
+          <svg class="crystal t-llmage" viewBox="0 0 300 300" aria-hidden="true">
+            <polygon points="150,48 72,150 150,150" fill="#cacaca"/><polygon points="150,48 228,150 150,150" fill="#9a9a9a"/>
+            <polygon points="72,150 150,252 150,150" fill="#686868"/><polygon points="228,150 150,252 150,150" fill="#3c3c3c"/>
+            <circle cx="150" cy="48" r="16" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="5 4"/>
+            <circle cx="150" cy="48" r="8" fill="#ebebeb"/>
+          </svg>
+          <p class="kicker">mindspace primitive</p>
+          <h1 class="claim" id="h-claim">firmware you can read <span class="amp">&amp;</span> any AI can run</h1>
+        </div>
+        <div class="hole" aria-hidden="true"></div>
+        <div class="band bot">
+          <p class="sub">
+            <span class="t-wizard">One folder of plain text. Every session starts inside it.</span>
+            <span class="t-llmage">Plain-text spec. Any file-aware model. Your disk.</span>
+          </p>
+          <div class="cta-row">
+            <a class="btn t-wizard" href="start.html" data-umami-event="agent-cta-click" data-umami-event-target="first-room">Open the first room</a>
+            <a class="btn t-llmage" href="https://github.com/huximaxi/loci" target="_blank" rel="noopener" data-umami-event="agent-cta-click" data-umami-event-target="clone-kit">Clone the kit</a>
+            <a class="step-in" href="#palace" data-k="1">step in ↓</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ring 1: the palace -->
+      <section class="ring r1" data-k="1" aria-labelledby="h-palace" tabindex="-1">
+        <div class="band top">
+          <h2 class="label" id="h-palace">The palace</h2>
+          <dl class="rooms">
+            <div><dt>Rooms</dt><dd>one per kind of work</dd></div>
+            <div><dt>Soul file</dt><dd>what each room is for</dd></div>
+          </dl>
+        </div>
+        <div class="hole">
+          <div class="plate" role="img" aria-label="An engraved plate: open a palace without loci in three steps. A folder, one plain-text line, any editor.">
+<svg class="plate-wide" xmlns="http://www.w3.org/2000/svg" viewBox="-376 -272 752 544" aria-hidden="true">
+  <style>.plate-wide{--g:#11101c;--fr:#7b5bcb;--ln:#a289dc;--dt:#d4c5f2;--mt:#9c92b8;--d0:#ece6f5;--d1:#a289dc;--d2:#917fd7;--d3:#7e75d3;--d4:#6b6bd0;--gl:#7b5bcb;--glk:.22;--rk:#7b5bcb;--af:#B4B4B4;--al:#F0F0F0;--ah:#FFFFFF}
+.plate-wide .ground{fill:var(--g)}
+.plate-wide path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.plate-wide .frame{stroke:var(--fr);stroke-width:1}
+.plate-wide .rule{stroke:var(--fr);stroke-width:.75}
+.plate-wide .line,.plate-wide .keel,.plate-wide .girdle{stroke:var(--ln);stroke-width:.9}
+.plate-wide .keel,.plate-wide .girdle{stroke-width:.6;opacity:.8}
+.plate-wide .dotted{stroke:var(--ln);stroke-width:1.3;stroke-dasharray:.01 3.2}
+.plate-wide .stub{stroke:var(--d4);stroke-width:1.7}
+.plate-wide .next{stroke:var(--fr);stroke-width:1.3}
+.plate-wide .dot{fill:var(--dt)}.plate-wide .dot.dim{fill:var(--ln)}
+.plate-wide .cursor{fill:var(--d0)}
+.plate-wide .hatch-l{stroke:var(--fr);stroke-width:.55}
+.plate-wide text{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;text-anchor:middle;dominant-baseline:central}
+.plate-wide .txt{font-size:11.5px;letter-spacing:0}
+.plate-wide .meta{fill:var(--mt)}.plate-wide .d0{fill:var(--d0)}.plate-wide .d1{fill:var(--d1)}.plate-wide .d2{fill:var(--d2)}.plate-wide .d3{fill:var(--d3)}
+.plate-wide .gl{opacity:var(--glk)}.plate-wide .gl rect{fill:none;stroke:var(--gl);stroke-width:.6}
+.plate-wide .gl-main,.plate-wide .gl-echo,.plate-wide .rake{transform-box:view-box;transform-origin:0 0}
+.plate-wide .gl-echo,.plate-wide .rake{display:none}
+.plate-wide .rake-s{stop-color:var(--rk)}
+.plate-wide .asc{display:none}
+.plate-wide .arow{font-size:13.6px}.plate-wide .af{fill:var(--af)}.plate-wide .al{fill:var(--al)}.plate-wide .ah{fill:var(--ah);font-weight:700}
+/* skins: html[data-theme] when inlined, data-skin on the root when standalone */
+html[data-theme="llmage"] .plate-wide,.plate-wide[data-skin="llmage"]{--g:#0f0f0f;--gl:#B4B4B4;--glk:.16;--rk:#FFFFFF}
+html[data-theme="llmage"] .plate-wide .wiz,.plate-wide[data-skin="llmage"] .wiz{display:none}
+html[data-theme="llmage"] .plate-wide .asc,.plate-wide[data-skin="llmage"] .asc{display:inline}
+/* dose 2+: the depth walk widens from 6 to 24 degrees per step (the deep-hue ladder) */
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide,.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl rect[data-depth="1"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl rect[data-depth="2"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="2"]{stroke:#3784d0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl rect[data-depth="3"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="3"]{stroke:#21828c}
+html[data-theme="llmage"] .plate-wide .gl rect,.plate-wide[data-skin="llmage"] .gl rect{stroke:var(--gl)!important}
+/* the reveal: once, centre-out, 900-1400 ms, then dignity */
+@keyframes plate-wide-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes plate-wide-fade{from{opacity:0}}
+@keyframes plate-wide-turn{to{transform:rotate(360deg)}}
+@keyframes plate-wide-rake{from{transform:translateX(-432px)}to{transform:translateX(432px)}}
+.plate-wide .solid{stroke-dasharray:1;animation:plate-wide-draw 900ms cubic-bezier(.05,.7,.1,1) var(--d,0ms) both}
+.plate-wide .dotted,.plate-wide .txt,.plate-wide .dot,.plate-wide .fill{animation:plate-wide-fade 600ms cubic-bezier(.4,0,.2,1) calc(var(--d,0ms) + 250ms) both}
+.plate-wide .arow{animation:plate-wide-fade 600ms cubic-bezier(.4,0,.2,1) var(--d,0ms) both}
+.plate-wide .gl{animation:plate-wide-fade 1200ms cubic-bezier(.4,0,.2,1) both}
+/* dose 3 the wheel, 4 echo, 5 threshold: ornament only, the reading layer never moves */
+html:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl-main,.plate-wide:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl-main{animation:plate-wide-turn 97s linear infinite}
+html:is([data-dose="4"],[data-dose="5"]) .plate-wide .gl-echo,.plate-wide:is([data-dose="4"],[data-dose="5"]) .gl-echo{display:inline;opacity:.6;animation:plate-wide-turn 89s linear infinite reverse}
+html[data-dose="5"] .plate-wide,.plate-wide[data-dose="5"]{--glk:.34}
+html[data-dose="5"] .plate-wide .rake,.plate-wide[data-dose="5"] .rake{display:inline;animation:plate-wide-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
+html[data-dose="5"] .plate-wide .key,.plate-wide[data-dose="5"] .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
+/* dose 0 still: no reveal, no ornament motion */
+html[data-dose="0"] .plate-wide *,.plate-wide[data-dose="0"] *{animation:none!important}
+/* reduced motion: substitute, don't remove. Colour stays, movement goes, one 240 ms crossfade */
+@media (prefers-reduced-motion:reduce){.plate-wide *{animation:none!important}.plate-wide{animation:plate-wide-fade 240ms cubic-bezier(.4,0,.2,1) both}}</style>
+  <defs>
+    <clipPath id="plate-wide-clip"><rect x="-345.5" y="-237.5" width="691" height="475"/></clipPath>
+    <linearGradient id="plate-wide-rake" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" class="rake-s" stop-opacity="0"/><stop offset=".5" class="rake-s" stop-opacity=".10"/><stop offset="1" class="rake-s" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="plate-wide-h1" width="4.2" height="4.2" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V4.2"/></pattern>
+    <pattern id="plate-wide-h2" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(-37)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
+    <pattern id="plate-wide-h3" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
+  </defs>
+  <rect class="ground" x="-350.5" y="-242.5" width="701" height="485"/>
+  <g clip-path="url(#plate-wide-clip)">
+    <g class="gl"><g class="gl-main"><rect x="-232" y="-232" width="464" height="464" rx="2" transform="rotate(0)" opacity="0.5" data-depth="0"/><rect x="-208.8" y="-208.8" width="417.6" height="417.6" rx="2" transform="rotate(11)" opacity="0.49" data-depth="0"/><rect x="-187.92" y="-187.92" width="375.84" height="375.84" rx="2" transform="rotate(22)" opacity="0.47" data-depth="0"/><rect x="-169.13" y="-169.13" width="338.26" height="338.26" rx="2" transform="rotate(33)" opacity="0.46" data-depth="0"/><rect x="-152.22" y="-152.22" width="304.43" height="304.43" rx="2" transform="rotate(44)" opacity="0.44" data-depth="0"/><rect x="-136.99" y="-136.99" width="273.99" height="273.99" rx="2" transform="rotate(55)" opacity="0.43" data-depth="0"/><rect x="-123.29" y="-123.29" width="246.59" height="246.59" rx="2" transform="rotate(66)" opacity="0.42" data-depth="0"/><rect x="-110.96" y="-110.96" width="221.93" height="221.93" rx="2" transform="rotate(77)" opacity="0.4" data-depth="0"/><rect x="-99.87" y="-99.87" width="199.74" height="199.74" rx="2" transform="rotate(88)" opacity="0.39" data-depth="1"/><rect x="-89.88" y="-89.88" width="179.76" height="179.76" rx="2" transform="rotate(99)" opacity="0.37" data-depth="1"/><rect x="-80.89" y="-80.89" width="161.79" height="161.79" rx="2" transform="rotate(110)" opacity="0.36" data-depth="1"/><rect x="-72.8" y="-72.8" width="145.61" height="145.61" rx="2" transform="rotate(121)" opacity="0.35" data-depth="1"/><rect x="-65.52" y="-65.52" width="131.05" height="131.05" rx="2" transform="rotate(132)" opacity="0.33" data-depth="1"/><rect x="-58.97" y="-58.97" width="117.94" height="117.94" rx="2" transform="rotate(143)" opacity="0.32" data-depth="1"/><rect x="-53.07" y="-53.07" width="106.15" height="106.15" rx="2" transform="rotate(154)" opacity="0.3" data-depth="1"/><rect x="-47.77" y="-47.77" width="95.53" height="95.53" rx="2" transform="rotate(165)" opacity="0.29" data-depth="2"/><rect x="-42.99" y="-42.99" width="85.98" height="85.98" rx="2" transform="rotate(176)" opacity="0.28" data-depth="2"/><rect x="-38.69" y="-38.69" width="77.38" height="77.38" rx="2" transform="rotate(187)" opacity="0.26" data-depth="2"/><rect x="-34.82" y="-34.82" width="69.64" height="69.64" rx="2" transform="rotate(198)" opacity="0.25" data-depth="2"/><rect x="-31.34" y="-31.34" width="62.68" height="62.68" rx="2" transform="rotate(209)" opacity="0.23" data-depth="2"/><rect x="-28.21" y="-28.21" width="56.41" height="56.41" rx="2" transform="rotate(220)" opacity="0.22" data-depth="2"/><rect x="-25.39" y="-25.39" width="50.77" height="50.77" rx="2" transform="rotate(231)" opacity="0.21" data-depth="2"/><rect x="-22.85" y="-22.85" width="45.69" height="45.69" rx="2" transform="rotate(242)" opacity="0.19" data-depth="2"/><rect x="-20.56" y="-20.56" width="41.12" height="41.12" rx="2" transform="rotate(253)" opacity="0.18" data-depth="3"/><rect x="-18.51" y="-18.51" width="37.01" height="37.01" rx="2" transform="rotate(264)" opacity="0.16" data-depth="3"/><rect x="-16.66" y="-16.66" width="33.31" height="33.31" rx="2" transform="rotate(275)" opacity="0.15" data-depth="3"/><rect x="-14.99" y="-14.99" width="29.98" height="29.98" rx="2" transform="rotate(286)" opacity="0.14" data-depth="3"/><rect x="-13.49" y="-13.49" width="26.98" height="26.98" rx="2" transform="rotate(297)" opacity="0.12" data-depth="3"/><rect x="-12.14" y="-12.14" width="24.28" height="24.28" rx="2" transform="rotate(308)" opacity="0.11" data-depth="3"/><rect x="-10.93" y="-10.93" width="21.85" height="21.85" rx="2" transform="rotate(319)" opacity="0.09" data-depth="3"/></g><g class="gl-echo"><g transform="scale(-1 1)"><rect x="-232" y="-232" width="464" height="464" rx="2" transform="rotate(0)" opacity="0.5" data-depth="0"/><rect x="-208.8" y="-208.8" width="417.6" height="417.6" rx="2" transform="rotate(11)" opacity="0.49" data-depth="0"/><rect x="-187.92" y="-187.92" width="375.84" height="375.84" rx="2" transform="rotate(22)" opacity="0.47" data-depth="0"/><rect x="-169.13" y="-169.13" width="338.26" height="338.26" rx="2" transform="rotate(33)" opacity="0.46" data-depth="0"/><rect x="-152.22" y="-152.22" width="304.43" height="304.43" rx="2" transform="rotate(44)" opacity="0.44" data-depth="0"/><rect x="-136.99" y="-136.99" width="273.99" height="273.99" rx="2" transform="rotate(55)" opacity="0.43" data-depth="0"/><rect x="-123.29" y="-123.29" width="246.59" height="246.59" rx="2" transform="rotate(66)" opacity="0.42" data-depth="0"/><rect x="-110.96" y="-110.96" width="221.93" height="221.93" rx="2" transform="rotate(77)" opacity="0.4" data-depth="0"/><rect x="-99.87" y="-99.87" width="199.74" height="199.74" rx="2" transform="rotate(88)" opacity="0.39" data-depth="1"/><rect x="-89.88" y="-89.88" width="179.76" height="179.76" rx="2" transform="rotate(99)" opacity="0.37" data-depth="1"/><rect x="-80.89" y="-80.89" width="161.79" height="161.79" rx="2" transform="rotate(110)" opacity="0.36" data-depth="1"/><rect x="-72.8" y="-72.8" width="145.61" height="145.61" rx="2" transform="rotate(121)" opacity="0.35" data-depth="1"/><rect x="-65.52" y="-65.52" width="131.05" height="131.05" rx="2" transform="rotate(132)" opacity="0.33" data-depth="1"/><rect x="-58.97" y="-58.97" width="117.94" height="117.94" rx="2" transform="rotate(143)" opacity="0.32" data-depth="1"/><rect x="-53.07" y="-53.07" width="106.15" height="106.15" rx="2" transform="rotate(154)" opacity="0.3" data-depth="1"/><rect x="-47.77" y="-47.77" width="95.53" height="95.53" rx="2" transform="rotate(165)" opacity="0.29" data-depth="2"/><rect x="-42.99" y="-42.99" width="85.98" height="85.98" rx="2" transform="rotate(176)" opacity="0.28" data-depth="2"/><rect x="-38.69" y="-38.69" width="77.38" height="77.38" rx="2" transform="rotate(187)" opacity="0.26" data-depth="2"/><rect x="-34.82" y="-34.82" width="69.64" height="69.64" rx="2" transform="rotate(198)" opacity="0.25" data-depth="2"/><rect x="-31.34" y="-31.34" width="62.68" height="62.68" rx="2" transform="rotate(209)" opacity="0.23" data-depth="2"/><rect x="-28.21" y="-28.21" width="56.41" height="56.41" rx="2" transform="rotate(220)" opacity="0.22" data-depth="2"/><rect x="-25.39" y="-25.39" width="50.77" height="50.77" rx="2" transform="rotate(231)" opacity="0.21" data-depth="2"/><rect x="-22.85" y="-22.85" width="45.69" height="45.69" rx="2" transform="rotate(242)" opacity="0.19" data-depth="2"/><rect x="-20.56" y="-20.56" width="41.12" height="41.12" rx="2" transform="rotate(253)" opacity="0.18" data-depth="3"/><rect x="-18.51" y="-18.51" width="37.01" height="37.01" rx="2" transform="rotate(264)" opacity="0.16" data-depth="3"/><rect x="-16.66" y="-16.66" width="33.31" height="33.31" rx="2" transform="rotate(275)" opacity="0.15" data-depth="3"/><rect x="-14.99" y="-14.99" width="29.98" height="29.98" rx="2" transform="rotate(286)" opacity="0.14" data-depth="3"/><rect x="-13.49" y="-13.49" width="26.98" height="26.98" rx="2" transform="rotate(297)" opacity="0.12" data-depth="3"/><rect x="-12.14" y="-12.14" width="24.28" height="24.28" rx="2" transform="rotate(308)" opacity="0.11" data-depth="3"/><rect x="-10.93" y="-10.93" width="21.85" height="21.85" rx="2" transform="rotate(319)" opacity="0.09" data-depth="3"/></g></g></g>
+    <rect class="rake" x="-70" y="-248" width="140" height="496" fill="url(#plate-wide-rake)"/>
+  </g>
+  <g class="occ"><rect class="ground sheet" x="-100" y="-64" width="200" height="128"/><rect class="ground" x="180" y="-96" width="144" height="128"/><rect class="ground" x="164" y="-64" width="144" height="128"/><rect class="ground" x="148" y="-32" width="144" height="128"/></g>
+  <g class="wiz">
+    <path class="solid frame" d="M-350.5 -242.5H350.5V242.5H-350.5Z" pathLength="1" style="--d:276ms"/>
+    <path class="solid frame" d="M-345.5 -237.5H345.5V237.5H-345.5Z" pathLength="1" style="--d:268ms"/>
+    <path class="solid rule" d="M-345.5 -176H345.5" pathLength="1" style="--d:196ms"/>
+    <path class="solid rule" d="M-345.5 176H345.5" pathLength="1" style="--d:196ms"/>
+    <text class="txt meta" x="-324 -316 -308 -300 -292 -284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124" y="-208" style="--d:338ms">Open a palace without loci</text>
+    <text class="txt meta" x="236 244 252 260 268 276 284 292 300 308 316 324" y="-208" style="--d:392ms">plate 1 of 1</text>
+    <path class="solid line" d="M-239.5 -134.5H-232.5A6.5 6.5 0 0 1 -232.5 -121.5H-239.5A6.5 6.5 0 0 1 -239.5 -134.5Z" pathLength="1" style="--d:299ms"/>
+    <circle class="dot" cx="-236" cy="-128" r="1.9" style="--d:299ms"/>
+    <path class="solid line" d="M-7.5 -134.5H7.5A6.5 6.5 0 0 1 7.5 -121.5H-7.5A6.5 6.5 0 0 1 -7.5 -134.5Z" pathLength="1" style="--d:143ms"/>
+    <circle class="dot" cx="-4" cy="-128" r="1.9" style="--d:143ms"/>
+    <circle class="dot" cx="4" cy="-128" r="1.9" style="--d:143ms"/>
+    <path class="solid line" d="M224.5 -134.5H247.5A6.5 6.5 0 0 1 247.5 -121.5H224.5A6.5 6.5 0 0 1 224.5 -134.5Z" pathLength="1" style="--d:299ms"/>
+    <circle class="dot" cx="228" cy="-128" r="1.9" style="--d:291ms"/>
+    <circle class="dot" cx="236" cy="-128" r="1.9" style="--d:299ms"/>
+    <circle class="dot" cx="244" cy="-128" r="1.9" style="--d:307ms"/>
+    <text class="txt d1" x="-308 -300 -292 -284 -276 -268 -260" y="-48" style="--d:317ms">palace/</text>
+    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228 -220 -212" y="-32" style="--d:270ms">CLAUDE.md</text>
+    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228 -220 -212" y="-16" style="--d:268ms">PALACE.md</text>
+    <text class="txt d2" x="-276 -268 -260 -252" y="0" style="--d:290ms">dev/</text>
+    <path class="dotted stub" d="M-238.5 0H-233.5" style="--d:263ms"/>
+    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228" y="16" style="--d:277ms">design/</text>
+    <path class="dotted stub" d="M-214.5 16H-209.5" style="--d:237ms"/>
+    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228 -220 -212" y="32" style="--d:270ms">research/</text>
+    <text class="txt d3" x="-244 -236 -228 -220 -212 -204 -196 -188" y="48" style="--d:242ms">notes.md</text>
+    <path class="solid line" d="M-300 -40V32" pathLength="1" style="--d:334ms"/>
+    <path class="solid line" d="M-300 -32H-288" pathLength="1" style="--d:327ms"/>
+    <path class="solid line" d="M-300 -16H-288" pathLength="1" style="--d:326ms"/>
+    <path class="solid line" d="M-300 0H-288" pathLength="1" style="--d:326ms"/>
+    <path class="solid line" d="M-300 16H-288" pathLength="1" style="--d:326ms"/>
+    <path class="solid line" d="M-300 32H-288" pathLength="1" style="--d:327ms"/>
+    <path class="solid line" d="M-268 40V48H-256" pathLength="1" style="--d:295ms"/>
+    <path class="dotted arrow" d="M-134.5 0H-119" style="--d:138ms"/>
+    <path class="solid line" d="M-118.5 -3.5L-113.5 0L-118.5 3.5" pathLength="1" style="--d:134ms"/>
+    <path class="dotted arrow" d="M113.5 0H129" style="--d:138ms"/>
+    <path class="solid line" d="M129.5 -3.5L134.5 0L129.5 3.5" pathLength="1" style="--d:143ms"/>
+    <rect class="ground sheet" x="-100" y="-64" width="200" height="128"/>
+    <path class="solid line" d="M-2 -64H100V64H-100V-64H-86" pathLength="1" style="--d:0ms"/>
+    <text class="txt d2" x="-76 -68 -60 -52 -44 -36 -28 -20 -12" y="-64" style="--d:84ms">CLAUDE.md</text>
+    <text class="txt d0" x="-84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76" y="0" style="--d:0ms">Read PALACE.md first.</text>
+    <path class="dotted stub" d="M89.5 0H94.5" style="--d:103ms"/>
+    <rect class="ground" x="180" y="-96" width="144" height="128"/>
+    <path class="dotted next" d="M180 -96H324V32H180Z" style="--d:283ms"/>
+    <rect class="ground" x="164" y="-64" width="144" height="128"/>
+    <path class="solid line" d="M164 -64H308V64H164Z" pathLength="1" style="--d:263ms"/>
+    <circle class="dot dim" cx="180" cy="-48" r="1.7" style="--d:208ms"/>
+    <circle class="dot dim" cx="196" cy="-48" r="1.7" style="--d:208ms"/>
+    <circle class="dot dim" cx="212" cy="-48" r="1.7" style="--d:208ms"/>
+    <path class="solid line" d="M164 -32H308" pathLength="1" style="--d:265ms"/>
+    <rect class="ground" x="148" y="-32" width="144" height="128"/>
+    <path class="solid line" d="M148 -32H292V96H148Z" pathLength="1" style="--d:248ms"/>
+    <text class="txt meta" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268 276" y="0" style="--d:250ms">$ cat CLAUDE.md</text>
+    <text class="txt d0" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268" y="32" style="--d:248ms">Read PALACE.md</text>
+    <path class="dotted stub" d="M281.5 32H286.5" style="--d:319ms"/>
+    <text class="txt meta" x="164" y="64" style="--d:200ms">$</text>
+    <rect class="fill cursor" x="177.5" y="68" width="5" height="1.6" style="--d:213ms"/>
+    <g class="key">
+    <polygon class="fill hatch" points="-316 184 -304 200 -316 200" fill="url(#plate-wide-h1)" style="--d:417ms"/>
+    <polygon class="fill hatch" points="-328 200 -316 216 -316 200" fill="url(#plate-wide-h2)" style="--d:417ms"/>
+    <polygon class="fill hatch" points="-304 200 -316 216 -316 200" fill="url(#plate-wide-h2)" style="--d:417ms"/>
+    <polygon class="fill hatch" points="-304 200 -316 216 -316 200" fill="url(#plate-wide-h3)" style="--d:417ms"/>
+    <path class="solid line" d="M-316 184L-328 200L-316 216L-304 200Z" pathLength="1" style="--d:417ms"/>
+    <path class="solid keel" d="M-316 184V216" pathLength="1" style="--d:417ms"/>
+    <path class="solid girdle" d="M-328 200H-304" pathLength="1" style="--d:417ms"/>
+    <circle class="dot apex" cx="-316" cy="184" r="1.8" style="--d:408ms"/>
+    </g>
+    <path class="solid rule" d="M-284 208H228M-284 208V198M-252 208V202M-220 208V202M-188 208V202M-156 208V198M-124 208V202M-92 208V202M-60 208V202M-28 208V198M4 208V202M36 208V202M68 208V202M100 208V198M132 208V202M164 208V202M196 208V202M228 208V198" pathLength="1" style="--d:234ms"/>
+    <text class="txt meta" x="276 284 292 300 308 316 324" y="208" style="--d:411ms">88 × 31</text>
+  </g>
+</svg>
+<svg class="plate-wide plate-asc" xmlns="http://www.w3.org/2000/svg" viewBox="-376 -272 752 544" aria-hidden="true">
+<g class="asc" xml:space="preserve">
+    <text class="arow" y="-240" style="--d:480ms"><tspan class="af" x="-348 -340 -332 -324 -316 -308 -300 -292 -284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124 -116 -108 -100 -92 -84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76 84 92 100 108 116 124 132 140 148 156 164 172 180 188 196 204 212 220 228 236 244 252 260 268 276 284 292 300 308 316 324 332 340 348">╔══════════════════════════════════════════════════════════════════════════════════════╗</tspan></text>
+    <text class="arow" y="-224" style="--d:448ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-208" style="--d:416ms"><tspan class="af" x="-348">║</tspan><tspan class="al" x="-324 -316 -308 -300 -292 -284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124">Open a palace without loci</tspan><tspan class="al" x="236 244 252 260 268 276 284 292 300 308 316 324">plate 1 of 1</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-192" style="--d:384ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-176" style="--d:352ms"><tspan class="af" x="-348 -340 -332 -324 -316 -308 -300 -292 -284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124 -116 -108 -100 -92 -84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76 84 92 100 108 116 124 132 140 148 156 164 172 180 188 196 204 212 220 228 236 244 252 260 268 276 284 292 300 308 316 324 332 340 348">╟──────────────────────────────────────────────────────────────────────────────────────╢</tspan></text>
+    <text class="arow" y="-160" style="--d:320ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-144" style="--d:288ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-128" style="--d:256ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-244 -236 -228">(•)</tspan><tspan class="af" x="-12 -4 4 12">(••)</tspan><tspan class="af" x="220 228 236 244 252">(•••)</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-112" style="--d:224ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-96" style="--d:192ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="180 188 196 204 212 220 228 236 244 252 260 268 276 284 292 300 308 316 324">┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-80" style="--d:160ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="180">┆</tspan><tspan class="af" x="324">┆</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-64" style="--d:128ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-100 -92">┌─</tspan><tspan class="al" x="-76 -68 -60 -52 -44 -36 -28 -20 -12">CLAUDE.md</tspan><tspan class="af" x="4 12 20 28 36 44 52 60 68 76 84 92 100">────────────┐</tspan><tspan class="af" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268 276 284 292 300 308 316 324">┌─────────────────┐ ┆</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-48" style="--d:96ms"><tspan class="af" x="-348">║</tspan><tspan class="al" x="-308 -300 -292 -284 -276 -268 -260">palace/</tspan><tspan class="af" x="-100">│</tspan><tspan class="af" x="100">│</tspan><tspan class="af" x="164 172 180 188 196 204 212">│ • • •</tspan><tspan class="af" x="308 316 324">│ ┆</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-32" style="--d:64ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-300 -292">├─</tspan><tspan class="al" x="-276 -268 -260 -252 -244 -236 -228 -220 -212">CLAUDE.md</tspan><tspan class="af" x="-100">│</tspan><tspan class="af" x="100">│</tspan><tspan class="af" x="148 156 164 172 180 188 196 204 212 220 228 236 244 252 260 268 276 284 292 300 308 316 324">┌─────────────────┐─┤ ┆</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="-16" style="--d:32ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-300 -292">├─</tspan><tspan class="al" x="-276 -268 -260 -252 -244 -236 -228 -220 -212">PALACE.md</tspan><tspan class="af" x="-100">│</tspan><tspan class="af" x="100">│</tspan><tspan class="af" x="148">│</tspan><tspan class="af" x="292 300 308 316 324">│ │ ┆</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="0" style="--d:0ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-300 -292">├─</tspan><tspan class="al" x="-276 -268 -260 -252">dev/</tspan><tspan class="af" x="-236">┄</tspan><tspan class="af" x="-132 -124 -116 -108 -100">┄┄▸ │</tspan><tspan class="ah" x="-84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76">Read PALACE.md first.</tspan><tspan class="af" x="92 100 108 116 124 132 140 148">┄│ ┄┄▸ │</tspan><tspan class="al" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268 276">$ cat CLAUDE.md</tspan><tspan class="af" x="292 300 308 316 324">│ │ ┆</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="16" style="--d:32ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-300 -292">├─</tspan><tspan class="al" x="-276 -268 -260 -252 -244 -236 -228">design/</tspan><tspan class="af" x="-212">┄</tspan><tspan class="af" x="-100">│</tspan><tspan class="af" x="100">│</tspan><tspan class="af" x="148">│</tspan><tspan class="af" x="292 300 308 316 324">│ │ ┆</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="32" style="--d:64ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-300 -292">└─</tspan><tspan class="al" x="-276 -268 -260 -252 -244 -236 -228 -220 -212">research/</tspan><tspan class="af" x="-100">│</tspan><tspan class="af" x="100">│</tspan><tspan class="af" x="148">│</tspan><tspan class="ah" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268">Read PALACE.md</tspan><tspan class="af" x="284 292 300 308 316 324">┄│ │┄┘</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="48" style="--d:96ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-268 -260">└─</tspan><tspan class="al" x="-244 -236 -228 -220 -212 -204 -196 -188">notes.md</tspan><tspan class="af" x="-100">│</tspan><tspan class="af" x="100">│</tspan><tspan class="af" x="148">│</tspan><tspan class="af" x="292 300 308">│ │</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="64" style="--d:128ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-100 -92 -84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76 84 92 100">└────────────────────────┘</tspan><tspan class="af" x="148">│</tspan><tspan class="al" x="164 172 180">$ ▁</tspan><tspan class="af" x="292 300 308">│─┘</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="80" style="--d:160ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="148">│</tspan><tspan class="af" x="292">│</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="96" style="--d:192ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="148 156 164 172 180 188 196 204 212 220 228 236 244 252 260 268 276 284 292">└─────────────────┘</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="112" style="--d:224ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="128" style="--d:256ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="144" style="--d:288ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="160" style="--d:320ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="176" style="--d:352ms"><tspan class="af" x="-348 -340 -332 -324 -316 -308 -300 -292 -284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124 -116 -108 -100 -92 -84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76 84 92 100 108 116 124 132 140 148 156 164 172 180 188 196 204 212 220 228 236 244 252 260 268 276 284 292 300 308 316 324 332 340 348">╟──────────────────────────────────────────────────────────────────────────────────────╢</tspan></text>
+    <text class="arow" y="192" style="--d:384ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-324 -316 -308">╱│╲</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="208" style="--d:416ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="-324 -316 -308">╲│╱</tspan><tspan class="af" x="-284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124 -116 -108 -100 -92 -84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76 84 92 100 108 116 124 132 140 148 156 164 172 180 188 196 204 212 220 228">└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘</tspan><tspan class="al" x="276 284 292 300 308 316 324">88 × 31</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="224" style="--d:448ms"><tspan class="af" x="-348">║</tspan><tspan class="af" x="348">║</tspan></text>
+    <text class="arow" y="240" style="--d:480ms"><tspan class="af" x="-348 -340 -332 -324 -316 -308 -300 -292 -284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124 -116 -108 -100 -92 -84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76 84 92 100 108 116 124 132 140 148 156 164 172 180 188 196 204 212 220 228 236 244 252 260 268 276 284 292 300 308 316 324 332 340 348">╚══════════════════════════════════════════════════════════════════════════════════════╝</tspan></text>
+  </g>
+</svg>
+<svg class="plate-tall" xmlns="http://www.w3.org/2000/svg" viewBox="-160 -444 320 888" aria-hidden="true">
+  <style>.plate-tall{--g:#11101c;--fr:#7b5bcb;--ln:#a289dc;--dt:#d4c5f2;--mt:#9c92b8;--d0:#ece6f5;--d1:#a289dc;--d2:#917fd7;--d3:#7e75d3;--d4:#6b6bd0;--gl:#7b5bcb;--glk:.22;--rk:#7b5bcb;--af:#B4B4B4;--al:#F0F0F0;--ah:#FFFFFF}
+.plate-tall .ground{fill:var(--g)}
+.plate-tall path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.plate-tall .frame{stroke:var(--fr);stroke-width:1}
+.plate-tall .rule{stroke:var(--fr);stroke-width:.75}
+.plate-tall .line,.plate-tall .keel,.plate-tall .girdle{stroke:var(--ln);stroke-width:.9}
+.plate-tall .keel,.plate-tall .girdle{stroke-width:.6;opacity:.8}
+.plate-tall .dotted{stroke:var(--ln);stroke-width:1.3;stroke-dasharray:.01 3.2}
+.plate-tall .stub{stroke:var(--d4);stroke-width:1.7}
+.plate-tall .next{stroke:var(--fr);stroke-width:1.3}
+.plate-tall .dot{fill:var(--dt)}.plate-tall .dot.dim{fill:var(--ln)}
+.plate-tall .cursor{fill:var(--d0)}
+.plate-tall .hatch-l{stroke:var(--fr);stroke-width:.55}
+.plate-tall text{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;text-anchor:middle;dominant-baseline:central}
+.plate-tall .txt{font-size:11.5px;letter-spacing:0}
+.plate-tall .meta{fill:var(--mt)}.plate-tall .d0{fill:var(--d0)}.plate-tall .d1{fill:var(--d1)}.plate-tall .d2{fill:var(--d2)}.plate-tall .d3{fill:var(--d3)}
+.plate-tall .gl{opacity:var(--glk)}.plate-tall .gl rect{fill:none;stroke:var(--gl);stroke-width:.6}
+.plate-tall .gl-main,.plate-tall .gl-echo,.plate-tall .rake{transform-box:view-box;transform-origin:0 0}
+.plate-tall .gl-echo,.plate-tall .rake{display:none}
+.plate-tall .rake-s{stop-color:var(--rk)}
+.plate-tall .asc{display:none}
+.plate-tall .arow{font-size:13.6px}.plate-tall .af{fill:var(--af)}.plate-tall .al{fill:var(--al)}.plate-tall .ah{fill:var(--ah);font-weight:700}
+/* skins: html[data-theme] when inlined, data-skin on the root when standalone */
+html[data-theme="llmage"] .plate-tall,.plate-tall[data-skin="llmage"]{--g:#0f0f0f;--gl:#B4B4B4;--glk:.16;--rk:#FFFFFF}
+html[data-theme="llmage"] .plate-tall .wiz,.plate-tall[data-skin="llmage"] .wiz{display:none}
+html[data-theme="llmage"] .plate-tall .asc,.plate-tall[data-skin="llmage"] .asc{display:inline}
+/* dose 2+: the depth walk widens from 6 to 24 degrees per step (the deep-hue ladder) */
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall,.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl rect[data-depth="1"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl rect[data-depth="2"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="2"]{stroke:#3784d0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl rect[data-depth="3"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="3"]{stroke:#21828c}
+html[data-theme="llmage"] .plate-tall .gl rect,.plate-tall[data-skin="llmage"] .gl rect{stroke:var(--gl)!important}
+/* the reveal: once, centre-out, 900-1400 ms, then dignity */
+@keyframes plate-tall-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes plate-tall-fade{from{opacity:0}}
+@keyframes plate-tall-turn{to{transform:rotate(360deg)}}
+@keyframes plate-tall-rake{from{transform:translateX(-228px)}to{transform:translateX(228px)}}
+.plate-tall .solid{stroke-dasharray:1;animation:plate-tall-draw 900ms cubic-bezier(.05,.7,.1,1) var(--d,0ms) both}
+.plate-tall .dotted,.plate-tall .txt,.plate-tall .dot,.plate-tall .fill{animation:plate-tall-fade 600ms cubic-bezier(.4,0,.2,1) calc(var(--d,0ms) + 250ms) both}
+.plate-tall .arow{animation:plate-tall-fade 600ms cubic-bezier(.4,0,.2,1) var(--d,0ms) both}
+.plate-tall .gl{animation:plate-tall-fade 1200ms cubic-bezier(.4,0,.2,1) both}
+/* dose 3 the wheel, 4 echo, 5 threshold: ornament only, the reading layer never moves */
+html:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl-main,.plate-tall:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl-main{animation:plate-tall-turn 97s linear infinite}
+html:is([data-dose="4"],[data-dose="5"]) .plate-tall .gl-echo,.plate-tall:is([data-dose="4"],[data-dose="5"]) .gl-echo{display:inline;opacity:.6;animation:plate-tall-turn 89s linear infinite reverse}
+html[data-dose="5"] .plate-tall,.plate-tall[data-dose="5"]{--glk:.34}
+html[data-dose="5"] .plate-tall .rake,.plate-tall[data-dose="5"] .rake{display:inline;animation:plate-tall-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
+html[data-dose="5"] .plate-tall .key,.plate-tall[data-dose="5"] .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
+/* dose 0 still: no reveal, no ornament motion */
+html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!important}
+/* reduced motion: substitute, don't remove. Colour stays, movement goes, one 240 ms crossfade */
+@media (prefers-reduced-motion:reduce){.plate-tall *{animation:none!important}.plate-tall{animation:plate-tall-fade 240ms cubic-bezier(.4,0,.2,1) both}}</style>
+  <defs>
+    <clipPath id="plate-tall-clip"><rect x="-141.5" y="-421.5" width="283" height="843"/></clipPath>
+    <linearGradient id="plate-tall-rake" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" class="rake-s" stop-opacity="0"/><stop offset=".5" class="rake-s" stop-opacity=".10"/><stop offset="1" class="rake-s" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="plate-tall-h1" width="4.2" height="4.2" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V4.2"/></pattern>
+    <pattern id="plate-tall-h2" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(-37)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
+    <pattern id="plate-tall-h3" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
+  </defs>
+  <rect class="ground" x="-146.5" y="-426.5" width="293" height="853"/>
+  <g clip-path="url(#plate-tall-clip)">
+    <g class="gl"><g class="gl-main"><rect x="-140" y="-140" width="280" height="280" rx="2" transform="rotate(0)" opacity="0.5" data-depth="0"/><rect x="-126" y="-126" width="252" height="252" rx="2" transform="rotate(11)" opacity="0.49" data-depth="0"/><rect x="-113.4" y="-113.4" width="226.8" height="226.8" rx="2" transform="rotate(22)" opacity="0.47" data-depth="0"/><rect x="-102.06" y="-102.06" width="204.12" height="204.12" rx="2" transform="rotate(33)" opacity="0.46" data-depth="0"/><rect x="-91.85" y="-91.85" width="183.71" height="183.71" rx="2" transform="rotate(44)" opacity="0.44" data-depth="0"/><rect x="-82.67" y="-82.67" width="165.34" height="165.34" rx="2" transform="rotate(55)" opacity="0.43" data-depth="0"/><rect x="-74.4" y="-74.4" width="148.8" height="148.8" rx="2" transform="rotate(66)" opacity="0.42" data-depth="0"/><rect x="-66.96" y="-66.96" width="133.92" height="133.92" rx="2" transform="rotate(77)" opacity="0.4" data-depth="0"/><rect x="-60.27" y="-60.27" width="120.53" height="120.53" rx="2" transform="rotate(88)" opacity="0.39" data-depth="1"/><rect x="-54.24" y="-54.24" width="108.48" height="108.48" rx="2" transform="rotate(99)" opacity="0.37" data-depth="1"/><rect x="-48.81" y="-48.81" width="97.63" height="97.63" rx="2" transform="rotate(110)" opacity="0.36" data-depth="1"/><rect x="-43.93" y="-43.93" width="87.87" height="87.87" rx="2" transform="rotate(121)" opacity="0.35" data-depth="1"/><rect x="-39.54" y="-39.54" width="79.08" height="79.08" rx="2" transform="rotate(132)" opacity="0.33" data-depth="1"/><rect x="-35.59" y="-35.59" width="71.17" height="71.17" rx="2" transform="rotate(143)" opacity="0.32" data-depth="1"/><rect x="-32.03" y="-32.03" width="64.06" height="64.06" rx="2" transform="rotate(154)" opacity="0.3" data-depth="1"/><rect x="-28.82" y="-28.82" width="57.65" height="57.65" rx="2" transform="rotate(165)" opacity="0.29" data-depth="2"/><rect x="-25.94" y="-25.94" width="51.88" height="51.88" rx="2" transform="rotate(176)" opacity="0.28" data-depth="2"/><rect x="-23.35" y="-23.35" width="46.7" height="46.7" rx="2" transform="rotate(187)" opacity="0.26" data-depth="2"/><rect x="-21.01" y="-21.01" width="42.03" height="42.03" rx="2" transform="rotate(198)" opacity="0.25" data-depth="2"/><rect x="-18.91" y="-18.91" width="37.82" height="37.82" rx="2" transform="rotate(209)" opacity="0.23" data-depth="2"/><rect x="-17.02" y="-17.02" width="34.04" height="34.04" rx="2" transform="rotate(220)" opacity="0.22" data-depth="2"/><rect x="-15.32" y="-15.32" width="30.64" height="30.64" rx="2" transform="rotate(231)" opacity="0.21" data-depth="2"/><rect x="-13.79" y="-13.79" width="27.57" height="27.57" rx="2" transform="rotate(242)" opacity="0.19" data-depth="2"/><rect x="-12.41" y="-12.41" width="24.82" height="24.82" rx="2" transform="rotate(253)" opacity="0.18" data-depth="3"/><rect x="-11.17" y="-11.17" width="22.33" height="22.33" rx="2" transform="rotate(264)" opacity="0.16" data-depth="3"/><rect x="-10.05" y="-10.05" width="20.1" height="20.1" rx="2" transform="rotate(275)" opacity="0.15" data-depth="3"/><rect x="-9.05" y="-9.05" width="18.09" height="18.09" rx="2" transform="rotate(286)" opacity="0.14" data-depth="3"/><rect x="-8.14" y="-8.14" width="16.28" height="16.28" rx="2" transform="rotate(297)" opacity="0.12" data-depth="3"/><rect x="-7.33" y="-7.33" width="14.65" height="14.65" rx="2" transform="rotate(308)" opacity="0.11" data-depth="3"/><rect x="-6.59" y="-6.59" width="13.19" height="13.19" rx="2" transform="rotate(319)" opacity="0.09" data-depth="3"/></g><g class="gl-echo"><g transform="scale(-1 1)"><rect x="-140" y="-140" width="280" height="280" rx="2" transform="rotate(0)" opacity="0.5" data-depth="0"/><rect x="-126" y="-126" width="252" height="252" rx="2" transform="rotate(11)" opacity="0.49" data-depth="0"/><rect x="-113.4" y="-113.4" width="226.8" height="226.8" rx="2" transform="rotate(22)" opacity="0.47" data-depth="0"/><rect x="-102.06" y="-102.06" width="204.12" height="204.12" rx="2" transform="rotate(33)" opacity="0.46" data-depth="0"/><rect x="-91.85" y="-91.85" width="183.71" height="183.71" rx="2" transform="rotate(44)" opacity="0.44" data-depth="0"/><rect x="-82.67" y="-82.67" width="165.34" height="165.34" rx="2" transform="rotate(55)" opacity="0.43" data-depth="0"/><rect x="-74.4" y="-74.4" width="148.8" height="148.8" rx="2" transform="rotate(66)" opacity="0.42" data-depth="0"/><rect x="-66.96" y="-66.96" width="133.92" height="133.92" rx="2" transform="rotate(77)" opacity="0.4" data-depth="0"/><rect x="-60.27" y="-60.27" width="120.53" height="120.53" rx="2" transform="rotate(88)" opacity="0.39" data-depth="1"/><rect x="-54.24" y="-54.24" width="108.48" height="108.48" rx="2" transform="rotate(99)" opacity="0.37" data-depth="1"/><rect x="-48.81" y="-48.81" width="97.63" height="97.63" rx="2" transform="rotate(110)" opacity="0.36" data-depth="1"/><rect x="-43.93" y="-43.93" width="87.87" height="87.87" rx="2" transform="rotate(121)" opacity="0.35" data-depth="1"/><rect x="-39.54" y="-39.54" width="79.08" height="79.08" rx="2" transform="rotate(132)" opacity="0.33" data-depth="1"/><rect x="-35.59" y="-35.59" width="71.17" height="71.17" rx="2" transform="rotate(143)" opacity="0.32" data-depth="1"/><rect x="-32.03" y="-32.03" width="64.06" height="64.06" rx="2" transform="rotate(154)" opacity="0.3" data-depth="1"/><rect x="-28.82" y="-28.82" width="57.65" height="57.65" rx="2" transform="rotate(165)" opacity="0.29" data-depth="2"/><rect x="-25.94" y="-25.94" width="51.88" height="51.88" rx="2" transform="rotate(176)" opacity="0.28" data-depth="2"/><rect x="-23.35" y="-23.35" width="46.7" height="46.7" rx="2" transform="rotate(187)" opacity="0.26" data-depth="2"/><rect x="-21.01" y="-21.01" width="42.03" height="42.03" rx="2" transform="rotate(198)" opacity="0.25" data-depth="2"/><rect x="-18.91" y="-18.91" width="37.82" height="37.82" rx="2" transform="rotate(209)" opacity="0.23" data-depth="2"/><rect x="-17.02" y="-17.02" width="34.04" height="34.04" rx="2" transform="rotate(220)" opacity="0.22" data-depth="2"/><rect x="-15.32" y="-15.32" width="30.64" height="30.64" rx="2" transform="rotate(231)" opacity="0.21" data-depth="2"/><rect x="-13.79" y="-13.79" width="27.57" height="27.57" rx="2" transform="rotate(242)" opacity="0.19" data-depth="2"/><rect x="-12.41" y="-12.41" width="24.82" height="24.82" rx="2" transform="rotate(253)" opacity="0.18" data-depth="3"/><rect x="-11.17" y="-11.17" width="22.33" height="22.33" rx="2" transform="rotate(264)" opacity="0.16" data-depth="3"/><rect x="-10.05" y="-10.05" width="20.1" height="20.1" rx="2" transform="rotate(275)" opacity="0.15" data-depth="3"/><rect x="-9.05" y="-9.05" width="18.09" height="18.09" rx="2" transform="rotate(286)" opacity="0.14" data-depth="3"/><rect x="-8.14" y="-8.14" width="16.28" height="16.28" rx="2" transform="rotate(297)" opacity="0.12" data-depth="3"/><rect x="-7.33" y="-7.33" width="14.65" height="14.65" rx="2" transform="rotate(308)" opacity="0.11" data-depth="3"/><rect x="-6.59" y="-6.59" width="13.19" height="13.19" rx="2" transform="rotate(319)" opacity="0.09" data-depth="3"/></g></g></g>
+    <rect class="rake" x="-70" y="-432" width="140" height="864" fill="url(#plate-tall-rake)"/>
+  </g>
+  <g class="occ"><rect class="ground sheet" x="-104" y="-72" width="208" height="96"/><rect class="ground" x="-56" y="136" width="144" height="128"/><rect class="ground" x="-72" y="168" width="144" height="128"/><rect class="ground" x="-88" y="200" width="144" height="128"/></g>
+  <g class="wiz">
+    <path class="solid frame" d="M-146.5 -426.5H146.5V426.5H-146.5Z" pathLength="1" style="--d:454ms"/>
+    <path class="solid frame" d="M-141.5 -421.5H141.5V421.5H-141.5Z" pathLength="1" style="--d:446ms"/>
+    <path class="solid rule" d="M-141.5 -344H141.5" pathLength="1" style="--d:362ms"/>
+    <path class="solid rule" d="M-141.5 360H141.5" pathLength="1" style="--d:378ms"/>
+    <text class="txt meta" x="-120 -112 -104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80" y="-392" style="--d:412ms">Open a palace without loci</text>
+    <text class="txt meta" x="32 40 48 56 64 72 80 88 96 104 112 120" y="-376" style="--d:404ms">plate 1 of 1</text>
+    <path class="solid line" d="M-3.5 -318.5H3.5A6.5 6.5 0 0 1 3.5 -305.5H-3.5A6.5 6.5 0 0 1 -3.5 -318.5Z" pathLength="1" style="--d:328ms"/>
+    <circle class="dot" cx="0" cy="-312" r="1.9" style="--d:328ms"/>
+    <text class="txt d1" x="-64 -56 -48 -40 -32 -24 -16" y="-280" style="--d:297ms">palace/</text>
+    <text class="txt d2" x="-32 -24 -16 -8 0 8 16 24 32" y="-264" style="--d:278ms">CLAUDE.md</text>
+    <text class="txt d2" x="-32 -24 -16 -8 0 8 16 24 32" y="-248" style="--d:261ms">PALACE.md</text>
+    <text class="txt d2" x="-32 -24 -16 -8" y="-232" style="--d:244ms">dev/</text>
+    <path class="dotted stub" d="M5.5 -232H10.5" style="--d:244ms"/>
+    <text class="txt d2" x="-32 -24 -16 -8 0 8 16" y="-216" style="--d:227ms">design/</text>
+    <path class="dotted stub" d="M29.5 -216H34.5" style="--d:230ms"/>
+    <text class="txt d2" x="-32 -24 -16 -8 0 8 16 24 32" y="-200" style="--d:210ms">research/</text>
+    <text class="txt d3" x="0 8 16 24 32 40 48 56" y="-184" style="--d:196ms">notes.md</text>
+    <path class="solid line" d="M-56 -272V-200" pathLength="1" style="--d:251ms"/>
+    <path class="solid line" d="M-56 -264H-44" pathLength="1" style="--d:282ms"/>
+    <path class="solid line" d="M-56 -248H-44" pathLength="1" style="--d:266ms"/>
+    <path class="solid line" d="M-56 -232H-44" pathLength="1" style="--d:249ms"/>
+    <path class="solid line" d="M-56 -216H-44" pathLength="1" style="--d:233ms"/>
+    <path class="solid line" d="M-56 -200H-44" pathLength="1" style="--d:216ms"/>
+    <path class="solid line" d="M-24 -192V-184H-12" pathLength="1" style="--d:194ms"/>
+    <path class="dotted arrow" d="M0 -158V-137" style="--d:160ms"/>
+    <path class="solid line" d="M-3.5 -138L0 -133L3.5 -138" pathLength="1" style="--d:142ms"/>
+    <path class="solid line" d="M-11.5 -110.5H11.5A6.5 6.5 0 0 1 11.5 -97.5H-11.5A6.5 6.5 0 0 1 -11.5 -110.5Z" pathLength="1" style="--d:109ms"/>
+    <circle class="dot" cx="-8" cy="-104" r="1.9" style="--d:110ms"/>
+    <circle class="dot" cx="8" cy="-104" r="1.9" style="--d:110ms"/>
+    <rect class="ground sheet" x="-104" y="-72" width="208" height="96"/>
+    <path class="solid line" d="M-6 -72H104V24H-104V-72H-90" pathLength="1" style="--d:25ms"/>
+    <text class="txt d2" x="-80 -72 -64 -56 -48 -40 -32 -24 -16" y="-72" style="--d:89ms">CLAUDE.md</text>
+    <text class="txt d0" x="-88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72" y="-24" style="--d:26ms">Read PALACE.md first.</text>
+    <path class="dotted stub" d="M93.5 -24H98.5" style="--d:104ms"/>
+    <path class="dotted arrow" d="M0 50V71" style="--d:59ms"/>
+    <path class="solid line" d="M-3.5 70L0 75L3.5 70" pathLength="1" style="--d:77ms"/>
+    <path class="solid line" d="M-19.5 97.5H19.5A6.5 6.5 0 0 1 19.5 110.5H-19.5A6.5 6.5 0 0 1 -19.5 97.5Z" pathLength="1" style="--d:109ms"/>
+    <circle class="dot" cx="-16" cy="104" r="1.9" style="--d:111ms"/>
+    <circle class="dot" cx="0" cy="104" r="1.9" style="--d:109ms"/>
+    <circle class="dot" cx="16" cy="104" r="1.9" style="--d:111ms"/>
+    <rect class="ground" x="-56" y="136" width="144" height="128"/>
+    <path class="dotted next" d="M-56 136H88V264H-56Z" style="--d:211ms"/>
+    <rect class="ground" x="-72" y="168" width="144" height="128"/>
+    <path class="solid line" d="M-72 168H72V296H-72Z" pathLength="1" style="--d:244ms"/>
+    <circle class="dot dim" cx="-56" cy="184" r="1.7" style="--d:202ms"/>
+    <circle class="dot dim" cx="-40" cy="184" r="1.7" style="--d:202ms"/>
+    <circle class="dot dim" cx="-24" cy="184" r="1.7" style="--d:202ms"/>
+    <path class="solid line" d="M-72 200H72" pathLength="1" style="--d:210ms"/>
+    <rect class="ground" x="-88" y="200" width="144" height="128"/>
+    <path class="solid line" d="M-88 200H56V328H-88Z" pathLength="1" style="--d:278ms"/>
+    <text class="txt meta" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40" y="232" style="--d:244ms">$ cat CLAUDE.md</text>
+    <text class="txt d0" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32" y="264" style="--d:278ms">Read PALACE.md</text>
+    <path class="dotted stub" d="M45.5 264H50.5" style="--d:282ms"/>
+    <text class="txt meta" x="-72" y="296" style="--d:319ms">$</text>
+    <rect class="fill cursor" x="-58.5" y="300" width="5" height="1.6" style="--d:317ms"/>
+    <g class="key">
+    <polygon class="fill hatch" points="-112 368 -100 384 -112 384" fill="url(#plate-tall-h1)" style="--d:420ms"/>
+    <polygon class="fill hatch" points="-124 384 -112 400 -112 384" fill="url(#plate-tall-h2)" style="--d:420ms"/>
+    <polygon class="fill hatch" points="-100 384 -112 400 -112 384" fill="url(#plate-tall-h2)" style="--d:420ms"/>
+    <polygon class="fill hatch" points="-100 384 -112 400 -112 384" fill="url(#plate-tall-h3)" style="--d:420ms"/>
+    <path class="solid line" d="M-112 368L-124 384L-112 400L-100 384Z" pathLength="1" style="--d:420ms"/>
+    <path class="solid keel" d="M-112 368V400" pathLength="1" style="--d:420ms"/>
+    <path class="solid girdle" d="M-124 384H-100" pathLength="1" style="--d:420ms"/>
+    <circle class="dot apex" cx="-112" cy="368" r="1.8" style="--d:404ms"/>
+    </g>
+    <path class="solid rule" d="M-80 392H48M-80 392V382M-48 392V386M-16 392V386M16 392V386M48 392V382" pathLength="1" style="--d:412ms"/>
+    <text class="txt meta" x="72 80 88 96 104 112 120" y="392" style="--d:425ms">37 × 54</text>
+  </g>
+</svg>
+<svg class="plate-tall plate-asc" xmlns="http://www.w3.org/2000/svg" viewBox="-160 -444 320 888" aria-hidden="true">
+<g class="asc" xml:space="preserve">
+    <text class="arow" y="-424" style="--d:864ms"><tspan class="af" x="-144 -136 -128 -120 -112 -104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144">╔═══════════════════════════════════╗</tspan></text>
+    <text class="arow" y="-408" style="--d:832ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-392" style="--d:800ms"><tspan class="af" x="-144">║</tspan><tspan class="al" x="-120 -112 -104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80">Open a palace without loci</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-376" style="--d:768ms"><tspan class="af" x="-144">║</tspan><tspan class="al" x="32 40 48 56 64 72 80 88 96 104 112 120">plate 1 of 1</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-360" style="--d:736ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-344" style="--d:704ms"><tspan class="af" x="-144 -136 -128 -120 -112 -104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144">╟───────────────────────────────────╢</tspan></text>
+    <text class="arow" y="-328" style="--d:672ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-312" style="--d:640ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-8 0 8">(•)</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-296" style="--d:608ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-280" style="--d:576ms"><tspan class="af" x="-144">║</tspan><tspan class="al" x="-64 -56 -48 -40 -32 -24 -16">palace/</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-264" style="--d:544ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-56 -48">├─</tspan><tspan class="al" x="-32 -24 -16 -8 0 8 16 24 32">CLAUDE.md</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-248" style="--d:512ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-56 -48">├─</tspan><tspan class="al" x="-32 -24 -16 -8 0 8 16 24 32">PALACE.md</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-232" style="--d:480ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-56 -48">├─</tspan><tspan class="al" x="-32 -24 -16 -8">dev/</tspan><tspan class="af" x="8">┄</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-216" style="--d:448ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-56 -48">├─</tspan><tspan class="al" x="-32 -24 -16 -8 0 8 16">design/</tspan><tspan class="af" x="32">┄</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-200" style="--d:416ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-56 -48">└─</tspan><tspan class="al" x="-32 -24 -16 -8 0 8 16 24 32">research/</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-184" style="--d:384ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-24 -16">└─</tspan><tspan class="al" x="0 8 16 24 32 40 48 56">notes.md</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-168" style="--d:352ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-152" style="--d:320ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="0">┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-136" style="--d:288ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="0">▾</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-120" style="--d:256ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-104" style="--d:224ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-16 -8 0 8 16">(• •)</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-88" style="--d:192ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-72" style="--d:160ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-104 -96">┌─</tspan><tspan class="al" x="-80 -72 -64 -56 -48 -40 -32 -24 -16">CLAUDE.md</tspan><tspan class="af" x="0 8 16 24 32 40 48 56 64 72 80 88 96 104">─────────────┐</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-56" style="--d:128ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-104">│</tspan><tspan class="af" x="104">│</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-40" style="--d:96ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-104">│</tspan><tspan class="af" x="104">│</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-24" style="--d:64ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-104">│</tspan><tspan class="ah" x="-88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72">Read PALACE.md first.</tspan><tspan class="af" x="96 104">┄│</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="-8" style="--d:32ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-104">│</tspan><tspan class="af" x="104">│</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="8" style="--d:0ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-104">│</tspan><tspan class="af" x="104">│</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="24" style="--d:32ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88 96 104">└─────────────────────────┘</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="40" style="--d:64ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="56" style="--d:96ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="0">┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="72" style="--d:128ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="0">▾</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="88" style="--d:160ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="104" style="--d:192ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-24 -16 -8 0 8 16 24">(• • •)</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="120" style="--d:224ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="136" style="--d:256ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88">┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="152" style="--d:288ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-56">┆</tspan><tspan class="af" x="88">┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="168" style="--d:320ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88">┌─────────────────┐ ┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="184" style="--d:352ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-72 -64 -56 -48 -40 -32 -24">│ • • •</tspan><tspan class="af" x="72 80 88">│ ┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="200" style="--d:384ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88">┌─────────────────┐─┤ ┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="216" style="--d:416ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88">│</tspan><tspan class="af" x="56 64 72 80 88">│ │ ┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="232" style="--d:448ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88">│</tspan><tspan class="al" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40">$ cat CLAUDE.md</tspan><tspan class="af" x="56 64 72 80 88">│ │ ┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="248" style="--d:480ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88">│</tspan><tspan class="af" x="56 64 72 80 88">│ │ ┆</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="264" style="--d:512ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88">│</tspan><tspan class="ah" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32">Read PALACE.md</tspan><tspan class="af" x="48 56 64 72 80 88">┄│ │┄┘</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="280" style="--d:544ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88">│</tspan><tspan class="af" x="56 64 72">│ │</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="296" style="--d:576ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88">│</tspan><tspan class="al" x="-72 -64 -56">$ ▁</tspan><tspan class="af" x="56 64 72">│─┘</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="312" style="--d:608ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88">│</tspan><tspan class="af" x="56">│</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="328" style="--d:640ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56">└─────────────────┘</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="344" style="--d:672ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="360" style="--d:704ms"><tspan class="af" x="-144 -136 -128 -120 -112 -104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144">╟───────────────────────────────────╢</tspan></text>
+    <text class="arow" y="376" style="--d:736ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-120 -112 -104">╱│╲</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="392" style="--d:768ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="-120 -112 -104">╲│╱</tspan><tspan class="af" x="-80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48">└───┴───┴───┴───┘</tspan><tspan class="al" x="72 80 88 96 104 112 120">37 × 54</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="408" style="--d:800ms"><tspan class="af" x="-144">║</tspan><tspan class="af" x="144">║</tspan></text>
+    <text class="arow" y="424" style="--d:832ms"><tspan class="af" x="-144 -136 -128 -120 -112 -104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144">╚═══════════════════════════════════╝</tspan></text>
+  </g>
+</svg>
+          </div>
+        </div>
+        <div class="band bot">
+          <dl class="rooms">
+            <div><dt>Crystals</dt><dd>facts settled once</dd></div>
+            <div><dt>Garden</dt><dd>questions left growing</dd></div>
+          </dl>
+          <p class="ways"><a href="start.html">ten-minute start</a><a href="guide.html">the ritual</a><a href="https://docs.loci.garden" target="_blank" rel="noopener">the docs</a></p>
+        </div>
+      </section>
+
+      <!-- ring 2: keep it -->
+      <section class="ring r2" data-k="2" aria-labelledby="h-keep" tabindex="-1">
+        <div class="band top">
+          <h2 class="label" id="h-keep">Keep it</h2>
+          <p class="remember">The vendor forgets. The folder remembers.</p>
+          <ol class="steps">
+            <li>Clone the kit.</li>
+            <li>Point any file-aware AI at the folder.</li>
+            <li>Run <code>FIRST-SESSION.md</code> and walk in.</li>
+          </ol>
+        </div>
+        <div class="hole">
+          <figure class="core">
+            <img src="assets/palace-map-v2.webp" width="864" height="1152" decoding="async" alt="Pixel map of a memory palace: rooms joined by corridors, a garden at the edge.">
+            <p class="save" id="save"><span class="save-mark" aria-hidden="true"></span><span><span id="save-text" role="status">save point</span><span class="caret" aria-hidden="true"></span></span></p>
+          </figure>
+        </div>
+        <div class="band bot">
+          <div class="cmd"><code id="cmd">git clone https://github.com/huximaxi/loci</code><button class="copy" id="copy" type="button" data-umami-event="wizard-curl-copy">copy</button></div>
+          <p class="keep-note">Plain text on your machine: no account, no telemetry, no cloud. The model you invite keeps its own rules, so choose your guests.</p>
+          <p class="links"><a href="keep-your-memory-yours.html">Keep your memory yours →</a><a href="about.html">Where it grew from →</a></p>
+        </div>
+      </section>
+    </div>
+  </div>
 </main>
 
 <!-- ═══════════════════ FOOTER ════════════════════════ -->
-<hr class="section-divider" style="margin: 0 0;" />
 <footer>
-  <span class="footer-text">
-    <span class="t-wizard">loci.garden · The palace grows with every session. ✦</span>
-    <span class="t-llmage">loci.garden · v0.6.0 · MIT license</span>
-  </span>
-  <!-- Footer nav links -->
-  <div class="footer-links">
-    <a href="/about.html" class="footer-link">
-      <span class="t-wizard">The Origin</span>
-      <span class="t-llmage">About</span>
-    </a>
-    <a href="/roadmap.html" class="footer-link">
-      <span class="t-wizard">The Quest</span>
-      <span class="t-llmage">Roadmap</span>
-    </a>
-    <a href="/keep-your-memory-yours.html" class="footer-link">
-      <span class="t-wizard">Keep your memory yours</span>
-      <span class="t-llmage">Keep your memory yours</span>
-    </a>
-    <a href="/seed/" class="footer-link">
-      <span class="t-wizard">The Seed</span>
-      <span class="t-llmage">Seed</span>
-    </a>
-    <a href="/releases/" class="footer-link">
-      <span class="t-wizard">Changelog</span>
-      <span class="t-llmage">Releases</span>
-    </a>
-    <button class="footer-link" onclick="openContactModal()">
-      <span class="t-wizard">Send a raven</span>
-      <span class="t-llmage">Contact</span>
-    </button>
-    <a href="https://github.com/huximaxi/loci" class="footer-link github-footer-link" style="display:inline-flex;align-items:center;gap:5px;" target="_blank" rel="noopener">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      GitHub
-    </a>
-    <a href="/zoku/" class="footer-link">
-      <span class="t-wizard">Join the Game</span>
-      <span class="t-llmage">contribute</span>
-    </a>
-    <a href="/privacy.html" class="footer-link">
-      <span class="t-wizard">The Pact</span>
-      <span class="t-llmage">privacy</span>
-    </a>
-    <a href="/.well-known/security.txt" class="footer-link">
-      <span class="t-wizard">The Sigil</span>
-      <span class="t-llmage">security.txt</span>
-    </a>
-  </div>
-  <span class="footer-text">
-    <span class="t-wizard">Built in the palace · For those who build with fire</span>
-    <span class="t-llmage">no telemetry · no accounts · no cloud required</span>
-  </span>
+  <nav aria-label="Footer">
+    <a href="/roadmap.html">roadmap</a>
+    <a href="/releases/">releases</a>
+    <a href="/privacy.html">privacy</a>
+    <a href="/zoku/">contribute</a>
+  </nav>
+  <p>loci.garden · MIT</p>
+  <p class="last"><span class="t-wizard">Every room starts empty. That part is on purpose.</span><span class="t-llmage">Rooms ship empty, by design.</span></p>
 </footer>
-
-<!-- ═══════════════════ CONTACT MODAL ════════════════ -->
-<div id="contact-modal" class="contact-modal-overlay" onclick="handleModalBackdropClick(event)">
-  <div class="contact-modal-box">
-    <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">✕</button>
-    <div class="contact-modal-title">
-      <span class="t-wizard">Send a Raven</span>
-      <span class="t-llmage">Contact</span>
-    </div>
-    <p class="contact-modal-sub">
-      <span class="t-wizard">The palace is under construction. Ideas, conjurations, questions, send them through.</span>
-      <span class="t-llmage">loci v0.6.0. Feedback, integration questions, architecture discussions.</span>
-    </p>
-    <a href="mailto:themapisnory@tuta.io?subject=loci.garden" class="contact-modal-email">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      themapisnory@tuta.io
-    </a>
-  </div>
-</div>
-
-
 
 <!-- ═══════════════════ SCRIPT ════════════════════════ -->
 <script>
@@ -410,7 +583,7 @@
     setTheme(saved);
   })();
 
-  // Dose: how much the hero ornament moves:
+  // Dose: how much the ornament moves:
   // 0 still · 1 calm (default) · 2 deep hues · 3 the wheel · 4 echo · 5 threshold.
   // Only the ornament changes; text never moves; reduced motion keeps the colour, drops the movement.
   const DOSES = ['still', 'calm', 'deep hues', 'the wheel', 'echo', 'threshold'];
@@ -436,108 +609,233 @@
     setDose(/^[0-5]$/.test(saved || '') ? parseInt(saved, 10) : 1);
   })();
 
-  // Claim-alleles IIFE retired 2026-06-25 (Nyx). The tier-row reveal was
-  // removed from the hero; the claim now reads as plain text in all three
-  // tiers, tier-context delivered by the nav switcher + tb-* gates below.
+  // ── The disk: three reading rings, stepped one at a time ──────────────
+  (function disk() {
+    var root = document.documentElement;
+    var R = Math.pow(0.9, 7);          // 0.47830: one reading ring per seven vortex rings
+    var TURN = 77;                      // 11deg x 7: the vortex lands on itself at every rest
+    var RINGS = 44;                     // 30 vortex rings + 14, so the centre stays full at depth 2
+    var MAXD = 2;
+    var IDS = ['claim', 'palace', 'keep'];
+    var TITLES = ['loci, the mindspace primitive', 'the palace · loci', 'keep it · loci'];
+    var store = {
+      get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+      set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+      del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+    };
+    // Back retraces our own ring jumps; the browser must not restore an old scroll on top of that.
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
 
-
-  // ── Hero fractal backdrop (nested rotating squares + wizard hum) ─────
-  // Each ring carries seeded CSS vars driving the wizard-ring-hum keyframe.
-  // Period / phase / twist / opacity-amplitude are pseudo-random per ring
-  // (seeded by i) so the breathing reads as "many slow things, lightly
-  // coordinated" rather than a single pulse. The seed is deterministic, so
-  // the pattern is the same every load (no chaos, just variation).
-  (function fractal() {
-    const host = document.querySelector('.hero-fractal');
-    if (!host) return;
-    const NS = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '-200 -200 400 400');
-    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-    // Deterministic per-ring seed: mulberry32-ish; cheap, no deps.
-    const seed = i => {
-      let x = (i + 1) * 0x9E3779B9 >>> 0;
+    // The vortex scenery: ring i at 0.9^i, turned 11deg*i, with a seeded hum
+    // (period, phase, twist, peak) so the breathing reads as many slow things.
+    var NS = 'http://www.w3.org/2000/svg';
+    var seed = function (i) {
+      var x = ((i + 1) * 0x9E3779B9) >>> 0;
       x ^= x >>> 15; x = Math.imul(x, 0x85EBCA6B);
       x ^= x >>> 13; x = Math.imul(x, 0xC2B2AE35);
       x ^= x >>> 16;
       return (x >>> 0) / 4294967296;
     };
-    for (let i = 0; i < 30; i++) {
-      const s = 190 * Math.pow(0.9, i);
-      const r = document.createElementNS(NS, 'rect');
-      r.setAttribute('x', -s); r.setAttribute('y', -s);
-      r.setAttribute('width', 2 * s); r.setAttribute('height', 2 * s);
+    var ringsG = document.getElementById('vortex-rings');
+    for (var i = 0; i < RINGS; i++) {
+      var s = 190 * Math.pow(0.9, i);
+      var r = document.createElementNS(NS, 'rect');
+      r.setAttribute('x', (-s).toFixed(2)); r.setAttribute('y', (-s).toFixed(2));
+      r.setAttribute('width', (2 * s).toFixed(2)); r.setAttribute('height', (2 * s).toFixed(2));
       r.setAttribute('rx', '2');
-      r.setAttribute('fill', 'none');
-      r.setAttribute('stroke', 'currentColor');
-      r.setAttribute('stroke-width', '0.6');
-      const baseRot = i * 11;
-      r.setAttribute('transform', 'rotate(' + baseRot + ')');
-      const base = Math.max(0.05, 0.5 - i * 0.014);
+      r.setAttribute('transform', 'rotate(' + (i * 11) + ')');
+      var base = Math.max(0.2, 0.55 - i * 0.008);
+      var a = seed(i), b = seed(i + 97);
       r.setAttribute('opacity', base.toFixed(3));
-      // Hum vars: rings nearer the centre breathe slower and quieter; outer
-      // rings carry more amplitude. Phase distributes across the cycle.
-      const a = seed(i), b = seed(i + 97);
-      const dur = (8 + a * 5).toFixed(2) + 's';            // 8..13s
-      const delay = (-1 * b * 13).toFixed(2) + 's';        // staggered negative
-      const peak = Math.min(0.95, base + 0.06 + a * 0.10).toFixed(3);
-      const twist = (0.25 + b * 0.8).toFixed(2) + 'deg';
+      r.setAttribute('data-band', String(Math.floor(i / 7) % 4));   // one hue band per reading ring
       r.style.setProperty('--ring-base', base.toFixed(3));
-      r.style.setProperty('--ring-peak', peak);
-      r.style.setProperty('--ring-rot', baseRot + 'deg');
-      r.style.setProperty('--ring-dur', dur);
-      r.style.setProperty('--ring-delay', delay);
-      r.style.setProperty('--ring-twist', twist);
-      r.setAttribute('data-depth', String(Math.min(3, Math.floor(i / 7.5))));  // hue-by-depth step for dose 2+
-      svg.appendChild(r);
+      r.style.setProperty('--ring-peak', Math.min(0.95, base + 0.06 + a * 0.1).toFixed(3));
+      r.style.setProperty('--ring-rot', (i * 11) + 'deg');
+      r.style.setProperty('--ring-dur', (8 + a * 5).toFixed(2) + 's');
+      r.style.setProperty('--ring-delay', (-b * 13).toFixed(2) + 's');
+      r.style.setProperty('--ring-twist', (0.25 + b * 0.8).toFixed(2) + 'deg');
+      ringsG.appendChild(r);
     }
-    svg.classList.add('fractal-main');
-    host.appendChild(svg);
-    const echo = svg.cloneNode(true);  // mirrored, counter-rotating twin; shown from dose 4
-    echo.setAttribute('class', 'fractal-echo');
-    echo.setAttribute('aria-hidden', 'true');
-    host.appendChild(echo);
-  })();
+    var echoG = document.getElementById('vortex-echo');
+    Array.prototype.forEach.call(ringsG.children, function (n) { echoG.appendChild(n.cloneNode(true)); });
 
-  // ── Contact modal ──────────────────────────────────────
-  function openContactModal() {
-    document.getElementById('contact-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeContactModal() {
-    document.getElementById('contact-modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function handleModalBackdropClick(e) {
-    if (e.target === document.getElementById('contact-modal')) closeContactModal();
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { closeContactModal(); }
-  });
+    // ── geometry ──
+    var disk = document.getElementById('disk');
+    var field = document.getElementById('field');
+    var descent = document.getElementById('descent');
+    var vortex = document.getElementById('vortex');
+    var rings = Array.prototype.slice.call(document.querySelectorAll('.ring'));
+    var outlines = Array.prototype.slice.call(document.querySelectorAll('.outline'));
+    var hereLinks = Array.prototype.slice.call(document.querySelectorAll('.here a'));
+    var miniRects = Array.prototype.slice.call(document.querySelectorAll('.mini rect'));
+    var nav = document.querySelector('.nav');
+    var navH = 60, step = 400, ringW = 800, ringH = 600;
 
-  // ── Copy Wizard curl one-liner ────────────────────────
-  function copyWizardCurl(btn) {
-    var cmd = document.getElementById('wizard-curl-cmd');
-    if (!cmd) return;
-    var text = cmd.textContent.trim();
-    var done = function() {
-      btn.textContent = 'copied';
-      btn.classList.add('copied');
-      setTimeout(function() { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1600);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function() {
-        // Fallback: select the text so user can copy manually
-        var r = document.createRange(); r.selectNodeContents(cmd);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    function measure() {
+      navH = nav.offsetHeight;
+      var stageH = window.innerHeight - navH;
+      step = Math.round(stageH * 0.7);
+      root.style.setProperty('--nav-h', navH + 'px');
+      root.style.setProperty('--stage-h', stageH + 'px');
+      root.style.setProperty('--step', step + 'px');
+      ringW = rings[0].offsetWidth; ringH = rings[0].offsetHeight;   // layout size, unaffected by transform
+      vortex.style.setProperty('--vx', Math.round(Math.max(ringW, ringH) * 400 / 380) + 'px');
+    }
+
+    function depth() {
+      var top = disk.getBoundingClientRect().top;
+      return Math.min(MAXD, Math.max(0, (navH - top) / step));
+    }
+
+    // Paint ring k at rest: its words show, deeper rings are outlines, outer rings are gone.
+    var shown = -1;
+    function paint(k) {
+      shown = k;
+      rings.forEach(function (el, i) {
+        var sc = Math.pow(R, i - k);
+        el.style.setProperty('--s', sc.toFixed(5));
+        el.style.opacity = i === k ? '1' : '0';
+        el.classList.toggle('live', i === k);
+        var f = outlines[i];
+        f.style.width = (ringW * sc).toFixed(1) + 'px';
+        f.style.height = (ringH * sc).toFixed(1) + 'px';
+        f.style.opacity = i > k ? '1' : '0';
+        f.classList.toggle('go', i > k);
       });
-    } else {
-      var r = document.createRange(); r.selectNodeContents(cmd);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      done();
+      descent.setAttribute('transform', 'rotate(' + (-TURN * k) + ') scale(' + Math.pow(R, -k).toFixed(5) + ')');
+      hereLinks.forEach(function (a) {
+        if (+a.getAttribute('data-k') === k) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+      });
+      miniRects.forEach(function (m) { m.classList.toggle('on', +m.getAttribute('data-k') === k); });
     }
-  }
 
+    // Rings swap behind a crossfade (120ms out, 140ms in); words never show while they scale.
+    var fadeT = null, pendingK = -1;
+    function frame() {
+      var k = Math.round(depth());
+      if (k === shown || k === pendingK) return;
+      if (shown < 0) { paint(k); return; }
+      pendingK = k;
+      field.classList.add('fading');
+      clearTimeout(fadeT);
+      fadeT = setTimeout(function () { pendingK = -1; paint(k); field.classList.remove('fading'); }, 120);
+    }
+
+    var ticking = false;
+    function onScroll() {
+      settleSoon();
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; frame(); });
+    }
+
+    // At rest: title, URL and the reading place (kept on this device only).
+    var settleT = null;
+    function settleSoon() { clearTimeout(settleT); settleT = setTimeout(settle, 140); }
+    function settle() {
+      frame();
+      var d = depth(), k = Math.round(d);
+      if (Math.abs(d - k) > 0.04) return;
+      document.title = TITLES[k];
+      if (k > 0) store.set('loci-place', IDS[k]); else store.del('loci-place');
+      if (k === 0 && !location.hash) return;
+      if (location.hash !== '#' + IDS[k]) { try { history.replaceState(null, '', '#' + IDS[k]); } catch (e) {} }
+    }
+
+    function goTo(k, focusRing) {
+      k = Math.max(0, Math.min(MAXD, k));
+      var y = disk.getBoundingClientRect().top + window.scrollY - navH + k * step;
+      window.scrollTo({ top: Math.round(y), behavior: 'auto' });
+      if (focusRing) rings[k].focus({ preventScroll: true });
+      settleSoon();
+    }
+
+    // Landmark and in-page ring links: one history entry per deliberate jump, so Back retraces them.
+    function jump(k) {
+      if (location.hash !== '#' + IDS[k]) { try { history.pushState({ ring: k }, '', '#' + IDS[k]); } catch (err) {} }
+      goTo(k, true);
+    }
+    document.querySelectorAll('a[data-k]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); jump(+a.getAttribute('data-k')); });
+    });
+    outlines.forEach(function (f) {
+      f.addEventListener('click', function () { var k = +f.getAttribute('data-k'); if (k > depth()) jump(k); });
+    });
+    function fromHash() { var k = IDS.indexOf(location.hash.slice(1)); return k < 0 ? 0 : k; }
+    window.addEventListener('popstate', function () { goTo(fromHash(), true); });
+
+    // Focus anywhere inside a ring brings that ring to reading size: nothing is gated.
+    document.addEventListener('focusin', function (e) {
+      var ring = e.target.closest && e.target.closest('.ring');
+      if (!ring) return;
+      var k = +ring.getAttribute('data-k');
+      if (Math.abs(depth() - k) > 0.3) goTo(k, false);
+    });
+
+    // Keyboard: arrows, Page keys and space step one ring while inside the disk.
+    document.addEventListener('keydown', function (e) {
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+      var t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (e.key === ' ' && t && /^(BUTTON|A)$/.test(t.tagName)) return;
+      var down = e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey);
+      var up = e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey);
+      if (!down && !up) return;
+      var d = depth();
+      if (disk.getBoundingClientRect().bottom < window.innerHeight - 1) return;   // footer: native scrolling
+      if (down && d >= MAXD - 0.02) return;                                      // leave the disk natively
+      if (up && d <= 0.02) return;
+      e.preventDefault();
+      goTo(down ? Math.floor(d + 0.02) + 1 : Math.ceil(d - 0.02) - 1, false);
+    });
+
+    // ── The save point: copying the clone line is the one act, and the line says only what happened ──
+    var saveEl = document.getElementById('save');
+    var saveText = document.getElementById('save-text');
+    var copyBtn = document.getElementById('copy');
+    var cmd = document.getElementById('cmd');
+    var LINE_OK = 'Copied. Paste it in a terminal to keep your save.';
+    var LINE_FAIL = 'Not confirmed. The line below is selected: copy it by hand.';
+    function legacyCopy(text) {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        var ok = document.execCommand('copy'); ta.remove(); return ok;
+      } catch (e) { return false; }
+    }
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext !== false) {
+        return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text); });
+      }
+      return Promise.resolve(legacyCopy(text));
+    }
+    copyBtn.addEventListener('click', function () {
+      // A clipboard prompt can hang: after 700ms stop waiting and say the true thing.
+      var timeout = new Promise(function (res) { setTimeout(function () { res(false); }, 700); });
+      Promise.race([copyText(cmd.textContent).catch(function () { return false; }), timeout]).then(function (ok) {
+        copyBtn.focus();   // the fallback copy borrows focus; give it back
+        saveEl.classList.remove('on'); void saveEl.offsetWidth;
+        if (ok) {
+          saveText.textContent = LINE_OK;
+          saveEl.classList.add('on');   // the square fills, the caret blinks once, then rests lit
+        } else {
+          saveText.textContent = LINE_FAIL;
+          var sel = window.getSelection(), range = document.createRange();
+          range.selectNodeContents(cmd); sel.removeAllRanges(); sel.addRange(range);
+        }
+      });
+    });
+
+    // ── boot: a link's ring first, else the reading place kept on this device ──
+    measure();
+    paint(Math.round(depth()));
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () { measure(); shown = -1; frame(); });
+    if ('ResizeObserver' in window) new ResizeObserver(function () { measure(); shown = -1; frame(); }).observe(nav);
+    var start = location.hash ? fromHash() : Math.max(0, IDS.indexOf(store.get('loci-place') || ''));
+    if (start) requestAnimationFrame(function () { goTo(start, false); });
+  })();
 </script>
 
   <script defer src="https://analytics.loci.garden/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
