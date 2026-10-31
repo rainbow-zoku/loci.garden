@@ -306,6 +306,16 @@ footer nav a { color: var(--text-2); }
 footer p { margin: 0 0 4px; }
 footer .last { color: var(--text); margin: 0; }
 
+/* without scripts (no .js on the root) the three rings read as one plain page, top to bottom */
+html:not(.js) .disk { height: auto; }
+html:not(.js) .stage { position: static; height: auto; overflow: visible; }
+html:not(.js) :is(.here, .outline, .scenery, .stop, .r0 .hole, .save, .copy) { display: none; }
+html:not(.js) .plate * { animation: none !important; }
+html:not(.js) .ring { position: static; transform: none; opacity: 1; pointer-events: auto; width: auto; max-width: 1040px; height: auto; margin: 0 auto; padding: 48px 16px; container-type: normal; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+html:not(.js) .hole { width: min(100%, 560px); aspect-ratio: 752 / 544; }
+html:not(.js) .r2 .hole { aspect-ratio: 3 / 4; }
+@media (max-width: 800px) { html:not(.js) .r1 .hole { width: min(100%, 280px); aspect-ratio: 320 / 888; } }
+
 /* reduced motion: substitute, don't remove. Colour stays, movement goes. */
 @media (prefers-reduced-motion: reduce) {
   #vortex rect, #vortex .spin, #vortex .echo-spin, #vortex .dive, #vortex .undertow, #vortex .ghost, #vortex .tear, .scenery { animation: none !important; }
