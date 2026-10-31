@@ -61,7 +61,7 @@ code { font-family: var(--font-mono); font-size: 0.92em; }
 .theme-switcher { display: inline-flex; gap: 2px; padding: 2px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
 .theme-btn { border: 0; background: transparent; color: var(--text-2); font-size: 12.5px; padding: 4px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
 .theme-btn[aria-pressed="true"] { background: var(--border-2); color: var(--text); }
-.dose-btn { font-variant-numeric: tabular-nums; min-width: 7.5ch; }
+.dose-btn { font-variant-numeric: tabular-nums; min-width: 7.2em; text-align: left; }   /* wide enough for "dose 12" and anchored left, so nothing shifts as it counts */
 
 /* ═══════════════════════════════════════════════════════
    THE DISK: a scroll runway with a sticky stage
@@ -100,19 +100,100 @@ code { font-family: var(--font-mono); font-size: 0.92em; }
 #vortex .echo { display: none; }
 
 /* dose: a volume knob for the ornament only. 0 still, 1 calm (the hum),
-   2 deep hues, 3 the wheel, 4 echo, 5 threshold. The reading layer never moves. */
+   2 deep hues, 3 the wheel, 4 echo, 5 threshold; deeper, 6 to 12, below.
+   The reading layer never moves. */
 html:not([data-dose="0"]) #vortex rect { animation: ring-hum var(--ring-dur, 9s) ease-in-out infinite; animation-delay: var(--ring-delay, 0s); }
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) #vortex rect { animation-duration: 8s; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) #vortex rect[data-band="0"] { stroke: #a289dc; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) #vortex rect[data-band="1"] { stroke: #7a84e0; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) #vortex rect[data-band="2"] { stroke: #3784d0; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) #vortex rect[data-band="3"] { stroke: #21828c; }
-html:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) #vortex .spin { animation: ring-turn 90s linear infinite; }
-html:is([data-dose="4"],[data-dose="5"]) #vortex .echo { display: inline; opacity: 0.35; }
-html:is([data-dose="4"],[data-dose="5"]) #vortex .echo-spin { animation: ring-echo 130s linear infinite; }
-html[data-theme="wizard"][data-dose="5"] { --vortex-op: 0.42; }
-html[data-theme="wizard"][data-dose="5"] .crystal { filter: drop-shadow(0 0 22px rgba(123,91,203,0.45)); }
-html[data-theme="llmage"][data-dose="5"] .crystal { filter: drop-shadow(0 0 18px rgba(255,255,255,0.18)); }
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect { animation-duration: 8s; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="0"] { stroke: #a289dc; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="1"] { stroke: #7a84e0; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="2"] { stroke: #3784d0; }
+html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="3"] { stroke: #21828c; }
+html:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .spin { animation: ring-turn 90s linear infinite; }
+html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .echo { display: inline; opacity: 0.35; }
+html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .echo-spin { animation: ring-echo 130s linear infinite; }
+html[data-theme="wizard"]:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) { --vortex-op: 0.42; }
+html[data-theme="wizard"]:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .crystal { filter: drop-shadow(0 0 22px rgba(123,91,203,0.45)); }
+html[data-theme="llmage"]:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .crystal { filter: drop-shadow(0 0 18px rgba(255,255,255,0.18)); }
+
+/* past the threshold: 6 descent, 7 undertow, 8 tide, 9 ghost, 10 drift, 11 slip,
+   12 unravel. Each dose keeps everything below it. Slow on purpose: every loop
+   runs 8s or longer, nothing flashes, and a glitch is a short slide of the
+   ornament, never a strobe. Text still never moves. */
+#vortex .dive, #vortex .undertow { transform-box: view-box; transform-origin: 0 0; }
+#vortex .ghost, #vortex .tear { visibility: hidden; }   /* hidden, not removed, so their turn keeps time with the vortex */
+html #vortex .ghost rect, html #vortex .tear rect { animation: none; }
+#vortex .ghost { color: #21828c; opacity: 0.6; }
+[data-theme="llmage"] #vortex .ghost { color: #b4b4b4; opacity: 0.3; }
+#vortex .tear-bg { fill: var(--bg); stroke: none; }
+
+/* 6 descent: the vortex falls inward one ring at a time. Ring i lands on ring
+   i-1 after scale(1/0.9) and a -11deg turn, so the fall never ends. The per-ring
+   hum rests from here, so each landing is seamless in shape (in wizard a hue band
+   steps one ring at each landing). */
+@keyframes vortex-dive { from { transform: rotate(0deg) scale(1); } to { transform: rotate(-11deg) scale(1.11111); } }
+html:is([data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect { animation: none; }
+html:is([data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .dive { animation: vortex-dive 14s linear infinite; }
+
+/* 7 undertow: the mirrored echo rises against the fall */
+@keyframes vortex-rise { from { transform: rotate(-11deg) scale(1.11111); } to { transform: rotate(0deg) scale(1); } }
+html:is([data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .undertow { animation: vortex-rise 23s linear infinite; }
+
+/* 8 tide: every line drifts one step down the depth ladder (24 degrees) and back;
+   llmage has no hue, so its lines breathe in brightness instead */
+@keyframes vortex-tide { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(-24deg); } }
+@keyframes vortex-tide-mono { 0%, 100% { opacity: var(--vortex-op); } 50% { opacity: calc(var(--vortex-op) * 1.3); } }
+html[data-theme="wizard"]:is([data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .scenery { animation: scenery-arrive 1100ms var(--ease-arrive) both, vortex-tide 37s ease-in-out infinite; }
+html[data-theme="llmage"]:is([data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .scenery { animation: scenery-arrive 1100ms var(--ease-arrive) both, vortex-tide-mono 37s ease-in-out infinite; }
+
+/* 9 ghost: a second lattice that does not fall, so the vortex dives through it,
+   drifting in a slow figure eight */
+@keyframes ghost-drift {
+  0%, 100% { transform: translate(0, 0); }
+  12.5% { transform: translate(2.1px, 1.4px); }  25% { transform: translate(3px, 0); }
+  37.5% { transform: translate(2.1px, -1.4px); } 50% { transform: translate(0, 0); }
+  62.5% { transform: translate(-2.1px, 1.4px); } 75% { transform: translate(-3px, 0); }
+  87.5% { transform: translate(-2.1px, -1.4px); }
+}
+html:is([data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .ghost { visibility: visible; animation: ghost-drift 29s linear infinite; }
+
+/* 10 drift: the ghost's rings wander out of alignment, each on its own slow clock */
+@keyframes ring-wander {
+  0%, 100% { transform: rotate(var(--ring-rot, 0deg)); }
+  50%      { transform: rotate(calc(var(--ring-rot, 0deg) + var(--ring-twist, 0.4deg) * 9)); }
+}
+html:is([data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .ghost rect { animation: ring-wander var(--ring-dur, 9s) ease-in-out infinite; animation-delay: var(--ring-delay, 0s); }
+html:is([data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .ghost { animation-duration: 19s; }
+
+/* 11 slip: now and then a slice of the vortex slides sideways and back, like a
+   tape losing tracking. Two slices on 11s and 17s clocks, so it never settles
+   into a beat; each slip lasts about a second. */
+@keyframes tear-slip {
+  0%, 88% { opacity: 0; transform: translateX(0); }
+  89% { opacity: 1; transform: translateX(0); }
+  93% { transform: translateX(5px); }
+  97% { opacity: 1; transform: translateX(-2px); }
+  99%, 100% { opacity: 0; transform: translateX(0); }
+}
+html:is([data-dose="11"],[data-dose="12"]) #vortex .tear { visibility: visible; opacity: 0; }
+html:is([data-dose="11"],[data-dose="12"]) #vortex .tear-a { animation: tear-slip 11s ease-in-out infinite; }
+html:is([data-dose="11"],[data-dose="12"]) #vortex .tear-b { animation: tear-slip 17s ease-in-out -6s infinite reverse; }
+
+/* 12 unravel: the fall lurches (slow, then quicker, then slow inside each ring)
+   and every ninth ring turns out of sequence for a moment */
+@keyframes vortex-dive-lurch {
+  0%   { transform: rotate(0deg) scale(1); }
+  35%  { transform: rotate(-1.32deg) scale(1.01273); }
+  50%  { transform: rotate(-5.5deg) scale(1.05409); }
+  65%  { transform: rotate(-9.68deg) scale(1.09715); }
+  100% { transform: rotate(-11deg) scale(1.11111); }
+}
+@keyframes ring-skip {
+  0%, 88% { transform: rotate(var(--ring-rot, 0deg)); }
+  92%, 95% { transform: rotate(calc(var(--ring-rot, 0deg) + 11deg)); }
+  99%, 100% { transform: rotate(var(--ring-rot, 0deg)); }
+}
+html[data-dose="12"] #vortex .dive { animation: vortex-dive-lurch 14s ease-in-out infinite; }
+html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 13s ease-in-out infinite; animation-delay: var(--ring-delay, 0s); }
 
 /* outlines: a ring you have not stepped into is an outline, never small glyphs.
    Sized in px (not scaled), so the hairline stays a hairline at any depth. */
@@ -227,7 +308,8 @@ footer .last { color: var(--text); margin: 0; }
 
 /* reduced motion: substitute, don't remove. Colour stays, movement goes. */
 @media (prefers-reduced-motion: reduce) {
-  #vortex rect, #vortex .spin, #vortex .echo-spin, .scenery { animation: none !important; }
+  #vortex rect, #vortex .spin, #vortex .echo-spin, #vortex .dive, #vortex .undertow, #vortex .ghost, #vortex .tear, .scenery { animation: none !important; }
+  #vortex .tear { visibility: hidden !important; }
   .scenery { opacity: var(--vortex-op); }
   .btn, .save-mark { transition: none; }
   .save.on .caret { animation: caret-in 240ms linear 1 both; }

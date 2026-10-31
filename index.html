@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <script>
 (function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
-(function(){try{var d=localStorage.getItem("loci-dose");if(/^[0-5]$/.test(d||""))document.documentElement.setAttribute("data-dose",d);}catch(e){}})();
+(function(){try{var d=localStorage.getItem("loci-dose");if(/^([0-9]|1[0-2])$/.test(d||""))document.documentElement.setAttribute("data-dose",d);}catch(e){}})();
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,9 +61,9 @@
       <button class="theme-btn" id="btn-wizard" type="button" onclick="setTheme('wizard')" aria-pressed="true" data-umami-event="persona-cta" data-umami-event-persona="wizard">⚔ Wizard</button>
       <button class="theme-btn" id="btn-llmage" type="button" onclick="setTheme('llmage')" aria-pressed="false" data-umami-event="persona-cta" data-umami-event-persona="llmage">◈ LLMAGE</button>
     </div>
-    <!-- Dose: a volume knob for the ornament, never a vocabulary. 0 still … 5 threshold; text never moves. -->
+    <!-- Dose: a volume knob for the ornament, never a vocabulary. 0 still … 12 unravel; text never moves. -->
     <div class="theme-switcher" role="group" aria-label="Ornament dose">
-      <button class="theme-btn dose-btn" id="btn-dose" type="button" aria-label="Dose 1 of 5, calm" title="Dose 1: calm. Click for more, shift-click for less.">◎ dose 1</button>
+      <button class="theme-btn dose-btn" id="btn-dose" type="button" aria-label="Dose 1 of 12, calm" title="Dose 1: calm. Click for more, shift-click for less.">◎ dose 1</button>
     </div>
   </div>
 </header>
@@ -90,7 +90,17 @@
 
     <div class="field" id="field">
       <svg class="scenery" id="vortex" viewBox="-200 -200 400 400" aria-hidden="true">
-        <g id="descent"><g class="spin" id="vortex-rings"></g><g class="echo" transform="scale(-1 1)"><g class="echo-spin" id="vortex-echo"></g></g></g>
+        <defs>
+          <clipPath id="tear-a"><rect x="-400" y="-34" width="800" height="11"/></clipPath>
+          <clipPath id="tear-b"><rect x="-400" y="58" width="800" height="7"/></clipPath>
+        </defs>
+        <g id="descent">
+          <g class="dive"><g class="spin" id="vortex-rings"></g></g>
+          <g class="echo" transform="scale(-1 1)"><g class="undertow"><g class="echo-spin" id="vortex-echo"></g></g></g>
+          <g class="ghost"><g id="vortex-ghost"></g></g>
+          <g class="tear tear-a" clip-path="url(#tear-a)"><rect class="tear-bg" x="-400" y="-400" width="800" height="800"/><g class="dive"><g class="spin" id="vortex-tear-a"></g></g></g>
+          <g class="tear tear-b" clip-path="url(#tear-b)"><rect class="tear-bg" x="-400" y="-400" width="800" height="800"/><g class="dive"><g class="spin" id="vortex-tear-b"></g></g></g>
+        </g>
       </svg>
 
       <div class="outline o0" data-k="0" aria-hidden="true"></div>
@@ -169,10 +179,10 @@ html[data-theme="llmage"] .plate-wide,.plate-wide[data-skin="llmage"]{--g:#0f0f0
 html[data-theme="llmage"] .plate-wide .wiz,.plate-wide[data-skin="llmage"] .wiz{display:none}
 html[data-theme="llmage"] .plate-wide .asc,.plate-wide[data-skin="llmage"] .asc{display:inline}
 /* dose 2+: the depth walk widens from 6 to 24 degrees per step (the deep-hue ladder) */
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide,.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl rect[data-depth="1"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl rect[data-depth="2"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="2"]{stroke:#3784d0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl rect[data-depth="3"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="3"]{stroke:#21828c}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide,.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl rect[data-depth="1"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl rect[data-depth="2"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="2"]{stroke:#3784d0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl rect[data-depth="3"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="3"]{stroke:#21828c}
 html[data-theme="llmage"] .plate-wide .gl rect,.plate-wide[data-skin="llmage"] .gl rect{stroke:var(--gl)!important}
 /* the reveal: once, centre-out, 900-1400 ms, then dignity */
 @keyframes plate-wide-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
@@ -184,11 +194,11 @@ html[data-theme="llmage"] .plate-wide .gl rect,.plate-wide[data-skin="llmage"] .
 .plate-wide .arow{animation:plate-wide-fade 600ms cubic-bezier(.4,0,.2,1) var(--d,0ms) both}
 .plate-wide .gl{animation:plate-wide-fade 1200ms cubic-bezier(.4,0,.2,1) both}
 /* dose 3 the wheel, 4 echo, 5 threshold: ornament only, the reading layer never moves */
-html:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-wide .gl-main,.plate-wide:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl-main{animation:plate-wide-turn 97s linear infinite}
-html:is([data-dose="4"],[data-dose="5"]) .plate-wide .gl-echo,.plate-wide:is([data-dose="4"],[data-dose="5"]) .gl-echo{display:inline;opacity:.6;animation:plate-wide-turn 89s linear infinite reverse}
-html[data-dose="5"] .plate-wide,.plate-wide[data-dose="5"]{--glk:.34}
-html[data-dose="5"] .plate-wide .rake,.plate-wide[data-dose="5"] .rake{display:inline;animation:plate-wide-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
-html[data-dose="5"] .plate-wide .key,.plate-wide[data-dose="5"] .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
+html:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl-main,.plate-wide:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl-main{animation:plate-wide-turn 97s linear infinite}
+html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl-echo,.plate-wide:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl-echo{display:inline;opacity:.6;animation:plate-wide-turn 89s linear infinite reverse}
+html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide,.plate-wide:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--glk:.34}
+html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .rake,.plate-wide:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .rake{display:inline;animation:plate-wide-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
+html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .key,.plate-wide:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
 /* dose 0 still: no reveal, no ornament motion */
 html[data-dose="0"] .plate-wide *,.plate-wide[data-dose="0"] *{animation:none!important}
 /* reduced motion: substitute, don't remove. Colour stays, movement goes, one 240 ms crossfade */
@@ -341,10 +351,10 @@ html[data-theme="llmage"] .plate-tall,.plate-tall[data-skin="llmage"]{--g:#0f0f0
 html[data-theme="llmage"] .plate-tall .wiz,.plate-tall[data-skin="llmage"] .wiz{display:none}
 html[data-theme="llmage"] .plate-tall .asc,.plate-tall[data-skin="llmage"] .asc{display:inline}
 /* dose 2+: the depth walk widens from 6 to 24 degrees per step (the deep-hue ladder) */
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall,.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl rect[data-depth="1"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl rect[data-depth="2"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="2"]{stroke:#3784d0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl rect[data-depth="3"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl rect[data-depth="3"]{stroke:#21828c}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall,.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl rect[data-depth="1"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl rect[data-depth="2"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="2"]{stroke:#3784d0}
+html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl rect[data-depth="3"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="3"]{stroke:#21828c}
 html[data-theme="llmage"] .plate-tall .gl rect,.plate-tall[data-skin="llmage"] .gl rect{stroke:var(--gl)!important}
 /* the reveal: once, centre-out, 900-1400 ms, then dignity */
 @keyframes plate-tall-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
@@ -356,11 +366,11 @@ html[data-theme="llmage"] .plate-tall .gl rect,.plate-tall[data-skin="llmage"] .
 .plate-tall .arow{animation:plate-tall-fade 600ms cubic-bezier(.4,0,.2,1) var(--d,0ms) both}
 .plate-tall .gl{animation:plate-tall-fade 1200ms cubic-bezier(.4,0,.2,1) both}
 /* dose 3 the wheel, 4 echo, 5 threshold: ornament only, the reading layer never moves */
-html:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .plate-tall .gl-main,.plate-tall:is([data-dose="3"],[data-dose="4"],[data-dose="5"]) .gl-main{animation:plate-tall-turn 97s linear infinite}
-html:is([data-dose="4"],[data-dose="5"]) .plate-tall .gl-echo,.plate-tall:is([data-dose="4"],[data-dose="5"]) .gl-echo{display:inline;opacity:.6;animation:plate-tall-turn 89s linear infinite reverse}
-html[data-dose="5"] .plate-tall,.plate-tall[data-dose="5"]{--glk:.34}
-html[data-dose="5"] .plate-tall .rake,.plate-tall[data-dose="5"] .rake{display:inline;animation:plate-tall-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
-html[data-dose="5"] .plate-tall .key,.plate-tall[data-dose="5"] .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
+html:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl-main,.plate-tall:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl-main{animation:plate-tall-turn 97s linear infinite}
+html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl-echo,.plate-tall:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl-echo{display:inline;opacity:.6;animation:plate-tall-turn 89s linear infinite reverse}
+html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall,.plate-tall:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--glk:.34}
+html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .rake,.plate-tall:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .rake{display:inline;animation:plate-tall-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
+html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .key,.plate-tall:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
 /* dose 0 still: no reveal, no ornament motion */
 html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!important}
 /* reduced motion: substitute, don't remove. Colour stays, movement goes, one 240 ms crossfade */
@@ -584,16 +594,19 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
   })();
 
   // Dose: how much the ornament moves:
-  // 0 still · 1 calm (default) · 2 deep hues · 3 the wheel · 4 echo · 5 threshold.
+  // 0 still · 1 calm (default) · 2 deep hues · 3 the wheel · 4 echo · 5 threshold ·
+  // 6 descent · 7 undertow · 8 tide · 9 ghost · 10 drift · 11 slip · 12 unravel.
   // Only the ornament changes; text never moves; reduced motion keeps the colour, drops the movement.
-  const DOSES = ['still', 'calm', 'deep hues', 'the wheel', 'echo', 'threshold'];
+  // One more click past 12 returns to still: the way out is always one step.
+  const DOSES = ['still', 'calm', 'deep hues', 'the wheel', 'echo', 'threshold',
+                 'descent', 'undertow', 'tide', 'ghost', 'drift', 'slip', 'unravel'];
   function setDose(n) {
-    n = ((n % 6) + 6) % 6;
+    n = ((n % DOSES.length) + DOSES.length) % DOSES.length;
     document.documentElement.setAttribute('data-dose', String(n));
     const btn = document.getElementById('btn-dose');
     if (btn) {
       btn.textContent = '◎ dose ' + n;
-      btn.setAttribute('aria-label', 'Dose ' + n + ' of 5, ' + DOSES[n]);
+      btn.setAttribute('aria-label', 'Dose ' + n + ' of 12, ' + DOSES[n]);
       btn.title = 'Dose ' + n + ': ' + DOSES[n] + '. Click for more, shift-click for less.';
     }
     try { localStorage.setItem('loci-dose', String(n)); } catch(e) {}
@@ -602,11 +615,11 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     const btn = document.getElementById('btn-dose');
     if (btn) btn.addEventListener('click', e => {
       const cur = parseInt(document.documentElement.getAttribute('data-dose') || '1', 10);
-      setDose(cur + (e.shiftKey ? -1 : 1));
+      setDose(e.shiftKey ? Math.max(0, cur - 1) : cur + 1);   // down stops at still; up wraps from 12 to still
     });
     let saved = null;
     try { saved = localStorage.getItem('loci-dose'); } catch(e) {}
-    setDose(/^[0-5]$/.test(saved || '') ? parseInt(saved, 10) : 1);
+    setDose(/^([0-9]|1[0-2])$/.test(saved || '') ? parseInt(saved, 10) : 1);
   })();
 
   // ── The disk: three reading rings, stepped one at a time ──────────────
@@ -656,8 +669,16 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
       r.style.setProperty('--ring-twist', (0.25 + b * 0.8).toFixed(2) + 'deg');
       ringsG.appendChild(r);
     }
-    var echoG = document.getElementById('vortex-echo');
-    Array.prototype.forEach.call(ringsG.children, function (n) { echoG.appendChild(n.cloneNode(true)); });
+    // Copies of the lattice for the deeper doses: the echo, the ghost (one colour,
+    // so it drops the hue bands) and the two slices that slip at dose 11.
+    ['vortex-echo', 'vortex-ghost', 'vortex-tear-a', 'vortex-tear-b'].forEach(function (id) {
+      var g = document.getElementById(id);
+      Array.prototype.forEach.call(ringsG.children, function (n) {
+        var c = n.cloneNode(true);
+        if (id === 'vortex-ghost') c.removeAttribute('data-band');
+        g.appendChild(c);
+      });
+    });
 
     // ── geometry ──
     var disk = document.getElementById('disk');
