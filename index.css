@@ -276,7 +276,7 @@ html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 1
 [data-theme="llmage"] .remember { font-family: var(--font-mono); font-style: normal; font-size: clamp(16px, min(3.6cqh, 2.6cqw), 28px); letter-spacing: 0; }
 .steps { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25em 1.6em; counter-reset: s; }
 .steps li { counter-increment: s; }
-.steps li::before { content: counter(s) ". "; color: var(--accent-light); font-family: var(--font-mono); }
+.steps li::before { content: counter(s) ". "; color: var(--accent-light); }
 .core { margin: 0; position: absolute; inset: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4em; }
 .core img { display: block; width: 100%; flex: 1; min-height: 0; object-fit: contain; }
 .cmd { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.35em 0.4em 0.35em 0.9em; max-width: 100%; }
@@ -285,6 +285,31 @@ html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 1
 .copy:hover { color: var(--text); }
 .keep-note { max-width: 58ch; }
 .links { display: flex; flex-wrap: wrap; gap: 4px 20px; justify-content: center; }
+
+/* Two voices: wizard says a line to its AI (speech, body font, quoted); llmage reads a short
+   shell session where wizard walks. Tokens only. The box stays the ring's one surface. */
+.cmd .say { color: var(--text); overflow-wrap: anywhere; letter-spacing: 0; }
+.cmd .say::before { content: "\201C"; content: "\201C" / ""; color: var(--accent-light); }
+.cmd .say::after { content: "\201D"; content: "\201D" / ""; color: var(--accent-light); }
+[data-theme="llmage"] .sh {
+  margin: 0; max-width: 100%; text-align: left;
+  white-space: normal;                         /* markup whitespace between lines collapses */
+  font-family: var(--font-mono); font-size: 0.92em; line-height: 1.5;
+  letter-spacing: 0; color: var(--text);
+}
+[data-theme="llmage"] .sh > span {
+  display: block; white-space: pre-wrap; overflow-wrap: anywhere;
+  padding-left: 2ch; text-indent: -2ch;        /* a wrapped line hangs past the prompt */
+}
+[data-theme="llmage"] .sh .in::before { content: "$ "; content: "$ " / ""; color: var(--text-2); }
+[data-theme="llmage"] .sh .out { color: var(--r2-text); }
+/* phone fit, both skins: the command box holds one row, so ring 2 stops spilling at 390x664 */
+@container (max-width: 420px) {
+  .cmd { flex-wrap: nowrap; gap: 6px; padding-left: 0.6em; }
+  .cmd code, .cmd .say { font-size: 0.86em; min-width: 0; }
+}
+/* read by screen readers, never drawn: the voice switch says which voice is now reading */
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 /* the save point: copying the clone line is the one act, and the line says only
    what happened. Dotted square = not yet; solid = the copy landed. */
