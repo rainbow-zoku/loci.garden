@@ -12,7 +12,7 @@
 
 - `/` — Main landing. Palace/sovereignty framing. Initiatory funnel.
 - `/start.html` — Getting started. 4-step guide: room, crystal, garden, session.
-- `/manifesto.html` — The Cognitive Sovereignty Manifesto.
+- `/design-primitives.html`: design primitives. What a self-sovereign memory must do, each rule marked works today, in progress, or not built yet. (`/manifesto.html` redirects here.)
 - `/roadmap.html` — Product roadmap. Tier 1 (Q3 2026) + Tier 2 (Q4 2026).
 - `/about.html`: methodology origin story. Hux × Vesper, Berlin + Budapest. 30+ sessions of co-intelligence practice.
 - `/guide.html`: long-form practitioner guide.
@@ -173,13 +173,14 @@ Private web search inside Loci. Trust tier: managed privacy (Kagi) or self-hoste
 **2H — Tailscale Local Brain**
 loci running on a persistent Tailscale node (home server or VPS). Browser extension on any device connects to the same brain over Tailscale mesh. Foundation for autonomous palace instances. Resolves native-messaging vs local-HTTP: local HTTP over Tailscale. LOCI_HOST config makes the brain node address configurable.
 
-**Sovereignty principles (non-negotiable):**
-- Auth is a feature, not a gate. Sovereignty is never paywalled.
-- Fail-closed: if Nym routing fails, sync pauses. If Ollama goes offline, Loci does not silently call external APIs. When the architecture cannot protect you, it says so.
-- Private key never touches Loci's code (NIP-07 path).
+**Design primitives (non-negotiable; status 2026-11-01, full list at /design-primitives.html):**
+- Works today: plain text, local first (the CLI makes no network calls of its own, no telemetry), yours to carry (MIT), free to own. Sovereignty is never paywalled; auth is a feature, not a gate.
+- In progress: signed by you (the open code verifies signed records; key creation and signing are not built), stops instead of leaking (three silent fallbacks remain in the CLI), local models (Ollama setup exists, inference does not; when it ships, an offline local model never means a silent call to an external API).
+- Not built yet: private on the wire. When sync ships it must fail closed: if private routing fails, sync pauses and never falls back to cleartext.
+- Sign-in, when it comes, keeps the private key outside loci's code (the NIP-07 path).
 
 Full roadmap: https://loci.garden/roadmap.html
-Manifesto: https://loci.garden/manifesto.html
+Design primitives: https://loci.garden/design-primitives.html
 
 ---
 
@@ -284,7 +285,7 @@ Privacy-consistent, sovereignty-respecting, minimal.
 ## Links
 
 **Website**: https://loci.garden
-**Manifesto**: https://loci.garden/manifesto.html
+**Design primitives**: https://loci.garden/design-primitives.html
 **Roadmap**: https://loci.garden/roadmap.html
 **Docs**: https://docs.loci.garden
 **Get started**: https://loci.garden/guide.html
