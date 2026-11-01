@@ -95,9 +95,9 @@
   --nav-bg:        rgba(12,10,20,0.92);
   --tag-bg:        rgba(123,91,203,0.14);
   --tag-text:      #a289dc;
-  --btn-bg:        #7b5bcb;
+  --btn-bg:        #a289dc;   /* dark label reads 6.69:1 (on #7b5bcb it read 3.93) */
   --btn-text:      #0c0a14;
-  --btn-hover:     #a289dc;
+  --btn-hover:     #d4c5f2;
   --switcher-bg:       #2a2540;
   --switcher-pill:     #3a3358;
   --switcher-text:     #a289dc;
