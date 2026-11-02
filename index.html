@@ -10,17 +10,17 @@ document.documentElement.classList.add("js");
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>loci, the mindspace primitive</title>
-<meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The CLI is a demo; the substrate is yours." />
+<meta name="description" content="loci: plain-text firmware for a memory palace any file-aware AI can run, in an app or a terminal. Local-first, private by default, no account, no cloud. MIT." />
 <meta name="keywords" content="mindspace primitive, intelligence substrate, plain-text firmware, file-aware AI, local-first AI, context persistence" />
 <link rel="canonical" href="https://loci.garden/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://loci.garden/" />
 <meta property="og:title" content="loci, the mindspace primitive" />
-<meta property="og:description" content="A mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no landlords because there is nothing to rent. The substrate is yours. The palace is yours." />
+<meta property="og:description" content="Plain-text memory any file-aware AI can run. Open it in an app or clone it in a shell: either way, yours. No cloud, no account, no landlord for your memory." />
 <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="loci, the mindspace primitive" />
-<meta name="twitter:description" content="A mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no landlords because there is nothing to rent. The substrate is yours." />
+<meta name="twitter:description" content="Plain-text memory any file-aware AI can run. Open it in an app or clone it in a shell: either way, yours. No cloud, no account, no landlord for your memory." />
 <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
 <meta name="theme-color" content="#0c0a14" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0d0d0e" media="(prefers-color-scheme: dark)" />
@@ -51,9 +51,11 @@ document.documentElement.classList.add("js");
       <a href="scaffold.html">scaffold</a>
       <a href="manifesto.html">manifesto</a>
     </nav>
-    <div class="theme-switcher" role="group" aria-label="Choose experience mode">
-      <button class="theme-btn" id="btn-wizard" type="button" onclick="setTheme('wizard')" aria-pressed="true" data-umami-event="persona-cta" data-umami-event-persona="wizard">⚔ Wizard</button>
-      <button class="theme-btn" id="btn-llmage" type="button" onclick="setTheme('llmage')" aria-pressed="false" data-umami-event="persona-cta" data-umami-event-persona="llmage">◈ LLMAGE</button>
+    <!-- The switch is a persona switch: same facts, the voice of how you reach your model. -->
+    <div class="theme-switcher" role="group" aria-label="Choose a voice">
+      <button class="theme-btn" id="btn-wizard" type="button" onclick="setTheme('wizard', true)" aria-pressed="true" aria-label="Wizard voice: AI through an app or editor" title="For AI you reach through an app or editor. Open, point, ask, walk." data-umami-event="persona-cta" data-umami-event-persona="wizard">⚔ Wizard</button>
+      <button class="theme-btn" id="btn-llmage" type="button" onclick="setTheme('llmage', true)" aria-pressed="false" aria-label="LLMAGE voice: the model, direct from a terminal" title="For talking to the model directly. Clone, read, pipe, run." data-umami-event="persona-cta" data-umami-event-persona="llmage">◈ LLMAGE</button>
+      <span class="vh" id="voice-status" role="status"></span>
     </div>
     <!-- Dose: a volume knob for the ornament, never a vocabulary. 0 still … 12 unravel; text never moves. -->
     <div class="theme-switcher" role="group" aria-label="Ornament dose">
@@ -118,18 +120,18 @@ document.documentElement.classList.add("js");
             <circle cx="150" cy="48" r="8" fill="#ebebeb"/>
           </svg>
           <p class="kicker">mindspace primitive</p>
-          <h1 class="claim" id="h-claim">firmware you can read <span class="amp">&amp;</span> any AI can run</h1>
+          <h1 class="claim" id="h-claim"><span class="t-wizard">memory you can read <span class="amp">&amp;</span> your AI can walk</span><span class="t-llmage">firmware you can read <span class="amp">&amp;</span> any AI can run</span></h1>
         </div>
         <div class="hole" aria-hidden="true"></div>
         <div class="band bot">
           <p class="sub">
-            <span class="t-wizard">One folder of plain text. Every session starts inside it.</span>
+            <span class="t-wizard">Any AI that opens folders can wake up in your rooms.</span>
             <span class="t-llmage">Plain-text spec. Any file-aware model. Your disk.</span>
           </p>
           <div class="cta-row">
-            <a class="btn t-wizard" href="start.html" data-umami-event="agent-cta-click" data-umami-event-target="first-room">Open the first room</a>
+            <a class="btn t-wizard" href="#keep" data-k="2" data-umami-event="agent-cta-click" data-umami-event-target="first-room">Open the first room</a>
             <a class="btn t-llmage" href="https://github.com/huximaxi/loci" target="_blank" rel="noopener" data-umami-event="agent-cta-click" data-umami-event-target="clone-kit">Clone the kit</a>
-            <a class="step-in" href="#palace" data-k="1">step in ↓</a>
+            <a class="step-in" href="#palace" data-k="1"><span class="t-wizard">step in ↓</span><span class="t-llmage">cd palace/ ↓</span></a>
           </div>
         </div>
       </section>
@@ -138,9 +140,13 @@ document.documentElement.classList.add("js");
       <section class="ring r1" data-k="1" aria-labelledby="h-palace" tabindex="-1">
         <div class="band top">
           <h2 class="label" id="h-palace">The palace</h2>
-          <dl class="rooms">
+          <dl class="rooms t-wizard">
             <div><dt>Rooms</dt><dd>one per kind of work</dd></div>
-            <div><dt>Soul file</dt><dd>what each room is for</dd></div>
+            <div><dt>Soul</dt><dd>who your AI becomes</dd></div>
+          </dl>
+          <dl class="rooms t-llmage">
+            <div><dt>rooms/</dt><dd>per mode, loaded on entry</dd></div>
+            <div><dt>soul/</dt><dd>identity, loaded every session</dd></div>
           </dl>
         </div>
         <div class="hole">
@@ -263,11 +269,9 @@ html[data-dose="0"] .plate-wide *,.plate-wide[data-dose="0"] *{animation:none!im
     <path class="solid line" d="M164 -32H308" pathLength="1" style="--d:265ms"/>
     <rect class="ground" x="148" y="-32" width="144" height="128"/>
     <path class="solid line" d="M148 -32H292V96H148Z" pathLength="1" style="--d:248ms"/>
-    <text class="txt meta" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268 276" y="0" style="--d:250ms">$ cat CLAUDE.md</text>
+    <text class="txt meta" x="164 172 180 188 196 204 212 220 228 236 244 252" y="0" style="--d:250ms">you: wake up</text>
     <text class="txt d0" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268" y="32" style="--d:248ms">Read PALACE.md</text>
     <path class="dotted stub" d="M281.5 32H286.5" style="--d:319ms"/>
-    <text class="txt meta" x="164" y="64" style="--d:200ms">$</text>
-    <rect class="fill cursor" x="177.5" y="68" width="5" height="1.6" style="--d:213ms"/>
     <g class="key">
     <polygon class="fill hatch" points="-316 184 -304 200 -316 200" fill="url(#plate-wide-h1)" style="--d:417ms"/>
     <polygon class="fill hatch" points="-328 200 -316 216 -316 200" fill="url(#plate-wide-h2)" style="--d:417ms"/>
@@ -435,11 +439,9 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     <path class="solid line" d="M-72 200H72" pathLength="1" style="--d:210ms"/>
     <rect class="ground" x="-88" y="200" width="144" height="128"/>
     <path class="solid line" d="M-88 200H56V328H-88Z" pathLength="1" style="--d:278ms"/>
-    <text class="txt meta" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40" y="232" style="--d:244ms">$ cat CLAUDE.md</text>
+    <text class="txt meta" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16" y="232" style="--d:244ms">you: wake up</text>
     <text class="txt d0" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32" y="264" style="--d:278ms">Read PALACE.md</text>
     <path class="dotted stub" d="M45.5 264H50.5" style="--d:282ms"/>
-    <text class="txt meta" x="-72" y="296" style="--d:319ms">$</text>
-    <rect class="fill cursor" x="-58.5" y="300" width="5" height="1.6" style="--d:317ms"/>
     <g class="key">
     <polygon class="fill hatch" points="-112 368 -100 384 -112 384" fill="url(#plate-tall-h1)" style="--d:420ms"/>
     <polygon class="fill hatch" points="-124 384 -112 400 -112 384" fill="url(#plate-tall-h2)" style="--d:420ms"/>
@@ -515,11 +517,16 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
           </div>
         </div>
         <div class="band bot">
-          <dl class="rooms">
-            <div><dt>Crystals</dt><dd>facts settled once</dd></div>
-            <div><dt>Garden</dt><dd>questions left growing</dd></div>
+          <dl class="rooms t-wizard">
+            <div><dt>Crystals</dt><dd>facts you explain once</dd></div>
+            <div><dt>Garden</dt><dd>ideas left growing</dd></div>
           </dl>
-          <p class="ways"><a href="start.html">ten-minute start</a><a href="guide.html">the ritual</a><a href="https://docs.loci.garden" target="_blank" rel="noopener">the docs</a></p>
+          <dl class="rooms t-llmage">
+            <div><dt>crystals</dt><dd>facts, tiered ◇◈◆</dd></div>
+            <div><dt>garden/</dt><dd>one file per idea</dd></div>
+          </dl>
+          <p class="ways t-wizard"><a href="start.html">ten-minute start</a><a href="guide.html">the ritual</a><a href="https://docs.loci.garden" target="_blank" rel="noopener">the docs</a></p>
+          <p class="ways t-llmage"><a href="start.html">10-min start</a><a href="guide.html">guide</a><a href="https://docs.loci.garden" target="_blank" rel="noopener">docs</a><a href="https://github.com/huximaxi/loci/tree/main/loci-cli" target="_blank" rel="noopener">cli</a></p>
         </div>
       </section>
 
@@ -527,12 +534,16 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
       <section class="ring r2" data-k="2" aria-labelledby="h-keep" tabindex="-1">
         <div class="band top">
           <h2 class="label" id="h-keep">Keep it</h2>
-          <p class="remember">The vendor forgets. The folder remembers.</p>
-          <ol class="steps">
-            <li>Clone the kit.</li>
-            <li>Point any file-aware AI at the folder.</li>
-            <li>Run <code>FIRST-SESSION.md</code> and walk in.</li>
+          <p class="remember"><span class="t-wizard">The chat ends. The folder remembers.</span><span class="t-llmage">If you can't cat it, it isn't yours.</span></p>
+          <!-- wizard walks across an interface; llmage reads down a terminal session, the box below is its last line -->
+          <ol class="steps t-wizard">
+            <li>Open your AI in an empty folder.</li>
+            <li>Paste the line below.</li>
+            <li>Answer its questions. Name it.</li>
           </ol>
+          <pre class="sh t-llmage"><span class="in">git clone https://github.com/huximaxi/loci</span>
+<span class="in">cargo install --path loci/loci-cli</span>
+<span class="out"># needs Rust; no pre-built binary yet</span></pre>
         </div>
         <div class="hole">
           <figure class="core">
@@ -541,9 +552,11 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
           </figure>
         </div>
         <div class="band bot">
-          <div class="cmd"><code id="cmd">git clone https://github.com/huximaxi/loci</code><button class="copy" id="copy" type="button" data-umami-event="wizard-curl-copy">copy</button></div>
-          <p class="keep-note">Plain text on your machine: no account, no telemetry, no cloud. The model you invite keeps its own rules, so choose your guests.</p>
-          <p class="links"><a href="keep-your-memory-yours.html">Keep your memory yours →</a><a href="about.html">Where it grew from →</a></p>
+          <!-- each box copies exactly what it shows -->
+          <div class="cmd"><span class="say t-wizard" id="cmd-wizard">Build my palace here: github.com/huximaxi/loci</span><code class="t-llmage" id="cmd-llmage">loci new ~/palace</code><button class="copy" id="copy" type="button" data-umami-event="wizard-curl-copy" data-umami-event-skin="wizard">copy</button></div>
+          <p class="keep-note"><span class="t-wizard">Plain text, on your machine: no account, no telemetry, no cloud. The AI you invite keeps its own rules. Choose your guests.</span><span class="t-llmage">Plain text on your disk: no account, no telemetry, no cloud. The model reading it keeps its own rules; pick the endpoint.</span></p>
+          <p class="links t-wizard"><a href="keep-your-memory-yours.html">Keep your memory yours →</a><a href="about.html">Roots →</a></p>
+          <p class="links t-llmage"><a href="keep-your-memory-yours.html">Turn off vendor memory →</a><a href="about.html">Provenance →</a></p>
         </div>
       </section>
     </div>
@@ -559,14 +572,17 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     <a href="/zoku/">contribute</a>
   </nav>
   <p>loci.garden · MIT</p>
-  <p class="last"><span class="t-wizard">Every room starts empty. That part is on purpose.</span><span class="t-llmage">Rooms ship empty, by design.</span></p>
+  <p class="last"><span class="t-wizard">Rooms start empty and private. On purpose.</span><span class="t-llmage">Rooms ship empty. Private by default.</span></p>
 </footer>
 
 <!-- ═══════════════════ SCRIPT ════════════════════════ -->
 <script>
   const THEMES = ['wizard', 'llmage'];
+  // Each voice keeps its own save line at rest; a switch never leaves one voice's line in the other.
+  const SAVE_IDLE = { wizard: 'save point', llmage: 'checkpoint' };
+  const VOICE_STATUS = { wizard: 'Wizard voice: AI through an app or editor.', llmage: 'LLMAGE voice: the model, direct from a terminal.' };
 
-  function setTheme(theme) {
+  function setTheme(theme, announce) {
     if (!THEMES.includes(theme)) return;
     document.documentElement.setAttribute('data-theme', theme);
     THEMES.forEach(t => {
@@ -576,6 +592,13 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
         btn.setAttribute('aria-pressed', String(t === theme));
       }
     });
+    const save = document.getElementById('save'), saveText = document.getElementById('save-text');
+    if (save) save.classList.remove('on');
+    if (saveText) saveText.textContent = SAVE_IDLE[theme];
+    const copy = document.getElementById('copy');
+    if (copy) copy.setAttribute('data-umami-event-skin', theme);   // copies split by voice
+    const status = document.getElementById('voice-status');
+    if (status && announce) status.textContent = VOICE_STATUS[theme];   // on click only
     try { localStorage.setItem('loci-theme', theme); } catch(e) {}
   }
 
@@ -808,8 +831,9 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     var saveEl = document.getElementById('save');
     var saveText = document.getElementById('save-text');
     var copyBtn = document.getElementById('copy');
-    var cmd = document.getElementById('cmd');
-    var LINE_OK = 'Copied. Paste it in a terminal to keep your save.';
+    // The box copies exactly what the current voice shows: one payload per skin.
+    function payload() { return document.getElementById('cmd-' + (root.getAttribute('data-theme') === 'llmage' ? 'llmage' : 'wizard')); }
+    var LINE_OK = { wizard: 'Copied. Paste it. Say yes only to what you asked for.', llmage: 'Copied.' };
     var LINE_FAIL = 'Not confirmed. The line below is selected: copy it by hand.';
     function legacyCopy(text) {
       try {
@@ -828,11 +852,12 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     copyBtn.addEventListener('click', function () {
       // A clipboard prompt can hang: after 700ms stop waiting and say the true thing.
       var timeout = new Promise(function (res) { setTimeout(function () { res(false); }, 700); });
+      var cmd = payload();
       Promise.race([copyText(cmd.textContent).catch(function () { return false; }), timeout]).then(function (ok) {
         copyBtn.focus();   // the fallback copy borrows focus; give it back
         saveEl.classList.remove('on'); void saveEl.offsetWidth;
         if (ok) {
-          saveText.textContent = LINE_OK;
+          saveText.textContent = LINE_OK[root.getAttribute('data-theme') === 'llmage' ? 'llmage' : 'wizard'];
           saveEl.classList.add('on');   // the square fills, the caret blinks once, then rests lit
         } else {
           saveText.textContent = LINE_FAIL;
