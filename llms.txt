@@ -16,7 +16,7 @@
 - `/roadmap.html` — Product roadmap. Tier 1 (Q3 2026) + Tier 2 (Q4 2026).
 - `/about.html`: methodology origin story. Hux × Vesper, Berlin + Budapest. 30+ sessions of co-intelligence practice.
 - `/guide.html`: long-form practitioner guide.
-- `/download.html`: loci command-line tool, built from source with cargo (no prebuilt binary yet). Reads your palace from the terminal; read-only, no network.
+- `/download.html`: loci command-line tool, built from source with cargo (no prebuilt binary yet). Reads your palace from the terminal; makes no network calls of its own.
 - `/privacy.html`: privacy posture. No PII, no third-party trackers, self-hosted Umami, Iceland jurisdiction. The Rainbow Zoku closing section names the contributor charter.
 - `/zoku/`: charter of the Rainbow Zoku, the maintainer chapter of Loci. Pseudonymous + signed membership. Where contributors join.
 - `/llms.txt`: this file.

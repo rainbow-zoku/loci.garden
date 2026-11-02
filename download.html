@@ -349,7 +349,7 @@
           <polygon points="11,13 15,10 13,20"       fill="rgba(255,255,255,0.25)"/>
           <rect    x="15" y="15" width="2" height="4" fill="rgba(255,255,255,0.6)"/>
         </svg>
-        <div class="dl-crystal-tagline">Read-only · no network · no inference</div>
+        <div class="dl-crystal-tagline">Reads your palace · no network calls · no inference</div>
       </div>
 
       <div class="dl-version">v0.6.0-beta · MIT &nbsp;<span style="display:inline-block;font-family:var(--mono);font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(200,124,44,0.1);border:1px solid rgba(200,124,44,0.3);padding:0.1rem 0.4rem;vertical-align:middle;">public beta</span></div>
@@ -373,11 +373,7 @@ cargo install --path loci-cli</pre>
         <div class="dl-what-grid">
           <div class="dl-what-item">
             <div class="dl-what-verb">loci status</div>
-            <div class="dl-what-desc">Palace detection, room and crystal counts, backend preflight.</div>
-          </div>
-          <div class="dl-what-item">
-            <div class="dl-what-verb">loci -z "…"</div>
-            <div class="dl-what-desc">One-shot inference with palace context injected. Pipes cleanly.</div>
+            <div class="dl-what-desc">Palace path, layout, room and crystal counts.</div>
           </div>
           <div class="dl-what-item">
             <div class="dl-what-verb">loci crystals</div>
@@ -393,7 +389,7 @@ cargo install --path loci-cli</pre>
           </div>
           <div class="dl-what-item">
             <div class="dl-what-verb">loci init</div>
-            <div class="dl-what-desc">Interactive setup: backend, palace path, verify. Safe to re-run.</div>
+            <div class="dl-what-desc">Interactive setup. Writes <code>~/.config/loci/config.toml</code>.</div>
           </div>
         </div>
       </div>
