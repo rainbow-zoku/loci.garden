@@ -7,10 +7,10 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>loci CLI, a personal demo of the mindspace primitive</title>
-  <meta name="description" content="Install the loci command-line tool, one local-first way to run the mindspace primitive from the terminal. The intelligence substrate is plain-text firmware any file-aware AI reads.">
-  <meta property="og:title" content="loci CLI, a personal demo of the mindspace primitive">
-  <meta property="og:description" content="The loci command-line tool: one personal demo of the mindspace primitive, plain-text firmware any AI can run, local-first.">
+  <title>loci command-line tool · loci.garden</title>
+  <meta name="description" content="Install the loci command-line tool: a local-first way to read your palace from the terminal. Your palace is plain text any file-aware AI reads.">
+  <meta property="og:title" content="loci command-line tool · loci.garden">
+  <meta property="og:description" content="The loci command-line tool: read your palace from the terminal. Local-first, no network, MIT.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://loci.garden/download.html">
   <meta property="og:site_name" content="loci.garden">
@@ -24,7 +24,7 @@
     .download-wrap {
       max-width: 680px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
+      padding: 6rem 1.5rem 4rem; /* clears the fixed 60px nav */
     }
 
     .dl-eyebrow {
@@ -37,6 +37,7 @@
     }
 
     .dl-title {
+      margin-top: 0;
       font-family: var(--serif);
       font-size: 2.2rem;
       color: var(--text);
@@ -300,7 +301,7 @@
   <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="loci CLI · loci.garden" />
-  <meta name="twitter:description" content="The loci command-line tool: a personal demo of the mindspace primitive, plain-text firmware any file-aware AI runs. Local-first, public beta." />
+  <meta name="twitter:description" content="The loci command-line tool: read your palace from the terminal. Local-first, no network, public beta." />
   <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
 </head>
 <body data-page="download">
@@ -333,8 +334,8 @@
   <main>
     <div class="download-wrap">
 
-      <div class="dl-eyebrow">loci · command-line tool · one demo of the substrate</div>
-      <div class="dl-title">Run the substrate from the prompt</div>
+      <div class="dl-eyebrow">loci · command-line tool</div>
+      <h1 class="dl-title">Read your palace from the terminal</h1>
 
       <div class="dl-crystal-hero">
         <svg viewBox="0 0 32 43" width="72" height="97" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
@@ -348,33 +349,31 @@
           <polygon points="11,13 15,10 13,20"       fill="rgba(255,255,255,0.25)"/>
           <rect    x="15" y="15" width="2" height="4" fill="rgba(255,255,255,0.6)"/>
         </svg>
-        <div class="dl-crystal-tagline">One way to run the substrate · from the terminal</div>
+        <div class="dl-crystal-tagline">Reads your palace · no network calls · no inference</div>
       </div>
 
-      <div class="dl-version">v0.1.0-beta.1 · MIT &nbsp;<span style="display:inline-block;font-family:var(--mono);font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(200,124,44,0.1);border:1px solid rgba(200,124,44,0.3);padding:0.1rem 0.4rem;vertical-align:middle;">public beta</span></div>
+      <div class="dl-version">v0.6.0-beta · MIT &nbsp;<span style="display:inline-block;font-family:var(--mono);font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(200,124,44,0.1);border:1px solid rgba(200,124,44,0.3);padding:0.1rem 0.4rem;vertical-align:middle;">public beta</span></div>
 
       <div class="dl-install-block">
-        <div class="dl-install-label">Install via cargo</div>
-        <pre class="dl-install-cmd">cargo install --git https://github.com/huximaxi/loci --tag v0.1.0-beta.1 loci-cli</pre>
-        <div class="dl-install-note">Requires Rust. Install at rustup.rs if needed.</div>
+        <div class="dl-install-label">Build from source</div>
+        <pre class="dl-install-cmd">git clone https://github.com/huximaxi/loci
+cd loci
+cargo install --path loci-cli</pre>
+        <div class="dl-install-note">Requires Rust (rustup.rs). No prebuilt binary yet.</div>
       </div>
 
       <div class="dl-source-row">
         <a href="https://github.com/huximaxi/loci" class="dl-source-link" data-umami-event="dl-source-click" data-umami-event-target="llmage-source">Source (huximaxi/loci)</a>
-        <a href="https://github.com/huximaxi/loci/releases/tag/v0.1.0-beta.1" class="dl-source-link" data-umami-event="dl-source-click" data-umami-event-target="llmage-tag">v0.1.0-beta.1 tag</a>
+        <a href="https://github.com/huximaxi/loci/tree/main/loci-cli" class="dl-source-link" data-umami-event="dl-source-click" data-umami-event-target="llmage-tag">loci-cli source</a>
         <a href="https://github.com/huximaxi/loci/blob/main/README.md" class="dl-source-link" data-umami-event="dl-source-click" data-umami-event-target="llmage-readme">README</a>
       </div>
 
       <div class="dl-what">
-        <div class="dl-what-label">▸ Commands in v0.1</div>
+        <div class="dl-what-label">▸ Core commands</div>
         <div class="dl-what-grid">
           <div class="dl-what-item">
             <div class="dl-what-verb">loci status</div>
-            <div class="dl-what-desc">Palace detection, room and crystal counts, backend preflight.</div>
-          </div>
-          <div class="dl-what-item">
-            <div class="dl-what-verb">loci -z "…"</div>
-            <div class="dl-what-desc">One-shot inference with palace context injected. Pipes cleanly.</div>
+            <div class="dl-what-desc">Palace path, layout, room and crystal counts.</div>
           </div>
           <div class="dl-what-item">
             <div class="dl-what-verb">loci crystals</div>
@@ -382,7 +381,7 @@
           </div>
           <div class="dl-what-item">
             <div class="dl-what-verb">loci handover</div>
-            <div class="dl-what-desc">Print the latest session handover. Your daily start ritual.</div>
+            <div class="dl-what-desc">Print the latest session handover: where you left off.</div>
           </div>
           <div class="dl-what-item">
             <div class="dl-what-verb">loci read &lt;slug&gt;</div>
@@ -390,7 +389,7 @@
           </div>
           <div class="dl-what-item">
             <div class="dl-what-verb">loci init</div>
-            <div class="dl-what-desc">Interactive setup: backend, palace path, verify. Safe to re-run.</div>
+            <div class="dl-what-desc">Interactive setup. Writes <code>~/.config/loci/config.toml</code>.</div>
           </div>
         </div>
       </div>
@@ -403,11 +402,11 @@
   <div class="footer-inner">
     <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden &middot; built by Hux &times; Vesper</span>
     <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
+      <a href="/start.html" style="color:var(--text-faint);">start</a> &middot;
       <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
       <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
       <a href="/keep-your-memory-yours.html" style="color:var(--text-faint);">keep your memory yours</a> &middot;
       <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
-      <a href="/releases/" style="color:var(--text-faint);">releases</a> &middot;
       <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
       <a href="https://github.com/huximaxi/loci/blob/main/CONTRIBUTING.md" style="color:var(--text-faint);" target="_blank" rel="noopener">contribute</a> &middot;
       <a href="/privacy.html" style="color:var(--text-faint);">privacy</a> &middot;
