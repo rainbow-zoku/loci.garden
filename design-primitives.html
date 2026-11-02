@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html data-theme="wizard" lang="en">
+<head>
+<script>
+(function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
+</script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design primitives · loci.garden</title>
+  <meta name="description" content="What a self-sovereign memory for AI must do, in plain words. Eight rules loci will not trade away, each marked: works today, in progress, or not built yet.">
+  <meta name="keywords" content="loci, design primitives, self-sovereign memory, AI memory, plain text, local-first, privacy">
+  <link rel="canonical" href="https://loci.garden/design-primitives.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Design primitives · loci.garden">
+  <meta property="og:description" content="Memory you can read, run and carry. What loci does today, and what it does not do yet.">
+  <meta property="og:url" content="https://loci.garden/design-primitives.html">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="AI context declaration, loci.garden">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="loci.css">
+
+  <script defer src="https://analytics.loci.garden/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
+  <style>
+    .dp-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .dp-wrap h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .dp-meta {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .dp-body p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      margin-bottom: 1.4rem;
+      color: var(--text);
+    }
+    .dp-body hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+    .dp-body p a { text-decoration: underline; }
+    .primitive { margin-bottom: 2rem; }
+    .primitive-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.4rem 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .primitive h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--text);
+    }
+    .primitive p { margin-bottom: 0; }
+    .status {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.1rem 0.5rem;
+      border-radius: 3px;
+      border: 1px solid var(--border-2);
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+    .status-today { border-style: solid; color: var(--text); border-color: var(--text-dim); }
+    .status-progress { border-style: dashed; }
+    .status-notyet { border-style: dotted; }
+    .dp-seal {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .dp-seal p {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .dp-attribution {
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 1.5rem;
+    }
+    .dp-ctas {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .dp-ctas a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+    }
+    .dp-cta-primary {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+    }
+    .dp-cta-secondary {
+      border: 1.5px solid var(--border-2);
+      color: var(--text-dim);
+    }
+    .dp-cta-primary:hover { background: var(--btn-hover, var(--btn-bg)); }
+    .dp-cta-secondary:hover { border-color: var(--text-dim); }
+  </style>
+  <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Design primitives · loci.garden" />
+  <meta name="twitter:description" content="What a self-sovereign memory for AI must do, and whether loci does it yet." />
+  <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
+</head>
+<body data-page="primitives">
+
+<!-- #include partials/_nav.html -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo-group">
+      <a href="/" class="logo">loci.garden</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
+        <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
+        <a href="/design-primitives.html" class="nav-link" data-page="primitives"><span class="nav-wide">design </span>primitives</a>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
+        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="true" aria-label="Wizard">⚔<span class="theme-label"> Wizard</span></button>
+        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false" aria-label="LLMAGE">◈<span class="theme-label"> LLMAGE</span></button>
+      </div>
+    </div>
+  </div>
+  <script defer src="/theme.js"></script>
+</nav>
+<!-- /include -->
+
+  <main>
+    <div class="dp-wrap">
+
+      <h1>Design primitives</h1>
+      <div class="dp-meta">What a self-sovereign memory must do</div>
+
+      <div class="dp-body">
+
+        <p>AI tools are learning to remember you. Most keep that memory on their own servers, where you cannot read it, move it, or delete it.</p>
+
+        <p>loci keeps it in files you own. These are the rules that make that true, the ones we will not trade away. They live in how loci is built, not in a policy.</p>
+
+        <p>Four work today, three are in progress, one is not built yet. Checked against the code on 1 November 2026.</p>
+
+        <hr>
+
+        <section class="primitive" id="plain-text">
+          <div class="primitive-head"><h2>Plain text</h2><span class="status status-today">works today</span></div>
+          <p>Your memory is markdown files in a folder you choose. Any AI that reads files can use it. No database, no build step. The tool never knows more than you can read. What an AI keeps on its own side is outside these files; <a href="/keep-your-memory-yours.html">keep your memory yours</a> shows how to close that gap.</p>
+        </section>
+        <section class="primitive" id="local-first">
+          <div class="primitive-head"><h2>Local first</h2><span class="status status-today">works today</span></div>
+          <p>The command-line tool makes no network calls of its own and sends no telemetry. No account, no cloud, and no loci server that could keep a copy.</p>
+        </section>
+        <section class="primitive" id="yours-to-carry">
+          <div class="primitive-head"><h2>Yours to carry</h2><span class="status status-today">works today</span></div>
+          <p>MIT licence. Copy the folder to another machine or another AI and it works the same. There is nothing to export, because nothing is locked in.</p>
+        </section>
+        <section class="primitive" id="free-to-own">
+          <div class="primitive-head"><h2>Free to own</h2><span class="status status-today">works today</span></div>
+          <p>No payment, no account, no sign-in. Owning your memory will never sit behind a paywall or a login.</p>
+        </section>
+        <section class="primitive" id="signed-by-you">
+          <div class="primitive-head"><h2>Signed by you</h2><span class="status status-progress">in progress</span></div>
+          <p>Your records must carry your own signature, so anyone can check they came from you and were not changed. The open code can already check a signed record (<code>loci wal verify</code>, not yet in a release). Making your own key and signing with it is not built yet.</p>
+        </section>
+        <section class="primitive" id="stops-instead-of-leaking">
+          <div class="primitive-head"><h2>Stops instead of leaking</h2><span class="status status-progress">in progress</span></div>
+          <p>When loci cannot protect you, it must stop and say why, never fall back in silence. Most commands already do. Three places in the command-line tool still fall back without a warning; until they are fixed, this rule is in progress.</p>
+        </section>
+        <section class="primitive" id="local-models">
+          <div class="primitive-head"><h2>Local models</h2><span class="status status-progress">in progress</span></div>
+          <p>Everything must be able to run on your own machine, with no AI company in the loop. The setup step for a local model (Ollama) exists. The tool does not run the model yet. When it does, an offline model will stop the tool, never send your words to someone else's server instead.</p>
+        </section>
+        <section class="primitive" id="private-on-the-wire">
+          <div class="primitive-head"><h2>Private on the wire</h2><span class="status status-notyet">not built yet</span></div>
+          <p>Today nothing leaves your machine, so there is nothing to intercept. When sync arrives, it will travel over transport that hides who talks to whom (a mixnet), or it will not travel at all.</p>
+        </section>
+
+        <hr>
+
+        <p>The <a href="/roadmap.html">roadmap</a> is public, and so is every change to this page: if a rule changes, you can see when.</p>
+
+        <div class="dp-seal">
+          <p><em>A memory you cannot read is not yours.</em></p>
+          <div class="dp-attribution">loci.garden · 2026</div>
+        </div>
+
+        <div class="dp-ctas">
+          <a href="roadmap.html" class="dp-cta-primary" data-umami-event="manifesto-cta" data-umami-event-target="roadmap">See the roadmap →</a>
+          <a href="about.html" class="dp-cta-secondary" data-umami-event="manifesto-cta" data-umami-event-target="about">About loci</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+<!-- #include partials/_footer.html -->
+<footer>
+  <div class="footer-inner">
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden &middot; built by Hux &times; Vesper</span>
+    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
+      <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
+      <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
+      <a href="/keep-your-memory-yours.html" style="color:var(--text-faint);">keep your memory yours</a> &middot;
+      <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
+      <a href="/releases/" style="color:var(--text-faint);">releases</a> &middot;
+      <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
+      <a href="https://github.com/huximaxi/loci/blob/main/CONTRIBUTING.md" style="color:var(--text-faint);" target="_blank" rel="noopener">contribute</a> &middot;
+      <a href="/privacy.html" style="color:var(--text-faint);">privacy</a> &middot;
+      <a href="/.well-known/security.txt" style="color:var(--text-faint);">security.txt</a> &middot;
+      <a href="/llms.txt" style="color:var(--text-faint);">llms.txt</a>
+    </span>
+  </div>
+</footer>
+<!-- /include -->
+
+  <script src="assets/nav-persona.js" defer></script>
+</body>
+</html>
