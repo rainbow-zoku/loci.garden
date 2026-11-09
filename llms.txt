@@ -20,7 +20,7 @@
 - `/privacy.html`: privacy posture. No PII, no third-party trackers, self-hosted Umami, Iceland jurisdiction. The Rainbow Zoku closing section names the contributor charter.
 - `/zoku/`: charter of the Rainbow Zoku, the maintainer chapter of Loci. Pseudonymous + signed membership. Where contributors join.
 - `/llms.txt`: this file.
-- `/seed/`: essays (dispatches) from the work behind loci. Five live (rendszerbontás, beágyazás, helyszellem, mintanyelv, nyomtalan). Season One of the garden dispatches opened July 2026: each dispatch is one garden plant's synthesis, authored as "The Garden · voiced by \<Gardener\>".
+- `/seed/`: essays (dispatches) from the work behind loci. Six live (rendszerbontás, beágyazás, helyszellem, mintanyelv, nyomtalan, ami megmarad). Season One of the garden dispatches opened July 2026: each dispatch is one garden plant's synthesis, authored as "The Garden · voiced by \<Gardener\>". Season Two opened November 2026 with Dispatch 010; numbers 006 to 009 are held for Season One.
 
 ## Governance and contributor surfaces
 
@@ -295,6 +295,7 @@ Privacy-consistent, sovereignty-respecting, minimal.
 - https://loci.garden/seed/helyszellem.html — Dispatch 003: Helyszellem — genius loci, method of loci, Hamvas's five geniuses, the neutrality lie, five gardens, mindspace place-spirit
 - https://loci.garden/seed/mintanyelv.html — Dispatch 004: Mintanyelv — pattern language grown in human-AI collaboration, naming as design tool, ten patterns published under plain public names, Season One opens (The Garden, voiced by Vesper)
 - https://loci.garden/seed/nyomtalan.html — Dispatch 005: Nyomtalan — zero-knowledge proofs as posture, conviction without residue, trust without a ledger, affirmative liveness vs the silent pass (The Garden, voiced by Cipher, coda by Praxis)
+- https://loci.garden/seed/ami-megmarad.html · Dispatch 010: Ami megmarad · the Einstein move for consciousness research, invariant structure over mechanism, the structural turn, generative midtended cognition, form constants, the observer inside the pair, Season Two opens (The Garden, voiced by Vesper)
 **GitHub**: https://github.com/huximaxi/loci
 **Contact**: themapisnory@tuta.io
 
