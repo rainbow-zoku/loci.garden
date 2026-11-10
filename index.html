@@ -111,7 +111,7 @@ document.documentElement.classList.add("js");
           <p class="sub">Plain-text spec. Any file-aware model. Your disk.</p>
           <div class="cta-row">
             <a class="btn" href="https://github.com/huximaxi/loci" target="_blank" rel="noopener" data-umami-event="agent-cta-click" data-umami-event-target="clone-kit">Clone the kit</a>
-            <a class="step-in" href="#palace" data-k="1">step in ↓</a>
+            <a class="step-in" href="#palace" data-k="1">cd palace/ ↓</a>
           </div>
         </div>
       </section>
@@ -121,8 +121,8 @@ document.documentElement.classList.add("js");
         <div class="band top">
           <h2 class="label" id="h-palace">The palace</h2>
           <dl class="rooms">
-            <div><dt>Rooms</dt><dd>one per kind of work</dd></div>
-            <div><dt>Soul file</dt><dd>what each room is for</dd></div>
+            <div><dt>rooms/</dt><dd>per mode, loaded on entry</dd></div>
+            <div><dt>soul/</dt><dd>identity, loaded every session</dd></div>
           </dl>
         </div>
         <div class="hole">
@@ -298,10 +298,10 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
         </div>
         <div class="band bot">
           <dl class="rooms">
-            <div><dt>Crystals</dt><dd>facts settled once</dd></div>
-            <div><dt>Garden</dt><dd>questions left growing</dd></div>
+            <div><dt>crystals</dt><dd>facts, tiered ◇◈◆</dd></div>
+            <div><dt>garden/</dt><dd>one file per idea</dd></div>
           </dl>
-          <p class="ways"><a href="start.html">ten-minute start</a><a href="guide.html">the ritual</a><a href="https://docs.loci.garden" target="_blank" rel="noopener">the docs</a></p>
+          <p class="ways"><a href="start.html">10-min start</a><a href="guide.html">guide</a><a href="https://docs.loci.garden" target="_blank" rel="noopener">docs</a><a href="https://github.com/huximaxi/loci/tree/main/loci-cli" target="_blank" rel="noopener">cli</a></p>
         </div>
       </section>
 
@@ -309,22 +309,21 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
       <section class="ring r2" data-k="2" aria-labelledby="h-keep" tabindex="-1">
         <div class="band top">
           <h2 class="label" id="h-keep">Keep it</h2>
-          <p class="remember">The vendor forgets. The folder remembers.</p>
-          <ol class="steps">
-            <li>Clone the kit.</li>
-            <li>Point any file-aware AI at the folder.</li>
-            <li>Run <code>FIRST-SESSION.md</code> and walk in.</li>
-          </ol>
+          <p class="remember">If you can't cat it, it isn't yours.</p>
+          <!-- a short terminal session; the box below is its last line -->
+          <pre class="sh"><span class="in">git clone https://github.com/huximaxi/loci</span>
+<span class="in">cargo install --path loci/loci-cli</span>
+<span class="out"># optional; needs Rust, no pre-built binary yet</span></pre>
         </div>
         <div class="hole">
           <figure class="core">
-            <p class="save" id="save"><span class="save-mark" aria-hidden="true"></span><span><span id="save-text" role="status">save point</span><span class="caret" aria-hidden="true"></span></span></p>
+            <p class="save" id="save"><span class="save-mark" aria-hidden="true"></span><span><span id="save-text" role="status">checkpoint</span><span class="caret" aria-hidden="true"></span></span></p>
           </figure>
         </div>
         <div class="band bot">
-          <div class="cmd"><code id="cmd">git clone https://github.com/huximaxi/loci</code><button class="copy" id="copy" type="button" data-umami-event="wizard-curl-copy">copy</button></div>
-          <p class="keep-note">Plain text on your machine: no account, no telemetry, no cloud. The model you invite keeps its own rules, so choose your guests.</p>
-          <p class="links"><a href="keep-your-memory-yours.html">Keep your memory yours →</a><a href="about.html">Where it grew from →</a></p>
+          <div class="cmd"><code id="cmd">loci new ~/palace</code><button class="copy" id="copy" type="button" data-umami-event="wizard-curl-copy">copy</button></div>
+          <p class="keep-note">Plain text on your disk: no account, no telemetry, no cloud. The model reading it keeps its own rules; pick the endpoint.</p>
+          <p class="links"><a href="keep-your-memory-yours.html">Turn off vendor memory →</a><a href="about.html">Provenance →</a></p>
         </div>
       </section>
     </div>
@@ -340,7 +339,7 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     <a href="/zoku/">contribute</a>
   </nav>
   <p>loci.garden · MIT</p>
-  <p class="last">Rooms ship empty, by design.</p>
+  <p class="last">Rooms ship empty. Private by default.</p>
 </footer>
 
 <!-- ═══════════════════ SCRIPT ════════════════════════ -->
@@ -567,7 +566,7 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     var saveText = document.getElementById('save-text');
     var copyBtn = document.getElementById('copy');
     var cmd = document.getElementById('cmd');
-    var LINE_OK = 'Copied. Paste it in a terminal to keep your save.';
+    var LINE_OK = 'Copied.';
     var LINE_FAIL = 'Not confirmed. The line below is selected: copy it by hand.';
     function legacyCopy(text) {
       try {
