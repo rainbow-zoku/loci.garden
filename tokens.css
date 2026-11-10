@@ -1,27 +1,22 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   TOKENS.CSS — Single canonical design-token contract for loci.garden
+   TOKENS.CSS: single canonical design-token contract for loci.garden
    Linked first on every page (landing + secondary). One source of truth.
 
-   Structure:
-     1. :root  — theme-INVARIANT spine (space, type scale, line-heights,
-                 weights, layout widths, nav height). Themes never touch these.
-     2. [data-theme="wizard"|"llmage"] — pure skins: colour + font +
-                 radius only. Each block also bridges the legacy loci.css token
-                 names (--bg-card, --text-dim, --serif, …) → canonical, so the
-                 existing component CSS in index.css + loci.css renders themed
-                 with no per-reference edits.
+   One skin: near-black mono. Colour, type, radius and the spine (space,
+   type scale, line-heights, weights, layout widths, nav height) all live
+   on :root.
 
-   The legacy-alias bridge (marked ⟶ legacy) is intentional and TEMPORARY.
-   Phase 2 renames component references to canonical names and deletes the
-   aliases. Until then, this is what lets one switcher theme the whole site.
+   The legacy-alias bridge (marked ⟶ legacy) maps the older loci.css token
+   names (--bg-card, --text-dim, --serif, …) onto the canonical ones, so the
+   component CSS in index.css + loci.css renders with no per-reference edits.
+   It is intentional and TEMPORARY: a later pass renames component
+   references to canonical names and deletes the aliases.
 
-   Themes are a depth ramp: wizard (charcoal) →
-   llmage (near-black). Spacing tightens and ground darkens down the ramp.
+   Austerity lives in chroma and ornament, NOT in dim text: body --text-2 is
+   #B4B4B4 (≈9.6:1 on #080808) so the spec reads carved, not whispered.
+   --text-3 stays sub-AA by design (decorative meta only, never body).
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ───────────────────────────────────────────────────────────────────────────
-   1. THEME-INVARIANT SPINE  (geometry & rhythm — constant across all themes)
-   ─────────────────────────────────────────────────────────────────────────── */
 :root {
   /* Spacing scale (8px base, 4 & 12 half-steps) */
   --sp-1: 4px;
@@ -60,86 +55,7 @@
   --nav-h:      60px;
   --page-pad:   32px;
 
-  /* Radius fallbacks (themes override) */
-  --radius:    8px;
-  --radius-sm: 4px;
-
-  /* Font fallbacks (themes override) */
-  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-}
-
-/* ───────────────────────────────────────────────────────────────────────────
-   2b. WIZARD  ⚔  [data-theme="wizard"]  — DARK  (charcoal, burnt amber)
-       Inter body + Press Start 2P display. Hero <h1> keeps Georgia (the one
-       intentional serif moment) via index.css's .hero-title override.
-   ─────────────────────────────────────────────────────────────────────────── */
-[data-theme="wizard"] {
-  /* Purple register: deep mystical, dark/serious, no medieval-castle amber.
-     Bricks are gone; the palette stays grounded but the accent shifts from
-     burnt-amber to violet. Hux to fine-tune the hex on review. */
-  --bg:            #0c0a14;
-  --bg-2:          #11101c;
-  --surface:       #161423;
-  --border:        #2a2540;
-  --border-2:      #3a3358;
-  --text:          #ece6f5;
-  --text-2:        #9c92b8;
-  --text-3:        #5d5670;
-  --accent:        #7b5bcb;
-  --accent-light:  #a289dc;
-  --accent-xlight: #d4c5f2;
-  --accent-soft:   rgba(123,91,203,0.12);
-  --accent-glow:   rgba(123,91,203,0.40);
-  --nav-bg:        rgba(12,10,20,0.92);
-  --tag-bg:        rgba(123,91,203,0.14);
-  --tag-text:      #a289dc;
-  --btn-bg:        #a289dc;   /* dark label reads 6.69:1 (on #7b5bcb it read 3.93) */
-  --btn-text:      #0c0a14;
-  --btn-hover:     #d4c5f2;
-  --switcher-bg:       #2a2540;
-  --switcher-pill:     #3a3358;
-  --switcher-text:     #a289dc;
-  --switcher-inactive: #5d5670;
-  --font-body:    'Inter', system-ui, sans-serif;
-  --font-display: 'Press Start 2P', monospace;
-  --font-mono:    'Courier New', Courier, monospace;
-  --radius:       4px;
-  --radius-sm:    2px;
-  --logo-filter:  none;
-
-  /* ⟶ legacy bridge */
-  --font-main:        var(--font-body);
-  --card-bg:          var(--surface);
-  --bg-surface:       var(--bg-2);
-  --bg-card:          var(--surface);
-  --border-soft:      var(--border);
-  --accent-dim:       var(--accent-soft);
-  --text-dim:         var(--text-2);
-  --text-faint:       var(--text-3);
-  --text-mono:        var(--text-2);
-  --serif:            var(--font-body);   /* serif body retired → sans */
-  --mono:             var(--font-mono);
-  --sans:             var(--font-body);
-  --radius-lg:        var(--radius);
-  --nav-height:       var(--nav-h);
-  --accent-vine:      var(--accent);
-  --accent-vine-light:var(--accent-light);
-  --accent-vine-hi:   var(--accent-light);
-  --accent-vine-soft: var(--accent-soft);
-  --accent-indigo:    var(--bg-2);
-  --accent-indigo-soft:var(--bg-2);
-}
-
-/* ───────────────────────────────────────────────────────────────────────────
-   2c. LLMAGE  ◈  [data-theme="llmage"]  — NEAR-BLACK  (mono, neutral grey)
-       Austere terminal. Austerity lives in chroma & ornament, NOT in dim text:
-       body --text-2 raised #9C9C9C → #B4B4B4 (≈9.6:1 on #080808) so the spec,
-       which IS the sell for devs, reads carved-not-whispered. --text-3 stays
-       sub-AA by design (decorative meta only, never body).
-   ─────────────────────────────────────────────────────────────────────────── */
-[data-theme="llmage"] {
+  /* Colour: near-black mono, neutral grey */
   --bg:            #080808;
   --bg-2:          #0f0f0f;
   --surface:       #111111;
@@ -159,10 +75,8 @@
   --btn-bg:        #F0F0F0;
   --btn-text:      #080808;
   --btn-hover:     #FFFFFF;
-  --switcher-bg:       #1a1a1a;
-  --switcher-pill:     #2a2a2a;
-  --switcher-text:     #F0F0F0;
-  --switcher-inactive: #4A4A4A;
+
+  /* Type and radius */
   --font-body:    'Helvetica Neue', 'Arial', system-ui, sans-serif;
   --font-display: 'Helvetica Neue', 'Arial', system-ui, sans-serif;
   --font-mono:    ui-monospace, 'SF Mono', Menlo, 'Courier New', monospace;

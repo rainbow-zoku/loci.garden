@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html data-theme="wizard" lang="en">
+<html lang="en">
 <head>
-<script>
-(function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Scaffold · loci.garden</title>
 <meta name="description" content="An automated loop watching the convergence of AI cognition development frameworks and tools. Open, neutral, evidence-tagged.">
 <link rel="canonical" href="https://loci.garden/scaffold.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23080808'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23cacaca'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%239a9a9a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23686868'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233c3c3c'/%3E%3C/svg%3E">
 <meta property="og:title" content="The Scaffold · loci.garden">
 <meta property="og:description" content="An automated loop watching the convergence of AI cognition development frameworks and tools.">
 <meta property="og:url" content="https://loci.garden/scaffold.html">
@@ -18,11 +15,9 @@
 <link rel="stylesheet" href="loci.css">
 <style>
 :root{
-  /* Re-skin fix (#23): the scaffold used to hardcode its own dark palette here,
-     which overrode tokens.css and pinned the page dark in every mode. Instead,
-     alias the scaffold's local var names onto the canonical per-theme tokens so
-     wizard/llmage actually re-skin this page like the rest of the site.
-     --bg/--surface/--border/--text inherit the themed tokens directly (names
+  /* The scaffold's local var names alias the canonical tokens in tokens.css,
+     so this page wears the same skin as the rest of the site.
+     --bg/--surface/--border/--text inherit the tokens directly (names
      match tokens.css); the mismatched names are aliased below. */
   --bg2:     var(--bg-2);
   --border2: var(--border-2);
@@ -113,13 +108,6 @@ td.detailcell{padding:0;border-top:none}
 .notes li{padding:3px 0}
 .muted{color:var(--text3)}
 
-/* Tier-gated copy (mirror of the home page convention). The three theme
-   buttons in the nav are the "3 dashboard switch designs" preserved from
-   memory-field.html: wizard/llmage re-skin the entire page. */
-.t-wizard, .t-llmage { display: none; }
-[data-theme="wizard"]  .t-wizard  { display: inline; }
-[data-theme="llmage"]  .t-llmage  { display: inline; }
-
 @media (max-width:640px){
   .scaffold-pulse{grid-template-columns:1fr}
 }
@@ -141,13 +129,8 @@ td.detailcell{padding:0;border-top:none}
         <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
         <a href="/design-primitives.html" class="nav-link" data-page="primitives"><span class="nav-wide">design </span>primitives</a>
       </div>
-      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
-        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="true" aria-label="Wizard">⚔<span class="theme-label"> Wizard</span></button>
-        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false" aria-label="LLMAGE">◈<span class="theme-label"> LLMAGE</span></button>
-      </div>
     </div>
   </div>
-  <script defer src="/theme.js"></script>
 </nav>
 <!-- /include -->
 
@@ -155,16 +138,10 @@ td.detailcell{padding:0;border-top:none}
 <div class="wrap">
 
   <div class="scaffold-eyebrow">the scaffold · an automated watcher</div>
-  <h1 class="scaffold-title">
-    <span class="t-wizard">The Scaffold</span>
-    <span class="t-llmage">the_scaffold</span>
-  </h1>
+  <h1 class="scaffold-title">the_scaffold</h1>
 
   <!-- lead copy landed 2026-06-25 -->
-  <p class="scaffold-lead">
-    <span class="t-wizard">An automated loop watching where AI cognition tooling is converging. Dozens of products in the field, most of them young. The Scaffold reads where they meet, and where they still don't. loci keeps it as a map of the field it works in.</span>
-    <span class="t-llmage">// an automated watch on where AI cognition tooling converges. n=<span class="lead-n"></span> (young field). read where they meet, and where they don't. // the map of the field loci works in.</span>
-  </p>
+  <p class="scaffold-lead">// an automated watch on where AI cognition tooling converges. n=<span class="lead-n"></span> (young field). read where they meet, and where they don't. // the map of the field loci works in.</p>
 
   <!-- Pulse strip: two numbers carry the story, the rest stay in row-detail.
        In the field / with a governance gate. Crane form. -->
@@ -312,7 +289,6 @@ boot();
   </div>
 </footer>
 <!-- /include -->
-<script src="assets/nav-persona.js" defer></script>
 <script defer src="https://analytics.loci.garden/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
 </body>
 </html>
