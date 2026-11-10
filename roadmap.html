@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html data-theme="wizard" lang="en">
+<html lang="en">
 <head>
-<script>
-(function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
-</script>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23080808'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23cacaca'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%239a9a9a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23686868'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233c3c3c'/%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roadmap · loci.garden</title>
   <link rel="stylesheet" href="tokens.css">
@@ -13,33 +10,10 @@
   
   <style>
     /* ── Page-specific decorative tokens ──────────────────────
-       --bg/--accent/--accent-light/--text/--surface come from tokens.css
-       per data-theme. Only the page-specific decorations live here,
-       and they re-skin per theme so the switcher actually switches. */
-
-    /* Wizard (violet-on-near-black): the original design register. */
-    [data-theme="wizard"] {
-      --stone-dark:   #1f1c2d;
-      --stone-mid:    #2a263d;
-      --stone-light:  #3a3554;
-      --stone-mortar: #14111e;
-      --stone-hi:     #4a4368;
-      --ivy-mid:      #3d4d7a;
-      --ivy-bright:   #5a6dad;
-      --ivy-hi:       #7d8fd0;
-      --crystal-core: #e0d0ff;
-      --crystal-bright:#c0a8ff;
-      --crystal-mid:  #8a6dd6;
-      --crystal-outer:#7b5bcb;
-      --room-garden-teal: #1a2c4a;
-      --room-garden-glow: #5a85b8;
-      --room-dev-glow: #6b7dc8;
-      --dim: rgba(236,230,245,0.45);
-    }
-
-
-    /* LLMAGE (neutral grey-on-near-black): mono register. */
-    [data-theme="llmage"] {
+       --bg/--accent/--accent-light/--text/--surface come from tokens.css.
+       Only the page-specific decorations live here, in the same
+       neutral grey-on-near-black mono register. */
+    :root {
       --stone-dark:   #1a1a1a;
       --stone-mid:    #232323;
       --stone-light:  #2e2e2e;
@@ -382,13 +356,8 @@
         <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
         <a href="/design-primitives.html" class="nav-link" data-page="primitives"><span class="nav-wide">design </span>primitives</a>
       </div>
-      <div class="theme-switcher" role="group" aria-label="Choose experience mode">
-        <button class="theme-btn" id="btn-wizard"  onclick="setTheme('wizard')"  aria-pressed="true" aria-label="Wizard">⚔<span class="theme-label"> Wizard</span></button>
-        <button class="theme-btn" id="btn-llmage"  onclick="setTheme('llmage')"  aria-pressed="false" aria-label="LLMAGE">◈<span class="theme-label"> LLMAGE</span></button>
-      </div>
     </div>
   </div>
-  <script defer src="/theme.js"></script>
 </nav>
 <!-- /include -->
 
@@ -752,7 +721,6 @@
 <!-- /include -->
 
 </div>
-  <script src="assets/nav-persona.js" defer></script>
   <script defer src="https://analytics.loci.garden/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
 </body>
 </html>

@@ -2,14 +2,9 @@
    LOCI.CSS — Single canonical stylesheet for loci.garden
    Generated 2026-05-19 from style.css + style-wizard.css + Version B + LLMAGE
 
-   Layout:
-   1. :root canonical Wizard tokens (burnt amber × charcoal)
-      + Version B "Garden Immersive" aliases (vine + indigo)
-   2. Base, reset, typography, layout, components (from style.css)
-   3. LLMAGE alternate register ([data-theme="llmage"], easter-egg overlay)
-   (The legacy html[data-skin="wizard"] pixel-skin block and its floating
-   .skin-toggle button were retired 2026-07-15; theming is [data-theme=...]
-   via tokens.css + the nav theme-switcher only.)
+   Layout: base, reset, typography, layout, components (from style.css).
+   The site has one skin (near-black mono); its colour, type and radius
+   tokens live in tokens.css. There is no theme switcher.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ================================
@@ -17,8 +12,8 @@
    Burnt amber · Charcoal · Serif
    ================================ */
 
-/* Design tokens (spine + per-theme [data-theme] skins) now live in
-   tokens.css, linked before this file on every page. Single source of truth. */
+/* Design tokens now live in tokens.css, linked before this file on every
+   page. Single source of truth. */
 
 /* ================================
    RESET & BASE
@@ -131,47 +126,11 @@ nav.article-toc {
 .nav-link:hover,
 .nav-link.active { color: var(--text); }
 
-/* ── Theme switcher (depth dial) — present on every secondary page via _nav.html.
-   Tokens (--switcher-*, --border, --radius) come from tokens.css. ── */
 .nav-right { display: flex; align-items: center; gap: 1.25rem; }
-
-.theme-switcher {
-  display: flex;
-  align-items: center;
-  background: var(--switcher-bg);
-  border-radius: 100px;
-  padding: 3px;
-  border: 1px solid var(--border);
-  transition: background 0.35s, border-color 0.35s;
-}
-[data-theme="wizard"] .theme-switcher { border-radius: var(--radius); border: 2px solid var(--border); }
-[data-theme="llmage"] .theme-switcher { border-radius: 0; border: 1px solid var(--border-2); }
-
-.theme-btn {
-  padding: 5px 14px;
-  border-radius: 100px;
-  border: none;
-  background: transparent;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  color: var(--switcher-inactive);
-  font-family: var(--font-body);
-  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
-}
-[data-theme="wizard"] .theme-btn { border-radius: var(--radius-sm); letter-spacing: 0.02em; padding: 6px 12px; }
-[data-theme="llmage"] .theme-btn { border-radius: 0; font-family: 'Helvetica Neue', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; }
-
-.theme-btn.active { background: var(--switcher-pill); color: var(--switcher-text); box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
-[data-theme="wizard"] .theme-btn.active { box-shadow: 0 0 8px 2px rgba(200,124,44,0.18), inset 0 1px 0 rgba(255,220,100,0.08); color: var(--accent-light); }
-[data-theme="llmage"] .theme-btn.active { color: var(--text); box-shadow: none; border-left: 1px solid var(--border-2); border-right: 1px solid var(--border-2); }
 
 @media (max-width: 720px) {
   .nav-right { gap: 0.75rem; }
   .nav-links { gap: 1rem; }
-  .theme-btn { padding: 5px 8px; font-size: 10px; }
 }
 
 .nav-icon {
@@ -777,15 +736,13 @@ footer {
   }
 }
 
-/* Phones: the nav holds four links and the skin switcher only if the
-   switcher shows its glyphs and the long nav label drops its first word.
-   Without this the switcher sat off-screen at 375px. */
+/* Phones: the nav holds its four links only if the long nav label drops
+   its first word. */
 @media (max-width: 640px) {
-  .nav-wide, .theme-label { display: none; }
+  .nav-wide { display: none; }
   .nav-link { white-space: nowrap; }
   .nav-container { gap: 0.75rem; }
   .nav-right { gap: 0.5rem; }
-  .theme-switcher .theme-btn { padding: 5px 8px; }
 }
 @media (max-width: 360px) {
   .nav-links .nav-icon { display: none; }
@@ -1934,87 +1891,18 @@ footer {
   }
 }
 
-/* ── Persona mini-switcher (2nd-level pages) ───────────────
- * Sits beside the logo. Click writes localStorage['loci-theme']
- * then routes to '/'. Landing page's setTheme() reads on init. */
+/* ── Nav logo group (2nd-level pages) ─────────────────────── */
 .nav-logo-group {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.nav-persona-mini {
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
-  padding-left: 0.6rem;
-  border-left: 1px solid var(--border);
-}
-
-.persona-mini-btn {
-  background: none;
-  border: none;
-  padding: 2px 5px;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  line-height: 1;
-  color: var(--text-dim);
-  cursor: pointer;
-  opacity: 0.5;
-  transition: color 0.15s, opacity 0.15s, transform 0.15s;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.persona-mini-btn:hover {
-  color: var(--text);
-  opacity: 1;
-  transform: translateY(-1px);
-}
-
-.persona-mini-btn.active {
-  color: var(--accent);
-  opacity: 1;
-}
-
-/* Mobile: pull the mini-switcher out of the nav and float it
- * as a centered overlay pill just below the nav bar. Frees the nav
- * for logo + nav-links, and keeps the switcher always reachable. */
+/* Phones: the first content section keeps its spacing below the nav. */
 @media (max-width: 640px) {
   .nav-logo-group { gap: 0; }
-  .nav-persona-mini {
-    position: fixed;
-    top: calc(var(--nav-height) + 6px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 110;
-    gap: 0.2rem;
-    padding: 5px 12px;
-    background: rgba(13, 13, 14, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-left: 1px solid var(--border);
-    border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  }
-  .persona-mini-btn {
-    font-size: 0.95rem;
-    padding: 3px 7px;
-    opacity: 0.65;
-  }
-  /* Push first content section down so it clears the floating dock */
   .page-content,
   main:not(.no-mini-offset) {
     padding-top: calc(var(--nav-height) + 56px);
   }
 }
-
-@media (max-width: 380px) {
-  .nav-persona-mini { padding: 4px 10px; }
-  .persona-mini-btn { font-size: 0.88rem; padding: 3px 5px; }
-}
-
-
-
-
-/* LLMAGE register now derives from tokens.css [data-theme="llmage"]. */

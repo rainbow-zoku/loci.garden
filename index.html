@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="wizard" data-dose="1">
+<html lang="en" data-dose="1">
 <head>
 <meta charset="UTF-8" />
 <script>
 document.documentElement.classList.add("js");
-(function(){try{var t=localStorage.getItem("loci-theme");if(["wizard","llmage"].indexOf(t)===-1)t="wizard";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","wizard");}})();
 (function(){try{var d=localStorage.getItem("loci-dose");if(/^([0-9]|1[0-2])$/.test(d||""))document.documentElement.setAttribute("data-dose",d);}catch(e){}})();
 </script>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%230c0a14'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23a995e0'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%238a6dd6'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%237b5bcb'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%234a338a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23080808'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23cacaca'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%239a9a9a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23686868'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233c3c3c'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>loci, the mindspace primitive</title>
 <meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The CLI is a demo; the substrate is yours." />
@@ -22,8 +21,7 @@ document.documentElement.classList.add("js");
 <meta name="twitter:title" content="loci, the mindspace primitive" />
 <meta name="twitter:description" content="A mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no landlords because there is nothing to rent. The substrate is yours." />
 <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
-<meta name="theme-color" content="#0c0a14" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#0d0d0e" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#080808" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"loci.garden","description":"A mindspace primitive: an intelligence substrate, plain-text firmware any file-aware AI can run. Local-first, private by default.","url":"https://loci.garden","applicationCategory":"ProductivityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Hux","url":"https://loci.garden"}}</script>
 <link rel="stylesheet" href="fonts.css">
 
@@ -38,8 +36,7 @@ document.documentElement.classList.add("js");
   <div class="nav-inner">
     <a class="logo" href="/" aria-label="loci.garden home">
       <svg width="22" height="22" viewBox="0 0 100 100" aria-hidden="true">
-        <g class="t-wizard"><polygon points="50,5 20,50 50,50" fill="#a995e0"/><polygon points="50,5 80,50 50,50" fill="#8a6dd6"/><polygon points="20,50 50,95 50,50" fill="#7b5bcb"/><polygon points="80,50 50,95 50,50" fill="#4a338a"/></g>
-        <g class="t-llmage"><polygon points="50,5 20,50 50,50" fill="#cacaca"/><polygon points="50,5 80,50 50,50" fill="#9a9a9a"/><polygon points="20,50 50,95 50,50" fill="#686868"/><polygon points="80,50 50,95 50,50" fill="#3c3c3c"/></g>
+        <g><polygon points="50,5 20,50 50,50" fill="#cacaca"/><polygon points="50,5 80,50 50,50" fill="#9a9a9a"/><polygon points="20,50 50,95 50,50" fill="#686868"/><polygon points="80,50 50,95 50,50" fill="#3c3c3c"/></g>
       </svg>
       <span>loci<span class="dot">.garden</span></span>
     </a>
@@ -51,10 +48,6 @@ document.documentElement.classList.add("js");
       <a href="scaffold.html">scaffold</a>
       <a href="manifesto.html">manifesto</a>
     </nav>
-    <div class="theme-switcher" role="group" aria-label="Choose experience mode">
-      <button class="theme-btn" id="btn-wizard" type="button" onclick="setTheme('wizard')" aria-pressed="true" data-umami-event="persona-cta" data-umami-event-persona="wizard">⚔ Wizard</button>
-      <button class="theme-btn" id="btn-llmage" type="button" onclick="setTheme('llmage')" aria-pressed="false" data-umami-event="persona-cta" data-umami-event-persona="llmage">◈ LLMAGE</button>
-    </div>
     <!-- Dose: a volume knob for the ornament, never a vocabulary. 0 still … 12 unravel; text never moves. -->
     <div class="theme-switcher" role="group" aria-label="Ornament dose">
       <button class="theme-btn dose-btn" id="btn-dose" type="button" aria-label="Dose 1 of 12, calm" title="Dose 1: calm. Click for more, shift-click for less.">◎ dose 1</button>
@@ -104,14 +97,7 @@ document.documentElement.classList.add("js");
       <!-- ring 0: the claim -->
       <section class="ring r0" data-k="0" aria-labelledby="h-claim" tabindex="-1">
         <div class="band top">
-          <svg class="crystal t-wizard" viewBox="0 0 300 300" aria-hidden="true">
-            <defs><radialGradient id="violetGrad" cx="50%" cy="35%" r="60%"><stop offset="0%" stop-color="#d4c5f2"/><stop offset="50%" stop-color="#a289dc"/><stop offset="100%" stop-color="#7b5bcb"/></radialGradient></defs>
-            <polygon points="150,30 60,150 150,150" fill="#d4c5f2"/><polygon points="150,30 240,150 150,150" fill="url(#violetGrad)"/>
-            <polygon points="60,150 150,270 150,150" fill="#7b5bcb"/><polygon points="240,150 150,270 150,150" fill="#3a2674"/>
-            <polygon points="150,30 60,150 150,270 240,150" fill="none" stroke="rgba(212,197,242,0.5)" stroke-width="1.5"/>
-            <circle cx="150" cy="30" r="5" fill="#d4c5f2" opacity="0.9"/>
-          </svg>
-          <svg class="crystal t-llmage" viewBox="0 0 300 300" aria-hidden="true">
+          <svg class="crystal" viewBox="0 0 300 300" aria-hidden="true">
             <polygon points="150,48 72,150 150,150" fill="#cacaca"/><polygon points="150,48 228,150 150,150" fill="#9a9a9a"/>
             <polygon points="72,150 150,252 150,150" fill="#686868"/><polygon points="228,150 150,252 150,150" fill="#3c3c3c"/>
             <circle cx="150" cy="48" r="16" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="5 4"/>
@@ -122,13 +108,9 @@ document.documentElement.classList.add("js");
         </div>
         <div class="hole" aria-hidden="true"></div>
         <div class="band bot">
-          <p class="sub">
-            <span class="t-wizard">One folder of plain text. Every session starts inside it.</span>
-            <span class="t-llmage">Plain-text spec. Any file-aware model. Your disk.</span>
-          </p>
+          <p class="sub">Plain-text spec. Any file-aware model. Your disk.</p>
           <div class="cta-row">
-            <a class="btn t-wizard" href="start.html" data-umami-event="agent-cta-click" data-umami-event-target="first-room">Open the first room</a>
-            <a class="btn t-llmage" href="https://github.com/huximaxi/loci" target="_blank" rel="noopener" data-umami-event="agent-cta-click" data-umami-event-target="clone-kit">Clone the kit</a>
+            <a class="btn" href="https://github.com/huximaxi/loci" target="_blank" rel="noopener" data-umami-event="agent-cta-click" data-umami-event-target="clone-kit">Clone the kit</a>
             <a class="step-in" href="#palace" data-k="1">step in ↓</a>
           </div>
         </div>
@@ -146,45 +128,18 @@ document.documentElement.classList.add("js");
         <div class="hole">
           <div class="plate" role="img" aria-label="An engraved plate: open a palace without loci in three steps. A folder, one plain-text line, any editor.">
 <svg class="plate-wide" xmlns="http://www.w3.org/2000/svg" viewBox="-376 -272 752 544" aria-hidden="true">
-  <style>.plate-wide{--g:#11101c;--fr:#7b5bcb;--ln:#a289dc;--dt:#d4c5f2;--mt:#9c92b8;--d0:#ece6f5;--d1:#a289dc;--d2:#917fd7;--d3:#7e75d3;--d4:#6b6bd0;--gl:#7b5bcb;--glk:.22;--rk:#7b5bcb;--af:#B4B4B4;--al:#F0F0F0;--ah:#FFFFFF}
+  <style>.plate-wide{--g:#0f0f0f;--gl:#B4B4B4;--glk:.16;--rk:#FFFFFF;--af:#B4B4B4;--al:#F0F0F0;--ah:#FFFFFF}
 .plate-wide .ground{fill:var(--g)}
-.plate-wide path{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.plate-wide .frame{stroke:var(--fr);stroke-width:1}
-.plate-wide .rule{stroke:var(--fr);stroke-width:.75}
-.plate-wide .line,.plate-wide .keel,.plate-wide .girdle{stroke:var(--ln);stroke-width:.9}
-.plate-wide .keel,.plate-wide .girdle{stroke-width:.6;opacity:.8}
-.plate-wide .dotted{stroke:var(--ln);stroke-width:1.3;stroke-dasharray:.01 3.2}
-.plate-wide .stub{stroke:var(--d4);stroke-width:1.7}
-.plate-wide .next{stroke:var(--fr);stroke-width:1.3}
-.plate-wide .dot{fill:var(--dt)}.plate-wide .dot.dim{fill:var(--ln)}
-.plate-wide .cursor{fill:var(--d0)}
-.plate-wide .hatch-l{stroke:var(--fr);stroke-width:.55}
 .plate-wide text{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;text-anchor:middle;dominant-baseline:central}
-.plate-wide .txt{font-size:11.5px;letter-spacing:0}
-.plate-wide .meta{fill:var(--mt)}.plate-wide .d0{fill:var(--d0)}.plate-wide .d1{fill:var(--d1)}.plate-wide .d2{fill:var(--d2)}.plate-wide .d3{fill:var(--d3)}
 .plate-wide .gl{opacity:var(--glk)}.plate-wide .gl rect{fill:none;stroke:var(--gl);stroke-width:.6}
 .plate-wide .gl-main,.plate-wide .gl-echo,.plate-wide .rake{transform-box:view-box;transform-origin:0 0}
 .plate-wide .gl-echo,.plate-wide .rake{display:none}
 .plate-wide .rake-s{stop-color:var(--rk)}
-.plate-wide .asc{display:none}
 .plate-wide .arow{font-size:13.6px}.plate-wide .af{fill:var(--af)}.plate-wide .al{fill:var(--al)}.plate-wide .ah{fill:var(--ah);font-weight:700}
-/* skins: html[data-theme] when inlined, data-skin on the root when standalone */
-html[data-theme="llmage"] .plate-wide,.plate-wide[data-skin="llmage"]{--g:#0f0f0f;--gl:#B4B4B4;--glk:.16;--rk:#FFFFFF}
-html[data-theme="llmage"] .plate-wide .wiz,.plate-wide[data-skin="llmage"] .wiz{display:none}
-html[data-theme="llmage"] .plate-wide .asc,.plate-wide[data-skin="llmage"] .asc{display:inline}
-/* dose 2+: the depth walk widens from 6 to 24 degrees per step (the deep-hue ladder) */
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide,.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl rect[data-depth="1"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl rect[data-depth="2"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="2"]{stroke:#3784d0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl rect[data-depth="3"],.plate-wide:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="3"]{stroke:#21828c}
-html[data-theme="llmage"] .plate-wide .gl rect,.plate-wide[data-skin="llmage"] .gl rect{stroke:var(--gl)!important}
 /* the reveal: once, centre-out, 900-1400 ms, then dignity */
-@keyframes plate-wide-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes plate-wide-fade{from{opacity:0}}
 @keyframes plate-wide-turn{to{transform:rotate(360deg)}}
 @keyframes plate-wide-rake{from{transform:translateX(-432px)}to{transform:translateX(432px)}}
-.plate-wide .solid{stroke-dasharray:1;animation:plate-wide-draw 900ms cubic-bezier(.05,.7,.1,1) var(--d,0ms) both}
-.plate-wide .dotted,.plate-wide .txt,.plate-wide .dot,.plate-wide .fill{animation:plate-wide-fade 600ms cubic-bezier(.4,0,.2,1) calc(var(--d,0ms) + 250ms) both}
 .plate-wide .arow{animation:plate-wide-fade 600ms cubic-bezier(.4,0,.2,1) var(--d,0ms) both}
 .plate-wide .gl{animation:plate-wide-fade 1200ms cubic-bezier(.4,0,.2,1) both}
 /* dose 3 the wheel, 4 echo, 5 threshold: ornament only, the reading layer never moves */
@@ -192,7 +147,6 @@ html:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-do
 html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .gl-echo,.plate-wide:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl-echo{display:inline;opacity:.6;animation:plate-wide-turn 89s linear infinite reverse}
 html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide,.plate-wide:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--glk:.34}
 html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .rake,.plate-wide:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .rake{display:inline;animation:plate-wide-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
-html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-wide .key,.plate-wide:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
 /* dose 0 still: no reveal, no ornament motion */
 html[data-dose="0"] .plate-wide *,.plate-wide[data-dose="0"] *{animation:none!important}
 /* reduced motion: substitute, don't remove. Colour stays, movement goes, one 240 ms crossfade */
@@ -202,9 +156,6 @@ html[data-dose="0"] .plate-wide *,.plate-wide[data-dose="0"] *{animation:none!im
     <linearGradient id="plate-wide-rake" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0" class="rake-s" stop-opacity="0"/><stop offset=".5" class="rake-s" stop-opacity=".10"/><stop offset="1" class="rake-s" stop-opacity="0"/>
     </linearGradient>
-    <pattern id="plate-wide-h1" width="4.2" height="4.2" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V4.2"/></pattern>
-    <pattern id="plate-wide-h2" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(-37)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
-    <pattern id="plate-wide-h3" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
   </defs>
   <rect class="ground" x="-350.5" y="-242.5" width="701" height="485"/>
   <g clip-path="url(#plate-wide-clip)">
@@ -212,75 +163,6 @@ html[data-dose="0"] .plate-wide *,.plate-wide[data-dose="0"] *{animation:none!im
     <rect class="rake" x="-70" y="-248" width="140" height="496" fill="url(#plate-wide-rake)"/>
   </g>
   <g class="occ"><rect class="ground sheet" x="-100" y="-64" width="200" height="128"/><rect class="ground" x="180" y="-96" width="144" height="128"/><rect class="ground" x="164" y="-64" width="144" height="128"/><rect class="ground" x="148" y="-32" width="144" height="128"/></g>
-  <g class="wiz">
-    <path class="solid frame" d="M-350.5 -242.5H350.5V242.5H-350.5Z" pathLength="1" style="--d:276ms"/>
-    <path class="solid frame" d="M-345.5 -237.5H345.5V237.5H-345.5Z" pathLength="1" style="--d:268ms"/>
-    <path class="solid rule" d="M-345.5 -176H345.5" pathLength="1" style="--d:196ms"/>
-    <path class="solid rule" d="M-345.5 176H345.5" pathLength="1" style="--d:196ms"/>
-    <text class="txt meta" x="-324 -316 -308 -300 -292 -284 -276 -268 -260 -252 -244 -236 -228 -220 -212 -204 -196 -188 -180 -172 -164 -156 -148 -140 -132 -124" y="-208" style="--d:338ms">Open a palace without loci</text>
-    <text class="txt meta" x="236 244 252 260 268 276 284 292 300 308 316 324" y="-208" style="--d:392ms">plate 1 of 1</text>
-    <path class="solid line" d="M-239.5 -134.5H-232.5A6.5 6.5 0 0 1 -232.5 -121.5H-239.5A6.5 6.5 0 0 1 -239.5 -134.5Z" pathLength="1" style="--d:299ms"/>
-    <circle class="dot" cx="-236" cy="-128" r="1.9" style="--d:299ms"/>
-    <path class="solid line" d="M-7.5 -134.5H7.5A6.5 6.5 0 0 1 7.5 -121.5H-7.5A6.5 6.5 0 0 1 -7.5 -134.5Z" pathLength="1" style="--d:143ms"/>
-    <circle class="dot" cx="-4" cy="-128" r="1.9" style="--d:143ms"/>
-    <circle class="dot" cx="4" cy="-128" r="1.9" style="--d:143ms"/>
-    <path class="solid line" d="M224.5 -134.5H247.5A6.5 6.5 0 0 1 247.5 -121.5H224.5A6.5 6.5 0 0 1 224.5 -134.5Z" pathLength="1" style="--d:299ms"/>
-    <circle class="dot" cx="228" cy="-128" r="1.9" style="--d:291ms"/>
-    <circle class="dot" cx="236" cy="-128" r="1.9" style="--d:299ms"/>
-    <circle class="dot" cx="244" cy="-128" r="1.9" style="--d:307ms"/>
-    <text class="txt d1" x="-308 -300 -292 -284 -276 -268 -260" y="-48" style="--d:317ms">palace/</text>
-    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228 -220 -212" y="-32" style="--d:270ms">CLAUDE.md</text>
-    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228 -220 -212" y="-16" style="--d:268ms">PALACE.md</text>
-    <text class="txt d2" x="-276 -268 -260 -252" y="0" style="--d:290ms">dev/</text>
-    <path class="dotted stub" d="M-238.5 0H-233.5" style="--d:263ms"/>
-    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228" y="16" style="--d:277ms">design/</text>
-    <path class="dotted stub" d="M-214.5 16H-209.5" style="--d:237ms"/>
-    <text class="txt d2" x="-276 -268 -260 -252 -244 -236 -228 -220 -212" y="32" style="--d:270ms">research/</text>
-    <text class="txt d3" x="-244 -236 -228 -220 -212 -204 -196 -188" y="48" style="--d:242ms">notes.md</text>
-    <path class="solid line" d="M-300 -40V32" pathLength="1" style="--d:334ms"/>
-    <path class="solid line" d="M-300 -32H-288" pathLength="1" style="--d:327ms"/>
-    <path class="solid line" d="M-300 -16H-288" pathLength="1" style="--d:326ms"/>
-    <path class="solid line" d="M-300 0H-288" pathLength="1" style="--d:326ms"/>
-    <path class="solid line" d="M-300 16H-288" pathLength="1" style="--d:326ms"/>
-    <path class="solid line" d="M-300 32H-288" pathLength="1" style="--d:327ms"/>
-    <path class="solid line" d="M-268 40V48H-256" pathLength="1" style="--d:295ms"/>
-    <path class="dotted arrow" d="M-134.5 0H-119" style="--d:138ms"/>
-    <path class="solid line" d="M-118.5 -3.5L-113.5 0L-118.5 3.5" pathLength="1" style="--d:134ms"/>
-    <path class="dotted arrow" d="M113.5 0H129" style="--d:138ms"/>
-    <path class="solid line" d="M129.5 -3.5L134.5 0L129.5 3.5" pathLength="1" style="--d:143ms"/>
-    <rect class="ground sheet" x="-100" y="-64" width="200" height="128"/>
-    <path class="solid line" d="M-2 -64H100V64H-100V-64H-86" pathLength="1" style="--d:0ms"/>
-    <text class="txt d2" x="-76 -68 -60 -52 -44 -36 -28 -20 -12" y="-64" style="--d:84ms">CLAUDE.md</text>
-    <text class="txt d0" x="-84 -76 -68 -60 -52 -44 -36 -28 -20 -12 -4 4 12 20 28 36 44 52 60 68 76" y="0" style="--d:0ms">Read PALACE.md first.</text>
-    <path class="dotted stub" d="M89.5 0H94.5" style="--d:103ms"/>
-    <rect class="ground" x="180" y="-96" width="144" height="128"/>
-    <path class="dotted next" d="M180 -96H324V32H180Z" style="--d:283ms"/>
-    <rect class="ground" x="164" y="-64" width="144" height="128"/>
-    <path class="solid line" d="M164 -64H308V64H164Z" pathLength="1" style="--d:263ms"/>
-    <circle class="dot dim" cx="180" cy="-48" r="1.7" style="--d:208ms"/>
-    <circle class="dot dim" cx="196" cy="-48" r="1.7" style="--d:208ms"/>
-    <circle class="dot dim" cx="212" cy="-48" r="1.7" style="--d:208ms"/>
-    <path class="solid line" d="M164 -32H308" pathLength="1" style="--d:265ms"/>
-    <rect class="ground" x="148" y="-32" width="144" height="128"/>
-    <path class="solid line" d="M148 -32H292V96H148Z" pathLength="1" style="--d:248ms"/>
-    <text class="txt meta" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268 276" y="0" style="--d:250ms">$ cat CLAUDE.md</text>
-    <text class="txt d0" x="164 172 180 188 196 204 212 220 228 236 244 252 260 268" y="32" style="--d:248ms">Read PALACE.md</text>
-    <path class="dotted stub" d="M281.5 32H286.5" style="--d:319ms"/>
-    <text class="txt meta" x="164" y="64" style="--d:200ms">$</text>
-    <rect class="fill cursor" x="177.5" y="68" width="5" height="1.6" style="--d:213ms"/>
-    <g class="key">
-    <polygon class="fill hatch" points="-316 184 -304 200 -316 200" fill="url(#plate-wide-h1)" style="--d:417ms"/>
-    <polygon class="fill hatch" points="-328 200 -316 216 -316 200" fill="url(#plate-wide-h2)" style="--d:417ms"/>
-    <polygon class="fill hatch" points="-304 200 -316 216 -316 200" fill="url(#plate-wide-h2)" style="--d:417ms"/>
-    <polygon class="fill hatch" points="-304 200 -316 216 -316 200" fill="url(#plate-wide-h3)" style="--d:417ms"/>
-    <path class="solid line" d="M-316 184L-328 200L-316 216L-304 200Z" pathLength="1" style="--d:417ms"/>
-    <path class="solid keel" d="M-316 184V216" pathLength="1" style="--d:417ms"/>
-    <path class="solid girdle" d="M-328 200H-304" pathLength="1" style="--d:417ms"/>
-    <circle class="dot apex" cx="-316" cy="184" r="1.8" style="--d:408ms"/>
-    </g>
-    <path class="solid rule" d="M-284 208H228M-284 208V198M-252 208V202M-220 208V202M-188 208V202M-156 208V198M-124 208V202M-92 208V202M-60 208V202M-28 208V198M4 208V202M36 208V202M68 208V202M100 208V198M132 208V202M164 208V202M196 208V202M228 208V198" pathLength="1" style="--d:234ms"/>
-    <text class="txt meta" x="276 284 292 300 308 316 324" y="208" style="--d:411ms">88 × 31</text>
-  </g>
 </svg>
 <svg class="plate-wide plate-asc" xmlns="http://www.w3.org/2000/svg" viewBox="-376 -272 752 544" aria-hidden="true">
 <g class="asc" xml:space="preserve">
@@ -318,45 +200,18 @@ html[data-dose="0"] .plate-wide *,.plate-wide[data-dose="0"] *{animation:none!im
   </g>
 </svg>
 <svg class="plate-tall" xmlns="http://www.w3.org/2000/svg" viewBox="-160 -444 320 888" aria-hidden="true">
-  <style>.plate-tall{--g:#11101c;--fr:#7b5bcb;--ln:#a289dc;--dt:#d4c5f2;--mt:#9c92b8;--d0:#ece6f5;--d1:#a289dc;--d2:#917fd7;--d3:#7e75d3;--d4:#6b6bd0;--gl:#7b5bcb;--glk:.22;--rk:#7b5bcb;--af:#B4B4B4;--al:#F0F0F0;--ah:#FFFFFF}
+  <style>.plate-tall{--g:#0f0f0f;--gl:#B4B4B4;--glk:.16;--rk:#FFFFFF;--af:#B4B4B4;--al:#F0F0F0;--ah:#FFFFFF}
 .plate-tall .ground{fill:var(--g)}
-.plate-tall path{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.plate-tall .frame{stroke:var(--fr);stroke-width:1}
-.plate-tall .rule{stroke:var(--fr);stroke-width:.75}
-.plate-tall .line,.plate-tall .keel,.plate-tall .girdle{stroke:var(--ln);stroke-width:.9}
-.plate-tall .keel,.plate-tall .girdle{stroke-width:.6;opacity:.8}
-.plate-tall .dotted{stroke:var(--ln);stroke-width:1.3;stroke-dasharray:.01 3.2}
-.plate-tall .stub{stroke:var(--d4);stroke-width:1.7}
-.plate-tall .next{stroke:var(--fr);stroke-width:1.3}
-.plate-tall .dot{fill:var(--dt)}.plate-tall .dot.dim{fill:var(--ln)}
-.plate-tall .cursor{fill:var(--d0)}
-.plate-tall .hatch-l{stroke:var(--fr);stroke-width:.55}
 .plate-tall text{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;text-anchor:middle;dominant-baseline:central}
-.plate-tall .txt{font-size:11.5px;letter-spacing:0}
-.plate-tall .meta{fill:var(--mt)}.plate-tall .d0{fill:var(--d0)}.plate-tall .d1{fill:var(--d1)}.plate-tall .d2{fill:var(--d2)}.plate-tall .d3{fill:var(--d3)}
 .plate-tall .gl{opacity:var(--glk)}.plate-tall .gl rect{fill:none;stroke:var(--gl);stroke-width:.6}
 .plate-tall .gl-main,.plate-tall .gl-echo,.plate-tall .rake{transform-box:view-box;transform-origin:0 0}
 .plate-tall .gl-echo,.plate-tall .rake{display:none}
 .plate-tall .rake-s{stop-color:var(--rk)}
-.plate-tall .asc{display:none}
 .plate-tall .arow{font-size:13.6px}.plate-tall .af{fill:var(--af)}.plate-tall .al{fill:var(--al)}.plate-tall .ah{fill:var(--ah);font-weight:700}
-/* skins: html[data-theme] when inlined, data-skin on the root when standalone */
-html[data-theme="llmage"] .plate-tall,.plate-tall[data-skin="llmage"]{--g:#0f0f0f;--gl:#B4B4B4;--glk:.16;--rk:#FFFFFF}
-html[data-theme="llmage"] .plate-tall .wiz,.plate-tall[data-skin="llmage"] .wiz{display:none}
-html[data-theme="llmage"] .plate-tall .asc,.plate-tall[data-skin="llmage"] .asc{display:inline}
-/* dose 2+: the depth walk widens from 6 to 24 degrees per step (the deep-hue ladder) */
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall,.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--d2:#7a84e0;--d3:#3784d0;--d4:#21828c}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl rect[data-depth="1"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="1"]{stroke:#7a84e0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl rect[data-depth="2"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="2"]{stroke:#3784d0}
-html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl rect[data-depth="3"],.plate-tall:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl rect[data-depth="3"]{stroke:#21828c}
-html[data-theme="llmage"] .plate-tall .gl rect,.plate-tall[data-skin="llmage"] .gl rect{stroke:var(--gl)!important}
 /* the reveal: once, centre-out, 900-1400 ms, then dignity */
-@keyframes plate-tall-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes plate-tall-fade{from{opacity:0}}
 @keyframes plate-tall-turn{to{transform:rotate(360deg)}}
 @keyframes plate-tall-rake{from{transform:translateX(-228px)}to{transform:translateX(228px)}}
-.plate-tall .solid{stroke-dasharray:1;animation:plate-tall-draw 900ms cubic-bezier(.05,.7,.1,1) var(--d,0ms) both}
-.plate-tall .dotted,.plate-tall .txt,.plate-tall .dot,.plate-tall .fill{animation:plate-tall-fade 600ms cubic-bezier(.4,0,.2,1) calc(var(--d,0ms) + 250ms) both}
 .plate-tall .arow{animation:plate-tall-fade 600ms cubic-bezier(.4,0,.2,1) var(--d,0ms) both}
 .plate-tall .gl{animation:plate-tall-fade 1200ms cubic-bezier(.4,0,.2,1) both}
 /* dose 3 the wheel, 4 echo, 5 threshold: ornament only, the reading layer never moves */
@@ -364,7 +219,6 @@ html:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-do
 html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .gl-echo,.plate-tall:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .gl-echo{display:inline;opacity:.6;animation:plate-tall-turn 89s linear infinite reverse}
 html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall,.plate-tall:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]){--glk:.34}
 html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .rake,.plate-tall:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .rake{display:inline;animation:plate-tall-rake 13s cubic-bezier(.4,0,.2,1) infinite alternate}
-html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .plate-tall .key,.plate-tall:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .key{filter:drop-shadow(0 0 6px rgba(123,91,203,.40))}
 /* dose 0 still: no reveal, no ornament motion */
 html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!important}
 /* reduced motion: substitute, don't remove. Colour stays, movement goes, one 240 ms crossfade */
@@ -374,9 +228,6 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     <linearGradient id="plate-tall-rake" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0" class="rake-s" stop-opacity="0"/><stop offset=".5" class="rake-s" stop-opacity=".10"/><stop offset="1" class="rake-s" stop-opacity="0"/>
     </linearGradient>
-    <pattern id="plate-tall-h1" width="4.2" height="4.2" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V4.2"/></pattern>
-    <pattern id="plate-tall-h2" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(-37)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
-    <pattern id="plate-tall-h3" width="2.8" height="2.8" patternUnits="userSpaceOnUse" patternTransform="rotate(53)"><path class="hatch-l" d="M0 0V2.8"/></pattern>
   </defs>
   <rect class="ground" x="-146.5" y="-426.5" width="293" height="853"/>
   <g clip-path="url(#plate-tall-clip)">
@@ -384,75 +235,6 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     <rect class="rake" x="-70" y="-432" width="140" height="864" fill="url(#plate-tall-rake)"/>
   </g>
   <g class="occ"><rect class="ground sheet" x="-104" y="-72" width="208" height="96"/><rect class="ground" x="-56" y="136" width="144" height="128"/><rect class="ground" x="-72" y="168" width="144" height="128"/><rect class="ground" x="-88" y="200" width="144" height="128"/></g>
-  <g class="wiz">
-    <path class="solid frame" d="M-146.5 -426.5H146.5V426.5H-146.5Z" pathLength="1" style="--d:454ms"/>
-    <path class="solid frame" d="M-141.5 -421.5H141.5V421.5H-141.5Z" pathLength="1" style="--d:446ms"/>
-    <path class="solid rule" d="M-141.5 -344H141.5" pathLength="1" style="--d:362ms"/>
-    <path class="solid rule" d="M-141.5 360H141.5" pathLength="1" style="--d:378ms"/>
-    <text class="txt meta" x="-120 -112 -104 -96 -88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72 80" y="-392" style="--d:412ms">Open a palace without loci</text>
-    <text class="txt meta" x="32 40 48 56 64 72 80 88 96 104 112 120" y="-376" style="--d:404ms">plate 1 of 1</text>
-    <path class="solid line" d="M-3.5 -318.5H3.5A6.5 6.5 0 0 1 3.5 -305.5H-3.5A6.5 6.5 0 0 1 -3.5 -318.5Z" pathLength="1" style="--d:328ms"/>
-    <circle class="dot" cx="0" cy="-312" r="1.9" style="--d:328ms"/>
-    <text class="txt d1" x="-64 -56 -48 -40 -32 -24 -16" y="-280" style="--d:297ms">palace/</text>
-    <text class="txt d2" x="-32 -24 -16 -8 0 8 16 24 32" y="-264" style="--d:278ms">CLAUDE.md</text>
-    <text class="txt d2" x="-32 -24 -16 -8 0 8 16 24 32" y="-248" style="--d:261ms">PALACE.md</text>
-    <text class="txt d2" x="-32 -24 -16 -8" y="-232" style="--d:244ms">dev/</text>
-    <path class="dotted stub" d="M5.5 -232H10.5" style="--d:244ms"/>
-    <text class="txt d2" x="-32 -24 -16 -8 0 8 16" y="-216" style="--d:227ms">design/</text>
-    <path class="dotted stub" d="M29.5 -216H34.5" style="--d:230ms"/>
-    <text class="txt d2" x="-32 -24 -16 -8 0 8 16 24 32" y="-200" style="--d:210ms">research/</text>
-    <text class="txt d3" x="0 8 16 24 32 40 48 56" y="-184" style="--d:196ms">notes.md</text>
-    <path class="solid line" d="M-56 -272V-200" pathLength="1" style="--d:251ms"/>
-    <path class="solid line" d="M-56 -264H-44" pathLength="1" style="--d:282ms"/>
-    <path class="solid line" d="M-56 -248H-44" pathLength="1" style="--d:266ms"/>
-    <path class="solid line" d="M-56 -232H-44" pathLength="1" style="--d:249ms"/>
-    <path class="solid line" d="M-56 -216H-44" pathLength="1" style="--d:233ms"/>
-    <path class="solid line" d="M-56 -200H-44" pathLength="1" style="--d:216ms"/>
-    <path class="solid line" d="M-24 -192V-184H-12" pathLength="1" style="--d:194ms"/>
-    <path class="dotted arrow" d="M0 -158V-137" style="--d:160ms"/>
-    <path class="solid line" d="M-3.5 -138L0 -133L3.5 -138" pathLength="1" style="--d:142ms"/>
-    <path class="solid line" d="M-11.5 -110.5H11.5A6.5 6.5 0 0 1 11.5 -97.5H-11.5A6.5 6.5 0 0 1 -11.5 -110.5Z" pathLength="1" style="--d:109ms"/>
-    <circle class="dot" cx="-8" cy="-104" r="1.9" style="--d:110ms"/>
-    <circle class="dot" cx="8" cy="-104" r="1.9" style="--d:110ms"/>
-    <rect class="ground sheet" x="-104" y="-72" width="208" height="96"/>
-    <path class="solid line" d="M-6 -72H104V24H-104V-72H-90" pathLength="1" style="--d:25ms"/>
-    <text class="txt d2" x="-80 -72 -64 -56 -48 -40 -32 -24 -16" y="-72" style="--d:89ms">CLAUDE.md</text>
-    <text class="txt d0" x="-88 -80 -72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40 48 56 64 72" y="-24" style="--d:26ms">Read PALACE.md first.</text>
-    <path class="dotted stub" d="M93.5 -24H98.5" style="--d:104ms"/>
-    <path class="dotted arrow" d="M0 50V71" style="--d:59ms"/>
-    <path class="solid line" d="M-3.5 70L0 75L3.5 70" pathLength="1" style="--d:77ms"/>
-    <path class="solid line" d="M-19.5 97.5H19.5A6.5 6.5 0 0 1 19.5 110.5H-19.5A6.5 6.5 0 0 1 -19.5 97.5Z" pathLength="1" style="--d:109ms"/>
-    <circle class="dot" cx="-16" cy="104" r="1.9" style="--d:111ms"/>
-    <circle class="dot" cx="0" cy="104" r="1.9" style="--d:109ms"/>
-    <circle class="dot" cx="16" cy="104" r="1.9" style="--d:111ms"/>
-    <rect class="ground" x="-56" y="136" width="144" height="128"/>
-    <path class="dotted next" d="M-56 136H88V264H-56Z" style="--d:211ms"/>
-    <rect class="ground" x="-72" y="168" width="144" height="128"/>
-    <path class="solid line" d="M-72 168H72V296H-72Z" pathLength="1" style="--d:244ms"/>
-    <circle class="dot dim" cx="-56" cy="184" r="1.7" style="--d:202ms"/>
-    <circle class="dot dim" cx="-40" cy="184" r="1.7" style="--d:202ms"/>
-    <circle class="dot dim" cx="-24" cy="184" r="1.7" style="--d:202ms"/>
-    <path class="solid line" d="M-72 200H72" pathLength="1" style="--d:210ms"/>
-    <rect class="ground" x="-88" y="200" width="144" height="128"/>
-    <path class="solid line" d="M-88 200H56V328H-88Z" pathLength="1" style="--d:278ms"/>
-    <text class="txt meta" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32 40" y="232" style="--d:244ms">$ cat CLAUDE.md</text>
-    <text class="txt d0" x="-72 -64 -56 -48 -40 -32 -24 -16 -8 0 8 16 24 32" y="264" style="--d:278ms">Read PALACE.md</text>
-    <path class="dotted stub" d="M45.5 264H50.5" style="--d:282ms"/>
-    <text class="txt meta" x="-72" y="296" style="--d:319ms">$</text>
-    <rect class="fill cursor" x="-58.5" y="300" width="5" height="1.6" style="--d:317ms"/>
-    <g class="key">
-    <polygon class="fill hatch" points="-112 368 -100 384 -112 384" fill="url(#plate-tall-h1)" style="--d:420ms"/>
-    <polygon class="fill hatch" points="-124 384 -112 400 -112 384" fill="url(#plate-tall-h2)" style="--d:420ms"/>
-    <polygon class="fill hatch" points="-100 384 -112 400 -112 384" fill="url(#plate-tall-h2)" style="--d:420ms"/>
-    <polygon class="fill hatch" points="-100 384 -112 400 -112 384" fill="url(#plate-tall-h3)" style="--d:420ms"/>
-    <path class="solid line" d="M-112 368L-124 384L-112 400L-100 384Z" pathLength="1" style="--d:420ms"/>
-    <path class="solid keel" d="M-112 368V400" pathLength="1" style="--d:420ms"/>
-    <path class="solid girdle" d="M-124 384H-100" pathLength="1" style="--d:420ms"/>
-    <circle class="dot apex" cx="-112" cy="368" r="1.8" style="--d:404ms"/>
-    </g>
-    <path class="solid rule" d="M-80 392H48M-80 392V382M-48 392V386M-16 392V386M16 392V386M48 392V382" pathLength="1" style="--d:412ms"/>
-    <text class="txt meta" x="72 80 88 96 104 112 120" y="392" style="--d:425ms">37 × 54</text>
-  </g>
 </svg>
 <svg class="plate-tall plate-asc" xmlns="http://www.w3.org/2000/svg" viewBox="-160 -444 320 888" aria-hidden="true">
 <g class="asc" xml:space="preserve">
@@ -536,7 +318,6 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
         </div>
         <div class="hole">
           <figure class="core">
-            <img src="assets/palace-map-v2.webp" width="864" height="1152" decoding="async" alt="Pixel map of a memory palace: rooms joined by corridors, a garden at the edge.">
             <p class="save" id="save"><span class="save-mark" aria-hidden="true"></span><span><span id="save-text" role="status">save point</span><span class="caret" aria-hidden="true"></span></span></p>
           </figure>
         </div>
@@ -559,34 +340,11 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     <a href="/zoku/">contribute</a>
   </nav>
   <p>loci.garden · MIT</p>
-  <p class="last"><span class="t-wizard">Every room starts empty. That part is on purpose.</span><span class="t-llmage">Rooms ship empty, by design.</span></p>
+  <p class="last">Rooms ship empty, by design.</p>
 </footer>
 
 <!-- ═══════════════════ SCRIPT ════════════════════════ -->
 <script>
-  const THEMES = ['wizard', 'llmage'];
-
-  function setTheme(theme) {
-    if (!THEMES.includes(theme)) return;
-    document.documentElement.setAttribute('data-theme', theme);
-    THEMES.forEach(t => {
-      const btn = document.getElementById('btn-' + t);
-      if (btn) {
-        btn.classList.toggle('active', t === theme);
-        btn.setAttribute('aria-pressed', String(t === theme));
-      }
-    });
-    try { localStorage.setItem('loci-theme', theme); } catch(e) {}
-  }
-
-  // Init: read from storage or default to wizard (a stored 'scholar' lands here)
-  (function init() {
-    let saved = 'wizard';
-    try { saved = localStorage.getItem('loci-theme') || 'wizard'; } catch(e) {}
-    if (!THEMES.includes(saved)) saved = 'wizard';
-    setTheme(saved);
-  })();
-
   // Dose: how much the ornament moves:
   // 0 still · 1 calm (default) · 2 deep hues · 3 the wheel · 4 echo · 5 threshold ·
   // 6 descent · 7 undertow · 8 tide · 9 ghost · 10 drift · 11 slip · 12 unravel.

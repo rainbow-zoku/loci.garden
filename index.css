@@ -14,17 +14,6 @@
   --ease-arrive: cubic-bezier(0.05, 0.7, 0.1, 1);
   --band: 26.085%;           /* (1 - R) / 2 */
   --hole: 47.830%;           /* R = 0.9^7 */
-}
-[data-theme="wizard"] {
-  --vortex: var(--accent-light); --vortex-op: 0.30;
-  --outline-1: #a289dc;        /* depth d1, 6.69 (outlines: 3:1 floor) */
-  --outline-2: #917fd7;        /* depth d2, 5.82 */
-  --r1-text: var(--text-2); --r2-text: var(--text-2);
-  --font-claim: Georgia, 'Times New Roman', serif;
-  --font-label: var(--font-display);
-  --track-0: -0.01em; --track-1: 0; --track-2: 0;
-}
-[data-theme="llmage"] {
   --vortex: #6b6b7a; --vortex-op: 0.55;
   --outline-1: #777777; --outline-2: #777777;
   --r1-text: var(--text-2);  /* the reading register steps down by chroma: #F0F0F0, #B4B4B4, #9C9C9C */
@@ -45,9 +34,6 @@ button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; border-radius: 2px; }
 code { font-family: var(--font-mono); font-size: 0.92em; }
 
-/* content switching: each skin hides the other's words */
-[data-theme="wizard"] .t-llmage, [data-theme="llmage"] .t-wizard { display: none !important; }
-
 /* ═══════════════════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════════════════ */
@@ -60,7 +46,6 @@ code { font-family: var(--font-mono); font-size: 0.92em; }
 .nav-links a:hover { color: var(--text); }
 .theme-switcher { display: inline-flex; gap: 2px; padding: 2px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
 .theme-btn { border: 0; background: transparent; color: var(--text-2); font-size: 12.5px; padding: 4px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
-.theme-btn[aria-pressed="true"] { background: var(--border-2); color: var(--text); }
 .dose-btn { font-variant-numeric: tabular-nums; min-width: 7.2em; text-align: left; }   /* wide enough for "dose 12" and anchored left, so nothing shifts as it counts */
 
 /* ═══════════════════════════════════════════════════════
@@ -104,16 +89,10 @@ code { font-family: var(--font-mono); font-size: 0.92em; }
    The reading layer never moves. */
 html:not([data-dose="0"]) #vortex rect { animation: ring-hum var(--ring-dur, 9s) ease-in-out infinite; animation-delay: var(--ring-delay, 0s); }
 html:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect { animation-duration: 8s; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="0"] { stroke: #a289dc; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="1"] { stroke: #7a84e0; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="2"] { stroke: #3784d0; }
-html[data-theme="wizard"]:is([data-dose="2"],[data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect[data-band="3"] { stroke: #21828c; }
 html:is([data-dose="3"],[data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .spin { animation: ring-turn 90s linear infinite; }
 html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .echo { display: inline; opacity: 0.35; }
 html:is([data-dose="4"],[data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .echo-spin { animation: ring-echo 130s linear infinite; }
-html[data-theme="wizard"]:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) { --vortex-op: 0.42; }
-html[data-theme="wizard"]:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .crystal { filter: drop-shadow(0 0 22px rgba(123,91,203,0.45)); }
-html[data-theme="llmage"]:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .crystal { filter: drop-shadow(0 0 18px rgba(255,255,255,0.18)); }
+html:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .crystal { filter: drop-shadow(0 0 18px rgba(255,255,255,0.18)); }
 
 /* past the threshold: 6 descent, 7 undertow, 8 tide, 9 ghost, 10 drift, 11 slip,
    12 unravel. Each dose keeps everything below it. Slow on purpose: every loop
@@ -122,14 +101,12 @@ html[data-theme="llmage"]:is([data-dose="5"],[data-dose="6"],[data-dose="7"],[da
 #vortex .dive, #vortex .undertow { transform-box: view-box; transform-origin: 0 0; }
 #vortex .ghost, #vortex .tear { visibility: hidden; }   /* hidden, not removed, so their turn keeps time with the vortex */
 html #vortex .ghost rect, html #vortex .tear rect { animation: none; }
-#vortex .ghost { color: #21828c; opacity: 0.6; }
-[data-theme="llmage"] #vortex .ghost { color: #b4b4b4; opacity: 0.3; }
+#vortex .ghost { color: #b4b4b4; opacity: 0.3; }
 #vortex .tear-bg { fill: var(--bg); stroke: none; }
 
 /* 6 descent: the vortex falls inward one ring at a time. Ring i lands on ring
    i-1 after scale(1/0.9) and a -11deg turn, so the fall never ends. The per-ring
-   hum rests from here, so each landing is seamless in shape (in wizard a hue band
-   steps one ring at each landing). */
+   hum rests from here, so each landing is seamless in shape. */
 @keyframes vortex-dive { from { transform: rotate(0deg) scale(1); } to { transform: rotate(-11deg) scale(1.11111); } }
 html:is([data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex rect { animation: none; }
 html:is([data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .dive { animation: vortex-dive 14s linear infinite; }
@@ -138,12 +115,9 @@ html:is([data-dose="6"],[data-dose="7"],[data-dose="8"],[data-dose="9"],[data-do
 @keyframes vortex-rise { from { transform: rotate(-11deg) scale(1.11111); } to { transform: rotate(0deg) scale(1); } }
 html:is([data-dose="7"],[data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) #vortex .undertow { animation: vortex-rise 23s linear infinite; }
 
-/* 8 tide: every line drifts one step down the depth ladder (24 degrees) and back;
-   llmage has no hue, so its lines breathe in brightness instead */
-@keyframes vortex-tide { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(-24deg); } }
+/* 8 tide: the lines have no hue, so they breathe in brightness and back */
 @keyframes vortex-tide-mono { 0%, 100% { opacity: var(--vortex-op); } 50% { opacity: calc(var(--vortex-op) * 1.3); } }
-html[data-theme="wizard"]:is([data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .scenery { animation: scenery-arrive 1100ms var(--ease-arrive) both, vortex-tide 37s ease-in-out infinite; }
-html[data-theme="llmage"]:is([data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .scenery { animation: scenery-arrive 1100ms var(--ease-arrive) both, vortex-tide-mono 37s ease-in-out infinite; }
+html:is([data-dose="8"],[data-dose="9"],[data-dose="10"],[data-dose="11"],[data-dose="12"]) .scenery { animation: scenery-arrive 1100ms var(--ease-arrive) both, vortex-tide-mono 37s ease-in-out infinite; }
 
 /* 9 ghost: a second lattice that does not fall, so the vortex dives through it,
    drifting in a slow figure eight */
@@ -200,11 +174,10 @@ html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 1
 .outline { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); border-radius: 2px; pointer-events: none; }
 .outline.o1 { --fc: var(--outline-1); }
 .outline.o2 { --fc: var(--outline-2); }
-[data-theme="wizard"] .outline { border: 1px dotted var(--fc); }
-/* llmage: no guides, two dashed rules where the lines will be */
-[data-theme="llmage"] .outline::before, [data-theme="llmage"] .outline::after { content: ""; position: absolute; left: 30%; right: 30%; border-top: 1px dashed var(--fc); }
-[data-theme="llmage"] .outline::before { top: 22%; }
-[data-theme="llmage"] .outline::after { bottom: 22%; }
+/* no guides, two dashed rules where the lines will be */
+.outline::before, .outline::after { content: ""; position: absolute; left: 30%; right: 30%; border-top: 1px dashed var(--fc); }
+.outline::before { top: 22%; }
+.outline::after { bottom: 22%; }
 .outline.go { pointer-events: auto; cursor: zoom-in; }
 
 /* ═══════════════════════════════════════════════════════
@@ -227,15 +200,12 @@ html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 1
 .band p, .band h1, .band h2, .band dl, .band ol, .band figure { margin: 0; }
 .hole { grid-row: 2; grid-column: 2; position: relative; min-height: 0; }
 
-.kicker { font-family: var(--font-label); font-size: 0.62em; letter-spacing: 0.08em; color: var(--accent-light); text-transform: lowercase; }
-[data-theme="llmage"] .kicker { text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-2); font-size: 0.72em; }
-.label { font-family: var(--font-label); font-weight: 400; font-size: 0.7em; letter-spacing: 0.06em; color: var(--accent-light); }
-[data-theme="llmage"] .label { text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-2); font-size: 0.76em; }
+.kicker { font-family: var(--font-label); font-size: 0.72em; letter-spacing: 0.18em; color: var(--text-2); text-transform: uppercase; }
+.label { font-family: var(--font-label); font-weight: 400; font-size: 0.76em; letter-spacing: 0.2em; color: var(--text-2); text-transform: uppercase; }
 
 /* ring 0, the claim: declarative */
 .r0 { color: var(--text); letter-spacing: var(--track-0); }
-.claim { font-family: var(--font-claim); font-weight: 400; font-size: clamp(26px, min(7.2cqh, 5.4cqw), 62px); line-height: 1.08; letter-spacing: -0.015em; max-width: 18ch; }
-[data-theme="llmage"] .claim { font-weight: 300; letter-spacing: -0.03em; }
+.claim { font-family: var(--font-claim); font-weight: 300; font-size: clamp(26px, min(7.2cqh, 5.4cqw), 62px); line-height: 1.08; letter-spacing: -0.03em; max-width: 18ch; }
 .claim .amp { font-style: italic; color: var(--accent-light); }
 .crystal { width: clamp(30px, 6cqh, 56px); height: auto; }
 .sub { color: var(--text-2); max-width: 46ch; font-size: 1.08em; }
@@ -249,8 +219,7 @@ html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 1
 .r1 { color: var(--r1-text); letter-spacing: var(--track-1); }
 .rooms { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4em 2.4em; text-align: left; max-width: 44em; width: 100%; }
 .rooms div { min-width: 0; }
-.rooms dt { color: var(--accent-light); font-weight: 600; display: inline; }
-[data-theme="llmage"] .rooms dt { color: var(--text); }
+.rooms dt { color: var(--text); font-weight: 600; display: inline; }
 .rooms dt::after { content: ": "; }
 .rooms dd { display: inline; margin: 0; }
 @container (max-width: 620px) { .rooms { grid-template-columns: 1fr; gap: 0.3em; max-width: 24em; } }
@@ -264,21 +233,18 @@ html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 1
   .plate .plate-wide { display: none; }
   .plate .plate-tall { display: block; }
 }
-/* llmage types the same plate as glyphs, on a layer of its own that wizard never renders */
+/* the plate is typed as glyphs, on a layer of its own over the lattice */
 .plate .plate-asc { position: absolute; inset: 0; }
-[data-theme="wizard"] .plate svg.plate-asc { display: none; }
 /* the plate draws itself the first time you step into its ring */
 .ring:not(.live) .plate * { animation-play-state: paused !important; }
 
 /* ring 2, keep it: one remembered line, then how to keep it */
 .r2 { color: var(--r2-text); letter-spacing: var(--track-2); }
-.remember { font-family: var(--font-claim); font-style: italic; font-size: clamp(20px, min(4.6cqh, 3.4cqw), 38px); line-height: 1.15; color: var(--text); letter-spacing: -0.01em; }
-[data-theme="llmage"] .remember { font-family: var(--font-mono); font-style: normal; font-size: clamp(16px, min(3.6cqh, 2.6cqw), 28px); letter-spacing: 0; }
+.remember { font-family: var(--font-mono); font-style: normal; font-size: clamp(16px, min(3.6cqh, 2.6cqw), 28px); line-height: 1.15; color: var(--text); letter-spacing: 0; }
 .steps { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25em 1.6em; counter-reset: s; }
 .steps li { counter-increment: s; }
 .steps li::before { content: counter(s) ". "; color: var(--accent-light); font-family: var(--font-mono); }
 .core { margin: 0; position: absolute; inset: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4em; }
-.core img { display: block; width: 100%; flex: 1; min-height: 0; object-fit: contain; }
 .cmd { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.35em 0.4em 0.35em 0.9em; max-width: 100%; }
 .cmd code { color: var(--text); overflow-wrap: anywhere; letter-spacing: 0; }
 .copy { border: 1px solid var(--border-2); background: transparent; color: var(--text-2); border-radius: var(--radius); padding: 0.15em 0.7em; cursor: pointer; font-size: 0.88em; }
@@ -309,11 +275,10 @@ footer .last { color: var(--text); margin: 0; }
 /* without scripts (no .js on the root) the three rings read as one plain page, top to bottom */
 html:not(.js) .disk { height: auto; }
 html:not(.js) .stage { position: static; height: auto; overflow: visible; }
-html:not(.js) :is(.here, .outline, .scenery, .stop, .r0 .hole, .save, .copy) { display: none; }
+html:not(.js) :is(.here, .outline, .scenery, .stop, .r0 .hole, .r2 .hole, .save, .copy) { display: none; }
 html:not(.js) .plate * { animation: none !important; }
 html:not(.js) .ring { position: static; transform: none; opacity: 1; pointer-events: auto; width: auto; max-width: 1040px; height: auto; margin: 0 auto; padding: 48px 16px; container-type: normal; display: flex; flex-direction: column; align-items: center; gap: 24px; }
 html:not(.js) .hole { width: min(100%, 560px); aspect-ratio: 752 / 544; }
-html:not(.js) .r2 .hole { aspect-ratio: 3 / 4; }
 @media (max-width: 800px) { html:not(.js) .r1 .hole { width: min(100%, 280px); aspect-ratio: 320 / 888; } }
 
 /* reduced motion: substitute, don't remove. Colour stays, movement goes. */
