@@ -506,8 +506,7 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     function settleSoon() { clearTimeout(settleT); settleT = setTimeout(settle, 140); }
     function settle() {
       frame();
-      var d = depth(), k = Math.round(d);
-      if (Math.abs(d - k) > 0.04) return;
+      var k = Math.round(depth());   // the ring on screen, wherever the scroll rests
       document.title = TITLES[k];
       if (k > 0) store.set('loci-place', IDS[k]); else store.del('loci-place');
       if (k === 0 && !location.hash) return;
