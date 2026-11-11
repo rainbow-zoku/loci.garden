@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roadmap · loci.garden</title>
   <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="chrome.css">
   <link rel="stylesheet" href="loci.css">
   
   <style>
@@ -342,23 +343,26 @@
 
   <!-- Site nav -->
 <!-- #include partials/_nav.html -->
-<nav>
-  <div class="nav-container">
-    <div class="nav-logo-group">
-      <a href="/" class="logo">loci.garden</a>
-    </div>
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="https://github.com/huximaxi/loci" class="nav-link nav-icon" aria-label="GitHub" title="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="/guide.html" class="nav-link" data-page="guide">guide</a>
-        <a href="/scaffold.html" class="nav-link" data-page="scaffold">scaffold</a>
-        <a href="/design-primitives.html" class="nav-link" data-page="primitives"><span class="nav-wide">design </span>primitives</a>
-      </div>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-home" href="/" aria-label="loci.garden home">
+      <span class="site-mark" aria-hidden="true"><svg viewBox="0 0 100 100"><polygon points="50,5 20,50 50,50" fill="#cacaca"/><polygon points="50,5 80,50 50,50" fill="#9a9a9a"/><polygon points="20,50 50,95 50,50" fill="#686868"/><polygon points="80,50 50,95 50,50" fill="#3c3c3c"/></svg></span>
+      <span class="site-wordmark">loci<span class="site-tld">.garden</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/start.html" data-page="start" class="site-link">Start</a>
+      <a href="/design-primitives.html" data-page="primitives" class="site-link">Principles</a>
+      <a href="/seed/" data-page="essays" class="site-link">Essays</a>
+    </nav>
+    <div class="site-tools">
+      <div class="site-slot" data-slot="dose"></div>
+      <a href="https://docs.loci.garden/" class="site-tool">Docs</a>
+      <a class="site-icon" href="https://github.com/huximaxi/loci" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
     </div>
   </div>
-</nav>
+</header>
 <!-- /include -->
 
   <!-- Header -->
@@ -701,21 +705,21 @@
   </div>
 
 <!-- #include partials/_footer.html -->
-<footer>
-  <div class="footer-inner">
-    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">loci.garden &middot; built by Hux &times; Vesper</span>
-    <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-faint);">
-      <a href="/start.html" style="color:var(--text-faint);">start</a> &middot;
-      <a href="/about.html" style="color:var(--text-faint);">about</a> &middot;
-      <a href="/roadmap.html" style="color:var(--text-faint);">roadmap</a> &middot;
-      <a href="/keep-your-memory-yours.html" style="color:var(--text-faint);">keep your memory yours</a> &middot;
-      <a href="/seed/" style="color:var(--text-faint);">seed</a> &middot;
-      <a href="/zoku/" style="color:var(--text-faint);">zoku</a> &middot;
-      <a href="https://github.com/huximaxi/loci/blob/main/CONTRIBUTING.md" style="color:var(--text-faint);" target="_blank" rel="noopener">contribute</a> &middot;
-      <a href="/privacy.html" style="color:var(--text-faint);">privacy</a> &middot;
-      <a href="/.well-known/security.txt" style="color:var(--text-faint);">security.txt</a> &middot;
-      <a href="/llms.txt" style="color:var(--text-faint);">llms.txt</a>
-    </span>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <nav class="site-footer-nav" aria-label="Footer">
+      <a class="site-footer-link" href="/about.html">About</a>
+      <a class="site-footer-link" href="/scaffold.html">Field map</a>
+      <a class="site-footer-link" href="/zoku/">Contribute</a>
+    </nav>
+    <div class="site-footer-terms">
+      <p class="site-license">Code MIT. Writing CC BY 4.0.</p>
+      <p class="site-footer-files">
+        <a class="site-footer-link" href="/privacy.html">Privacy</a>
+        <a class="site-footer-link site-file" href="/.well-known/security.txt">security.txt</a>
+        <a class="site-footer-link site-file" href="/llms.txt">llms.txt</a>
+      </p>
+    </div>
   </div>
 </footer>
 <!-- /include -->

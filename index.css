@@ -37,16 +37,8 @@ code { font-family: var(--font-mono); font-size: 0.92em; }
 /* ═══════════════════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════════════════ */
-.nav { position: sticky; top: 0; z-index: 20; background: var(--nav-bg); border-bottom: 1px solid var(--border); }
-.nav-inner { max-width: 1040px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; min-height: 60px; }
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 600; letter-spacing: -0.01em; }
-.logo .dot { font-weight: 300; color: var(--text-2); }
-.nav-links { display: flex; align-items: center; gap: 16px; margin-left: auto; font-size: 14px; }
-.nav-links a { color: var(--text-2); text-decoration: none; display: inline-flex; }
-.nav-links a:hover { color: var(--text); }
-.theme-switcher { display: inline-flex; gap: 2px; padding: 2px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
-.theme-btn { border: 0; background: transparent; color: var(--text-2); font-size: 12.5px; padding: 4px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
-.dose-btn { font-variant-numeric: tabular-nums; min-width: 7.2em; text-align: left; }   /* wide enough for "dose 12" and anchored left, so nothing shifts as it counts */
+/* The header and footer live in chrome.css. The header is fixed: clear it. */
+body { padding-top: var(--nav-h); }
 
 /* ═══════════════════════════════════════════════════════
    THE DISK: a scroll runway with a sticky stage
@@ -281,11 +273,7 @@ html[data-dose="12"] #vortex-rings rect:nth-child(9n+4) { animation: ring-skip 1
 /* ═══════════════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════════════ */
-footer { border-top: 1px solid var(--border); padding: 28px 16px 36px; text-align: center; font-size: 13.5px; color: var(--text-2); }
-footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0 0 10px; }
-footer nav a { color: var(--text-2); }
-footer p { margin: 0 0 4px; }
-footer .last { color: var(--text); margin: 0; }
+.closing { margin: 0; padding: 28px 16px 36px; text-align: center; font-size: 13.5px; color: var(--text); }
 
 /* without scripts (no .js on the root) the three rings read as one plain page, top to bottom */
 html:not(.js) .disk { height: auto; }

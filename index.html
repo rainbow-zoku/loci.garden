@@ -26,34 +26,35 @@ document.documentElement.classList.add("js");
 <link rel="stylesheet" href="fonts.css">
 
 <link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="chrome.css">
 <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
 <!-- ═══════════════════ NAV ═══════════════════════════ -->
-<header class="nav">
-  <div class="nav-inner">
-    <a class="logo" href="/" aria-label="loci.garden home">
-      <svg width="22" height="22" viewBox="0 0 100 100" aria-hidden="true">
-        <g><polygon points="50,5 20,50 50,50" fill="#cacaca"/><polygon points="50,5 80,50 50,50" fill="#9a9a9a"/><polygon points="20,50 50,95 50,50" fill="#686868"/><polygon points="80,50 50,95 50,50" fill="#3c3c3c"/></g>
-      </svg>
-      <span>loci<span class="dot">.garden</span></span>
+<!-- #include partials/_nav.html -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-home" href="/" aria-label="loci.garden home">
+      <span class="site-mark" aria-hidden="true"><svg viewBox="0 0 100 100"><polygon points="50,5 20,50 50,50" fill="#cacaca"/><polygon points="50,5 80,50 50,50" fill="#9a9a9a"/><polygon points="20,50 50,95 50,50" fill="#686868"/><polygon points="80,50 50,95 50,50" fill="#3c3c3c"/></svg></span>
+      <span class="site-wordmark">loci<span class="site-tld">.garden</span></span>
     </a>
-    <nav class="nav-links" aria-label="Site">
-      <a href="https://github.com/huximaxi/loci" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
+    <nav class="site-nav" aria-label="Site">
+      <a href="/start.html" data-page="start" class="site-link">Start</a>
+      <a href="/design-primitives.html" data-page="primitives" class="site-link">Principles</a>
+      <a href="/seed/" data-page="essays" class="site-link">Essays</a>
+    </nav>
+    <div class="site-tools">
+      <div class="site-slot" data-slot="dose"></div>
+      <a href="https://docs.loci.garden/" class="site-tool">Docs</a>
+      <a class="site-icon" href="https://github.com/huximaxi/loci" aria-label="GitHub">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
-      <a href="guide.html">guide</a>
-      <a href="scaffold.html">scaffold</a>
-      <a href="manifesto.html">manifesto</a>
-    </nav>
-    <!-- Dose: a volume knob for the ornament, never a vocabulary. 0 still … 12 unravel; text never moves. -->
-    <div class="theme-switcher" role="group" aria-label="Ornament dose">
-      <button class="theme-btn dose-btn" id="btn-dose" type="button" aria-label="Dose 1 of 12, calm" title="Dose 1: calm. Click for more, shift-click for less.">◎ dose 1</button>
     </div>
   </div>
 </header>
+<!-- /include -->
 
 <!-- ═══════════════════ THE DISK ══════════════════════ -->
 <main class="disk" id="disk">
@@ -331,16 +332,27 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
 </main>
 
 <!-- ═══════════════════ FOOTER ════════════════════════ -->
-<footer>
-  <nav aria-label="Footer">
-    <a href="/roadmap.html">roadmap</a>
-    <a href="/releases/">releases</a>
-    <a href="/privacy.html">privacy</a>
-    <a href="/zoku/">contribute</a>
-  </nav>
-  <p>loci.garden · MIT</p>
-  <p class="last">Rooms ship empty. Private by default.</p>
+<p class="closing">Rooms ship empty. Private by default.</p>
+
+<!-- #include partials/_footer.html -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <nav class="site-footer-nav" aria-label="Footer">
+      <a class="site-footer-link" href="/about.html">About</a>
+      <a class="site-footer-link" href="/scaffold.html">Field map</a>
+      <a class="site-footer-link" href="/zoku/">Contribute</a>
+    </nav>
+    <div class="site-footer-terms">
+      <p class="site-license">Code MIT. Writing CC BY 4.0.</p>
+      <p class="site-footer-files">
+        <a class="site-footer-link" href="/privacy.html">Privacy</a>
+        <a class="site-footer-link site-file" href="/.well-known/security.txt">security.txt</a>
+        <a class="site-footer-link site-file" href="/llms.txt">llms.txt</a>
+      </p>
+    </div>
+  </div>
 </footer>
+<!-- /include -->
 
 <!-- ═══════════════════ SCRIPT ════════════════════════ -->
 <script>
@@ -363,6 +375,13 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     try { localStorage.setItem('loci-dose', String(n)); } catch(e) {}
   }
   (function initDose() {
+    // The header is shared; its dose slot is empty until this page fills it.
+    const slot = document.querySelector('.site-slot[data-slot="dose"]');
+    if (slot && !document.getElementById('btn-dose')) {
+      const b = document.createElement('button');
+      b.id = 'btn-dose'; b.type = 'button'; b.className = 'site-dose';
+      slot.appendChild(b);
+    }
     const btn = document.getElementById('btn-dose');
     if (btn) btn.addEventListener('click', e => {
       const cur = parseInt(document.documentElement.getAttribute('data-dose') || '1', 10);
@@ -440,14 +459,13 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     var outlines = Array.prototype.slice.call(document.querySelectorAll('.outline'));
     var hereLinks = Array.prototype.slice.call(document.querySelectorAll('.here a'));
     var miniRects = Array.prototype.slice.call(document.querySelectorAll('.mini rect'));
-    var nav = document.querySelector('.nav');
+    var nav = document.querySelector('.site-header');
     var navH = 60, step = 400, ringW = 800, ringH = 600;
 
     function measure() {
       navH = nav.offsetHeight;
       var stageH = window.innerHeight - navH;
       step = Math.round(stageH * 0.7);
-      root.style.setProperty('--nav-h', navH + 'px');
       root.style.setProperty('--stage-h', stageH + 'px');
       root.style.setProperty('--step', step + 'px');
       ringW = rings[0].offsetWidth; ringH = rings[0].offsetHeight;   // layout size, unaffected by transform
