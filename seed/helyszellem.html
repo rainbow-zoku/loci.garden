@@ -458,18 +458,30 @@
 
     /* Print / PDF styles */
     @media print {
-      *, *::before, *::after {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+      /* Paper: white page, black ink. The same tokens, inverted. */
+      :root {
+        --bg: #FFFFFF; --bg-2: #FFFFFF; --surface: #FFFFFF;
+        --border: rgba(0,0,0,0.14); --border-2: rgba(0,0,0,0.30);
+        --text: #0A0A0A; --text-2: #333333; --text-3: #6E6E6E;
+        --accent: #0A0A0A; --accent-light: #0A0A0A; --accent-xlight: #0A0A0A;
+        --accent-soft: transparent; --accent-glow: transparent;
+        --tag-bg: transparent; --tag-text: #333333;
       }
-      html, body { background: #000000 !important; }
-      nav, .download-pdf-btn, .backoffice-ribbon,
+      html { font-size: 10.5pt; }
+      html, body { background: #FFFFFF !important; color: #0A0A0A; }
+      .site-header, .site-footer, nav, .download-pdf-btn, .backoffice-ribbon, .lang-toggle,
       .annotation-panel, .annotation-toggle { display: none !important; }
+      main, .page-content { padding-top: 0 !important; margin-top: 0 !important; }
       .article-container { max-width: 100% !important; padding: 0 !important; }
-      h2 { break-after: avoid; }
-      p  { orphans: 3; widows: 3; }
-      section { break-inside: avoid-page; }
+      .article-prose a { color: inherit; }
+      h2, h3 { break-after: avoid; }
+      p, li { orphans: 3; widows: 3; }
+      /* Sections flow across pages; only small blocks stay whole. */
+      section { break-inside: auto; }
+      blockquote, figure, table, pre.diagram, .pattern-card, .brief-stat, p.ref { break-inside: avoid; }
       pre.diagram { font-size: 0.6rem; overflow-x: visible; white-space: pre-wrap; }
+      .colophon { max-width: none; margin: 10mm 0 0; padding: 0; }
+
 
       @page {
         size: A4;
