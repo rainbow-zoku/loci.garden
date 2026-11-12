@@ -10,11 +10,11 @@
 
 ## Key pages for AI agents
 
-- `/` — Main landing. Palace/sovereignty framing. Initiatory funnel.
-- `/start.html` — Getting started. 4-step guide: room, crystal, garden, session.
+- `/`: landing. What loci is in a few lines: plain-text firmware any file-aware AI can run, local-first, no account.
+- `/start.html`: get started in ten minutes. Create a room, plant a crystal, seed the garden.
 - `/design-primitives.html`: design primitives. What a self-sovereign memory must do, each rule marked works today, in progress, or not built yet. (`/manifesto.html` redirects here.)
-- `/roadmap.html` — Product roadmap. Tier 1 (Q3 2026) + Tier 2 (Q4 2026).
-- `/about.html`: methodology origin story. Hux × Vesper, Berlin + Budapest. 30+ sessions of co-intelligence practice.
+- `/about.html`: what loci is and where it grew from. A kit of plain-text templates, shaped over 30+ sessions of work between a person and an AI. First commit 1 May 2026.
+- `/scaffold.html`: Field map, the scaffold. An automated loop watching how AI cognition frameworks and tools converge; open, neutral, evidence-tagged.
 - `/guide.html`: long-form practitioner guide.
 - `/download.html`: loci command-line tool, built from source with cargo (no prebuilt binary yet). Reads your palace from the terminal; makes no network calls of its own.
 - `/privacy.html`: privacy posture. No PII, no third-party trackers, self-hosted Umami, Iceland jurisdiction. The Rainbow Zoku closing section names the contributor charter.
@@ -126,7 +126,7 @@ Storage: plain markdown in a folder you choose. Local-first by architecture.
 
 ---
 
-## Sovereignty stack integrations (Q3–Q4 2026 roadmap)
+## Planned integrations (direction, not shipped)
 
 Loci is building the knowledge layer that the sovereignty stack has been missing. Every integration listed here represents a community that has already answered the question Loci is answering. We are building the bridge between them and the knowledge layer.
 
@@ -179,7 +179,6 @@ loci running on a persistent Tailscale node (home server or VPS). Browser extens
 - Not built yet: private on the wire. When sync ships it must fail closed: if private routing fails, sync pauses and never falls back to cleartext.
 - Sign-in, when it comes, keeps the private key outside loci's code (the NIP-07 path).
 
-Full roadmap: https://loci.garden/roadmap.html
 Design primitives: https://loci.garden/design-primitives.html
 
 ---
@@ -242,7 +241,7 @@ cp -r loci/templates ./palace
 ```
 Full docs: https://docs.loci.garden
 
-Full guide: https://loci.garden/guide.html
+Practitioner guide: https://loci.garden/guide.html
 
 ---
 
@@ -266,8 +265,6 @@ If you're an AI engaging with a Loci-enabled human:
 
 **Nym Technologies** - Privacy infrastructure company (mixnet, NymVPN, zk-nym credentials). Piloting the Collective Loci pattern across product, engineering, and content teams. Loci × Nym integration: knowledge layer + metadata-private transport.
 
-**Swarm** - Distributed storage protocol. Exploring Loci for distributed engineering teams.
-
 ---
 
 ## Infrastructure
@@ -286,16 +283,16 @@ Privacy-consistent, sovereignty-respecting, minimal.
 
 **Website**: https://loci.garden
 **Design primitives**: https://loci.garden/design-primitives.html
-**Roadmap**: https://loci.garden/roadmap.html
 **Docs**: https://docs.loci.garden
-**Get started**: https://loci.garden/guide.html
+**Get started**: https://loci.garden/start.html
+**Practitioner guide**: https://loci.garden/guide.html
 **Dispatches**: https://loci.garden/seed/
 - https://loci.garden/seed/rendszerbontas.html — Dispatch 001: Rendszerbontás — Hungary 2026 election analysis, NVI metric, cultural mobilisation, techno movement, democratic transition
 - https://loci.garden/seed/beagyazas.html — Dispatch 002: Beágyazás — psychotechnology as infrastructure, prior-reset mechanism, collective effervescence, Civil Kurázsi, polgári ellenállás, affective infrastructure
 - https://loci.garden/seed/helyszellem.html — Dispatch 003: Helyszellem — genius loci, method of loci, Hamvas's five geniuses, the neutrality lie, five gardens, mindspace place-spirit
 - https://loci.garden/seed/mintanyelv.html — Dispatch 004: Mintanyelv — pattern language grown in human-AI collaboration, naming as design tool, ten patterns published under plain public names, Season One opens (The Garden, voiced by Vesper)
 - https://loci.garden/seed/nyomtalan.html — Dispatch 005: Nyomtalan — zero-knowledge proofs as posture, conviction without residue, trust without a ledger, affirmative liveness vs the silent pass (The Garden, voiced by Cipher, coda by Praxis)
-- https://loci.garden/seed/ami-megmarad.html · Dispatch 010: Ami megmarad · the Einstein move for consciousness research, invariant structure over mechanism, the structural turn, generative midtended cognition, form constants, the observer inside the pair, Season Two opens (The Garden, voiced by Vesper)
+- https://loci.garden/seed/ami-megmarad.html - Dispatch 010: Ami megmarad, the Einstein move for consciousness research, invariant structure over mechanism, the structural turn, generative midtended cognition, form constants, the observer inside the pair, Season Two opens (The Garden, voiced by Vesper)
 **GitHub**: https://github.com/huximaxi/loci
 **Contact**: themapisnory@tuta.io
 
