@@ -16,41 +16,6 @@
   
   <script defer src="https://analytics.loci.garden/script.js" data-website-id="e00d2f0a-fbd7-40bf-8740-cb1ab2a82b86"></script>
   <style>
-    /* ── LEVEL 1 ENTRY RITUAL ── */
-    .entry-phrase {
-      position: fixed;
-      inset: 0;
-      z-index: 9000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg, #0d0d0e);
-      opacity: 0;
-      pointer-events: none;
-      animation: entry-sequence 3.5s ease forwards;
-    }
-    .entry-phrase.dismissed {
-      animation: none !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-    .entry-phrase-text {
-      font-size: clamp(1.4rem, 4vw, 2.2rem);
-      font-weight: 500;
-      letter-spacing: -0.03em;
-      color: var(--text, #e8e4dd);
-      text-align: center;
-      line-height: 1.4;
-      max-width: 520px;
-      padding: 0 2rem;
-    }
-    @keyframes entry-sequence {
-      0%   { opacity: 0; pointer-events: all; }
-      15%  { opacity: 1; pointer-events: all; }
-      72%  { opacity: 1; pointer-events: all; }
-      100% { opacity: 0; pointer-events: none; }
-    }
-
     /* ── HOMECOMING SECTION ── */
     .homecoming {
       max-width: 640px;
@@ -90,26 +55,6 @@
   <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
 </head>
 <body data-page="start">
-
-  <!-- ── LEVEL 1 ENTRY RITUAL ── -->
-  <!-- Phrase fades in for ~3s, then fades out. Click or keypress dismisses early. -->
-  <div id="entry-phrase" class="entry-phrase" role="presentation" aria-hidden="true">
-    <p class="entry-phrase-text">The palace remembers.</p>
-  </div>
-  <script>
-    (function() {
-      var el = document.getElementById('entry-phrase');
-      function dismiss() {
-        el.classList.add('dismissed');
-        document.removeEventListener('click', dismiss);
-        document.removeEventListener('keydown', dismiss);
-      }
-      document.addEventListener('click', dismiss);
-      document.addEventListener('keydown', dismiss);
-      // Auto-dismiss after animation completes (3.5s)
-      setTimeout(function() { el.classList.add('dismissed'); }, 3600);
-    })();
-  </script>
 
 <!-- #include partials/_nav.html -->
 <header class="site-header">
