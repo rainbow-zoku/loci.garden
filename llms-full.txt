@@ -8,14 +8,14 @@
 
 **Website**: https://loci.garden
 **GitHub**: https://github.com/huximaxi/loci
-**Palace methodology version**: loci-core 1.2 stable, 1.6-candidate next
-**Kit snapshot**: v0.7.0-beta (f97fec0). The files below are copied from the kit repo at that commit; the repo is the source of truth.
+**Palace methodology version**: loci-core 1.2 stable (1.6-candidate in this release)
+**Kit release**: v0.7.0-beta (f97fec0). The files below are copied from the kit repo at that release; the repo is the source of truth.
 
 ---
 
 ## Kit files below
 
----
+Relative links inside these files point into the kit repo: https://github.com/huximaxi/loci
 
 ---
 ## FILE: README.md
@@ -4525,16 +4525,16 @@ When user requests to add a persona:
 
 1. **Ask:** "What should we call this persona?"
    - Offer 5 suggestions in mythic register if they're unsure
-   
+
 2. **Ask:** "What's the primary difference in how they think?"
    - Capture their answer as the core of the persona's identity
-   
+
 3. **Ask:** "What's this persona for? What kind of work?"
    - Use this to populate "What I'm for"
-   
+
 4. **Ask:** "Should they have a separate garden, or share the main one?"
    - Default to shared, unless specific reasons to separate
-   
+
 5. **Create** the persona soul file at `souls/[persona-name]-soul.md`
 
 6. **Confirm:** "[PERSONA_NAME] awakened. You can invoke them anytime with 'remember: [PERSONA_NAME]!'"
