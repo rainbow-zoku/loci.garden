@@ -6,6 +6,7 @@
 - **Domains**: loci.garden, docs.loci.garden
 - **Repo**: https://github.com/rainbow-zoku/loci.garden
 - **Build**: none needed to deploy; the site is static files. Sync shared partials locally with `python3 build.py` before committing.
+- **Agent text**: `llms-full.txt` is a copy of the kit's latest release. After each kit release tag, run `python3 llms_full.py ../loci` (add `--check` to see whether it is stale) and commit the result.
 
 Keep drafts, audits, backups and one-off scripts out of the repo (`.gitignore` refuses the common shapes).
 
