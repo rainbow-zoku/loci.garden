@@ -8,21 +8,21 @@ document.documentElement.classList.add("js");
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23080808'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23cacaca'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%239a9a9a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23686868'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233c3c3c'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>loci, the mindspace primitive</title>
-<meta name="description" content="loci is a mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no account. The CLI is a demo; the substrate is yours." />
-<meta name="keywords" content="mindspace primitive, intelligence substrate, plain-text firmware, file-aware AI, local-first AI, context persistence" />
+<title>loci, a local AI topology</title>
+<meta name="description" content="loci is a local AI topology: one nested workfolder on your machine, with fixed places your AI reads and writes like a small local database. Local-first, no cloud, no account. The CLI is optional; the files are yours." />
+<meta name="keywords" content="local AI topology, workfolder, cognitive substrate, file-aware AI, local-first AI, context persistence" />
 <link rel="canonical" href="https://loci.garden/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://loci.garden/" />
-<meta property="og:title" content="loci, the mindspace primitive" />
-<meta property="og:description" content="A mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no landlords because there is nothing to rent. The substrate is yours. The palace is yours." />
+<meta property="og:title" content="loci, a local AI topology" />
+<meta property="og:description" content="A local AI topology: one nested workfolder on your machine, with fixed places your AI reads and writes like a small local database. Local-first, no cloud, no landlords because there is nothing to rent. The workfolder is yours." />
 <meta property="og:image" content="https://loci.garden/assets/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="loci, the mindspace primitive" />
-<meta name="twitter:description" content="A mindspace primitive: plain-text firmware any file-aware AI can run. Local-first, no cloud, no landlords because there is nothing to rent. The substrate is yours." />
+<meta name="twitter:title" content="loci, a local AI topology" />
+<meta name="twitter:description" content="A local AI topology: one nested workfolder on your machine, with fixed places your AI reads and writes like a small local database. Local-first, no cloud, no landlords because there is nothing to rent." />
 <meta name="twitter:image" content="https://loci.garden/assets/og-image.png" />
 <meta name="theme-color" content="#080808" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"loci.garden","description":"A mindspace primitive: an intelligence substrate, plain-text firmware any file-aware AI can run. Local-first, private by default.","url":"https://loci.garden","applicationCategory":"ProductivityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Hux","url":"https://loci.garden"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"loci.garden","description":"A local AI topology: one nested workfolder on your machine, with fixed places your AI reads and writes like a small local database. Local-first, private by default.","url":"https://loci.garden","applicationCategory":"ProductivityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Hux","url":"https://loci.garden"}}</script>
 <link rel="stylesheet" href="fonts.css">
 
 <link rel="stylesheet" href="tokens.css">
@@ -71,7 +71,7 @@ document.documentElement.classList.add("js");
       </svg>
       <ol>
         <li><a href="#claim" data-k="0" aria-current="location">loci</a></li>
-        <li><a href="#palace" data-k="1">the palace</a></li>
+        <li><a href="#palace" data-k="1">the workfolder</a></li>
         <li><a href="#keep" data-k="2">keep it</a></li>
       </ol>
     </nav>
@@ -104,15 +104,15 @@ document.documentElement.classList.add("js");
             <circle cx="150" cy="48" r="16" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="5 4"/>
             <circle cx="150" cy="48" r="8" fill="#ebebeb"/>
           </svg>
-          <p class="kicker">mindspace primitive</p>
-          <h1 class="claim" id="h-claim">firmware you can read <span class="amp">&amp;</span> any AI can run</h1>
+          <p class="kicker">local AI topology</p>
+          <h1 class="claim" id="h-claim">one folder you can read <span class="amp">&amp;</span> any AI can walk</h1>
         </div>
         <div class="hole" aria-hidden="true"></div>
         <div class="band bot">
           <p class="sub">Plain-text spec. Any file-aware model. Your disk.</p>
           <div class="cta-row">
             <a class="btn" href="https://github.com/huximaxi/loci" target="_blank" rel="noopener" data-umami-event="agent-cta-click" data-umami-event-target="clone-kit">Clone the kit</a>
-            <a class="step-in" href="#palace" data-k="1">cd palace/ ↓</a>
+            <a class="step-in" href="#palace" data-k="1">cd workfolder/ ↓</a>
           </div>
         </div>
       </section>
@@ -120,14 +120,14 @@ document.documentElement.classList.add("js");
       <!-- ring 1: the palace -->
       <section class="ring r1" data-k="1" aria-labelledby="h-palace" tabindex="-1">
         <div class="band top">
-          <h2 class="label" id="h-palace">The palace</h2>
+          <h2 class="label" id="h-palace">The workfolder</h2>
           <dl class="rooms">
             <div><dt>rooms/</dt><dd>per mode, loaded on entry</dd></div>
             <div><dt>soul/</dt><dd>identity, loaded every session</dd></div>
           </dl>
         </div>
         <div class="hole">
-          <div class="plate" role="img" aria-label="An engraved plate: open a palace without loci in three steps. A folder, one plain-text line, any editor.">
+          <div class="plate" role="img" aria-label="An engraved plate: open a workfolder without loci in three steps. A folder, one plain-text line, any editor.">
 <svg class="plate-wide" xmlns="http://www.w3.org/2000/svg" viewBox="-376 -272 752 544" aria-hidden="true">
   <style>.plate-wide{--g:#0f0f0f;--gl:#B4B4B4;--glk:.16;--rk:#FFFFFF;--af:#B4B4B4;--al:#F0F0F0;--ah:#FFFFFF}
 .plate-wide .ground{fill:var(--g)}
@@ -400,7 +400,7 @@ html[data-dose="0"] .plate-tall *,.plate-tall[data-dose="0"] *{animation:none!im
     var RINGS = 44;                     // 30 vortex rings + 14, so the centre stays full at depth 2
     var MAXD = 2;
     var IDS = ['claim', 'palace', 'keep'];
-    var TITLES = ['loci, the mindspace primitive', 'the palace · loci', 'keep it · loci'];
+    var TITLES = ['loci, a local AI topology', 'the workfolder · loci', 'keep it · loci'];
     var store = {
       get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
       set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
