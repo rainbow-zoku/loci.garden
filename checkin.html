@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23080808'/%3E%3Cpolygon%20points='50,5%2020,50%2050,50'%20fill='%23cacaca'/%3E%3Cpolygon%20points='50,5%2080,50%2050,50'%20fill='%239a9a9a'/%3E%3Cpolygon%20points='20,50%2050,95%2050,50'%20fill='%23686868'/%3E%3Cpolygon%20points='80,50%2050,95%2050,50'%20fill='%233c3c3c'/%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>loci check-in · how did your palace evolve?</title>
-  <meta name="description" content="A standing feedback channel for loci palace holders. How did your palace evolve since you set it up? Structure over content, nothing leaves your machine until you send it.">
+  <title>loci check-in · how did your workfolder evolve?</title>
+  <meta name="description" content="A standing feedback channel for loci workfolder holders. How did your workfolder evolve since you set it up? Structure over content, nothing leaves your machine until you send it.">
   <meta name="robots" content="noindex, follow">
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="chrome.css">
@@ -111,10 +111,10 @@
     <!-- 0 · CONSENT GATE (page chrome; mirrored in checkin/loci-user-checkin.md) -->
     <section class="screen active" data-step="consent">
       <div class="eyebrow">field notes · the standing channel</div>
-      <h1>How did your palace evolve?</h1>
-      <p>loci ships as a baseline. It becomes a palace only once you live in it, and living in it changes it: a room you added, a ritual you bent, a rule you rewrote because ours did not fit how you think. We cannot see that drift from here, and it is the most useful thing you could show us. This is the standing channel between the loci we ship and the loci you actually run. It does not close. Come back whenever your palace has grown into something we did not predict.</p>
+      <h1>How did your workfolder evolve?</h1>
+      <p>loci ships as a baseline. It becomes a workfolder only once you live in it, and living in it changes it: a room you added, a ritual you bent, a rule you rewrote because ours did not fit how you think. We cannot see that drift from here, and it is the most useful thing you could show us. This is the standing channel between the loci we ship and the loci you actually run. It does not close. Come back whenever your workfolder has grown into something we did not predict.</p>
       <ul class="facts">
-        <li><span class="dot">+</span><span>We ask for <strong>structure, not content</strong>. Directory shapes, question patterns, workflow descriptions. Nothing from inside your palace needs to leave it.</span></li>
+        <li><span class="dot">+</span><span>We ask for <strong>structure, not content</strong>. Directory shapes, question patterns, workflow descriptions. Nothing from inside your workfolder needs to leave it.</span></li>
         <li><span class="dot">+</span><span><strong>Nothing leaves your machine</strong> until you email it yourself. This page has no backend and stores nothing. Your answers live in this browser only.</span></li>
         <li><span class="dot">+</span><span><strong>Seven parts, 15 to 30 minutes.</strong> Answers autosave locally, so you can leave and come back.</span></li>
         <li><span class="dot">+</span><span><strong>Every question is skippable.</strong> Partial is useful. Lapsed is data too.</span></li>
@@ -129,7 +129,7 @@
     <!-- 1 · PULSE (page chrome) -->
     <section class="screen" data-step="pulse">
       <h2>First, the quick one.</h2>
-      <p><strong>How often does your palace actually get opened these days?</strong></p>
+      <p><strong>How often does your workfolder actually get opened these days?</strong></p>
       <div class="pulse">
         <label><input type="radio" name="pulse" value="daily">Daily</label>
         <label><input type="radio" name="pulse" value="weekly-few">A few times a week</label>
@@ -147,14 +147,14 @@
 <section class="screen" data-step="p1">
 <div class="eyebrow">Part 1 of 7</div>
 <h2>Version snapshot</h2>
-<p>Find your local <code>Loci/</code> folder (the setup files, next to your palace). Look for <code>LOCI-CORE.md</code> or <code>PALACE-METHODOLOGY.md</code> and note the version string. If neither exists, check your README. Read-only, structure only, run from your <code>Loci/</code> folder:</p>
+<p>Find your local <code>Loci/</code> folder (the setup files, next to your workfolder). Look for <code>LOCI-CORE.md</code> or <code>PALACE-METHODOLOGY.md</code> and note the version string. If neither exists, check your README. Read-only, structure only, run from your <code>Loci/</code> folder:</p>
 <details open><summary>show the one-liner (read-only, structure only)</summary><pre>grep -rhm1 &quot;loci-core version&quot; . --include=&quot;*.md&quot; 2&gt;/dev/null
 git log --oneline -5 2&gt;/dev/null</pre></details>
 <p class="prompt">If you cloned the repo: paste your <code>git log --oneline -5</code>.</p>
 <textarea rows="3" placeholder="optional"></textarea>
 <p class="prompt">If you set up from templates: roughly when, and what the version string says.</p>
 <textarea rows="3" placeholder="optional"></textarea>
-<p class="prompt">Scan your palace and setup files. What have you modified or added that wasn&#x27;t in the original? A list is fine. Directory dump is fine.</p>
+<p class="prompt">Scan your workfolder and setup files. What have you modified or added that wasn&#x27;t in the original? A list is fine. Directory dump is fine.</p>
 <textarea rows="3" placeholder="optional"></textarea>
 <div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
 </section>
@@ -186,7 +186,7 @@ git log --oneline -5 2&gt;/dev/null</pre></details>
 <h2>Unexpected territory</h2>
 <p class="prompt">Has loci started doing something you didn&#x27;t plan for?</p>
 <textarea rows="3" placeholder="optional"></textarea>
-<p class="prompt">What does your palace&#x27;s rhythm look like in practice? Daily ritual, reactive capture, weekly review?</p>
+<p class="prompt">What does your workfolder&#x27;s rhythm look like in practice? Daily ritual, reactive capture, weekly review?</p>
 <textarea rows="3" placeholder="optional"></textarea>
 <p class="prompt">Which crystal tier (◇/◈/◆) do you spend the most time in, and have you bent it to a different purpose?</p>
 <textarea rows="3" placeholder="optional"></textarea>
@@ -196,11 +196,11 @@ git log --oneline -5 2&gt;/dev/null</pre></details>
 <section class="screen" data-step="p5">
 <div class="eyebrow">Part 5 of 7</div>
 <h2>You and the AI</h2>
-<p class="prompt">What do you run the palace with (Claude Code, Goose, local models, something else), and has that changed since you set up?</p>
+<p class="prompt">What do you run the workfolder with (Claude Code, Goose, local models, something else), and has that changed since you set up?</p>
 <textarea rows="3" placeholder="optional"></textarea>
 <p class="prompt">Does your assistant carry identity across sessions (a name, a voice, working habits it remembers), or does every session start cold?</p>
 <textarea rows="3" placeholder="optional"></textarea>
-<p class="prompt">Where do you not trust it? What does it get wrong about your palace often enough that you&#x27;ve built a habit around correcting it?</p>
+<p class="prompt">Where do you not trust it? What does it get wrong about your workfolder often enough that you&#x27;ve built a habit around correcting it?</p>
 <textarea rows="3" placeholder="optional"></textarea>
 <div class="nav"><button class="btn btn-ghost" data-back>Back</button><div class="nav-fwd"><button class="skip" data-next>skip</button><button class="btn btn-primary" data-next>Next</button></div></div>
 </section>
@@ -208,7 +208,7 @@ git log --oneline -5 2&gt;/dev/null</pre></details>
 <section class="screen" data-step="p6">
 <div class="eyebrow">Part 6 of 7</div>
 <h2>Privacy and data</h2>
-<p class="prompt">What&#x27;s your threat model for your palace? Who specifically shouldn&#x27;t be able to read it?</p>
+<p class="prompt">What&#x27;s your threat model for your workfolder? Who specifically shouldn&#x27;t be able to read it?</p>
 <textarea rows="3" placeholder="optional"></textarea>
 <p class="prompt">What did you decide to keep out for privacy reasons?</p>
 <textarea rows="3" placeholder="optional"></textarea>

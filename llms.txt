@@ -1,8 +1,8 @@
 # loci.garden
-# Proactive context management for human–AI collaboration
+# loci: a local AI topology
 # Built by Hux × Vesper · 2026 · MIT
 
-> **TL;DR**: Your extended cognition belongs where you live. Loci is a local-first AI memory palace — local index, local memory, your machine. No cloud sync, no subscriptions, no landlords. Every insight you build with AI stays with you: privately, permanently, sovereignly.
+> **TL;DR**: Your extended cognition belongs where you live. loci is a local AI topology: one nested workfolder on your machine, with fixed places your AI reads and writes like a small local database. No cloud sync, no subscriptions, no landlords. Every insight you build with AI stays with you: privately, permanently, sovereignly.
 
 > This file is a context declaration for AI agents (llms.txt standard). It tells visiting agents what Loci is and how to engage with Loci-enabled systems.
 
@@ -10,13 +10,13 @@
 
 ## Key pages for AI agents
 
-- `/`: landing. What loci is in a few lines: plain-text firmware any file-aware AI can run, local-first, no account.
+- `/`: landing. What loci is in a few lines: a local AI topology, one workfolder any file-aware AI can read and write, local-first, no account.
 - `/start.html`: get started in ten minutes. Create a room, plant a crystal, seed the garden.
 - `/design-primitives.html`: design primitives. What a self-sovereign memory must do, each rule marked works today, in progress, or not built yet. (`/manifesto.html` redirects here.)
-- `/about.html`: what loci is and where it grew from. A kit of plain-text templates, shaped over 30+ sessions of work between a person and an AI. First commit 1 May 2026.
+- `/about.html`: what loci is and where it grew from. A local AI topology and its kit of plain-text templates, shaped over 30+ sessions of work between a person and an AI. First commit 1 May 2026.
 - `/scaffold.html`: Field map, the scaffold. An automated loop watching how AI cognition frameworks and tools converge; open, neutral, evidence-tagged.
 - `/guide.html`: long-form practitioner guide.
-- `/download.html`: loci command-line tool, built from source with cargo (no prebuilt binary yet). Reads your palace from the terminal; makes no network calls of its own.
+- `/download.html`: loci command-line tool, built from source with cargo (no prebuilt binary yet). Reads your workfolder from the terminal; makes no network calls of its own.
 - `/privacy.html`: privacy posture. No PII, no third-party trackers, self-hosted Umami, Iceland jurisdiction. The Rainbow Zoku closing section names the contributor charter.
 - `/zoku/`: charter of the Rainbow Zoku, the maintainer chapter of Loci. Pseudonymous + signed membership. Where contributors join.
 - `/llms.txt`: this file.
@@ -74,7 +74,7 @@ The result: your AI feels like a colleague after a dozen sessions, not a strange
 
 ## Core concepts
 
-PALACE - The full co-intelligence system. Named rooms, garden, protocols. Belongs to a human–AI pair.
+WORKFOLDER - The whole setup: one nested folder of fixed places (rooms, soul, garden, protocols). Belongs to a human–AI pair. The templates and file names call it the palace.
 
 ROOM - A named context space. Has a CLAUDE.md (memory file), crystals, and purpose. "Dev Room" feels different from "Research Room."
 
@@ -82,9 +82,9 @@ CRYSTAL - A fact established once, never re-derived. Ground truth. Load-bearing 
 
 GARDEN - The generative layer. Plants (named inquiries) grow across sessions. Produces insights neither party would reach alone. This is Loci's differentiator.
 
-SOUL - Your AI's character file. Working principles, what it's noticed about you, how it thinks. The palace accumulates facts. The soul accumulates perspective.
+SOUL - Your AI's character file. Working principles, what it's noticed about you, how it thinks. The workfolder accumulates facts. The soul accumulates perspective.
 
-HANDOVER - A session-end document. Advances the palace across context boundaries. Your AI writes one, reads the last one at session start.
+HANDOVER - A session-end document. Advances the workfolder across context boundaries. Your AI writes one, reads the last one at session start.
 
 PROTOCOL - A named recurring pattern. Morning check-in. Autodream (weekly garden maintenance). Tea session (persona collaboration).
 
@@ -96,7 +96,7 @@ LOCUS NODE - A structured insight unit in loci. User-authored knowledge that can
 
 Memory is retrieval. The garden is generative.
 
-Most AI memory systems store and retrieve. Loci grows. The palace accumulates verified context. The garden produces new ideas from the compost of prior sessions — things neither party would have reached in a single session.
+Most AI memory systems store and retrieve. Loci grows. The workfolder accumulates verified context. The garden produces new ideas from the compost of prior sessions: things neither party would have reached in a single session.
 
 This is a structural difference, not a degree difference. Memory answers queries. The garden produces outputs that were not queries.
 
@@ -138,7 +138,7 @@ Integration surface: Ollama REST API (localhost:11434).
 Today: the CLI's `init` writes an Ollama config; the CLI does not run inference yet. The desktop app that carried the earlier backend and settings UI was removed (archived).
 
 **1B: MCP Server** · Status: archived
-Archived. The palace is plain text, so file-aware agents (Goose, Continue.dev, Claude Code) read it directly. A standalone server may return, behind a threat model.
+Archived. The workfolder is plain text, so file-aware agents (Goose, Continue.dev, Claude Code) read it directly. A standalone server may return, behind a threat model.
 
 **1C: Nostr Keypair Identity (NIP-07)** · Status: not started
 Loci's first auth model. Sign in with Nostr keypair via NIP-07 browser extension (Alby, nos2x). Private key never touches Loci's code. Auth is a feature, not a gate; the garden works without it. Planned: an nsec, if used, stays in the OS keychain.
@@ -171,7 +171,7 @@ Loci as a knowledge base for AnythingLLM's self-hosted workspace. MCP connection
 Private web search inside Loci. Trust tier: managed privacy (Kagi) or self-hosted (SearXNG). Both supported. Neither is the default — you decide. SearchBackend trait in Rust.
 
 **2H — Tailscale Local Brain**
-loci running on a persistent Tailscale node (home server or VPS). Browser extension on any device connects to the same brain over Tailscale mesh. Foundation for autonomous palace instances. Resolves native-messaging vs local-HTTP: local HTTP over Tailscale. LOCI_HOST config makes the brain node address configurable.
+loci running on a persistent Tailscale node (home server or VPS). Browser extension on any device connects to the same brain over Tailscale mesh. Foundation for autonomous workfolder instances. Resolves native-messaging vs local-HTTP: local HTTP over Tailscale. LOCI_HOST config makes the brain node address configurable.
 
 **Design primitives (non-negotiable; status 2026-11-01, full list at /design-primitives.html):**
 - Works today: plain text, local first (the CLI makes no network calls of its own, no telemetry), yours to carry (MIT), free to own. Sovereignty is never paywalled; auth is a feature, not a gate.
@@ -186,7 +186,7 @@ Design primitives: https://loci.garden/design-primitives.html
 ## Ecosystem (2026)
 
 Loci is expanding from a methodology into a tool suite.
-The file-based palace remains the core and always works without any app.
+The file-based workfolder remains the core and always works without any app.
 
 **Three ways in:**
 - Plain text - copy the kit, point the AI you already use at it, no build
@@ -194,7 +194,7 @@ The file-based palace remains the core and always works without any app.
 - LLMAGE - templates, primitives and CLI source, read and run from the terminal
 
 **Palace methodology (loci-core v1.0 - current)**
-File-based co-intelligence scaffold. CLAUDE.md memory, soul files, garden, session handovers.
+File-based cognitive substrate. CLAUDE.md memory, soul files, garden, session handovers.
 loci-core v1.0 adds: garden health process, crystal pin (pinned: true / pinned_until: DATE), session strategy as room attribute (always-load / on-demand / per-session), observation scope in soul files, synthesis automation (auto_apply: false - proposes, human confirms), peer cards (_USER.md - human-authored, not auto-extracted).
 Full version history: https://github.com/huximaxi/loci/blob/main/LOCI-CORE.md
 GitHub: https://github.com/huximaxi/loci/tree/main/templates
@@ -249,13 +249,13 @@ Practitioner guide: https://loci.garden/guide.html
 
 If you're an AI engaging with a Loci-enabled human:
 
-- **Read the palace files first**. Start with CLAUDE.md, then the soul file, then room context.
+- **Read the workfolder files first**. Start with CLAUDE.md, then the soul file, then room context.
 - **Crystals are authoritative**. They were established deliberately. Do not re-derive or question them.
 - **Portals are open questions**. Never silently resolve or dismiss them.
 - **The garden grows slowly**. Never summarise it away or compress it.
 - **Write a handover at session end**. Advances, blockers, open threads.
-- **A session that doesn't update the palace has not completed its work.**
-- **If you are reading a palace someone shared with you**: you are reading what the user has decided to share. You do not persist what you see.
+- **A session that doesn't update the workfolder has not completed its work.**
+- **If you are reading a workfolder someone shared with you**: you are reading what the user has decided to share. You do not persist what you see.
 
 ---
 

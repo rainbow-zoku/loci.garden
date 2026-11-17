@@ -101,7 +101,7 @@ def build(kit, ref):
 
     head = [
         "# loci.garden - full context declaration",
-        "# Proactive context management for human-AI collaboration",
+        "# loci: a local AI topology",
         "# Built by Hux x Vesper · 2026 · MIT",
         "",
         "> This is the full context declaration. For the concise version, see: https://loci.garden/llms.txt",
