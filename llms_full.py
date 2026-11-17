@@ -106,9 +106,10 @@ def build(kit, ref):
         "",
         "> This is the full context declaration. For the concise version, see: https://loci.garden/llms.txt",
         "",
-        "> **What is Loci?** A methodology for persistent AI collaboration. Your AI gets memory "
-        "(crystals), character (soul files), and ideas that grow (the garden). No database. "
-        "No vendor lock-in. Just markdown files.",
+        "> **What is loci?** A local AI topology: one nested workfolder on your machine, with "
+        "fixed places your AI reads and writes like a small local database. Your AI gets memory "
+        "(crystals), character (soul files), and ideas that grow (the garden). No database engine, "
+        "no vendor lock-in: just markdown files.",
         "",
         "**Website**: https://loci.garden",
         "**GitHub**: https://github.com/huximaxi/loci",
