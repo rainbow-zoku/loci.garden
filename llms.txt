@@ -194,7 +194,7 @@ The file-based workfolder remains the core and always works without any app.
 - LLMAGE - templates, primitives and CLI source, read and run from the terminal
 
 **Palace methodology (loci-core 1.2 stable, 1.6-candidate in the kit)**
-File-based cognitive substrate. CLAUDE.md memory, soul files, garden, session handovers.
+Plain-text templates your AI reads: CLAUDE.md memory, soul files, garden, session handovers.
 loci-core v1.0 added: garden health process, crystal pin (pinned: true / pinned_until: DATE), session strategy as room attribute (always-load / on-demand / per-session), observation scope in soul files, synthesis automation (auto_apply: false - proposes, human confirms), peer cards (_USER.md - human-authored, not auto-extracted).
 Version tracker (1.2 stable, 1.6-candidate, and what each release added): https://github.com/huximaxi/loci/blob/main/PALACE-METHODOLOGY.md
 GitHub: https://github.com/huximaxi/loci/tree/main/templates
