@@ -21,34 +21,34 @@
     "MemoryOS": "LoCoMo +49% F1 vs baselines (self-reported, EMNLP 2025)"
   },
   "totals": {
-    "products": 51,
-    "open_source": 45,
-    "hosted": 24,
-    "self_hostable": 47,
-    "mcp_capable": 28,
-    "stars_sum": 644569,
-    "with_stars": 45
+    "products": 53,
+    "open_source": 47,
+    "hosted": 25,
+    "self_hostable": 49,
+    "mcp_capable": 29,
+    "stars_sum": 714523,
+    "with_stars": 47
   },
   "by_model": {
     "graph": 12,
-    "hybrid": 20,
+    "hybrid": 21,
     "vector": 9,
     "episodic": 1,
-    "other": 9
+    "other": 10
   },
   "by_category": {
     "mcp": 5,
-    "library": 21,
+    "library": 22,
     "framework": 7,
     "pkm": 5,
     "saas": 8,
-    "research": 5
+    "research": 6
   },
   "signals": {
     "governance_gate": 3,
-    "bi_temporal": 10,
+    "bi_temporal": 12,
     "no_governance": 33,
-    "enriched": 50
+    "enriched": 52
   },
   "products": [
     {
@@ -1982,6 +1982,80 @@
         },
         "op": "operational"
       }
+    },
+    {
+      "name": "Hindsight",
+      "aka": null,
+      "url": "https://hindsight.vectorize.io",
+      "github": "vectorize-io/hindsight",
+      "category": "library",
+      "type": "Both",
+      "memory_model": "hybrid",
+      "self_host": "yes",
+      "license": "MIT",
+      "interface": "SDK · REST · MCP · CLI",
+      "pricing": "freemium",
+      "pricing_note": "Self-host free (MIT); Cloud usage-based per token and per call",
+      "data_location": "both",
+      "one_liner": "Self-hostable memory server for agents: stores facts with when they happened and when they were said, recalled by hybrid search",
+      "confidence": "high",
+      "stars": 62298,
+      "pushed_at": "2026-11-20T21:45:59Z",
+      "forks": 7393,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "api-export",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high"
+        },
+        "governance": {
+          "v": "source-citation",
+          "c": "med"
+        },
+        "op": "operational"
+      }
+    },
+    {
+      "name": "Reef",
+      "aka": null,
+      "url": "https://reefinfra.ai",
+      "github": "Human-Agent-Society/reef",
+      "category": "research",
+      "type": "OSS",
+      "memory_model": "other",
+      "self_host": "yes",
+      "license": "Apache-2.0",
+      "interface": "SDK · REST · CLI",
+      "pricing": "free-oss",
+      "pricing_note": "Free (Apache-2.0); no paid tier found",
+      "data_location": "both",
+      "one_liner": "Adjacent, not a memory store: a loop that records agent traces, evolves rules and skills, and keeps versioned snapshots",
+      "confidence": "high",
+      "stars": 7656,
+      "pushed_at": "2026-11-21T02:17:14Z",
+      "forks": 731,
+      "activity_days": 0,
+      "activity_label": "this week",
+      "enrichment": {
+        "export": {
+          "v": "markdown",
+          "c": "med"
+        },
+        "temporal": {
+          "v": "versioned/bi-temporal",
+          "c": "high"
+        },
+        "governance": {
+          "v": "provenance-tracked",
+          "c": "med"
+        },
+        "op": "operational"
+      }
     }
   ],
   "notes": [
@@ -1991,6 +2065,7 @@
     "Framework-native entries (LangMem, LlamaIndex, CrewAI, Semantic Kernel, Haystack) and the MCP reference server show stars for the parent project/monorepo, not the memory feature in isolation.",
     "Cells are tagged by evidence class: FACT (verifiable from repo, license, docs) and CLAIM (vendor self-reported, caveated).",
     "Benchmark figures are self-reported and not cross-comparable across tools; the full-context baseline (~73% on LoCoMo) often beats memory tools and is shown as the honest control.",
-    "FACT axes export / temporal / governance were verified per-product from docs + repos (recon pass, 2026-06-14); 'self-reported' marks an axis confirmable only from the vendor's own docs."
+    "FACT axes export / temporal / governance were verified per-product from docs + repos (recon pass, 2026-06-14); 'self-reported' marks an axis confirmable only from the vendor's own docs.",
+    "Hindsight and Reef were added on 2026-11-21; their stars and activity are from that day, not the date above."
   ]
 }
