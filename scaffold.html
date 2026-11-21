@@ -15,102 +15,167 @@
 <link rel="stylesheet" href="chrome.css">
 <link rel="stylesheet" href="loci.css">
 <style>
-:root{
-  /* The scaffold's local var names alias the canonical tokens in tokens.css,
-     so this page wears the same skin as the rest of the site.
-     --bg/--surface/--border/--text inherit the tokens directly (names
-     match tokens.css); the mismatched names are aliased below. */
-  --bg2:     var(--bg-2);
-  --border2: var(--border-2);
-  --text2:   var(--text-2);
-  --text3:   var(--text-3);
-  --green:   var(--accent);
-  --green-d: var(--accent-light);
-  --font:    var(--font-body);
-  --mono:    var(--font-mono);
-  /* category badge accents: semantic hues, kept theme-agnostic */
-  --teal:#5DCAA5;--amber:#EF9F27;--blue:#6ea8d8;--purple:#b39ddb;
-}
-*{box-sizing:border-box}
-body[data-page="scaffold"]{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
-.scaffold-stage{padding:96px 28px 64px}
-.wrap{max-width:1040px;margin:0 auto}
-a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+:root{--ease:cubic-bezier(0.4,0,0.2,1);--ease-arrive:cubic-bezier(0.05,0.7,0.1,1)}
+body[data-page="scaffold"]{margin:0;background:var(--bg);color:var(--text);font-size:var(--fs-sm);line-height:1.55;font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+[data-page="scaffold"] main a{color:var(--text);text-underline-offset:3px;text-decoration:underline}
+[data-page="scaffold"] main button{font:inherit;color:inherit}
+[data-page="scaffold"] main :focus-visible{outline:2px solid var(--accent-light);outline-offset:2px;border-radius:var(--radius)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+[hidden]{display:none!important}
+/* ── Page ─────────────────────────────────────────────────────────────── */
+.stage{padding-top:var(--nav-h);padding-left:var(--sp-5);padding-right:var(--sp-5)}
+.stage > .wrap{padding-top:var(--sp-7);padding-bottom:var(--sp-7)}
+.wrap{max-width:900px;margin:0 auto}
+h1.title{font-size:clamp(28px,4vw,40px);font-weight:var(--fw-semibold);letter-spacing:-0.025em;line-height:1.1;margin:0 0 var(--sp-3)}
+.lead{font-size:var(--fs-md);line-height:1.6;color:var(--text-2);max-width:56ch;margin:0}
+.lead b{color:var(--text);font-weight:var(--fw-medium)}
+.gatebtn{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font-family:inherit;font-size:inherit;color:inherit;text-align:inherit;cursor:pointer;color:var(--text);font-weight:var(--fw-medium);text-decoration:underline dashed;text-underline-offset:4px;padding:0 2px}
+.gatebtn:hover{text-decoration-style:solid}
+.gatebtn:focus-visible{outline:2px solid var(--accent-light);outline-offset:2px}
+.dateline{font-size:var(--fs-xs);color:var(--text-2);margin:var(--sp-3) 0 0;max-width:72ch;line-height:1.6}
+.dateline .age{font-variant-numeric:tabular-nums}
 
-/* Lead: the only big copy on the page. Tier-gated. */
-.scaffold-eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--text3);margin-bottom:14px}
-.scaffold-title{font-size:clamp(28px,3.6vw,40px);font-weight:600;letter-spacing:-0.025em;line-height:1.1;margin:0 0 14px;color:var(--text)}
-.scaffold-lead{font-size:16px;line-height:1.65;color:var(--text2);max-width:62ch;margin:0 0 36px}
+/* Controls */
+.controls{display:flex;gap:var(--sp-3);align-items:center;flex-wrap:wrap;margin:var(--sp-6) 0 var(--sp-2)}
+.search{flex:1 1 220px;max-width:320px;background:var(--bg-2);border:1px solid var(--border-2);color:var(--text);border-radius:var(--radius);padding:0 var(--sp-3);height:40px;font:var(--fs-sm) var(--font-body)}
+.search:focus{outline:none;border-color:var(--accent)}
+.sortsel{display:none;height:40px;background:var(--bg-2);border:1px solid var(--border-2);color:var(--text);border-radius:var(--radius);padding:0 var(--sp-2);font:var(--fs-sm) var(--font-body)}
+.count{margin-left:auto;font-size:var(--fs-xs);color:var(--text-2);font-variant-numeric:tabular-nums}
 
-/* Denoised pulse: one headline number, the rest as small caption-text.
-   Crane form: the hardest meaning carried by the kindest shape. */
-.scaffold-pulse{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin:0 0 22px;align-items:end}
-.pulse-primary{padding:18px 22px;border:1px solid var(--border);border-radius:8px;background:linear-gradient(180deg,rgba(125,166,74,0.04) 0%,transparent 100%)}
-.pulse-primary .pl-lbl{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3)}
-.pulse-primary .pl-num{font-size:42px;font-weight:300;margin-top:2px;line-height:1;font-variant-numeric:tabular-nums;color:var(--text)}
-.pulse-primary .pl-sub{font-size:12px;color:var(--text2);margin-top:6px}
-.pulse-meta{font-size:12px;color:var(--text3);font-family:var(--mono);line-height:1.85}
-.pulse-meta .pm-headline{display:flex;align-items:baseline;gap:10px;padding:6px 0 10px;border-bottom:1px solid var(--border);margin-bottom:6px}
-.pulse-meta .pm-headline .pm-num{font-size:26px;color:var(--accent);font-family:var(--mono);font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
-.pulse-meta .pm-headline .pm-lbl{font-size:12px;color:var(--text2)}
-.pulse-meta .pm-row{display:flex;justify-content:space-between;border-bottom:1px dotted var(--border);padding:4px 0}
-.pulse-meta .pm-row:last-child{border-bottom:none}
-.pulse-meta .pm-key{color:var(--text3)}
-.pulse-meta .pm-val{color:var(--text2);font-variant-numeric:tabular-nums}
+/* Table */
+.tbl{width:100%;border-collapse:collapse;table-layout:fixed}
+.tbl th{font-weight:var(--fw-regular);font-size:var(--fs-xs);color:var(--text-2);text-align:left;padding:0;border-bottom:1px solid var(--border-2)}
+.tbl th button{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font-family:inherit;font-size:inherit;color:inherit;text-align:inherit;box-sizing:border-box;display:block;width:100%;padding:var(--sp-3) var(--sp-2);cursor:pointer;white-space:nowrap}
+.tbl th button:focus-visible{outline:2px solid var(--accent-light);outline-offset:-2px}
+.tbl th[aria-sort] button{color:var(--text)}
+.tbl th[aria-sort="ascending"] button::after{content:" \2191"}
+.tbl th[aria-sort="descending"] button::after{content:" \2193"}
+.tbl th.r,.tbl td.r{text-align:right}
+.tbl td{padding:var(--sp-3) var(--sp-2);border-top:1px solid var(--border);vertical-align:top;font-size:var(--fs-sm)}
+.tbl td.r{font-variant-numeric:tabular-nums}
+.c-prod{width:40%}.c-kind{width:12%}.c-mem{width:11%}.c-gov{width:14%}.c-stars{width:10%}.c-push{width:13%}
+tr.row{cursor:pointer;transition:opacity 220ms var(--ease)}
+tr.row:hover td,tr.row[aria-expanded="true"] td{background:var(--bg-2)}
+tr.row:focus-visible{outline:2px solid var(--accent-light);outline-offset:-2px}
+.pname{font-weight:var(--fw-medium);color:var(--text)}
+.aka{font-weight:var(--fw-regular);color:var(--text-2);font-size:var(--fs-xs)}
+.one{color:var(--text-2);font-size:var(--fs-xs);line-height:1.45;margin-top:2px}
+.sub-m{display:none;color:var(--text-2);font-size:var(--fs-xs);margin-top:2px}
+.w2{color:var(--text-2)}
+.guess{text-decoration:underline dashed var(--text-2);text-underline-offset:4px}
+.word-arch{font-size:var(--fs-xs);color:var(--text-2);border:1px solid var(--border-2);border-radius:var(--radius);padding:0 4px;margin-left:6px;vertical-align:1px}
 
-.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 8px}
-#q{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:6px;padding:7px 11px;font-size:13px;font-family:var(--font);width:220px}
-#q:focus{outline:none;border-color:var(--green)}
-.chip{font-size:12px;color:var(--text2);background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:4px 11px;cursor:pointer;user-select:none}
-.chip.off{opacity:.34;text-decoration:line-through}
-.count{font-size:12px;color:var(--text3);margin-left:auto}
-.refresh{color:var(--text3);font-size:11px;font-family:var(--mono);margin-top:6px}
+/* Status dot: fill alone (filled, hollow, none) */
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid var(--text)}
+.dot.on{background:var(--text)}
+.dot.off{background:transparent}
+.dot.none{border-color:transparent}
+.mon{font-variant-numeric:tabular-nums;color:var(--text-2)}
+.ico{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.ico-cell{width:14px;height:14px;margin-right:6px;vertical-align:-2px}
+.later{display:block;font-size:11px;color:var(--text-2);white-space:nowrap;margin-top:2px}
 
-table{width:100%;border-collapse:collapse;table-layout:fixed}
-th{font-size:11px;font-weight:400;color:var(--text3);text-align:left;padding:9px 8px;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;user-select:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:1px solid var(--border)}
-th.r{text-align:right}
-td{padding:10px 8px;border-top:.5px solid var(--border);vertical-align:top;font-size:13px}
-td.r{text-align:right;font-variant-numeric:tabular-nums}
-tr.row{cursor:pointer}
-tr.row:hover{background:var(--bg2)}
-tr.row.open{background:var(--bg2)}
-.chev{display:inline-block;width:10px;color:var(--text3);font-size:10px}
-.pname{color:var(--text);font-weight:500}
-.aka{font-size:11px;color:var(--text3);font-weight:400}
-.pdesc{font-size:11px;color:var(--text3);line-height:1.4;margin-top:2px}
-.badge{font-size:10px;padding:2px 7px;border-radius:4px;white-space:nowrap;text-transform:uppercase;letter-spacing:.03em}
-.b-library{background:rgba(125,166,74,.13);color:var(--green)}
-.b-saas{background:rgba(239,159,39,.13);color:var(--amber)}
-.b-framework{background:rgba(93,202,165,.13);color:var(--teal)}
-.b-mcp{background:rgba(110,168,216,.14);color:var(--blue)}
-.b-pkm{background:rgba(179,157,219,.14);color:var(--purple)}
-.b-research{background:rgba(160,152,128,.14);color:var(--text2)}
-.host-yes{color:var(--green)}.host-cloud{color:var(--text3)}.host-partial{color:var(--amber)}
-.stars{font-variant-numeric:tabular-nums;color:var(--text)}
-.lic{font-family:var(--mono);font-size:11px;color:var(--text2)}
-.price{font-size:12px;color:var(--text2)}
-td.detailcell{padding:0;border-top:none}
-.detail{background:var(--surface);border-left:2px solid var(--green-d);padding:14px 18px;margin:0 0 2px}
-.detail .dl{font-size:13px;color:var(--text2);margin-bottom:12px}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px;margin-bottom:12px}
-.fact{font-size:12px;color:var(--text2)}
-.fl{color:var(--text3);display:inline-block;min-width:78px}
-.fv{color:var(--text)}
-.conf{font-size:10px;color:var(--text3);font-family:var(--mono)}
-.tag{font-size:9px;text-transform:uppercase;letter-spacing:.06em;padding:1px 5px;border-radius:3px;margin-right:6px;vertical-align:1px}
-.tag-fact{background:rgba(125,166,74,.14);color:var(--green)}
-.tag-claim{background:rgba(239,159,39,.14);color:var(--amber)}
-.claimrow{font-size:12px;color:var(--text2);margin-bottom:10px;line-height:1.5}
-.pending{font-size:11px;color:var(--text3);margin-bottom:10px}
-.links{font-size:12px;display:flex;gap:16px}
-.legend{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:.5px solid var(--border);font-size:12px;color:var(--text3)}
-.notes{margin-top:12px;font-size:11px;color:var(--text3);line-height:1.7;list-style:none;padding:0}
-.notes li{padding:3px 0}
-.muted{color:var(--text3)}
+/* Detail: the page's one depth */
+td.dcell{padding:0;border-top:none}
+.detail{background:var(--surface);border-left:2px solid var(--accent);padding:var(--sp-4) var(--sp-5) var(--sp-5);margin-bottom:2px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--sp-2) var(--sp-5);margin:0}
+.facts div{display:flex;gap:var(--sp-3);font-size:var(--fs-sm)}
+.facts dt{color:var(--text-2);min-width:84px;flex:none}
+.facts dd{margin:0;color:var(--text)}
+.conf{color:var(--text-2);font-size:var(--fs-xs)}
+.dnote{font-size:var(--fs-xs);color:var(--text-2);margin:var(--sp-3) 0 0;line-height:1.6;max-width:70ch}
+.claim{margin:var(--sp-4) 0 0;padding-left:var(--sp-3);border-left:1px dashed var(--text-2);font-size:var(--fs-sm);color:var(--text);max-width:70ch}
+.claim .w{font-size:var(--fs-xs);color:var(--text-2);text-transform:lowercase;margin-right:6px}
+.claim .cav{display:block;color:var(--text-2);font-size:var(--fs-xs);margin-top:4px}
+.links{display:flex;gap:var(--sp-5);margin-top:var(--sp-4);font-size:var(--fs-sm);flex-wrap:wrap}
+.links a{min-height:32px;display:inline-flex;align-items:center}
 
+.empty{padding:var(--sp-6) var(--sp-2);color:var(--text-2);font-size:var(--fs-sm)}
+.textbtn{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font-family:inherit;font-size:inherit;color:inherit;text-align:inherit;cursor:pointer;color:var(--text);text-decoration:underline;text-underline-offset:3px;min-height:32px;display:inline-flex;align-items:center}
+.textbtn:focus-visible{outline:2px solid var(--accent-light);outline-offset:2px}
+
+/* How this was counted */
+details.how{margin-top:var(--sp-6);border-top:1px solid var(--border);padding-top:var(--sp-3)}
+details.how summary{cursor:pointer;color:var(--text-2);font-size:var(--fs-sm);min-height:44px;display:flex;align-items:center}
+details.how ul{margin:0;padding:0 0 0 var(--sp-4);color:var(--text-2);font-size:var(--fs-xs);line-height:1.7;max-width:72ch}
+.key{font-size:var(--fs-xs);color:var(--text-2);display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-5);margin:var(--sp-3) 0 0}
+
+/* Phone: Product (kind and memory beneath), stars, dot */
 @media (max-width:640px){
-  .scaffold-pulse{grid-template-columns:1fr}
+  .stage{padding-left:var(--sp-4);padding-right:var(--sp-4)}
+  .c-kind,.c-mem,.c-gov,.tbl td.k,.tbl td.m,.tbl td.g,.tbl th.k,.tbl th.m,.tbl th.g{display:none}
+  .tbl{table-layout:auto}
+  .tbl col{width:auto!important}
+  .tbl td.p{width:100%}
+  .tbl td.r{white-space:nowrap}
+  .tbl td.push{width:28px;padding-left:var(--sp-2);padding-right:0}
+  .tbl thead{display:none}
+  .one{display:none}
+  .sub-m{display:block}
+  .mon{display:none}
+  .dot{margin-right:0}
+  .sortsel{display:block}
+  .search{max-width:none}
+  .detail{padding:var(--sp-4)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:150ms!important;animation:none!important}
+}
+/* ── Sieve ── dashed tile = not laid (more inside); solid = laid (committed) */
+.sieve{margin-top:var(--sp-7);padding-top:var(--sp-5);border-top:1px solid var(--border)}
+.sv-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-3)}
+.sieve h2{font-size:var(--fs-lg);font-weight:var(--fw-medium);letter-spacing:-0.01em;margin:0}
+.sv-note{margin:var(--sp-1) 0 var(--sp-4);font-size:var(--fs-xs);color:var(--text-2)}
+.sv-clear{font-size:var(--fs-sm);color:var(--text-2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-2)}
+.tile{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font-family:inherit;font-size:inherit;color:inherit;text-align:inherit;box-sizing:border-box;cursor:pointer;min-height:64px;padding:var(--sp-3);border:1px dashed var(--border-2);border-radius:var(--radius);display:flex;flex-direction:column;justify-content:space-between;gap:var(--sp-2);background:transparent;transition:border-color 220ms var(--ease),background-color 220ms var(--ease),opacity 220ms var(--ease)}
+.tile:hover{border-color:var(--text-2)}
+.tile:focus-visible{outline:2px solid var(--accent-light);outline-offset:2px}
+.tile .tl{font-size:var(--fs-sm);line-height:1.3;color:var(--text);display:flex;gap:var(--sp-2);align-items:flex-start}
+.ico{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.tile .ico{color:var(--text-2);margin-top:-1px;transition:color 220ms var(--ease)}
+.tile.on .ico{color:var(--text)}
+.tile .tn{padding-left:26px}
+.tile .tn{font-size:var(--fs-xs);color:var(--text-2);font-variant-numeric:tabular-nums}
+.tile.on{border-style:solid;border-color:var(--text);background:var(--bg-2)}
+.tile[aria-disabled="true"]{opacity:.35;cursor:default}
+.readout{margin-top:var(--sp-5);min-height:64px}
+.sv-row{display:flex;align-items:baseline;gap:var(--sp-4);flex-wrap:wrap}
+.sv-line{margin:0;font-size:var(--fs-md);color:var(--text-2);max-width:60ch}
+.sv-num{font-size:40px;font-weight:var(--fw-light);color:var(--text);font-variant-numeric:tabular-nums;line-height:1;vertical-align:-6px;margin-right:4px}
+.sv-empty{margin:var(--sp-3) 0 0;color:var(--text);font-size:var(--fs-sm)}
+.sv-list{list-style:none;padding:0;margin:var(--sp-3) 0 0;display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-2)}
+.nm{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font-family:inherit;font-size:inherit;color:inherit;text-align:inherit;cursor:pointer;color:var(--text);font-size:var(--fs-sm);min-height:32px;display:inline-flex;align-items:center;padding:0 var(--sp-2);border:1px solid var(--border-2);border-radius:var(--radius)}
+.nm.guess{border-style:dashed}
+.nm:hover{border-color:var(--text-2)}
+.nm:focus-visible{outline:2px solid var(--accent-light);outline-offset:2px}
+.sv-list{flex-direction:column;align-items:stretch;gap:var(--sp-2)}
+.nearg{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-1) var(--sp-2)}
+.nearg .nm{min-height:32px;font-size:var(--fs-xs);color:var(--text-2)}
+.nm.near{border-style:dashed;border-color:var(--border-2)}
+.nmiss{font-size:var(--fs-xs);color:var(--text-2)}
+.sv-tray{margin:0}
+.sv-tray[open]{flex-basis:100%}
+.sv-tray summary{cursor:pointer;color:var(--text-2);font-size:var(--fs-xs);min-height:32px;display:inline-flex;align-items:center;padding:0 var(--sp-2);border:1px dashed var(--border-2);border-radius:var(--radius);list-style:none}
+.sv-tray summary::-webkit-details-marker{display:none}
+.sv-tray ul{margin-top:var(--sp-2)}
+.sv-tray ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-2)}
+.sv-tray .nm{opacity:.7}
+@media (max-width:720px){ .tiles{grid-template-columns:repeat(2,1fr)} }
+.tn-short{display:none}
+@media (max-width:640px){
+  /* phones: two short columns, the count beside the label, not under it */
+  .tiles{gap:6px}
+  .tile{min-height:52px;padding:10px 10px 10px 10px;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:var(--sp-2)}
+  .tile .tl{font-size:13px;line-height:1.3;gap:6px}
+  .tile .ico{width:16px;height:16px;margin-top:0}
+  .tile .tn{padding-left:0;flex:none;line-height:1.3}
+  .tn-long{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .tn-short{display:inline;font-size:var(--fs-xs);color:var(--text-2)}
+  .tile.on .tn-short{color:var(--text)}
+  .sv-note{margin-bottom:var(--sp-3)}
+  .sv-num{font-size:34px}
 }
 </style>
 </head>
@@ -138,141 +203,416 @@ td.detailcell{padding:0;border-top:none}
 </header>
 <!-- /include -->
 
-<main class="scaffold-stage">
+<main class="stage">
 <div class="wrap">
+  <h1 class="title">Field map</h1>
+  <p class="lead" id="lead">Loading the field.</p>
+  <p class="dateline" id="dateline"></p>
 
-  <div class="scaffold-eyebrow">the scaffold · an automated watcher</div>
-  <h1 class="scaffold-title">Field map: The scaffold</h1>
-
-  <!-- lead copy landed 2026-06-25 -->
-  <p class="scaffold-lead">// an automated watch on where AI cognition tooling converges. n=<span class="lead-n"></span> (young field). read where they meet, and where they don't. // the map of the field loci works in.</p>
-
-  <!-- Pulse strip: two numbers carry the story, the rest stay in row-detail.
-       In the field / with a governance gate. Crane form. -->
-  <section class="scaffold-pulse" aria-label="Scaffold pulse">
-    <div class="pulse-primary">
-      <div class="pl-lbl">in the field</div>
-      <div class="pl-num" id="pulse-tracked">–</div>
-      <div class="pl-sub" id="pulse-sub">products tracked</div>
+  <section class="sieve" id="sieve" aria-labelledby="sv-h">
+    <div class="sv-head">
+      <h2 id="sv-h">What must it do?</h2>
+      <button class="textbtn sv-clear" id="sv-clear" type="button">Clear</button>
     </div>
-    <div class="pulse-meta" id="pulse-meta"></div>
+    <p class="sv-note">Eight questions, each read from one field. A count, not a ranking.</p>
+    <div class="tiles" id="tiles" role="group" aria-label="Requirements"></div>
+    <div class="readout" aria-live="polite">
+      <div class="sv-row"><p class="sv-line"><span class="sv-num" id="sv-num"></span> <span id="sv-say"></span></p><details class="sv-tray" id="sv-tray" hidden><summary></summary></details></div>
+      <p class="sv-empty" id="sv-empty" hidden></p>
+      <ul class="sv-list" id="sv-list"></ul>
+    </div>
   </section>
-  <div class="refresh" id="refresh"></div>
+
 
   <div class="controls">
-    <input id="q" type="search" placeholder="Search…" aria-label="Search products" oninput="render()">
-    <span id="chips"></span>
-    <span class="count" id="count"></span>
+    <label class="sr-only" for="q">Search the field</label>
+    <input id="q" class="search" type="search" placeholder="Search by name or kind" autocomplete="off">
+    <label class="sr-only" for="sortsel">Sort</label>
+    <select id="sortsel" class="sortsel">
+      <option value="name">Sort: name</option>
+      <option value="stars">Sort: stars</option>
+      <option value="pushed">Sort: last push</option>
+      <option value="category">Sort: kind</option>
+    </select>
+    <span class="count" id="count" aria-live="polite"></span>
   </div>
 
-  <table>
-    <colgroup><col style="width:32%"><col style="width:10%"><col style="width:11%"><col style="width:9%"><col style="width:12%"><col style="width:9%"><col style="width:11%"></colgroup>
+  <table class="tbl">
+    <caption class="sr-only">Agent memory projects. Select a row for its detail.</caption>
+    <colgroup><col class="c-prod"><col class="c-kind"><col class="c-mem"><col class="c-gov"><col class="c-stars"><col class="c-push"></colgroup>
     <thead><tr>
-      <th onclick="sortBy('name')">Product</th>
-      <th onclick="sortBy('category')">Category</th>
-      <th onclick="sortBy('memory_model')">Architecture</th>
-      <th onclick="sortBy('self_host')">Host</th>
-      <th onclick="sortBy('license')">License</th>
-      <th class="r" onclick="sortBy('stars')">Stars</th>
-      <th class="r" onclick="sortBy('activity_days')">Alive</th>
+      <th data-k="name" class="p" scope="col"><button>Product</button></th>
+      <th data-k="category" class="k" scope="col"><button>Kind</button></th>
+      <th data-k="memory_model" class="m" scope="col"><button>Memory</button></th>
+      <th data-k="governance" class="g" scope="col"><button>Governance</button></th>
+      <th data-k="stars" class="r" scope="col"><button>Stars</button></th>
+      <th data-k="pushed" class="push" scope="col"><button>Last push</button></th>
     </tr></thead>
-    <tbody id="body"></tbody>
+    <tbody id="tbody"></tbody>
   </table>
 
-  <div class="legend" id="legend"></div>
-  <ul class="notes" id="notes"></ul>
+  <div class="key" aria-label="Key">
+    <span><span class="dot on"></span>pushed within 30 days of the count</span>
+    <span><span class="dot off"></span>within a year</span>
+    <span><span class="guess">dashed</span> low confidence or vendor docs only</span>
+  </div>
+
+  <details class="how">
+    <summary>How this was counted</summary>
+    <ul id="how-list"></ul>
+  </details>
 </div>
 </main>
 
-<!-- ── Dataset (mirrors memory-field) ─────────────────────────────────── -->
+<!-- Field data: every number on this page is read or counted from scaffold-data.json. -->
 <script>
-const PRIVATE=false;
-let STATE, P, BC, CATS;
-let sort={key:'stars',dir:-1}, off=new Set();
-const kstars=n=>n==null?'<span class="muted">–</span>':(n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':n);
-const hostCls={yes:'host-yes','cloud-only':'host-cloud',partial:'host-partial'};
-const hostTxt={yes:'self-host','cloud-only':'cloud',partial:'partial'};
-const actCls=d=>d==null?'muted':d<=7?'host-yes':d<=90?'':'muted';
+/* Core: load the field, derive honest values, render the ledger.
+   Every number on the page is read or counted from scaffold-data.json. */
+'use strict';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DAY=864e5;
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmtDay=d=>`${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+const fmtMon=d=>`${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+const kstars=n=>n==null?null:(n>=1000?(n/1000).toFixed(n>=10000?0:1).replace(/\.0$/,'')+'k':String(n));
 
-function renderChips(){
-  document.getElementById('chips').innerHTML=CATS.map(c=>`<span class="chip cat ${off.has(c)?'off':''}" onclick="toggle('${c}')" title="${STATE.categories[c]}">${c}</span>`).join(' ');
+
+/* Mini icons in the loci grammar: hairline strokes, 2px corners, the vortex
+   square, the crystal, the log spiral. Dashed = "more inside"; solid = held. */
+const D='stroke-dasharray="1.6 1.4"';
+const ICONS={
+  local:`<rect x="2.5" y="2.5" width="13" height="13" rx="1.5"/><rect x="6" y="6" width="6" height="6" rx="1" transform="rotate(11 9 9)"/>`,
+  mydata:`<path d="M9 2 15 9 9 16 3 9Z"/><path d="M3 9H15M9 2V16" ${D}/>`,
+  open:`<path d="M11 2.5H4A1.5 1.5 0 0 0 2.5 4V14A1.5 1.5 0 0 0 4 15.5H14A1.5 1.5 0 0 0 15.5 14V7"/>`,
+  mcp:`<rect x="2" y="6.5" width="5" height="5" rx="1"/><rect x="11" y="6.5" width="5" height="5" rx="1"/><path d="M7 9H11"/>`,
+  file:`<path d="M4 2.5H11L14 5.5V15.5H4Z"/><path d="M6.5 9H11.5M6.5 12H11.5" ${D}/>`,
+  time:`<path d="M10.10 9.00 L10.10 9.28 L10.03 9.56 L9.89 9.83 L9.68 10.05 L9.41 10.23 L9.09 10.33 L8.75 10.36 L8.41 10.30 L8.07 10.15 L7.78 9.91 L7.55 9.60 L7.39 9.23 L7.33 8.82 L7.38 8.39 L7.53 7.98 L7.79 7.60 L8.15 7.29 L8.58 7.07 L9.08 6.96 L9.60 6.98 L10.11 7.13 L10.59 7.41 L11.00 7.82 L11.30 8.33 L11.48 8.92 L11.50 9.55 L11.36 10.19 L11.06 10.80 L10.60 11.32 L10.01 11.74 L9.31 12.00 L8.55 12.08 L7.76 11.97 L7.00 11.65 L6.32 11.14 L5.77 10.46 L5.39 9.64 L5.23 8.72 L5.30 7.75 L5.61 6.80 L6.17 5.94 L6.95 5.21 L7.92 4.68 L9.02 4.40 L10.20 4.40 L11.37 4.71 L12.47 5.31 L13.42 6.19 L14.14 7.32 L14.57 8.63 L14.67 10.05 L14.41 11.50 L13.77 12.89 L12.78 14.11 L11.48 15.09 L9.93 15.73 L8.21 15.97 L6.43 15.77"/>`,
+  source:`<rect x="11" y="2.5" width="4.5" height="4.5" rx="1"/><path d="M11.5 7 5.5 13" ${D}/><circle cx="4.5" cy="14" r="1.6"/>`,
+  gate:`<path d="M4 2.5V15.5M14 2.5V15.5M4 9H14"/><path d="M4 5.5H14" ${D}/>`
+};
+const icon=(k,cls)=>`<svg class="ico ${cls||''}" viewBox="0 0 18 18" aria-hidden="true" focusable="false">${ICONS[k]}</svg>`;
+
+const F={}; // the field
+const ax=(p,k)=>p.enrichment&&p.enrichment[k]?p.enrichment[k]:null;
+const isLow=a=>a&&a.c==='low';
+const isSoft=a=>a&&(a.c==='low'||a.sr);
+
+const WORDS={
+  self_host:{yes:'runs on your machine',partial:'partly self-hostable','cloud-only':'cloud only'},
+  data_location:{local:'local',both:'local or cloud',cloud:'cloud'},
+  governance:{none:'none','provenance-tracked':'provenance','source-citation':'cites sources','provenance+review-gate':'review gate'},
+  temporal:{'append-only':'append-only','decay-consolidation':'decays and consolidates','versioned/bi-temporal':'versioned in time',unknown:'not documented'},
+  export:{json:'JSON',markdown:'Markdown',sqlite:'SQLite','api-export':'through an API','graph-export':'graph export','none-documented':'none documented',unknown:'not documented'},
+  op:{operational:'shipping',mixed:'partly shipping',aspirational:'mostly planned'},
+  pricing:{'free-oss':'free, open source',freemium:'free tier, paid hosting',paid:'paid'},
+  conf:{high:'high confidence',med:'medium confidence',medium:'medium confidence',low:'low confidence'}
+};
+const w=(k,v)=>(WORDS[k]&&WORDS[k][v])||v||'';
+
+/* Activity, honestly: a date from pushed_at and a dot by fill alone.
+   filled: pushed in the 30 days before the count (or since)
+   hollow: pushed in the year before the count
+   none:   no push in that year, archived, or no public repo */
+function status(p){
+  if(p.archived||p.status==='archived') return 'none';
+  if(!p.pushed_at) return 'none';
+  const age=(F.snap-new Date(p.pushed_at))/DAY;
+  return age<=30?'on':age<=365?'off':'none';
 }
-function toggle(c){off.has(c)?off.delete(c):off.add(c);renderChips();render();}
-function sortBy(k){sort.dir=(sort.key===k?-sort.dir:(k==='name'||k==='category'||k==='license'||k==='pricing'?1:-1));sort.key=k;render();}
-function tog(row){const d=row.nextElementSibling;const open=d.style.display==='none';d.style.display=open?'':'none';row.classList.toggle('open',open);row.querySelector('.chev').textContent=open?'▾':'▸';}
+const STATUS_WORD={on:'pushed within 30 days of the count',off:'pushed within a year of the count',none:'no push in the year before the count'};
 
-/* Pulse: one headline number plus a small caption of the rest.
-   Crane form: show the one thing, name the others, do not chart them. */
-function renderPulse(){
-  const t=STATE.totals;
-  const s=STATE.signals||{};
-  document.getElementById('pulse-tracked').textContent=t.products;
-  // Two numbers carry the story: field is full, spine is thin.
-  // The other ratios sit small in the meta, no charts.
-  const gate=s.governance_gate||0;
-  document.getElementById('pulse-meta').innerHTML=
-    `<div class="pm-headline"><span class="pm-num">${gate}</span><span class="pm-lbl">with a governance gate</span></div>`+
-    `<div class="pm-row"><span class="pm-key">open-source</span><span class="pm-val">${t.open_source}</span></div>`+
-    `<div class="pm-row"><span class="pm-key">self-hostable</span><span class="pm-val">${t.self_hostable}</span></div>`+
-    `<div class="pm-row"><span class="pm-key">mcp-capable</span><span class="pm-val">${t.mcp_capable}</span></div>`;
+async function loadField(){
+  const r=await fetch('scaffold-data.json',{cache:'no-cache'});
+  const S=await r.json();
+  F.S=S; F.P=S.products; F.snap=new Date(S.generated_at);
+  F.n=F.P.length;
+  F.gate=F.P.filter(p=>(ax(p,'governance')||{}).v==='provenance+review-gate').length;
+  // repos shared by more than one row: their stars are not the row's own
+  F.shared={}; F.P.forEach(p=>{if(p.github){(F.shared[p.github]=F.shared[p.github]||[]).push(p.name);}});
+  // a later addition, if the notes record one ("X and Y were added on YYYY-MM-DD")
+  F.added=null;
+  (S.notes||[]).forEach(t=>{const m=/^(.+?) were added on (\d{4}-\d{2}-\d{2})/.exec(t);if(m)F.added={names:m[1],date:new Date(m[2]+'T00:00:00Z')};});
+  F.later=new Map(); // name -> date the row's stars and activity were read
+  if(F.added) F.added.names.split(/,\s*|\s+and\s+/).forEach(n=>F.later.set(n.trim(),F.added.date));
+  F.P.forEach(p=>{ if(!F.later.has(p.name)&&p.pushed_at&&new Date(p.pushed_at)-F.snap>2*DAY) F.later.set(p.name,null); }); // the count runs through its own day
+  F.benchNote=(S.notes||[]).find(t=>/full-context/i.test(t))||'';
+  F.rankNote=(S.notes||[]).find(t=>/not ranked/i.test(t))||'';
+  F.P.forEach((p,i)=>{p._i=i;p._st=status(p);p._id='p-'+i;});
+  return F;
 }
 
-function fact(label,val){return `<span class="fact"><span class="tag tag-fact">fact</span><span class="fl">${label}</span><span class="fv">${val||'–'}</span></span>`;}
-function factC(label,a){if(!a)return '';return `<span class="fact"><span class="tag tag-fact">fact</span><span class="fl">${label}</span><span class="fv">${a.v}</span> <span class="conf">${a.c}${a.sr?' · self-rep':''}</span></span>`;}
+/* ── Header copy ────────────────────────────────────────────────────── */
+function renderHead(){
+  $('#lead').innerHTML=`<b>${F.n}</b> memory layers for AI agents, counted and dated. <b>${F.gate}</b> of them gate what gets written.`.replace(`<b>${F.gate}</b>`,`<button class="gatebtn" id="gatebtn" type="button" aria-label="Show the ${F.gate} that gate what gets written">${F.gate}</button>`);
+  $('#gatebtn').onclick=()=>(window.onGate||openGateRows)();
+  const today=new Date();
+  const age=Math.max(0,Math.floor((today-F.snap)/DAY));
+  let s=`Counted <span class="age">${fmtDay(F.snap)}</span>, <span class="age">${age}</span> days ago.`;
+  if(F.added) s+=` ${esc(F.added.names)} added <span class="age">${fmtDay(F.added.date)}</span>, their stars read that day.`;
+  else if(F.later.size) s+=` ${F.later.size} ${F.later.size>1?'rows were':'row was'} read after that.`;
+  s+=` Rows are not ranked; stars measure popularity, not quality.`;
+  $('#dateline').innerHTML=s;
+  const how=$('#how-list');
+  if(how) how.innerHTML=(F.S.method?`<li>${esc(F.S.method)}</li>`:'')+(F.S.notes||[]).map(t=>`<li>${esc(t)}</li>`).join('');
+}
 
-function detail(p){
-  const bench=BC[p.name];
-  const claim=bench?`<div class="claimrow"><span class="tag tag-claim">claim</span>${bench} <span class="muted">· self-reported, methodology varies. Control: full-context baseline ≈73% on LoCoMo often beats memory tools.</span></div>`:'';
+function openGateRows(){ F.P.filter(p=>(ax(p,'governance')||{}).v==='provenance+review-gate').forEach((p,i,a)=>{ if(!T.open.has(p._id)) toggleRow(p._id); }); const first=F.P.slice().filter(p=>(ax(p,'governance')||{}).v==='provenance+review-gate').map(p=>document.getElementById(p._id)).sort((a,b)=>a.getBoundingClientRect().top-b.getBoundingClientRect().top)[0]; if(first) openRow(first.id); }
+
+/* ── Table ──────────────────────────────────────────────────────────── */
+const T={sort:{key:'name',dir:1},q:'',open:new Set(),filter:null /* fn(p)->bool, set by the sieve */,outsideLabel:null};
+const SORTS={
+  name:p=>p.name.toLowerCase(),
+  category:p=>p.category,
+  memory_model:p=>p.memory_model,
+  governance:p=>(ax(p,'governance')||{}).v||'~',
+  stars:p=>p.stars,
+  pushed:p=>p.pushed_at?Date.parse(p.pushed_at):null
+};
+function cmp(a,b){
+  const k=T.sort.key, f=SORTS[k];
+  let av=f(a),bv=f(b);
+  // missing values always sink, whatever the direction, and are labelled, not ranked
+  if(av==null&&bv==null) return a.name.localeCompare(b.name);
+  if(av==null) return 1; if(bv==null) return -1;
+  return (av>bv?1:av<bv?-1:a.name.localeCompare(b.name))*T.sort.dir;
+}
+function setSort(k){
+  T.sort.dir=T.sort.key===k?-T.sort.dir:((k==='stars'||k==='pushed')?-1:1);
+  T.sort.key=k; const sel=$('#sortsel'); if(sel) sel.value=k; renderTable();
+}
+
+function govCell(p){
+  const g=ax(p,'governance');
+  if(!g) return `<span class="w2">not read</span>`;
+  const word=w('governance',g.v);
+  const cls=(g.v==='provenance+review-gate'?'':'w2 ')+(isSoft(g)?'guess':'');
+  return `${g.v==='provenance+review-gate'?icon('gate','ico-cell'):''}<span class="${cls}" title="${esc(w('conf',g.c)+(g.sr?', vendor docs only':''))}">${esc(word)}</span>`;
+}
+
+function rowHTML(p,dim){
+  const st=p._st, push=p.pushed_at?fmtMon(new Date(p.pushed_at)):'';
+  const stars=kstars(p.stars);
+  const aka=p.aka?` <span class="aka">${esc(p.aka)}</span>`:'';
+  const arch=(p.archived||p.status==='archived')?`<span class="word-arch">archived</span>`:'';
+  const open=T.open.has(p._id);
+  return `<tr class="row" id="${p._id}" tabindex="0" aria-expanded="${open}" aria-controls="${p._id}-d" data-id="${p._id}" style="${dim?'opacity:.35':''}">
+    <td class="p"><div class="pname">${esc(p.name)}${aka}${arch}</div><div class="one">${esc(p.one_liner)}</div><div class="sub-m">${esc(p.category)} · ${esc(p.memory_model)}</div></td>
+    <td class="k w2">${esc(p.category)}</td>
+    <td class="m w2">${esc(p.memory_model)}</td>
+    <td class="g">${govCell(p)}</td>
+    <td class="r">${stars?esc(stars):'<span class="w2">no repo</span>'}${F.later.has(p.name)?`<span class="later" title="Stars and last push read ${F.later.get(p.name)?fmtDay(F.later.get(p.name)):'after the count'}, not ${fmtDay(F.snap)}">${F.later.get(p.name)?'read '+fmtDay(F.later.get(p.name)).replace(/ \d{4}$/,''):'read later'}</span>`:''}</td>
+    <td class="push"><span class="dot ${st}" role="img" aria-label="${esc(STATUS_WORD[st])}" title="${esc(STATUS_WORD[st])}"></span><span class="mon">${esc(push)}</span></td>
+  </tr>
+  <tr class="drow" id="${p._id}-d" ${open?'':'hidden'}><td class="dcell" colspan="6">${open?detailHTML(p):''}</td></tr>`;
+}
+
+function axisFact(label,a,key){
+  if(!a) return `<div><dt>${label}</dt><dd class="w2">not read yet</dd></div>`;
+  return `<div><dt>${label}</dt><dd><span class="${isSoft(a)?'guess':''}">${esc(w(key,a.v))}</span> <span class="conf">${esc(w('conf',a.c))}${a.sr?', vendor docs only':''}</span></dd></div>`;
+}
+function detailHTML(p){
   const e=p.enrichment;
-  const erows=e?`${factC('Export',e.export)}${factC('Temporal',e.temporal)}${factC('Governance',e.governance)}<span class="fact"><span class="tag tag-fact">fact</span><span class="fl">Backing</span><span class="fv">${e.op}</span></span>`:'';
-  const pendTxt=e?'':`Eval axes pending enrichment (FACT): export · temporal · governance.`;
-  const pending=pendTxt?`<div class="pending">${pendTxt}</div>`:'';
-  const links=[p.url?`<a href="${p.url}">site ↗</a>`:'',p.github?`<a href="https://github.com/${p.github}">github: ${p.github} ↗</a>`:''].filter(Boolean).join('');
+  const lic=p.license||'not stated';
+  const pricing=w('pricing',p.pricing)+(p.pricing_note?`. ${p.pricing_note}`:'');
+  const shared=p.github&&F.shared[p.github].length>1?`<p class="dnote">Stars are for ${esc(p.github)}, shared with ${esc(F.shared[p.github].filter(n=>n!==p.name).join(', '))}.</p>`:'';
+  const laterNote=F.later.has(p.name)?`<p class="dnote">Stars and last push were read ${F.later.get(p.name)?fmtDay(F.later.get(p.name)):'after the count'}, later than the rest of the field (${fmtDay(F.snap)}). Compare them with that in mind.</p>`:'';
+  const statusNote=p.status_note?`<p class="dnote">${esc(p.status_note)}</p>`:'';
+  const bench=(F.S.benchmark_claims||{})[p.name];
+  const claim=bench?`<p class="claim"><span class="w">claim</span>${esc(bench)}<span class="cav">${esc(F.benchNote)}</span></p>`:'';
+  const pushed=p.pushed_at?`${fmtDay(new Date(p.pushed_at))} (${STATUS_WORD[p._st]})`:'no public repo';
+  const links=[p.url?`<a href="${esc(p.url)}" rel="noopener">Site</a>`:'',p.github?`<a href="https://github.com/${esc(p.github)}" rel="noopener">github.com/${esc(p.github)}</a>`:''].join('');
   return `<div class="detail">
-    <div class="dl">${p.one_liner}</div>
-    <div class="facts">
-      ${fact('License',p.license)}${fact('Deployment',hostTxt[p.self_host]||p.self_host)}${fact('Architecture',p.memory_model)}
-      ${fact('Data',p.data_location)}${fact('Integration',p.interface)}${fact('Pricing',p.pricing+(p.pricing_note?' · '+p.pricing_note:''))}
-      ${erows}
-    </div>
-    ${claim}${pending}
+    <dl class="facts">
+      <div><dt>Kind</dt><dd>${esc(p.category)}: ${esc(F.S.categories[p.category]||'')}</dd></div>
+      <div><dt>Memory</dt><dd>${esc(p.memory_model)}</dd></div>
+      <div><dt>Runs</dt><dd>${esc(w('self_host',p.self_host))}</dd></div>
+      <div><dt>Data</dt><dd>${esc(w('data_location',p.data_location))}</dd></div>
+      <div><dt>License</dt><dd>${esc(lic)}</dd></div>
+      <div><dt>Pricing</dt><dd>${esc(pricing)}</dd></div>
+      <div><dt>Connects</dt><dd>${esc(p.interface)}</dd></div>
+      <div><dt>Last push</dt><dd>${esc(pushed)}</dd></div>
+      ${axisFact('Export',e&&e.export,'export')}
+      ${axisFact('History',e&&e.temporal,'temporal')}
+      ${axisFact('Governance',e&&e.governance,'governance')}
+      ${e&&e.op?`<div><dt>Backing</dt><dd>${esc(w('op',e.op))}</dd></div>`:''}
+    </dl>
+    ${shared}${laterNote}${statusNote}${claim}
+    <p class="dnote">Plain values are facts read from the repo, license and docs. Dashed values are low confidence or read only from the vendor’s own docs. A claim is the vendor's own number.</p>
     <div class="links">${links}</div>
   </div>`;
 }
 
-function render(){
-  const q=(document.getElementById('q').value||'').toLowerCase();
-  let rows=P.filter(p=>!off.has(p.category)).filter(p=>!q||(p.name+' '+(p.aka||'')+' '+p.one_liner).toLowerCase().includes(q));
-  rows.sort((a,b)=>{let av=a[sort.key],bv=b[sort.key];
-    if(av==null)av=(sort.key==='stars'||sort.key==='activity_days')?-1:'';
-    if(bv==null)bv=(sort.key==='stars'||sort.key==='activity_days')?-1:'';
-    return (av>bv?1:av<bv?-1:0)*sort.dir;});
-  document.getElementById('count').textContent=`${rows.length} of ${P.length}`;
-  document.getElementById('body').innerHTML=rows.map(p=>{
-    const aka=p.aka?` <span class="aka">· ${p.aka}</span>`:'';
-    return `<tr class="row" onclick="tog(this)">
-      <td><div class="pname"><span class="chev">▸</span> ${p.name}${aka}</div><div class="pdesc">${p.one_liner}</div></td>
-      <td><span class="badge b-${p.category}">${p.category}</span></td>
-      <td>${p.memory_model}</td>
-      <td class="${hostCls[p.self_host]||''}">${hostTxt[p.self_host]||p.self_host}</td>
-      <td class="lic">${p.license||'–'}</td>
-      <td class="r stars">${kstars(p.stars)}</td>
-      <td class="r ${actCls(p.activity_days)}">${p.activity_label||'<span class=&quot;muted&quot;>–</span>'}</td>
-    </tr>
-    <tr class="detailrow" style="display:none"><td class="detailcell" colspan="7">${detail(p)}</td></tr>`;
+function toggleRow(id){
+  const tr=document.getElementById(id), d=document.getElementById(id+'-d');
+  const open=!T.open.has(id);
+  open?T.open.add(id):T.open.delete(id);
+  tr.setAttribute('aria-expanded',open);
+  const p=F.P.find(x=>x._id===id);
+  if(open){d.firstElementChild.innerHTML=detailHTML(p);d.hidden=false;}else{d.hidden=true;}
+}
+function openRow(id){ if(!T.open.has(id)) toggleRow(id); const tr=document.getElementById(id); if(tr){tr.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});tr.focus({preventScroll:true});} }
+
+function matchQ(p){
+  if(!T.q) return true;
+  return (p.name+' '+(p.aka||'')+' '+p.one_liner+' '+p.category+' '+p.memory_model).toLowerCase().includes(T.q);
+}
+
+function renderTable(){
+  const body=$('#tbody');
+  const rows=F.P.filter(matchQ).sort(cmp);
+  document.querySelectorAll('.tbl th[data-k]').forEach(th=>{
+    if(th.dataset.k===T.sort.key) th.setAttribute('aria-sort',T.sort.dir>0?'ascending':'descending'); else th.removeAttribute('aria-sort');
+  });
+  if(!rows.length){
+    body.innerHTML=`<tr><td colspan="6" class="empty">Nothing in the field matches “${esc(T.q)}”. <button class="textbtn" id="clearq">Clear the search</button></td></tr>`;
+    $('#clearq').onclick=()=>{$('#q').value='';T.q='';renderTable();$('#q').focus();};
+    $('#count').textContent=`0 of ${F.n}`; return;
+  }
+  let html='';
+  if(T.filter){
+    const inn=rows.filter(T.filter), out=rows.filter(p=>!T.filter(p));
+    html=inn.map(p=>rowHTML(p,false)).join('');
+    if(out.length) html+=`<tr class="divider"><td colspan="6" class="w2" style="font-size:12px;padding-top:24px">${esc(T.outsideLabel?T.outsideLabel(out.length):`Outside your line · ${out.length}`)}</td></tr>`+out.map(p=>rowHTML(p,true)).join('');
+    $('#count').textContent=T.q?`${rows.length} of ${F.n} match`:'';
+  } else {
+    html=rows.map(p=>rowHTML(p,false)).join('');
+    $('#count').textContent=T.q?`${rows.length} of ${F.n} match`:`${F.n} in the field`;
+  }
+  body.innerHTML=html;
+}
+
+function wireTable(){
+  $('#q').addEventListener('input',e=>{T.q=e.target.value.trim().toLowerCase();renderTable();});
+  document.querySelectorAll('.tbl th[data-k] button').forEach(b=>b.addEventListener('click',()=>setSort(b.parentElement.dataset.k)));
+  const sel=$('#sortsel'); if(sel) sel.addEventListener('change',e=>{T.sort.key=e.target.value;T.sort.dir=(e.target.value==='stars'||e.target.value==='pushed')?-1:1;renderTable();});
+  $('#tbody').addEventListener('click',e=>{const tr=e.target.closest('tr.row'); if(tr&&!e.target.closest('a')) toggleRow(tr.dataset.id);});
+  $('#tbody').addEventListener('keydown',e=>{const tr=e.target.closest('tr.row'); if(tr&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleRow(tr.dataset.id);}});
+}
+
+/* The sieve: requirement tiles narrow the field by hand.
+   Survivors are listed alphabetically, never ranked. A row that cannot be
+   read on a laid axis waits in a tray; it is never counted as a no. */
+const TILES=[
+  {id:'local', label:'Runs on my own machine', test:p=>p.self_host==='yes'},
+  {id:'mydata',label:'Can keep my data local', test:p=>p.data_location==='local'||p.data_location==='both'},
+  {id:'open',  label:'MIT, Apache or AGPL license', test:p=>['MIT','Apache-2.0','AGPL-3.0'].includes(p.license)},
+  {id:'mcp',   label:'Speaks MCP', test:p=>/\bMCP\b/.test(p.interface||'')},
+  {id:'file',  label:'Exports to an open file', axis:'export', yes:['json','markdown','sqlite'], unknown:['unknown']},
+  {id:'time',  label:'Remembers when a fact was true', axis:'temporal', yes:['versioned/bi-temporal'], unknown:['unknown']},
+  {id:'source',label:'Shows where a memory came from', axis:'governance', yes:['provenance-tracked','source-citation','provenance+review-gate'], unknown:[]},
+  {id:'gate',  label:'Gates what gets written', axis:'governance', yes:['provenance+review-gate'], unknown:[]}
+];
+const MAX_TILES=4;
+const SV={laid:[], listeners:[]};
+
+function judge(p,t){ // 'yes' | 'no' | 'unknown', plus a guess flag
+  if(!t.axis) return {r:t.test(p)?'yes':'no'};
+  const a=ax(p,t.axis);
+  if(!a||t.unknown.includes(a.v)) return {r:'unknown'};
+  return {r:t.yes.includes(a.v)?'yes':'no',guess:isSoft(a)};
+}
+function sieve(ids){
+  const tiles=ids.map(id=>TILES.find(t=>t.id===id));
+  const keep=[],tray=[],out=[];
+  F.P.forEach(p=>{
+    const js=tiles.map(t=>judge(p,t));
+    if(js.some(j=>j.r==='no')) out.push(p);
+    else if(js.some(j=>j.r==='unknown')) tray.push(p);
+    else keep.push({p,guess:js.some(j=>j.guess)});
+  });
+  keep.sort((a,b)=>a.p.name.localeCompare(b.p.name,undefined,{sensitivity:'base'}));
+  return {keep,tray,out};
+}
+
+function renderSieve(){
+  const res=sieve(SV.laid);
+  const full=SV.laid.length>=MAX_TILES;
+  $('#tiles').innerHTML=TILES.map(t=>{
+    const on=SV.laid.includes(t.id);
+    const next=on?SV.laid.filter(x=>x!==t.id):SV.laid.concat(t.id);
+    const n=sieve(next).keep.length;
+    const dis=!on&&full;
+    const k0=sieve(SV.laid).keep.length;
+    const hint=on?(n-k0>0?`lift: ${n-k0} return`:'lift: no change'):`${n} remain`;
+    const short=on?`+${n-k0}`:`${n}`; // phones: the number alone
+    return `<button class="tile${on?' on':''}" data-t="${t.id}" aria-pressed="${on}" ${dis?'aria-disabled="true"':''}>
+      <span class="tl">${icon(t.id)}<span>${esc(t.label)}</span></span><span class="tn"><span class="tn-long">${hint}</span><span class="tn-short" aria-hidden="true">${short}</span></span></button>`;
   }).join('');
+
+  $('#sv-clear').hidden=!SV.laid.length;
+  const k=res.keep.length;
+  const num=$('#sv-num'), say=$('#sv-say'), list=$('#sv-list'), tray=$('#sv-tray'), empty=$('#sv-empty');
+  num.textContent=SV.laid.length?k:F.n;
+  empty.hidden=true; tray.hidden=true; list.innerHTML='';
+  if(!SV.laid.length){
+    say.textContent='in the field';
+  } else if(!k){
+    num.textContent='0';
+    say.textContent=`of ${F.n}`;
+    // name the tile whose lifting brings back the most
+    let best=null;
+    SV.laid.forEach(id=>{const n=sieve(SV.laid.filter(x=>x!==id)).keep.length;if(!best||n>best.n)best={id,n};});
+    const t=TILES.find(x=>x.id===best.id);
+    empty.innerHTML=`Lifting “${esc(t.label)}” brings back ${best.n}. <button class="textbtn" data-lift="${t.id}">Lift it</button>`;
+    empty.hidden=false;
+  } else {
+    say.textContent=`of ${F.n}`;
+    // near misses: at three survivors or fewer, show the border, not a podium
+    if(k<=3&&SV.laid.length>=2){
+      const near=[];
+      res.out.forEach(p=>{
+        const js=SV.laid.map(id=>({id,j:judge(p,TILES.find(t=>t.id===id))}));
+        const fails=js.filter(x=>x.j.r==='no'), unk=js.filter(x=>x.j.r==='unknown');
+        if(fails.length===1&&!unk.length) near.push({p,t:TILES.find(t=>t.id===fails[0].id)});
+      });
+      near.sort((a,b)=>a.p.name.localeCompare(b.p.name,undefined,{sensitivity:'base'}));
+      const by={}; near.forEach(x=>{(by[x.t.id]=by[x.t.id]||{t:x.t,ps:[]}).ps.push(x.p);});
+      list.innerHTML=Object.values(by).map(g=>`<li class="nearg"><span class="nmiss">Missed only “${esc(g.t.label.charAt(0).toLowerCase()+g.t.label.slice(1))}” · ${g.ps.length}</span> ${g.ps.map(p=>`<button class="nm near" data-go="${p._id}">${esc(p.name)}</button>`).join(' ')}</li>`).join('');
+    }
+  }
+  if(SV.laid.length&&res.tray.length){
+    tray.hidden=false;
+    tray.innerHTML=`<summary title="Not readable on ${SV.laid.length>1?'these axes':'this axis'}: not counted as a no">+${res.tray.length} unknown</summary><ul>${res.tray.map(p=>`<li><button class="nm" data-go="${p._id}">${esc(p.name)}</button></li>`).join('')}</ul>`;
+  }
+  // the table follows: survivors first, the rest stay whole below at context opacity
+  if(SV.laid.length){
+    const ids=new Set(res.keep.map(x=>x.p._id));
+    T.filter=p=>ids.has(p._id);
+    T.outsideLabel=n=>`Outside your line · ${n}`;
+  } else { T.filter=null; T.outsideLabel=null; }
+  renderTable();
+  SV.listeners.forEach(fn=>fn(res));
 }
-function renderRefresh(){const d=new Date(STATE.generated_at);document.getElementById('refresh').textContent=`stars live as of ${d.toISOString().slice(0,10)} · ${STATE.totals.products} entrants · facts + claims`;document.querySelectorAll('.lead-n').forEach(e=>e.textContent=STATE.totals.products);}
-async function boot(){
-  try{ STATE=await (await fetch('scaffold-data.json',{cache:'no-cache'})).json(); }
-  catch(e){ document.getElementById('count').textContent='failed to load field data'; throw e; }
-  P=STATE.products; BC=STATE.benchmark_claims||{}; CATS=Object.keys(STATE.categories);
-  const legend=CATS.map(c=>`<span><span class="badge b-${c}">${c}</span> ${STATE.categories[c]}</span>`).join('')+' <span style="margin-left:6px"><span class="tag tag-fact">fact</span>verifiable <span class="tag tag-claim">claim</span>vendor self-reported</span>';
-  document.getElementById('legend').innerHTML=legend;
-  document.getElementById('notes').innerHTML=(STATE.method?`<li>method: ${STATE.method}</li>`:'')+(STATE.notes||[]).map(n=>`<li>${n}</li>`).join('');
-  renderPulse();renderRefresh();renderChips();render();
+
+function toggleTile(id){
+  const was=SV.laid.length;
+  const i=SV.laid.indexOf(id);
+  if(i>=0) SV.laid.splice(i,1);
+  else if(SV.laid.length<MAX_TILES) SV.laid.push(id);
+  else return;
+  sieveSortFollow(was);
+  renderSieve();
+  const b=document.querySelector(`.tile[data-t="${id}"]`); if(b) b.focus();
 }
-boot();
+// while any tile is laid the table is the shortlist, sorted by name
+function sieveSortFollow(was){
+  if(!was&&SV.laid.length){ T.sort={key:'name',dir:1}; }
+  const sel=$('#sortsel'); if(sel) sel.value=T.sort.key;
+}
+function wireSieve(){
+  window.onGate=()=>{ const was=SV.laid.length; if(!SV.laid.includes('gate')){ if(SV.laid.length>=MAX_TILES) SV.laid.pop(); SV.laid.push('gate'); } sieveSortFollow(was); renderSieve(); $('#sieve').scrollIntoView({block:'start'}); };
+  $('#sieve').addEventListener('click',e=>{
+    const t=e.target.closest('.tile'); if(t){ if(t.getAttribute('aria-disabled')!=='true') toggleTile(t.dataset.t); return; }
+    const l=e.target.closest('[data-lift]'); if(l){ toggleTile(l.dataset.lift); return; }
+    const g=e.target.closest('[data-go]'); if(g){ openRow(g.dataset.go); }
+  });
+  $('#sv-clear').addEventListener('click',()=>{const was=SV.laid.length;SV.laid=[];sieveSortFollow(was);renderSieve();});
+}
+
+(async()=>{try{await loadField();}catch(e){document.getElementById('lead').textContent='The field data did not load.';throw e;}
+renderHead();wireTable();wireSieve();renderSieve();
+})();
 </script>
 <!-- #include partials/_footer.html -->
 <footer class="site-footer">
