@@ -26,7 +26,7 @@
     "hosted": 25,
     "self_hostable": 49,
     "mcp_capable": 29,
-    "stars_sum": 714523,
+    "stars_sum": 683873,
     "with_stars": 47
   },
   "by_model": {
@@ -2059,13 +2059,13 @@
     }
   ],
   "notes": [
-    "Stars and last-activity are pulled live from the GitHub API at build time; SaaS-only products without a public repo show no stars.",
+    "Stars and last-activity come from the GitHub API at each refresh (the date above); SaaS-only products without a public repo show no stars.",
     "Neutral resource: rows are not ranked editorially; default sort is GitHub stars (a popularity proxy, not a quality judgment).",
     "memory_model is a simplified primary tag; many tools are hybrid. Licenses/pricing verified at curation date and can drift.",
-    "Framework-native entries (LangMem, LlamaIndex, CrewAI, Semantic Kernel, Haystack) and the MCP reference server show stars for the parent project/monorepo, not the memory feature in isolation.",
+    "Framework-native entries (LangMem, LlamaIndex, CrewAI, Semantic Kernel, Haystack) and the MCP reference server show stars for the parent project/monorepo, not the memory feature in isolation. Zep Cloud shows the stars of Graphiti, its open-source engine; the star total counts that repo once.",
     "Cells are tagged by evidence class: FACT (verifiable from repo, license, docs) and CLAIM (vendor self-reported, caveated).",
     "Benchmark figures are self-reported and not cross-comparable across tools; the full-context baseline (~73% on LoCoMo) often beats memory tools and is shown as the honest control.",
-    "FACT axes export / temporal / governance were verified per-product from docs + repos (recon pass, 2026-06-14); 'self-reported' marks an axis confirmable only from the vendor's own docs.",
+    "FACT axes export / temporal / governance were verified per-product from docs + repos (recon pass, 2026-06-14; Hindsight and Reef on 2026-11-18 and 2026-11-19); 'self-reported' marks an axis confirmable only from the vendor's own docs.",
     "Hindsight and Reef were added on 2026-11-21; their stars and activity are from that day, not the date above."
   ]
 }
