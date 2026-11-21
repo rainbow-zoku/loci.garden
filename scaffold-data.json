@@ -2065,6 +2065,7 @@
     "Framework-native entries (LangMem, LlamaIndex, CrewAI, Semantic Kernel, Haystack) and the MCP reference server show stars for the parent project/monorepo, not the memory feature in isolation.",
     "Cells are tagged by evidence class: FACT (verifiable from repo, license, docs) and CLAIM (vendor self-reported, caveated).",
     "Benchmark figures are self-reported and not cross-comparable across tools; the full-context baseline (~73% on LoCoMo) often beats memory tools and is shown as the honest control.",
-    "FACT axes export / temporal / governance were verified per-product from docs + repos (recon pass, 2026-06-14); 'self-reported' marks an axis confirmable only from the vendor's own docs."
+    "FACT axes export / temporal / governance were verified per-product from docs + repos (recon pass, 2026-06-14); 'self-reported' marks an axis confirmable only from the vendor's own docs.",
+    "Hindsight and Reef were added on 2026-11-21; their stars and activity are from that day, not the date above."
   ]
 }
