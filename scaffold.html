@@ -357,7 +357,7 @@ function renderHead(){
   if(how) how.innerHTML=(F.S.method?`<li>${esc(F.S.method)}</li>`:'')+(F.S.notes||[]).map(t=>`<li>${esc(t)}</li>`).join('');
 }
 
-function openGateRows(){ F.P.filter(p=>(ax(p,'governance')||{}).v==='provenance+review-gate').forEach((p,i,a)=>{ if(!T.open.has(p._id)) toggleRow(p._id); }); const first=F.P.slice().filter(p=>(ax(p,'governance')||{}).v==='provenance+review-gate').map(p=>document.getElementById(p._id)).sort((a,b)=>a.getBoundingClientRect().top-b.getBoundingClientRect().top)[0]; if(first) openRow(first.id); }
+function openGateRows(){ showAllRows(); F.P.filter(p=>(ax(p,'governance')||{}).v==='provenance+review-gate').forEach((p,i,a)=>{ if(!T.open.has(p._id)) toggleRow(p._id); }); const first=F.P.slice().filter(p=>(ax(p,'governance')||{}).v==='provenance+review-gate').map(p=>document.getElementById(p._id)).filter(Boolean).sort((a,b)=>a.getBoundingClientRect().top-b.getBoundingClientRect().top)[0]; if(first) openRow(first.id); }
 
 /* ── Table ──────────────────────────────────────────────────────────── */
 const T={sort:{key:'name',dir:1},q:'',open:new Set(),filter:null /* fn(p)->bool, set by the sieve */,outsideLabel:null};
@@ -443,15 +443,18 @@ function detailHTML(p){
   </div>`;
 }
 
+// a search can hide a row a chip names: show the whole field before opening it
+function showAllRows(){ if(T.q){ $('#q').value=''; T.q=''; renderTable(); } }
 function toggleRow(id){
   const tr=document.getElementById(id), d=document.getElementById(id+'-d');
+  if(!tr||!d) return;
   const open=!T.open.has(id);
   open?T.open.add(id):T.open.delete(id);
   tr.setAttribute('aria-expanded',open);
   const p=F.P.find(x=>x._id===id);
   if(open){d.firstElementChild.innerHTML=detailHTML(p);d.hidden=false;}else{d.hidden=true;}
 }
-function openRow(id){ if(!T.open.has(id)) toggleRow(id); const tr=document.getElementById(id); if(tr){tr.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});tr.focus({preventScroll:true});} }
+function openRow(id){ if(!document.getElementById(id)) showAllRows(); if(!T.open.has(id)) toggleRow(id); const tr=document.getElementById(id); if(tr){tr.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});tr.focus({preventScroll:true});} }
 
 function matchQ(p){
   if(!T.q) return true;
