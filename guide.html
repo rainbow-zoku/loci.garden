@@ -160,6 +160,25 @@
       border-radius: 2px;
     }
 
+    pre {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 1.7;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      color: var(--text-mono);
+      overflow-x: auto;
+      margin: 0.75rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+      color: inherit;
+    }
+
     .toc {
       background: var(--bg-surface);
       border: 1px solid var(--border);
@@ -259,7 +278,7 @@
           <li><a href="#three-primitives">The three primitives</a></li>
           <li><a href="#relational-model">The relational model</a></li>
           <li><a href="#session-protocol">Session protocol</a></li>
-          <li><a href="#crystals">Planting crystals that last</a></li>
+          <li><a href="#crystals">Crystallising facts that last</a></li>
           <li><a href="#garden">Growing the garden</a></li>
           <li><a href="#multi-room">Multi-room thinking</a></li>
           <li><a href="#morning">The morning rhythm</a></li>
@@ -437,7 +456,7 @@
 
         <div class="guide-pagination">
           <a href="#relational-model" class="pg-link pg-prev">← 02 · The relational model</a>
-          <a href="#crystals" class="pg-link pg-next">04 · Planting crystals →</a>
+          <a href="#crystals" class="pg-link pg-next">04 · Crystallising facts →</a>
         </div>
       </section>
 
@@ -445,7 +464,7 @@
 
       <!-- Section 4 -->
       <section class="guide-section" id="crystals">
-        <h2>04 · Planting crystals that last</h2>
+        <h2>04 · Crystallising facts that last</h2>
 
         <h3>What makes a good crystal</h3>
         <p>A good crystal is <strong>stable</strong> (rarely changes), <strong>load-bearing</strong> (other reasoning depends on it) and <strong>non-obvious</strong> (the AI wouldn't infer it).</p>
@@ -457,7 +476,10 @@
         </div>
 
         <h3>Crystal hygiene</h3>
-        <p>Crystals go stale, and a stale one misdirects. Date any that might change (<code>valid_until: 2026-Q3</code>) and name each for what it holds: "Decision: Stripe, not custom billing (March 2026)." If you keep re-explaining one, the AI isn't reading or trusting it: audit it.</p>
+        <p>Crystals go stale, and a stale one misdirects. Write each as one line (glyph, name, colon, fact), put <code>valid_until</code> on the next line for any that might change, and name each for what it holds. A crystal that expires reads like this:</p>
+        <pre><code>◈ Decision: Stripe, not custom billing
+valid_until: 2027-06-30</code></pre>
+        <p>A real date is scheduled for review; any other value (<code>after-user-research</code>) is kept as a label and reported as unscheduled. Nothing is ever deleted for you. If you keep re-explaining one, the AI isn't reading or trusting it: audit it.</p>
 
         <div class="pitfall-block">
           <span class="pitfall-label">Pitfall · Over-crystalising</span>
@@ -518,7 +540,7 @@
         </div>
 
         <div class="guide-pagination">
-          <a href="#crystals" class="pg-link pg-prev">← 04 · Planting crystals</a>
+          <a href="#crystals" class="pg-link pg-prev">← 04 · Crystallising facts</a>
           <a href="#multi-room" class="pg-link pg-next">06 · Multi-room thinking →</a>
         </div>
       </section>

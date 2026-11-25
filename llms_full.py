@@ -44,6 +44,7 @@ TEMPLATES = [
     "templates/eval-framework.md",
     "templates/feature-helper.md",
     "templates/first-session-protocol.md",
+    "templates/format-2.md",
     "templates/garden-file-template.md",
     "templates/garden-health-template.md",
     "templates/garden-template.md",
@@ -62,7 +63,12 @@ TEMPLATES = [
     "templates/scheduled-task-template.md",
     "templates/synthesis-automation.md",
 ]
-LEFT_OUT = []
+# Kept out on purpose: a draft regression kit that plants canaries and fake
+# secrets for a maintainer to run on a scratch copy. Not reading for an agent
+# that is setting up or maintaining a workfolder.
+LEFT_OUT = [
+    "templates/quarantine-fixtures.md",
+]
 
 
 def git(kit, *args, strict=True):
