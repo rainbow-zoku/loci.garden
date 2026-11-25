@@ -78,7 +78,7 @@ WORKFOLDER - The whole setup: one nested folder of fixed places (rooms, soul, ga
 
 ROOM - A named context space. Has a CLAUDE.md (memory file), crystals, and purpose. "Dev Room" feels different from "Research Room."
 
-CRYSTAL - A fact established once, never re-derived. Ground truth. Load-bearing context unit. Tiered: confirmed (◆), contextual (◈), exploratory (◇). Written as one line: `◈ Name: the fact`, with optional keys such as `valid_until: 2026-12-31` on the next line.
+CRYSTAL - A fact established once, never re-derived. Ground truth. Load-bearing context unit. Tiered: confirmed (◆), contextual (◈), exploratory (◇). Written as one line: `◈ Name: the fact`, with optional keys such as `valid_until: 2027-06-30` on the next line.
 
 GARDEN - The generative layer. Plants (named inquiries) grow across sessions. Produces insights neither party would reach alone. This is Loci's differentiator.
 
@@ -193,10 +193,10 @@ The file-based workfolder remains the core and always works without any app.
 - Wizard - clone the kit, open FIRST-SESSION.md, your AI walks the ritual with you
 - LLMAGE - templates, primitives and CLI source, read and run from the terminal
 
-**Palace methodology (loci-core 1.2 stable, 1.6-candidate in the kit)**
+**Palace methodology (loci-core 1.2 stable, 2.0-candidate in the kit)**
 Plain-text templates your AI reads: CLAUDE.md memory, soul files, garden, session handovers.
 loci-core v1.0 added: garden health process, crystal pin (pinned: true / pinned_until: DATE), session strategy as room attribute (always-load / on-demand / per-session), observation scope in soul files, synthesis automation (auto_apply: false - proposes, human confirms), peer cards (_USER.md - human-authored, not auto-extracted).
-Version tracker (1.2 stable, 1.6-candidate, and what each release added): https://github.com/huximaxi/loci/blob/main/PALACE-METHODOLOGY.md
+Version tracker (1.2 stable, 2.0-candidate, and what each release added): https://github.com/huximaxi/loci/blob/main/PALACE-METHODOLOGY.md
 GitHub: https://github.com/huximaxi/loci/tree/main/templates
 
 **Monorepo:** https://github.com/huximaxi/loci
