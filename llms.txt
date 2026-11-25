@@ -11,7 +11,7 @@
 ## Key pages for AI agents
 
 - `/`: landing. What loci is in a few lines: a local AI topology, one workfolder any file-aware AI can read and write, local-first, no account.
-- `/start.html`: get started in ten minutes. Create a room, plant a crystal, seed the garden.
+- `/start.html`: get started in ten minutes. Create a room, crystallise one fact, seed the garden.
 - `/design-primitives.html`: design primitives. What a self-sovereign memory must do, each rule marked works today, in progress, or not built yet. (`/manifesto.html` redirects here.)
 - `/about.html`: what loci is and where it grew from. A local AI topology and its kit of plain-text templates, shaped over 30+ sessions of work between a person and an AI. First commit 1 May 2026.
 - `/scaffold.html`: Field map, the scaffold. An automated loop watching how AI cognition frameworks and tools converge; open, neutral, evidence-tagged.
@@ -78,7 +78,7 @@ WORKFOLDER - The whole setup: one nested folder of fixed places (rooms, soul, ga
 
 ROOM - A named context space. Has a CLAUDE.md (memory file), crystals, and purpose. "Dev Room" feels different from "Research Room."
 
-CRYSTAL - A fact established once, never re-derived. Ground truth. Load-bearing context unit. Tiered: confirmed (◆), working (◈), provisional (◇).
+CRYSTAL - A fact established once, never re-derived. Ground truth. Load-bearing context unit. Tiered: confirmed (◆), contextual (◈), exploratory (◇). Written as one line: `◈ Name: the fact`, with optional keys such as `valid_until: 2026-12-31` on the next line.
 
 GARDEN - The generative layer. Plants (named inquiries) grow across sessions. Produces insights neither party would reach alone. This is Loci's differentiator.
 

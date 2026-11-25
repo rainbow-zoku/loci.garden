@@ -457,7 +457,10 @@
         </div>
 
         <h3>Crystal hygiene</h3>
-        <p>Crystals go stale, and a stale one misdirects. Date any that might change (<code>valid_until: 2026-Q3</code>) and name each for what it holds: "Decision: Stripe, not custom billing (March 2026)." If you keep re-explaining one, the AI isn't reading or trusting it: audit it.</p>
+        <p>Crystals go stale, and a stale one misdirects. Write each as one line (glyph, name, colon, fact), put <code>valid_until</code> on the next line for any that might change, and name each for what it holds. A crystal that expires reads like this:</p>
+        <pre><code>◈ Decision: Stripe, not custom billing
+valid_until: 2026-09-30</code></pre>
+        <p>A real date is scheduled for review; any other value (<code>after-user-research</code>) is kept as a label and reported as unscheduled. Nothing is ever deleted for you. If you keep re-explaining one, the AI isn't reading or trusting it: audit it.</p>
 
         <div class="pitfall-block">
           <span class="pitfall-label">Pitfall · Over-crystalising</span>
